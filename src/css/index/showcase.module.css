@@ -239,6 +239,5 @@
 @media (max-width: 450px) {
   .showcase :global(.prism-code.language-questdb-sql) > div {
     white-space: pre-line;
-    padding: 1rem;
   }
 }
