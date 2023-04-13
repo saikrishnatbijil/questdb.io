@@ -190,7 +190,7 @@ const Monitoring = () => (
       <img
         src="/img/pages/use-cases/real-time-analytics-jumbo.svg"
         alt="An illustration of real-time analytics and monitoring"
-        width="630"
+        width="55%"
         className={ucCss["use-case__image"]}
       />
     </div>
