@@ -91,7 +91,7 @@ const config = {
     colorMode: {
       defaultMode: "dark",
       disableSwitch: false,
-      respectPrefersColorScheme: false,
+      respectPrefersColorScheme: true,
     },
     image: "/img/og.gif",
     gtag: {
