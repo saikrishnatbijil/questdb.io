@@ -141,3 +141,7 @@
   display: grid;
   grid-template-columns: auto min-content min-content;
 }
+
+.margin {
+  margin-right: 1rem;
+}
