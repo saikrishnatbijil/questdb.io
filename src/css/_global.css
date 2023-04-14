@@ -105,10 +105,7 @@
   --theme-attention-card-text-color: var(--palette-white);
 
   --theme-team-article-title-color: var(--palette-white);
-
-  --theme-community-border: 1px solid var(--palette-white);
   --theme-section-title-color: var(--palette-white);
-
   --theme-contribute-text-color: var(--palette-white);
 
   --theme-alert-info-background-color: #b1b5d3;
@@ -196,14 +193,9 @@ html[data-theme="light"] {
   --theme-card-secondary-text-color: #21222c;
 
   --theme-attention-card-bg-color: #f0f1f5;
-
   --theme-card-illustration-bg-color: transparent;
-
   --theme-team-article-title-color: var(--ifm-heading-color);
-
-  --theme-community-border: 1px solid var(--palette-dark-80);
   --theme-section-title-color: var(--palette-dark-80);
-
   --theme-contribute-text-color: var(--palette-dark-80);
 
   --theme-button-primary-background-color: var(--palette-pink);
