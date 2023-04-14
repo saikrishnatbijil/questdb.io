@@ -27,6 +27,10 @@
   font-size: var(--font-size-large);
 }
 
+.use-case__image {
+  width: 50%;
+}
+
 @media (max-width: 997px) {
   .use-case__title {
     font-size: var(--font-size-big-3);
@@ -62,6 +66,9 @@
     display: flex;
     align-items: center;
   }
+  .use-case__image {
+    width: 70%;
+  }
 }
 
 @media (max-width: 450px) {
@@ -71,5 +78,8 @@
 
   .useCaseHighlight {
     padding: 2rem 1.5rem;
+  }
+  .use-case__image {
+    width: 90%;
   }
 }
