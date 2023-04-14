@@ -34,7 +34,11 @@ module.exports = {
       label: "Get Started",
       type: "category",
       items: [
-        "get-started/docker",
+        {
+          id: "get-started/docker",
+          type: "doc",
+          customProps: { tag: "Popular" },
+        },
         "get-started/binaries",
         "get-started/homebrew",
         "get-started/first-database",
@@ -56,8 +60,17 @@ module.exports = {
       label: "Guides",
       type: "category",
       items: [
-        "guides/importing-data",
-        "guides/importing-data-rest",
+        {
+          id: "guides/importing-data",
+          type: "doc",
+          customProps: { tag: "COPY SQL" },
+        },
+        {
+          id: "guides/importing-data-rest",
+          type: "doc",
+
+          customProps: { tag: "REST API" },
+        },
         "guides/influxdb-migration",
         "guides/modifying-data",
         "guides/working-with-timestamps-timezones",
@@ -110,14 +123,14 @@ module.exports = {
         "third-party-tools/pandas",
         "third-party-tools/prometheus",
         "third-party-tools/redpanda",
-        "third-party-tools/telegraf"
+        "third-party-tools/telegraf",
       ],
     },
     {
       label: "Concepts",
       type: "category",
       items: [
-        "concept/write-ahead-log",        
+        "concept/write-ahead-log",
         "concept/storage-model",
         "concept/designated-timestamp",
         "concept/sql-extensions",
@@ -148,7 +161,7 @@ module.exports = {
                 "reference/api/ilp/tcp-receiver",
                 "reference/api/ilp/udp-receiver",
                 "reference/api/ilp/authenticate",
-              ]
+              ],
             },
             "reference/api/java-embedded",
           ],
@@ -158,10 +171,7 @@ module.exports = {
         {
           type: "category",
           label: "ILP client libraries",
-          items: [
-            "reference/clients/overview",
-            "reference/clients/java_ilp",
-          ]
+          items: ["reference/clients/overview", "reference/clients/java_ilp"],
         },
         "reference/sql/datatypes",
         {
@@ -182,7 +192,7 @@ module.exports = {
             "reference/function/text",
             "reference/function/timestamp-generator",
             "reference/function/timestamp",
-            "reference/function/trigonometric"
+            "reference/function/trigonometric",
           ],
         },
         {
@@ -251,21 +261,18 @@ module.exports = {
             "reference/sql/where",
             "reference/sql/with",
           ],
-        }
+        },
       ],
     },
     {
       label: "Troubleshooting",
       type: "category",
-      items: [
-        "troubleshooting/faq",
-        "troubleshooting/os-error-codes"
-      ],
+      items: ["troubleshooting/faq", "troubleshooting/os-error-codes"],
     },
     {
       label: "Tutorials",
-      type: 'link',
-      href: '/blog/tags/tutorial',
+      type: "link",
+      href: "/blog/tags/tutorial",
     },
   ].filter(Boolean),
 }

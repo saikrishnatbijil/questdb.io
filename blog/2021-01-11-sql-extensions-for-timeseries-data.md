@@ -8,7 +8,7 @@ permalink: https://towardsdatascience.com/sql-extensions-for-time-series-data-in
 description:
   A short hands-on tutorial on how to use SQL extensions built for time-series
   data in QuestDB
-tags: [tutorial, sql]
+tags: [tutorial, SQL]
 image: /img/blog/2021-01-11/banner.jpg
 ---
 

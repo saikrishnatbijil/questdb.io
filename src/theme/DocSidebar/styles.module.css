@@ -55,7 +55,8 @@
 .link {
   position: relative;
   display: flex;
-  gap: 0.5rem;
+  align-items: center;
+  gap: 0.8rem;
   padding: 0.2rem 0.75rem 0.2rem 0.5rem;
   margin-left: 1rem;
   border-radius: 0.25rem;
@@ -132,6 +133,7 @@ html[data-theme="light"] .linkActive {
 .linkExternal {
   align-items: center;
 }
+
 .linkExternal:after {
   content: "";
   height: 1.15rem;
@@ -147,14 +149,23 @@ html[data-theme="light"] .linkActive {
   display: flex;
   align-items: center;
   font-size: 0.7rem;
-  color: var(--palette-pink);
-  background: var(--theme-card-bg-color);
+  font-weight: 600;
+  color: var(--palette-pale-blue);
+  background: #2c2d37;
   border-radius: 0.25rem;
-  padding: 0 0.5rem;
+  padding: 0.2rem 0.5rem;
 }
 
-.linkActive .tag {
-  background: var(--ifm-menu-color-background-active);
+.link:hover .tag {
+  background: #373945;
+}
+
+.link.linkActive .tag {
+  background: #23242c;
+}
+
+:global(html[data-theme="light"]) .link .tag {
+  background: #edeeee;
 }
 
 :global(html[data-theme="light"]) .link:hover .tag,
