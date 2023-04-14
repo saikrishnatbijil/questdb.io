@@ -120,15 +120,18 @@ const Footer = () => {
         </div>
       </div>
 
-      <div className={styles.border}>
+      <div className={clsx(styles.border, styles.space, styles.aligncenter)}>
         <div className={clsx(styles.bottom, styles.center)}>
           {customFields.copyright}
-
-          <a className={styles.link} href="/privacy-notice/">
+        </div>
+        <div className={clsx(styles.bottom)}>
+          <a
+            className={clsx(styles.link, styles.margin)}
+            href="/privacy-notice/"
+          >
             Privacy
           </a>
-
-          <a className={styles.link} href="/terms/">
+          <a className={clsx(styles.link, styles.margin)} href="/terms/">
             Terms
           </a>
         </div>

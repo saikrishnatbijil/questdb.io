@@ -136,3 +136,19 @@
   align-items: center;
   color: var(--palette-white);
 }
+
+.space {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.margin {
+  margin-right: 1%;
+}
+
+.aligncenter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
