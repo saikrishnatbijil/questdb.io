@@ -1,20 +1,20 @@
-/* eslint-disable */
 export type Release = {
-  assets: {
+  assets: Array<{
     browser_download_url: string
     name: string
     size: number
-  }[]
+  }>
   html_url: string
   name: string
   published_at: string
 }
-/* eslint-enable */
 
-type Asset = {
+export type Asset = {
   href?: string
   size?: string
 }
+
+const formatSize = (size: number): string => `${(size / 1e6).toPrecision(3)} MB`
 
 export const getAssets = ({
   assets,
@@ -31,28 +31,28 @@ export const getAssets = ({
   if (bsdRaw != null) {
     bsd = {
       href: bsdRaw.browser_download_url,
-      size: `${(bsdRaw.size / 1e6).toPrecision(3)} MB`,
+      size: formatSize(bsdRaw.size),
     }
   }
 
   if (linuxRaw != null) {
     linux = {
       href: linuxRaw.browser_download_url,
-      size: `${(linuxRaw.size / 1e6).toPrecision(3)} MB`,
+      size: formatSize(linuxRaw.size),
     }
   }
 
   if (noJreRaw != null) {
     noJre = {
       href: noJreRaw.browser_download_url,
-      size: `${(noJreRaw.size / 1e6).toPrecision(2)} MB`,
+      size: formatSize(noJreRaw.size),
     }
   }
 
   if (windowsRaw != null) {
     windows = {
       href: windowsRaw.browser_download_url,
-      size: `${(windowsRaw.size / 1e6).toPrecision(3)} MB`,
+      size: formatSize(windowsRaw.size),
     }
   }
 

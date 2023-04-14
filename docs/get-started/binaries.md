@@ -7,10 +7,10 @@ description:
 ---
 
 import CodeBlock from "@theme/CodeBlock"
-import InterpolateReleaseData from "../../src/components/InterpolateReleaseData"
 import { getAssets } from "../../src/utils/get-assets"
 import Tabs from "@theme/Tabs"
 import TabItem from "@theme/TabItem"
+import { TabsPlatforms } from "../../src/modules/TabsPlatforms"
 
 export const platforms = [
   { label: "Any (no JVM)", value: "noJre" },
@@ -52,26 +52,14 @@ folder.
 
 <!-- prettier-ignore-start -->
 
-<Tabs
-  defaultValue="noJre"
-  values={platforms}
->
-  {platforms.map((platform) => (
-    <TabItem key={platform} value={platform.value}>
-      <InterpolateReleaseData
-        renderText={(release) => {
-          const assets = getAssets(release)
-          const href = assets[platform.value].href
-          return (
-            <a href={href} rel="noopener noreferrer" target="_blank">
-              {href.split("/").reverse()[0]}
-            </a>
-          )
-        }}
-      />
-    </TabItem>
-  ))}
-</Tabs>
+<TabsPlatforms
+  platforms={platforms}
+  render={({ href }) => (
+    <a href={href} rel="noopener noreferrer" target="_blank">
+      {href.split("/").reverse()[0]}
+    </a>
+  )}
+/>
 
 <!-- prettier-ignore-end -->
 
@@ -82,23 +70,14 @@ else.
 
 <!-- prettier-ignore-start -->
 
-<Tabs defaultValue="noJre" values={platforms}>
-  {platforms.map((platform) => (
-    <TabItem key={platform} value={platform.value}>
-      <InterpolateReleaseData
-        renderText={(release) => {
-          const assets = getAssets(release)
-          const href = assets[platform.value].href
-          return (
-            <CodeBlock className="language-shell">
-              {`tar -xvf ${href.split("/").reverse()[0]}`}
-            </CodeBlock>
-          )
-        }}
-      />
-    </TabItem>
-  ))}
-</Tabs>
+<TabsPlatforms
+  platforms={platforms}
+  render={({ href }) => (
+    <CodeBlock className="language-shell">
+      {`tar -xvf ${href.split("/").reverse()[0]}`}
+    </CodeBlock>
+  )}
+/>
 
 <!-- prettier-ignore-end -->
 
@@ -152,7 +131,7 @@ ensure that necessary [backup](/docs/operations/backup/) is completed.
 
 :::
 
-Steps to upgrade the QuestDB version: 
+Steps to upgrade the QuestDB version:
 
 - Stop the instance
 - Overwrite the `bin` and `lib` folders with the new files

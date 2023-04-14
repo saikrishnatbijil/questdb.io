@@ -31,14 +31,21 @@ This can be done with a single command using:
     <CodeBlock className="language-shell">
       {`docker run \\
   -p 9000:9000 -p 9009:9009 -p 8812:8812 -p 9003:9003 \\
-  -v "$(pwd):/var/lib/questdb" \\
   questdb/questdb:${release.name}`}
     </CodeBlock>
   )}
 />
 
 This command starts a Docker container from `questdb/questdb` image. In
-addition, it exposes some ports and also mounts a [volume](#v-parameter-to-mount-storage), to allow your data to persist.
+addition, it exposes some ports, allowing you to explore QuestDB.
+
+In order to configure QuestDB, it is recommended to mount a
+[volume](#v-parameter-to-mount-storage) to allow data persistance. This can be
+done by adding a `-v` flag to the above command:
+
+```
+-v "/host/volume/location:/var/lib/questdb"
+```
 
 Below each parameter is described in detail.
 
@@ -59,11 +66,12 @@ enough to expose `8812` if you only plan to use
 
 ### `-v` parameter to mount storage
 
-This parameter will make a local directory available to QuestDB Docker container.
-It will have all data ingested to QuestDB, server logs and configuration.
+This parameter will make a local directory available to QuestDB Docker
+container. It will have all data ingested to QuestDB, server logs and
+configuration.
 
-The QuestDB [root_directory](/docs/concept/root-directory-structure/) is located at
-the `/var/lib/questdb` path in the container.
+The QuestDB [root_directory](/docs/concept/root-directory-structure/) is located
+at the `/var/lib/questdb` path in the container.
 
 ### Docker image version
 

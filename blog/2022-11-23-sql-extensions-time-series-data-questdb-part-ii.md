@@ -9,9 +9,9 @@ keywords:
   - tutorial
   - sql
   - questdb
-  - timeseries
+  - time-series
 image: /img/blog/2022-11-23/banner.png
-tags: [tutorial, sql, timeseries, questdb]
+tags: [tutorial, SQL, time-series, questdb, pinned]
 ---
 
 This post comes from [Kovid Rathee](https://kovidrathee.medium.com/), who,

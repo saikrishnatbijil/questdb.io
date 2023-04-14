@@ -1,6 +1,6 @@
 ---
 title: CSV import via REST API
-sidebar_label: Small CSV import (REST API)
+sidebar_label: Small CSV import
 description:
   This document describes how to load CSV data and specify text loader
   configuration for timestamp and date parsing

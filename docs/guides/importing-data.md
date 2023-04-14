@@ -1,6 +1,6 @@
 ---
 title: CSV import via COPY SQL
-sidebar_label: Large CSV import (COPY SQL)
+sidebar_label: Large CSV import
 description:
   This document describes how to load large CSV data using COPY SQL keyword.
 ---
