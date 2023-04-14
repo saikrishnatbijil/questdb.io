@@ -120,7 +120,7 @@ const Footer = () => {
         </div>
       </div>
 
-      <div className={clsx(styles.border, styles.space, styles.aligncenter)}>
+      <div className={clsx(styles.border, styles.spacing)}>
         <div className={clsx(styles.bottom, styles.center)}>
           {customFields.copyright}
         </div>
