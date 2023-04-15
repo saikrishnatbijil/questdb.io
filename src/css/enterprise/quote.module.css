@@ -157,10 +157,10 @@
   }
 
   .controls__chevron-wrapper--left {
-    margin-right: 3rem;
+    margin-right: 0rem;
   }
 
   .controls__chevron-wrapper--right {
-    margin-left: 3rem;
+    margin-left: 0rem;
   }
 }
