@@ -130,18 +130,10 @@
 }
 
 .bottom {
-  display: flex;
+  display: grid;
+  grid-template-columns: auto min-content min-content;
   padding: 1rem 1rem 2rem;
   gap: 2rem;
   align-items: center;
   color: var(--palette-white);
-}
-
-.spacing {
-  display: grid;
-  grid-template-columns: auto min-content min-content;
-}
-
-.margin {
-  margin-right: 1rem;
 }
