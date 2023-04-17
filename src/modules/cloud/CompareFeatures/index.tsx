@@ -170,7 +170,7 @@ export const CompareFeatures = () => {
         Features
       </Section.Title>
 
-      <Section>
+      <Section noGap>
         <div className={style.tables}>
           <FeatureTable title="Core features" items={CoreFeaturesItems} />
 

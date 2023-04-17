@@ -19,12 +19,6 @@
   font-weight: var(--ifm-font-weight-bold);
 }
 
-@media (max-width: 400px) {
-  .root thead th {
-    padding: 0rem;
-  }
-}
-
 .root thead th:first-child {
   text-align: left;
   width: var(--first-col-width);
