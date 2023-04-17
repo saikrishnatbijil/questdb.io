@@ -91,6 +91,7 @@ function BlogListPage(props: Props): JSX.Element {
   const isTagsPage =
     typeof ((metadata as unknown) as Tag).allTagsPath !== "undefined"
   const currentTagName = isTagsPage ? ((metadata as unknown) as Tag).name : ""
+  const isTutorialsPage = currentTagName === "tutorial"
 
   const tagsPageDescription = `Articles tagged with ${currentTagName}`
 
@@ -116,6 +117,7 @@ function BlogListPage(props: Props): JSX.Element {
     ) => {
       if (
         isTagsPage &&
+        isTutorialsPage &&
         (item.content.frontMatter.tags ?? []).includes("pinned")
       ) {
         acc.pinnedPosts.push(item)
@@ -128,8 +130,7 @@ function BlogListPage(props: Props): JSX.Element {
     { posts: [], pinnedPosts: [] },
   )
 
-  const hasPinnedPosts =
-    isTagsPage && currentTagName !== "pinned" && pinnedPosts.length > 0
+  const hasPinnedPosts = isTagsPage && isTutorialsPage && pinnedPosts.length > 0
 
   return (
     <Layout
