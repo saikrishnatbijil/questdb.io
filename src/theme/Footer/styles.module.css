@@ -130,7 +130,10 @@
 }
 
 .bottom {
-  display: flex;
+  display: grid;
+  grid-template-columns: auto min-content min-content;
+  max-width: var(--ifm-container-width);
+  margin: 0 auto;
   padding: 1rem 1rem 2rem;
   gap: 2rem;
   align-items: center;

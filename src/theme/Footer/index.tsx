@@ -121,13 +121,11 @@ const Footer = () => {
       </div>
 
       <div className={styles.border}>
-        <div className={clsx(styles.bottom, styles.center)}>
+        <div className={styles.bottom}>
           {customFields.copyright}
-
           <a className={styles.link} href="/privacy-notice/">
             Privacy
           </a>
-
           <a className={styles.link} href="/terms/">
             Terms
           </a>
