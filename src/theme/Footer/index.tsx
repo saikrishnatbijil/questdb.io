@@ -121,7 +121,7 @@ const Footer = () => {
       </div>
 
       <div className={styles.border}>
-        <div classNames={styles.bottom}>
+        <div className={styles.bottom}>
           {customFields.copyright}
           <a className={styles.link} href="/privacy-notice/">
             Privacy
