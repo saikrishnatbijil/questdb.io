@@ -13,8 +13,9 @@
 .root:hover,
 .active {
   text-decoration: none;
-  color: var(--theme-button-primary-background-color);
+  color: white;
   border-color: var(--theme-button-primary-background-color);
+  background-color: var(--theme-button-primary-background-color);
 }
 
 .skinPrimary {
