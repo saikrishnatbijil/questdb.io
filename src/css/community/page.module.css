@@ -11,6 +11,9 @@
   .flex {
     flex-wrap: nowrap;
   }
+  .section_image {
+    max-width: 400px;
+  }
 }
 
 .section__title {
@@ -87,7 +90,7 @@ html[data-theme="light"] .contribution_link img {
 }
 
 .section_image {
-  max-width: 400px;
+  max-width: 300px;
   width: auto;
   height: auto;
   margin: 0 auto;
