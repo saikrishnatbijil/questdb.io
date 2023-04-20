@@ -107,8 +107,8 @@ const Community = () => (
             src="/img/pages/community/questdb-shirt.png"
             alt="A black t-shirt with the QuestDB logo printed on the front"
             className={paCss.section_image}
-            width={300}
-            height={300}
+            width={400}
+            height={400}
           />
 
           <div className={paCss.reward}>Get a QuestDB T-shirt!</div>
