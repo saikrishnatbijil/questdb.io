@@ -87,16 +87,10 @@ html[data-theme="light"] .contribution_link img {
 }
 
 .section_image {
-  max-width: 300px;
+  max-width: 100%;
   width: auto;
   height: auto;
   margin: 0 auto;
-}
-
-@media (min-width: 400px) {
-  .section_image {
-    max-width: 400px;
-  }
 }
 
 .howToContribute {
