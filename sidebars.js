@@ -123,6 +123,14 @@ module.exports = {
         "third-party-tools/pandas",
         "third-party-tools/prometheus",
         "third-party-tools/redpanda",
+        {
+          label: "Spark",
+          customProps: {
+            tag: "New",
+          },
+          type: "link",
+          href: "/blog/integrate-apache-spark-questdb-time-series-analytics",
+        },
         "third-party-tools/telegraf",
       ],
     },
@@ -270,7 +278,7 @@ module.exports = {
       items: [
         "troubleshooting/faq",
         "troubleshooting/log",
-        "troubleshooting/os-error-codes"
+        "troubleshooting/os-error-codes",
       ],
     },
     {

@@ -126,13 +126,6 @@ const Community = () => (
             </li>
 
             <li>
-              Join{" "}
-              <a className={paCss.link} href={customFields.slackUrl}>
-                QuestDB’s Slack
-              </a>{" "}
-            </li>
-
-            <li>
               Submit a bugfix, feature or any other meaningful contribution via{" "}
               <a
                 className={paCss.link}
