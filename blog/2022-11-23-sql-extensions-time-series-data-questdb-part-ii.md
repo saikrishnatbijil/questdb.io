@@ -14,13 +14,6 @@ image: /img/blog/2022-11-23/banner.png
 tags: [tutorial, SQL, time-series, questdb, pinned]
 ---
 
-This post comes from [Kovid Rathee](https://kovidrathee.medium.com/), who,
-following up on his
-[first tutorial](https://towardsdatascience.com/sql-extensions-for-time-series-data-in-questdb-f6b53acf3213),
-has put together another tutorial on SQL extensions for time series data in
-QuestDB.
-
-<!--truncate-->
 
 import Banner from "@theme/Banner"
 
