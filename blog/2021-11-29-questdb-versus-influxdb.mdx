@@ -256,7 +256,7 @@ values.
 High-cardinality is a known problem area for InfluxDB, and this is likely
 because of the system architecture and storage engine. InfluxDB stores each
 time series in its own Time-Structured Merge tree, an LSM-tree like persistent
-data sturucture, so when the total number of time series becomes high reading
+data structure, so when the total number of time series becomes high reading
 and writing the data becomes more expensive. In QuestDB, the storage model is
 radically different from LSM trees or B-trees and instead uses data stored in
 densely ordered vectors on disk.
