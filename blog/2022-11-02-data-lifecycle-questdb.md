@@ -24,10 +24,6 @@ import Banner from "@theme/Banner"
   width={692}
 />
 
-In this tutorial, our community contributor,
-[Yitaek Hwang](https://yitaek.medium.com/), shows us ways to downsample data and
-detach or drop partitions when old data is no longer necessary using QuestDB.
-
 <!--truncate-->
 
 ## Introduction
