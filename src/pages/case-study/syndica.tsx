@@ -95,7 +95,7 @@ const values = [
 const Page = () => {
   const title = "Syndica"
   const description =
-    "QuestDB is the database for real-time analytics and time-series dashboards at Syndica"
+    "QuestDB is the database for real-time analytics and time-series dashboards at Syndica."
 
   return (
     <Layout
