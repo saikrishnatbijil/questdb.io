@@ -337,6 +337,10 @@
   from ="/blog/2022/08/22/using-birch-anomaly-detection-questdb/"
   to = "/blog/"
 
+[[redirects]]
+  from ="/blog/data-integration-strategies-for-tsdb/"
+  to = "/blog/data-integration-time-series-etl-elt-cdc/"
+
 [[headers]]
   for = "/*"
   [headers.values]
