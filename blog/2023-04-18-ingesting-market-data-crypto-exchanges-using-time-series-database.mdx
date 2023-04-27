@@ -10,18 +10,6 @@ tags: [market data, tutorial, crypto, tick data, time-series, pinned]
 slug: ingesting-financial-tick-data-using-time-series-database
 ---
 
-Compared to traditional financial markets, crypto markets experience more
-volatility with price swinging in either direction at a quicker pace. Price of
-each cryptocurrency also tends to vary across exchanges. Given such a dynamic
-nature, investors and traders looking to navigate the market need fast and
-reliable data from various crypto exchanges. In this tutorial, we’ll take a look
-at three different ways to ingest crypto market data into QuestDB for further
-analysis:
-
-1. Using the [Cryptofeed](https://github.com/bmoscon/cryptofeed) library
-1. Writing a custom data pipeline
-1. Via Change Data Capture (CDC)
-
 import Banner from "@theme/Banner"
 
 <Banner
@@ -30,6 +18,15 @@ import Banner from "@theme/Banner"
   src="/img/blog/2023-04-18/banner.png"
   width={692}
 ></Banner>
+
+## Introduction
+
+In this tutorial, we’ll take a look at three different ways to ingest crypto market data 
+into QuestDB for further analysis:
+
+1. Using the [Cryptofeed](https://github.com/bmoscon/cryptofeed) library
+2. Writing a custom data pipeline
+3. Via Change Data Capture (CDC)
 
 ## Prerequisites
 

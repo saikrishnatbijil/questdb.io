@@ -11,15 +11,6 @@ tags: [SQL, explain, execution plan, full table scan, performance tuning]
 slug: explain-sql-query-plan
 ---
 
-QuestDB's core engineer,
-[Bolek Ziobrowski](https://avatars.githubusercontent.com/u/26925920?v=4), has
-implemented the [`EXPLAIN`](/docs/reference/sql/explain/) SQL keyword. In this series of articles, he is going
-to shed light on how to fine tune your SQL queries to improve performance, with the help of
-`EXPLAIN`. Bolek starts the first post of the series with his journey in
-database optimization and an introduction to the `EXPLAIN` execution plan.
-
-<!--truncate-->
-
 import Banner from "@theme/Banner"
 
 <Banner
@@ -32,7 +23,14 @@ import Banner from "@theme/Banner"
   <a href="https://unsplash.com">Unsplash</a>
 </Banner>
 
-## Optimization: a constant predicament
+## Introduction to EXPLAIN in SQL
+
+We recently implemented the [`EXPLAIN`](/docs/reference/sql/explain/) SQL keyword. 
+In this new series of articles, we are going to shed light on how to fine tune your SQL queries
+to improve performance, with the help of `EXPLAIN`. We start the first post of this series 
+with an introduction to the `EXPLAIN` execution plan.
+
+## Optimization in SQL
 
 One of the first tasks I got when I started working as a Java software developer
 was about optimization: optimization for nightly processes of an online
@@ -69,7 +67,7 @@ While still trying to apply any advice I could find and feeling tired, I
 discovered a thick tome on the company's IT bookshelf - an RDBMS textbook.
 That's where I found the right tool for the job - the `EXPLAIN` command.
 
-## Behind the database: the basics
+## The basics of a SQL database
 
 Initially, `EXPLAIN` seemed like some black art - hard to follow and full of
 arcane terms. Before it really clicked with me, I had to go through the book and
@@ -99,7 +97,7 @@ things before it can produce results. These things include:
 The above is just the tip of the iceberg, a lot is happening under the hood and
 many factors influence the end performance of a query.
 
-## `EXPLAIN` explained
+## `EXPLAIN` SQL keyword explained
 
 The [EXPLAIN](https://questdb.io/docs/reference/sql/explain/) SQL keyword shows
 the execution plan (the outcome of step 3. above), which is the logical
@@ -116,7 +114,7 @@ Thanks to this type of tool, I was able to first, understand what happens under
 the hood when a query is run, and why it happens. Furthermore, I was able to
 reduce the nightly process run time well beyond what was expected.
 
-### Time for practice: example 1
+### First example of `EXPLAIN` in SQL
 
 Now, it's time for practice. Let's have a look at the following queries that use
 the `trades` table [in the QuestDB demo instance](https://demo.questdb.io/):
@@ -233,7 +231,7 @@ the limit.
 
 :::
 
-### Time for practice: example 2
+### Second example of `EXPLAIN` in SQL
 
 Let's look at the `pos`, another table available
 [in the QuestDB demo instance](https://demo.questdb.io/):
@@ -437,6 +435,8 @@ a different value on each call made during query execution. Because their output
 is not stable, it can't be used when calculating boundaries of intervals to
 scan.
 
+## Conclusion 
+
 The lesson learned here is that while `EXPLAIN` shows **_how_** a query is
 executed, it does not display **_why_** this specific plan was reached. Still -
 it's a very useful tool for experimenting and validating the performance model
@@ -445,5 +445,3 @@ of a query.
 Remember - if you have a problem with QuestDB performance you can always join
 our [Slack channel](https://slack.questdb.io/) and ask the QuestDB team for
 help.
-
-Happy experimenting!

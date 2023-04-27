@@ -12,20 +12,10 @@ keywords:
   - troubleshooting
   - CI/CD
   - open source
-tags: [maven, troubleshooting, CI/CD, open source, engineering]
+tags: [engineering, troubleshooting, CI/CD, open source, maven]
 slug: maven-troubleshooting-open-source
 image: /img/blog/2023-03-01/xkcd_dependency.png
 ---
-
-Donald Knuth [famously wrote](https://dl.acm.org/doi/10.1145/356635.356640) that
-Premature Optimization is the root of all evil. I, for one, believe that all
-evil comes from spuriously failing builds. Nothing steals my confidence in a
-project as quickly as unstable builds alternating between green and red for no reason.
-This is a story about unstable builds and troubleshooting. More importantly,
-this story is written to thank all contributors to basic software
-infrastructure - the infrastructure we all use and take for granted.
-
-<!--truncate-->
 
 import Banner from "@theme/Banner"
 
@@ -35,6 +25,16 @@ import Banner from "@theme/Banner"
   src="/img/blog/2023-03-01/xkcd_dependency.png"
   width={650}
 ></Banner>
+
+## Introduction
+
+Donald Knuth [famously wrote](https://dl.acm.org/doi/10.1145/356635.356640) that
+Premature Optimization is the root of all evil. I, for one, believe that all
+evil comes from spuriously failing builds. Nothing steals my confidence in a
+project as quickly as unstable builds alternating between green and red for no reason.
+This is a story about unstable builds and troubleshooting. More importantly,
+this story is written to thank all contributors to basic software
+infrastructure - the infrastructure we all use and take for granted.
 
 ## Surprise in logs
 

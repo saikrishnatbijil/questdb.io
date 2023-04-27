@@ -17,13 +17,6 @@ image: "/img/blog/2023-02-06/banner.png"
 slug: data-integration-strategies-for-tsdb
 ---
 
-In his latest blog contribution, [Yitaek Hwang](https://yitaek.medium.com/)
-reviews popular data integration processes and their suitable use cases. He
-explains why data streaming with Change Data Capture is most suitable for time
-series data thanks to its flexibility.
-
-<!--truncate-->
-
 import Banner from "@theme/Banner"
 import Screenshot from "@theme/Screenshot"
 
@@ -37,6 +30,8 @@ import Screenshot from "@theme/Screenshot"
   <a href="https://unsplash.com">Unsplash</a>
 </Banner>
 
+## Introduction to data integration strategies for time-series databases
+
 As digital transformation reaches more industries, the number of data points
 generated is growing exponentially. As such, data integration strategies to
 collect such large volumes of data from different sources in varying formats and
@@ -48,11 +43,11 @@ heterogeneity of new data sets.
 Time series data present an additional layer of complexity. By nature, the value
 of each time series data point diminishes over time as the granularity of the
 data loses relevance as it gets stale. So it is crucial for teams to carefully
-plan data integration strategies into time series databases (TSDBs) to ensure
+plan data integration strategies into time-series databases (TSDBs) to ensure
 that the analysis reflects the trends and situation in near real-time.
 
 In this article, we'll examine some of the most popular data integration
-solutions for TSDBs:
+solutions for time-series databases:
 
 - **ETL** (Extract, Transform, Load)
 - **ELT** (Extract, Load, Transform)
@@ -64,7 +59,7 @@ how it works in practice, we will walk through a reference implementation with
 QuestDB to show that CDC can flexibly handle the needs of a time series data
 source.
 
-### Extract, Transform, Load (ETL)
+## Extract, Transform, Load (ETL)
 
 ETL is a traditional and popular data integration strategy that involves first
 transforming the data into a predetermined structure, before loading the data
@@ -97,7 +92,7 @@ complex transformation logic before analysis. It can also work well for datasets
 that do not require real-time insights and can be stored for long-term trend
 analysis.
 
-### Extract, Load, Transform (ELT)
+## Extract, Load, Transform (ELT)
 
 ELT, as the name suggests, loads the data first into the target system
 (typically a data lake) and performs the transformation within the system
@@ -127,7 +122,7 @@ If your application can leverage cloud-based tools and does not require complex
 processing, ELT can be a great choice to handle large amounts of data in near
 real-time.
 
-### Change Data Capture (CDC)
+## Change Data Capture (CDC)
 
 For new projects, teams can plan to utilize TSDBs as one of the target systems
 in an ETL or ELT pipeline. However, for existing projects, either migrating to
@@ -165,7 +160,7 @@ purposes (i.e., long-term storage vs. real-time analytics). For time series data
 where the changes in value over time are often most useful, CDC efficiently
 captures that delta for real-time insights.
 
-### Reference Implementation for CDC
+## Reference Implementation for CDC
 
 To illustrate how CDC works more concretely, let's take the
 [reference implementation](https://github.com/questdb/kafka-questdb-connector) I
@@ -197,7 +192,7 @@ integrate with existing systems. From the application standpoint, it can retain
 the transactional guarantees of PostgreSQL, while adding a new TSDB component
 down the pipeline.
 
-### Conclusion
+## Conclusion
 
 Data integration plays an important role for organizations that use a TSDB to
 store and analyze time series data. In this article, we looked at some
