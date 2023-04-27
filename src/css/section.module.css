@@ -2,6 +2,10 @@
   width: 100%;
 }
 
+.section p code {
+  padding: 0.1rem 0.2rem;
+}
+
 .section--inner {
   --ifm-code-padding-horizontal: 1.5rem;
   --ifm-code-padding-vertical: 1rem;
