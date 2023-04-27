@@ -171,7 +171,7 @@ const Page = () => {
           <h3>Introduction to Syndica</h3>
           <p className="font-size--large">
             <a href={syndicaHomepage}>Syndica</a> provides highly scalable
-            infrastructures for decentralized applications built on top of
+            infrastructure for decentralized applications built on top of
             blockchains.
           </p>
 
