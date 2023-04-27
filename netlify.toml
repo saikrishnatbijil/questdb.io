@@ -314,10 +314,6 @@
   to = "/blog/explain-sql-query-plan/"
 
 [[redirects]]
-  from ="/blog/migrating-relational-databases-time-series-databases/"
-  to = "https://itnext.io/migrating-from-relational-databases-to-time-series-databases-9f059a3e34cb"
-
-[[redirects]]
   from ="/blog/2021/02/18/realtime-crypto-tracker-with-kafka-and-questdb/"
   to = "/blog/realtime-crypto-tracker-with-questdb-kafka-connector/"
 
