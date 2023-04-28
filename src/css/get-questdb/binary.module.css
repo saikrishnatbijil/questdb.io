@@ -47,6 +47,7 @@ html[data-theme="dark"] .binary :global(.prism-code > div) {
   right: 0;
   padding: 0.5rem 1rem;
   border-bottom-left-radius: var(--ifm-global-border-radius);
+  border-top-right-radius: var(--ifm-global-border-radius);
   background: var(--palette-white-05);
   font-size: var(--font-size-small);
 }
