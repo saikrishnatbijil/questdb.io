@@ -319,7 +319,10 @@ In terms of performance, QuestDB
 with an ingestion rate reaching 4.3 million rows per second. This was computed
 through the [TSBS benchmark](https://github.com/timescale/tsbs), currently
 maintained by TimescaleDB, selecting the `cpu-only` use case. The chosen
-instance had 32 CPUs and 64GB of RAM.
+instance had 32 CPUs and 64GB of RAM, with a fast SSD disk (NVMe).
+Fast disks allow to better cope with writes that are I/O bound - in this case when a lot of 
+out of order data is being ingested concurrently. For most use cases, slower disks
+such as AWS EBS volumes are enough to extract sufficient performance.
 
 <Screenshot
   alt="A chart showing high-cardinality ingestion performance of InfluxDB, TimescaleDB, and QuestDB"
