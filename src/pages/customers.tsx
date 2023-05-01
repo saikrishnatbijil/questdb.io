@@ -93,7 +93,7 @@ const customers: Customer[] = [
       ...logos.syndica,
     },
     summary:
-      "QuestDB is the database for real-time analytics and time-series dashboards at Syndica",
+      "QuestDB is the database for real-time analytics and time-series dashboards at Syndica.",
     image: {
       alt: "Syndica logo",
       src: "/img/pages/case-study/syndica/preview.png",
