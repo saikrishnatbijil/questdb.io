@@ -24,18 +24,18 @@ In summary, these are the different options:
 
 - [InfluxDB Line Protocol](#influxdb-line-protocol)
   - High performance.
-  - Optional automatic timestamps.
-  - Optional integrated authentication.
+  - Dynamic schema.
+  - Concurrent table structure changes.
   - [Client libraries](/docs/reference/clients/overview) in various programming
     languages.
-- [PostgreSQL wire protocol](#postgresql-wire-protocol)
-  - SQL `INSERT` statements, including parameterized queries.
-  - Use `psql` on the command line.
-  - Interoperability with third-party tools and libraries.
 - [Web Console](#web-console)
   - CSV upload.
   - SQL `INSERT` statements.
   - SQL `COPY` for [large CSV import](/docs/guides/importing-data/).
+- [PostgreSQL wire protocol](#postgresql-wire-protocol)
+  - SQL `INSERT` statements, including parameterized queries.
+  - Use `psql` on the command line.
+  - Interoperability with third-party tools and libraries.
 - [HTTP REST API](#http-rest-api)
   - CSV upload.
   - SQL `INSERT` statements.
@@ -43,12 +43,12 @@ In summary, these are the different options:
 
 Here is a summary table comparing the different ways to insert data we support:
 
-| Protocol                 | Record Insertion Reporting       | Data Insertion Performance          |
-| :----------------------- | :------------------------------- | :---------------------------------- |
-| InfluxDB Line Protocol   | Server logs; Disconnect on error | **Best**                            |
-| CSV upload via HTTP REST | Configurable                     | Very Good                           |
-| SQL `INSERT` statements  | Transaction-level                | Good                                |
-| SQL `COPY` statements    | Transaction-level                | Suitable for one-off data migration |
+| Protocol                   | Record Insertion Reporting       | Data Insertion Performance          |
+| :------------------------- | :------------------------------- | :---------------------------------- |
+| InfluxDB Line Protocol     | Server logs; Disconnect on error | **Best**                            |
+| CSV upload via HTTP REST   | Configurable                     | Good                                |
+| SQL `INSERT` via Postgres  | Transaction-level                | Good                                |
+| SQL `COPY` statements      | Transaction-level                | Suitable for one-off data migration |
 
 ## InfluxDB Line Protocol
 

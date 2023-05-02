@@ -58,9 +58,7 @@ aggregation for time bucketed queries using `SAMPLE BY`.
 
 We ran performance tests using 2 different CPUs: the
 [Intel 8850H](https://ark.intel.com/content/www/us/en/ark/products/134899/intel-core-i7-8850h-processor-9m-cache-up-to-4-30-ghz.html)
-and the
-[AMD Ryzen 3900X](https://www.amd.com/en/products/cpu/amd-ryzen-9-3900x). Both
-were running on 4 threads.
+and the AMD Ryzen 3900X. Both were running on 4 threads.
 
 | Test                              | Query                                                                                                   |
 | --------------------------------- | ------------------------------------------------------------------------------------------------------- |
@@ -128,9 +126,8 @@ if CPU were fully isolated to run the computations.
 
 We did not get our hands on CPUs with more memory channels for this test, but if
 you have easy access to 8 or 12-channel servers and would like to benchmark
-QuestDB, we'd love to hear the results. You can
-[download QuestDB](/docs/) and leave a
-[comment on github]({@githubUrl@}/issues/146).
+QuestDB, we'd love to hear the results. You can [download QuestDB](/docs/) and
+leave a [comment on github]({@githubUrl@}/issues/146).
 
 ## How we will improve time series data performance
 

@@ -33,6 +33,7 @@ Tables can be partitioned by one of the following:
 
 - `YEAR`
 - `MONTH`
+- `WEEK`
 - `DAY`
 - `HOUR`
 
