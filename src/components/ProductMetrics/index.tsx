@@ -76,8 +76,8 @@ const ProductMetrics = () => {
             title="Database logo"
           />
           <div className={style.text}>
-            <h3 className={style.header}>Fastest</h3>
-            <p className={style.description}>growing TSDB on DB-Engines</p>
+            <h3 className={style.header}>1M+</h3>
+            <p className={style.description}>downloads</p>
           </div>
         </div>
       </div>

@@ -2,6 +2,7 @@ import React from "react"
 import ReactMarkdown from "react-markdown"
 import CodeBlock from "@theme/CodeBlock"
 import { usePluginData } from "@docusaurus/useGlobalData"
+import styles from "./styles.module.css"
 
 type Addr = {
   host?: string
@@ -94,7 +95,7 @@ export const RemoteRepoExample = ({
   return (
     <div>
       {header && headerMd !== undefined && (
-        <ReactMarkdown>{headerMd}</ReactMarkdown>
+        <ReactMarkdown className={styles.markdown}>{headerMd}</ReactMarkdown>
       )}
       <CodeBlock className={`language-${lang}`}>{code}</CodeBlock>
     </div>
