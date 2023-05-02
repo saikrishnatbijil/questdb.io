@@ -38,8 +38,7 @@ column values to several column files.
 
 This creates high disk write rates due to the sequential write pattern. When
 handling a write-only load, the database is not expected to read much from the
-disk. This is why the particular issue was surprising to us. This is why the
-particular issue was surprising to us.
+disk. This is why the particular issue was surprising to us.
 
 After a few attempts, we managed to reproduce the issue. The symptoms looked
 like the following `iostat` output:
