@@ -178,11 +178,11 @@ const Page = () => {
           <p className="font-size--large">
             The company brings tools and services to the Solana dApp development
             community. It aims to bridge the gap between dApp development
-            platforms and Web 2.0 developer tools, widely used to
-            develop modern web apps. Syndica brings these two worlds together in
-            a single, easy-to-use platform which reduces development time,
-            improves dApp performance, and increases overall observability in
-            the decentralized applications.
+            platforms and Web 2.0 developer tools, widely used to develop modern
+            web apps. Syndica brings these two worlds together in a single,
+            easy-to-use platform which reduces development time, improves dApp
+            performance, and increases overall observability in the
+            decentralized applications.
           </p>
 
           <p className="font-size--large">
@@ -351,8 +351,8 @@ const Page = () => {
           </p>
 
           <p className="font-size--large">
-            To calculate the time-series dashboard with RPC requests for the last 30
-            days, the following is computed:
+            To calculate the time-series dashboard with RPC requests for the
+            last 30 days, the following is computed:
           </p>
 
           <CodeBlock>{queries[0]}</CodeBlock>
@@ -369,8 +369,8 @@ const Page = () => {
           </p>
 
           <p className="font-size--large">
-            If no data is shown for a given 1-second time interval, we
-            will fill it with <code>NULL</code>.
+            If no data is shown for a given 1-second time interval, we will fill
+            it with <code>NULL</code>.
           </p>
 
           <p className="font-size--large">
