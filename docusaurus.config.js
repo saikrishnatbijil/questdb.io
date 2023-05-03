@@ -1,18 +1,17 @@
 const ssrTemplate = require("./src/internals/ssr.template")
-const consts = require("./src/config/consts")
 const customFields = require("./src/config/customFields")
 const markdownPlugins = require("./plugins/markdown-plugins")
 
 const config = {
   title: "QuestDB",
   tagline: "QuestDB is the fastest open source time series database",
-  url: `https://${consts.domain}`,
+  url: `https://${customFields.domain}`,
   baseUrl: "/",
   baseUrlIssueBanner: false,
   favicon: "/img/favicon.png",
   organizationName: "QuestDB",
   projectName: "questdb",
-  customFields: customFields,
+  customFields,
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "throw",
 
