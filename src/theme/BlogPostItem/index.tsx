@@ -12,6 +12,8 @@ import styles from "./styles.module.css"
 import customFields from "../../config/customFields"
 import { ensureTrailingSlash } from "../../utils"
 import { Chip } from "../BlogListPage/Chip"
+import { StructuredData } from "../../components/StructuredData"
+import useDocusaurusContext from "@docusaurus/useDocusaurusContext"
 
 function useReadingTimePlural() {
   const { selectMessage } = usePluralForm()
@@ -34,6 +36,7 @@ type MetadataWithSource = Metadata & { source: string }
 
 function BlogPostItem(props: Props): JSX.Element {
   const readingTimePlural = useReadingTimePlural()
+  const { siteConfig } = useDocusaurusContext()
   const {
     children,
     frontMatter,
@@ -70,6 +73,48 @@ function BlogPostItem(props: Props): JSX.Element {
   return (
     <>
       <Seo {...{ keywords, image }} />
+      <StructuredData>
+        {{
+          "@graph": [
+            {
+              "@type": "BreadcrumbList",
+              name: "Blog post",
+              itemListElement: [
+                {
+                  "@type": "ListItem",
+                  position: 1,
+                  name: "Home",
+                  item: siteConfig.url,
+                },
+                {
+                  "@type": "ListItem",
+                  position: 2,
+                  name: "Blog",
+                  item: `${siteConfig.url}/blog`,
+                },
+                {
+                  "@type": "ListItem",
+                  position: 3,
+                  name: title,
+                },
+              ],
+            },
+            {
+              "@type": "BlogPosting",
+              headline: title,
+              url: permalink,
+              datePublished: metadata.formattedDate,
+              image,
+              author: {
+                "@type": "Person",
+                name: author,
+                url: authorURL,
+                image: authorImageURL,
+              },
+            },
+          ],
+        }}
+      </StructuredData>
 
       <header>
         <TitleHeading className={styles.title}>
