@@ -20,7 +20,7 @@ Snapshot statements are not supported on Windows OS.
 
 Snapshot recovery mechanism requires a **snapshot instance ID** to be specified
 using the `cairo.snapshot.instance.id`
-[configuration key](/docs/reference/configuration):
+[configuration key](/docs/reference/configuration/):
 
 ```shell title="server.conf"
 cairo.snapshot.instance.id=your_id

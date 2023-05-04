@@ -25,7 +25,7 @@ from the provided `sequencerTxn` number explicitly.
 
 `ALTER TABLE RESUME WAL` is used to restart WAL table transactions after
 resolving errors. When transactions are stopped, the `suspended` status from the
-[`wal_tables()`](/docs/reference/function/meta#wal_tables) function is marked as
+[`wal_tables()`](/docs/reference/function/meta/#wal_tables) function is marked as
 `true`, and the `sequencerTxn` value indicates the last successful commit in the
 Sequencer. Once the error is resolved, `ALTER TABLE RESUME WAL` restarts the
 suspended WAL transactions from the failed transaction. Alternatively, an
@@ -33,7 +33,7 @@ optional `sequencerTxn` value can be provided to skip the failed transaction.
 
 ## Examples
 
-Using the [`wal_tables()`](/docs/reference/function/meta#wal_tables) function to
+Using the [`wal_tables()`](/docs/reference/function/meta/#wal_tables) function to
 investigate the table status:
 
 ```questdb-sql title="List all tables"

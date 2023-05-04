@@ -4,7 +4,7 @@ sidebar_label: DROP INDEX
 description: DROP INDEX SQL keyword reference documentation.
 ---
 
-Removes an existing index from a column of type [symbol](/docs/concept/symbol).
+Removes an existing index from a column of type [symbol](/docs/concept/symbol/).
 
 ## Syntax
 
@@ -32,7 +32,7 @@ copy operation of the data files, as they do not change at all).
 :::info
 
 For more information about indexes please refer to the
-[INDEX documentation](/docs/concept/indexes)
+[INDEX documentation](/docs/concept/indexes/)
 
 :::
 

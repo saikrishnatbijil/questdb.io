@@ -146,7 +146,7 @@ migration or backups:
 ```
 
 For details on passing QuestDB server settings to a Docker container, see the
-[Docker section](/docs/reference/configuration#docker) of the server
+[Docker section](/docs/reference/configuration/#docker) of the server
 configuration documentation.
 
 For information about the file structure, see
@@ -264,7 +264,7 @@ provided in the `conf/log.conf` file, in this case in `./questdb-docker.log`:
 ```
 
 For more information on logging, see the
-[configuration reference documentation](/docs/reference/configuration#logging).
+[configuration reference documentation](/docs/reference/configuration/#logging).
 
 ### Restart an existing container
 

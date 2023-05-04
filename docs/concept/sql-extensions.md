@@ -18,7 +18,7 @@ time series analytics.
 
 ### LATEST ON
 
-[LATEST ON](/docs/reference/sql/latest-on) is a clause introduced to help find
+[LATEST ON](/docs/reference/sql/latest-on/) is a clause introduced to help find
 the latest entry by timestamp for a given key or combination of keys as part of
 a `SELECT` statement.
 
@@ -30,8 +30,8 @@ LATEST ON ts PARTITION BY customer_id, currency;
 
 ### SAMPLE BY
 
-[SAMPLE BY](/docs/reference/sql/select#sample-by) is used for time-based
-[aggregations](/docs/reference/function/aggregation) with an efficient syntax.
+[SAMPLE BY](/docs/reference/sql/select/#sample-by) is used for time-based
+[aggregations](/docs/reference/function/aggregation/) with an efficient syntax.
 The short query below will return the simple average balance from a list of
 accounts by one month buckets.
 
@@ -43,7 +43,7 @@ SELECT avg(balance) FROM accounts SAMPLE BY 1M
 
 Timestamp search can be performed with regular operators, e.g `>`, `<=` etc.
 However, QuestDB provides a
-[native notation](/docs/reference/sql/where#timestamp-and-date) which is faster
+[native notation](/docs/reference/sql/where/#timestamp-and-date) which is faster
 and less verbose.
 
 ```questdb-sql title="Results in a given year"

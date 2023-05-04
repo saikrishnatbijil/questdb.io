@@ -12,7 +12,7 @@ The operation can only be performed when there is no other reader and writer wor
 :::info
 
 For more information about indexes please refer to the
-[INDEX documentation](/docs/concept/indexes)
+[INDEX documentation](/docs/concept/indexes/)
 
 :::
 
@@ -25,7 +25,7 @@ For more information about indexes please refer to the
 By default, `REINDEX` rebuilds all indexes in the selected table. The following options can be used to narrow down the scope of the operation:
 
 - `COLUMN`: When defined, `REINDEX` rebuilds the index for the selected column. 
-- `PARTITION`: When defined, `REINDEX` rebuilds index files in the selected partition only. The partition name must match the name of the directory for the given partition. The naming convention is detailed in [Partitions](docs/concept/partitions).
+- `PARTITION`: When defined, `REINDEX` rebuilds index files in the selected partition only. The partition name must match the name of the directory for the given partition. The naming convention is detailed in [Partitions](/docs/concept/partitions/).
 
 ## Example
 

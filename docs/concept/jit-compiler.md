@@ -40,7 +40,7 @@ AND (region = 'us-west-1' OR region = 'us-east-1');
 
 The JIT compiler is enabled by default for QuestDB 6.3 onwards. If you wish to
 disable it, change the `cairo.sql.jit.mode` setting in the
-[server configuration](/docs/reference/configuration) file from `on` to `off`:
+[server configuration](/docs/reference/configuration/) file from `on` to `off`:
 
 ```ini title="path/to/server.conf"
 cairo.sql.jit.mode=off

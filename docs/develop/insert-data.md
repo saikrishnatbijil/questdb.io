@@ -17,16 +17,16 @@ For transactional data inserts, use the
 For operational (ad-hoc) data ingestion, the [Web Console](#web-console) makes
 it easy to upload CSV files and insert via SQL statements. You can also perform
 these same actions via the [HTTP REST API](#http-rest-api). For
-[large CSV import](/docs/guides/importing-data) (database migrations), use SQL
+[large CSV import](/docs/guides/importing-data/) (database migrations), use SQL
 `COPY`.
 
 In summary, these are the different options:
 
-- [InfluxDB Line Protocol](#influxdb-line-protocol)
+- [InfluxDB Line Protocol](#influxdb-line-protocol-ilp)
   - High performance.
   - Dynamic schema.
   - Concurrent table structure changes.
-  - [Client libraries](/docs/reference/clients/overview) in various programming
+  - [Client Libraries](/docs/reference/clients/overview/) in various programming
     languages.
 - [Web Console](#web-console)
   - CSV upload.
@@ -50,7 +50,7 @@ Here is a summary table comparing the different ways to insert data we support:
 | SQL `INSERT` via Postgres  | Transaction-level                | Good                                |
 | SQL `COPY` statements      | Transaction-level                | Suitable for one-off data migration |
 
-## InfluxDB Line Protocol
+## InfluxDB Line Protocol (ILP)
 
 The InfluxDB Line Protocol (ILP) is a text protocol over TCP on port `9009`.
 
@@ -62,22 +62,23 @@ benefits:
 - High-throughput ingestion
 - Robust ingestion from multiple sources into tables with dedicated systems for
   reducing congestion
-- Configurable commit-lag for out-of-order data via
-  [server configuration](/docs/reference/configuration#influxdb-line-protocol-tcp)
-  settings
+- Supports on-the-fly, concurrent schema changes
 
-On the [InfluxDB line protocol](/docs/reference/api/ilp/overview) page, you may
+On the [InfluxDB line protocol](/docs/reference/api/ilp/overview/) page, you may
 find additional details on the message format, ports and authentication.
 
-The [Telegraf guide](/docs/third-party-tools/telegraf) helps you configure a
-Telegraf agent to collect and send metrics to QuestDB via ILP.
+### Client libraries
 
-:::tip
+The [Client Libraries](/docs/reference/clients/overview/) provide user-friendly ILP clients
+for a growing number of languages.
 
-The [ILP client libraries](/docs/reference/clients/overview) provide more
-user-friendly ILP clients for a growing number of languages.
+### Authentication
 
-:::
+By default, Open Source ILP Server is unauthenticated. To configure authentication on the server, follow our [server configuration guide](/docs/reference/api/ilp/authenticate/#server-configuration).
+To configure authentication on the client, follow the relevant documentation section in the [Client Libraries overview](/docs/reference/clients/overview/).
+
+QuestDB Cloud servers are configured for authentication already.
+Snippets for all the supported languages can be found at https://cloud.questdb.com under the instance "Connect" tab. 
 
 ### Examples
 
@@ -208,6 +209,11 @@ socket_close($socket);
 
 </Tabs>
 
+## Telegraf
+
+The [Telegraf guide](/docs/third-party-tools/telegraf/) helps you configure a
+Telegraf agent to collect and send metrics to QuestDB via ILP.
+
 ## PostgreSQL wire protocol
 
 QuestDB also supports the same wire protocol as PostgreSQL, allowing you to
@@ -231,6 +237,7 @@ feedback and error reporting, but have worse overall performance.
 
 Here are a few examples demonstrating SQL `INSERT` queries:
 
+
 <Tabs defaultValue="psql" values={[
   { label: "psql", value: "psql" },
   { label: "Python", value: "python" },
@@ -243,6 +250,13 @@ Here are a few examples demonstrating SQL `INSERT` queries:
 
 <TabItem value="psql">
 
+:::note
+
+If you using the QuestDB Cloud, your database requires TLS to connect. You can find host, port, and password configuration at https://cloud.questdb.com, on your instance "Connect" tab. To enable SSL from psql in the commands below, please follow this pattern:
+
+psql -h {hostname} -p {port} -U admin "dbname=qdb sslmode=require" -c '{SQL_STATEMENT}'
+
+:::
 
 Create the table:
 
@@ -295,7 +309,7 @@ import time
 
 conn_str = 'user=admin password=quest host=127.0.0.1 port=8812 dbname=qdb'
 with pg.connect(conn_str, autocommit=True) as connection:
-    
+
     # Open a cursor to perform database operations
 
     with connection.cursor() as cur:
@@ -309,7 +323,7 @@ with pg.connect(conn_str, autocommit=True) as connection:
               value INT
           ) timestamp(ts);
           ''')
-        
+
         print('Table created.')
 
         # Insert data into the table.
@@ -598,7 +612,7 @@ fn main() -> Result<(), Error> {
 
 ## Web Console
 
-QuestDB ships with an embedded [Web Console](/docs/develop/web-console) running
+QuestDB ships with an embedded [Web Console](/docs/develop/web-console/) running
 by default on port `9000`.
 
 ```questdb-sql title='Creating a table and inserting some data'
@@ -614,7 +628,7 @@ SQL statements can be written in the code editor and executed by clicking the
 **Run** button. Note that the web console runs a single statement at a time.
 
 For inserting bulk data or migrating data from other databases, see
-[large CSV import](/docs/guides/importing-data).
+[large CSV import](/docs/guides/importing-data/).
 
 ## HTTP REST API
 
@@ -622,13 +636,13 @@ QuestDB exposes a REST API for compatibility with a wide range of libraries and
 tools. The REST API is accessible on port `9000` and has the following
 insert-capable entrypoints:
 
-| Entrypoint                                 | HTTP Method | Description                             | API Docs                                                     |
-| :----------------------------------------- | :---------- | :-------------------------------------- | :----------------------------------------------------------- |
-| [`/imp`](#imp-uploading-tabular-data)      | POST        | Import CSV data                         | [Reference](/docs/reference/api/rest#imp---import-data)      |
-| [`/exec?query=..`](#exec-sql-insert-query) | GET         | Run SQL Query returning JSON result set | [Reference](/docs/reference/api/rest#exec---execute-queries) |
+| Entrypoint                                 | HTTP Method | Description                             | API Docs                                                      |
+| :----------------------------------------- | :---------- | :-------------------------------------- |:--------------------------------------------------------------|
+| [`/imp`](#imp-uploading-tabular-data)      | POST        | Import CSV data                         | [Reference](/docs/reference/api/rest/#imp---import-data)      |
+| [`/exec?query=..`](#exec-sql-insert-query) | GET         | Run SQL Query returning JSON result set | [Reference](/docs/reference/api/rest/#exec---execute-queries) |
 
 For details such as content type, query parameters and more, refer to the
-[REST API](/docs/reference/api/rest) docs.
+[REST API](/docs/reference/api/rest/) docs.
 
 ### `/imp`: Uploading Tabular Data
 
@@ -638,7 +652,7 @@ For details such as content type, query parameters and more, refer to the
 ingestion method in QuestDB. CSV uploading offers insertion feedback and error
 reporting, but has worse overall performance.
 
-See `/imp`'s [`atomicity`](/docs/reference/api/rest#url-parameters) query
+See `/imp`'s [`atomicity`](/docs/reference/api/rest/#url-parameters) query
 parameter to customize behavior on error.
 
 :::
@@ -706,7 +720,7 @@ curl -F data=@data.csv http://localhost:9000/imp?name=table_name
 This example overwrites an existing table and specifies a timestamp format and a
 designated timestamp column. For more information on the optional parameters to
 specify timestamp formats, partitioning and renaming tables, see the
-[REST API documentation](/docs/reference/api/rest#examples).
+[REST API documentation](/docs/reference/api/rest/#examples).
 
 ```bash title="Providing a user-defined schema"
 curl \

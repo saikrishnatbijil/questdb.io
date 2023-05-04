@@ -24,7 +24,7 @@ open source contributors and maintainers.
 
 For those who're not familiar with Hacktoberfest, it's a month-long online
 celebration for open source software and communities. By
-[contributing to open source projects](https://hacktoberfest.digitalocean.com/resources/participation),
+[contributing to open source projects](https://hacktoberfest.digitalocean.com/participation),
 you can get a special edition Hacktoberfest T-shirt 👕 or choose to plant a tree
 for our planet. 🌴
 
@@ -66,13 +66,10 @@ to get started.
 ## 🎁 Tees, trees and QuestDB swag
 
 Once you reach the
-[contribution target](https://hacktoberfest.digitalocean.com/resources/participation)
+[contribution target](https://hacktoberfest.digitalocean.com/participation)
 of **4 valid pull requests**, you can claim the reward from the official
 organizer! In addition, if you successfully contribute to QuestDB projects, we
 offer extra SWAG for you through our [SWAG program](/community)!
-
-To make sure that your pull request is valid, please follow Hacktoberfest's
-[quality standard](https://hacktoberfest.digitalocean.com/resources/qualitystandards).
 
 ## ℹ️ Get support and updates
 

@@ -6,8 +6,8 @@ description: Geospatial functions reference documentation.
 
 Spatial functions allow for operations relating to the geohash types which
 provide geospatial data support. For more information on this type of data, see
-the [geohashes documentation](/docs/concept/geohashes) and the
-[operators](/docs/reference/operators/spatial) which help with filtering data.
+the [geohashes documentation](/docs/concept/geohashes/) and the
+[operators](/docs/reference/operators/spatial/) which help with filtering data.
 
 ## rnd_geohash
 
@@ -50,7 +50,7 @@ longitude, with precision specified in bits.
 
 `make_geohash()` is intended to be used via SQL over HTTP / PostgreSQL wire
 protocol, for use within Java (embedded) scenario, see the
-[Java embedded documentation for geohashes](/docs/concept/geohashes#java-embedded-usage).
+[Java embedded documentation for geohashes](/docs/concept/geohashes/#java-embedded-usage).
 
 :::
 

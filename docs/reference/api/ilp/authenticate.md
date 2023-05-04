@@ -1,23 +1,22 @@
 ---
-title: Authenticate
+title: Authentication
 description:
-  This page shows how to setup authentication for InfluxDB line protocol over
+  This page shows how to set up authentication for InfluxDB line protocol over
   TCP using JSON web keys.
 ---
 
-Although the original protocol does not support it, we have added authentication
-over TCP for InfluxDB line protocol. This works by using an
+ILP Authentication works by using an
 [elliptic curve P-256](https://en.wikipedia.org/wiki/Elliptic-curve_cryptography)
 JSON Web Token (JWT) to sign a server challenge. This page shows how to
 authenticate clients with QuestDB when using
-[InfluxDB line protocol](/docs/reference/api/ilp/overview) for the TCP
+[InfluxDB line protocol](/docs/reference/api/ilp/overview/) for the TCP
 endpoint.
 
 ## Prerequisites
 
 QuestDB should be running and accessible and can be started via
-[Docker](/docs/get-started/docker), the [binaries](/docs/get-started/binaries)
-or [Homebrew](/docs/get-started/homebrew) for macOS users.
+[Docker](/docs/get-started/docker/), the [binaries](/docs/get-started/binaries/)
+or [Homebrew](/docs/get-started/homebrew/) for macOS users.
 
 The [jose](https://github.com/latchset/jose) package is a C-language
 implementation of the Javascript Object Signing and Encryption standard and may
@@ -90,7 +89,7 @@ echo "$KID ec-p-256-sha256 $X $Y" | tee /var/lib/questdb/conf/auth.txt
 ```
 
 Once you created the file, you will need to reference it in the server
-[configuration](/docs/reference/configuration):
+[configuration](/docs/reference/configuration/):
 
 ```ini title='/path/to/server.conf'
 line.tcp.auth.db.path=conf/auth.txt
@@ -117,7 +116,7 @@ For this kind of key, the `d` property is used to generate the the secret key.
 The `x` and `y` parameters are used to generate the public key (values that we
 retrieve in the server authentication file).
 
-## Authentication
+## Client Library Configuration
 
 The server will now expect the client to send its key id (terminated with `\n`)
 straight after `connect()`. The server will respond with a challenge (printable
@@ -129,8 +128,8 @@ disconnect and log the failure.
 import Tabs from "@theme/Tabs"
 import TabItem from "@theme/TabItem"
 
-<Tabs defaultValue="nodejs" values={[ { label: "NodeJS", value: "nodejs" }, 
-{label: "Go", value: "go" }, 
+<Tabs defaultValue="nodejs" values={[ { label: "NodeJS", value: "nodejs" },
+{label: "Go", value: "go" },
 {label: "Python", value: "python" }
 ]}>
 
@@ -320,7 +319,7 @@ def send_with_auth():
 
 if __name__ == '__main__':
     send_with_auth()
-```    
+```
 </TabItem>
 
 

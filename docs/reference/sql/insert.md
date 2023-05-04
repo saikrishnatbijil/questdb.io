@@ -131,7 +131,7 @@ Inserting using sub-query alias:
 
 The `commitLag` parameter may be provided to optimize `INSERT AS SELECT` or
 `WITH AS` queries when inserting
-[out-of-order records](/docs/guides/out-of-order-commit-lag) into an ordered
+[out-of-order records](/docs/guides/out-of-order-commit-lag/) into an ordered
 dataset:
 
 - `commitLag` expects a `lagAmount` with a modifier to specify the time unit for

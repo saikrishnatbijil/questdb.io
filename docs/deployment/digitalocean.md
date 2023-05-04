@@ -71,7 +71,7 @@ The server configuration file is at the following location on the droplet:
 ```
 
 For details on the server properties and using this file, see the
-[server configuration documentation](/docs/reference/configuration).
+[server configuration documentation](/docs/reference/configuration/).
 
 The default ports used by QuestDB interfaces are as follows:
 
@@ -96,7 +96,7 @@ pg.password=...
 ```
 
 For details on authentication using InfluxDB line protocol, see the
-[InfluxDB line protocol authentication guide](/docs/reference/api/ilp/authenticate).
+[InfluxDB line protocol authentication guide](/docs/reference/api/ilp/authenticate/).
 
 ### Disabling authentication
 
@@ -137,7 +137,7 @@ http.security.readonly=true
 
 In addition to creating a Droplet from the QuestDB 1-Click App via the control
 panel, you can also
-[use the DigitalOcean API](https://digitalocean.com/docs/api).
+[use the DigitalOcean API](https://digitalocean.com/docs/api/).
 
 As an example, to create a 4GB QuestDB Droplet in the SFO2 region, you can use
 the following curl command. You’ll need to either save your API access token to

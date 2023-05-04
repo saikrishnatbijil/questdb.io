@@ -10,7 +10,7 @@ iterations required. Deterministic pseudo-random behavior can be achieved by
 providing seed values when calling the function.
 
 This function is commonly used in combination with
-[random generator functions](/docs/reference/function/random-value-generator)
+[random generator functions](/docs/reference/function/random-value-generator/)
 to produce mock data.
 
 ## long_sequence
@@ -37,7 +37,7 @@ testing e.g. billions of rows.
 ### Random number seed
 
 When `long_sequence` is used conjointly with
-[random generators](/docs/reference/function/random-value-generator), these
+[random generators](/docs/reference/function/random-value-generator/), these
 values are usually generated at random. The function supports a seed to be
 passed in order to produce deterministic results.
 

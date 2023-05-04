@@ -7,7 +7,7 @@ description: InfluxDB line protocol reference documentation.
 QuestDB implements the
 [InfluxDB line protocol](https://docs.influxdata.com/influxdb/v1.8/write_protocols/line_protocol_tutorial/)
 to ingest data. QuestDB can listen for line protocol packets over
-[TCP](/docs/reference/api/ilp/tcp-receiver).
+[TCP](/docs/reference/api/ilp/tcp-receiver/).
 
 This page aims to provide examples for QuestDB experts setting up TCP without
 any client libraries, or those looking to implement a new client library
@@ -16,7 +16,7 @@ yourself.
 :::tip
 
 For general QuestDB users, client libraries are available for a number of
-languages: [ILP client libraries](/docs/reference/clients/overview).
+languages: [ILP client libraries](/docs/reference/clients/overview/).
 
 :::
 
@@ -52,7 +52,7 @@ ILP can be found in the
 ## Configuration reference
 
 The TCP receiver configuration can be completely customized using
-[configuration keys](/docs/reference/configuration#influxdb-line-protocol). You
+[configuration keys](/docs/reference/configuration/#influxdb-line-protocol). You
 can use this to configure the thread pools, buffer and queue sizes, receiver IP
 address and port, load balancing, etc.
 
@@ -61,7 +61,7 @@ address and port, load balancing, etc.
 This section provides usage information and details for data ingestion via ILP.
 
 We provide examples in a number of programming languages. See our
-[ILP Insert Data](/docs/develop/insert-data#influxdb-line-protocol) for code
+[ILP Insert Data](/docs/develop/insert-data/#influxdb-line-protocol) for code
 snippets.
 
 ### Syntax
@@ -92,9 +92,9 @@ Each ILP message has to end with a new line `\n` character.
   create the table on the fly using the name provided. Column types will be
   automatically recognized and assigned based on the data.
 - The `timestamp` column is automatically created as
-  [designated timestamp](/docs/concept/designated-timestamp) with the
-  [partition strategy](/docs/concept/partitions) set to `DAY`. Alternatively,
-  use [CREATE TABLE](/docs/reference/sql/create-table) to create the table with
+  [designated timestamp](/docs/concept/designated-timestamp/) with the
+  [partition strategy](/docs/concept/partitions/) set to `DAY`. Alternatively,
+  use [CREATE TABLE](/docs/reference/sql/create-table/) to create the table with
   a different partition strategy before ingestion.
 - When the timestamp is empty, QuestDB will use the server timestamp.
 
@@ -143,12 +143,12 @@ Designated timestamp is the trailing value of an ILP message. It is optional,
 and when present, is a timestamp in Epoch nanoseconds. When the timestamp is
 omitted, the server will insert each message using the system clock as the row
 timestamp. See `cairo.timestamp.locale` and `line.tcp.timestamp`
-[configuration options](/docs/reference/configuration).
+[configuration options](/docs/reference/configuration/).
 
 :::warning
 
 - While
-  [`columnset` timestamp type units](/docs/reference/api/ilp/columnset-types#timestamp)
+  [`columnset` timestamp type units](/docs/reference/api/ilp/columnset-types/#timestamp)
   are microseconds, the designated timestamp units are nanoseconds by default,
   and can be overridden via the `line.tcp.timestamp` configuration property.
 
@@ -173,7 +173,7 @@ We recommend populating designated timestamp via trailing value syntax above.
 :::
 
 It is also possible to populate designated timestamp via `columnset`. Please see
-[mixed timestamp](/docs/reference/api/ilp/columnset-types#timestamp) reference.
+[mixed timestamp](/docs/reference/api/ilp/columnset-types/#timestamp) reference.
 
 ### Irregularly-structured data
 
@@ -250,7 +250,7 @@ between `symbolset` and `columnset`. Naming rules for columns are subject to
 
 ### Symbolset values
 
-`symbolset` values are always interpreted as [SYMBOL](/docs/concept/symbol).
+`symbolset` values are always interpreted as [SYMBOL](/docs/concept/symbol/).
 Parser takes values literally so please beware of accidentally using high
 cardinality types such as `9092i` or `1.245667`. This will result in a
 significant performance loss due to large mapping tables.
@@ -287,11 +287,11 @@ of new column or mapping strategy when column already exists. These types are
 limited by existing Influx Line Protocol specification. Wider QuestDB type
 system is available by creating table via SQL upfront. The following are
 supported value types:
-[Integer](/docs/reference/api/ilp/columnset-types#integer),
-[Long256](/docs/reference/api/ilp/columnset-types#long256),
-[Float](/docs/reference/api/ilp/columnset-types#float),
-[String](/docs/reference/api/ilp/columnset-types#string) and
-[Timestamp](/docs/reference/api/ilp/columnset-types#timestamp)
+[Integer](/docs/reference/api/ilp/columnset-types/#integer),
+[Long256](/docs/reference/api/ilp/columnset-types/#long256),
+[Float](/docs/reference/api/ilp/columnset-types/#float),
+[String](/docs/reference/api/ilp/columnset-types/#string) and
+[Timestamp](/docs/reference/api/ilp/columnset-types/#timestamp)
 
 ### Inserting NULL values
 
@@ -343,8 +343,8 @@ sending data you should be aware of the performed conversions.
 
 See:
 
-- [QuestDB Types in SQL](/docs/reference/sql/datatypes)
-- [ILP types and cast conversion tables](/docs/reference/api/ilp/columnset-types)
+- [QuestDB Types in SQL](/docs/reference/sql/datatypes/)
+- [ILP types and cast conversion tables](/docs/reference/api/ilp/columnset-types/)
 
 ### Constructing well-formed messages
 
@@ -371,13 +371,13 @@ follow these guidelines:
 
 - **Supply timestamps in order.** These need to be at least equal to previous
   ones in the same table, unless using the out of order feature. This is not
-  necessary if you use the [out-of-order](/docs/guides/out-of-order-commit-lag)
+  necessary if you use the [out-of-order](/docs/guides/out-of-order-commit-lag/)
   feature.
 
 ### Error handling
 
 QuestDB will always log any ILP errors in its
-[server logs](/docs/concept/root-directory-structure#log-directory).
+[server logs](/docs/concept/root-directory-structure/#log-directory).
 
 It is recommended that sending applications reuse TCP connections. If QuestDB
 receives an invalid message, it will discard invalid lines, produce an error

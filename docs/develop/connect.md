@@ -15,13 +15,13 @@ network endpoints.
 
 :::note
 
-All network ports may be [configured](/docs/reference/configuration).
+All network ports may be [configured](/docs/reference/configuration/).
 
 :::
 
 ## Web console
 
-The [web console](/docs/develop/web-console) is a general admin and query
+The [web console](/docs/develop/web-console/) is a general admin and query
 interface.
 It's great for quickly trying things out. You can also chart your query results.
 
@@ -54,11 +54,11 @@ readings,city=London temperature=23.6 1465839830100700000\n
 readings,make=Honeywell temperature=23.2,humidity=0.443 1465839830100800000\n
 ```
 
-Our [ILP tutorial](/docs/develop/insert-data#influxdb-line-protocol) covers
+Our [ILP tutorial](/docs/develop/insert-data/#influxdb-line-protocol) covers
 ingesting data with various client libraries.
 
 For a more in-depth understanding, see our
-[protocol documentation](/docs/reference/api/ilp/overview).
+[protocol documentation](/docs/reference/api/ilp/overview/).
 
 ## PostgreSQL wire protocol
 
@@ -80,8 +80,8 @@ with pg.connect(conn_str, autocommit=True) as connection:
 See how you can connect through the PostgreSQL wire protocol from
 different programming languages to:
 
-* [Insert data](/docs/develop/insert-data#postgresql-wire-protocol)
-* [Query data](/docs/develop/query-data#postgresql-wire-protocol)
+* [Insert data](/docs/develop/insert-data/#postgresql-wire-protocol)
+* [Query data](/docs/develop/query-data/#postgresql-wire-protocol)
 
 
 ## HTTP REST API
@@ -95,5 +95,5 @@ curl -F data=@data.csv http://localhost:9000/imp
 
 Find out how to:
 
-* [Insert data](/docs/develop/insert-data#http-rest-api)
-* [Query data](/docs/develop/query-data#http-rest-api)
+* [Insert data](/docs/develop/insert-data/#http-rest-api)
+* [Query data](/docs/develop/query-data/#http-rest-api)

@@ -23,7 +23,7 @@ The REST API is better suited when the following conditions are true:
 For database migrations, or uploading one large CSV file into QuestDB, users may
 consider using the `COPY` SQL command. See
 [COPY command documentation](/docs/reference/sql/copy/) and
-[Guide on CSV import](/docs/guides/importing-data) for more details.
+[Guide on CSV import](/docs/guides/importing-data/) for more details.
 
 :::
 
@@ -77,7 +77,7 @@ curl \
 ```
 
 More information on the patterns for timestamps can be found on the
-[date and time functions](/docs/reference/function/date-time#date-and-timestamp-format)
+[date and time functions](/docs/reference/function/date-time/#date-and-timestamp-format)
 page.
 
 :::note
@@ -171,4 +171,4 @@ curl -F data=@weather.csv 'http://localhost:9000/imp'
 ```
 
 For more information on the `/imp` entry point, refer to the
-[REST API documentation](/docs/reference/api/rest#imp---import-data).
+[REST API documentation](/docs/reference/api/rest/#imp---import-data).

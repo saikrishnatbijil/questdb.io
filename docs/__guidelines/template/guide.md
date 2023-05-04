@@ -31,4 +31,4 @@ Use Notes to call out important bits of information.
 
 include links to other relevant documentation.
 
-- with [DOCKER](/docs/get-started/docker)
+- with [DOCKER](/docs/get-started/docker/)

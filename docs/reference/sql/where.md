@@ -11,7 +11,7 @@ result.
 
 QuestDB includes a JIT compiler for SQL queries which contain `WHERE` clauses.
 To find out more about this functionality with details on enabling its use, see
-the [JIT compiler documentation](/docs/concept/jit-compiler).
+the [JIT compiler documentation](/docs/concept/jit-compiler/).
 
 :::
 
@@ -219,11 +219,11 @@ SELECT * FROM users WHERE NOT isActive;
 QuestDB supports both its own timestamp search notation and standard search
 based on inequality. This section describes the use of the **timestamp search
 notation** which is efficient and fast but requires a
-[designated timestamp](/docs/concept/designated-timestamp).
+[designated timestamp](/docs/concept/designated-timestamp/).
 
 If a table does not have a designated timestamp applied during table creation,
 one may be applied dynamically
-[during a select operation](/docs/reference/function/timestamp#during-a-select-operation).
+[during a select operation](/docs/reference/function/timestamp/#during-a-select-operation).
 
 ### Native timestamp format
 

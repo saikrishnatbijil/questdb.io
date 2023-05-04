@@ -169,7 +169,7 @@ SELECT payment_type, count_distinct(counterparty) FROM transactions;
 Supported column datatype: `double`, `float`, `integer`, `character`, `short`,
 `byte`, `timestamp`, `date`, `long`, `geohash`.
 
-If a table has a [designated timestamp](/docs/concept/designated-timestamp),
+If a table has a [designated timestamp](/docs/concept/designated-timestamp/),
 then the first row is always the row with the lowest timestamp (oldest) and the
 last row is always the one with the highest (latest) timestamp. For a table
 without a designated timestamp column, `first` returns the first row and `last`

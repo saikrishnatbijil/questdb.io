@@ -4,7 +4,7 @@ sidebar_label: ADD INDEX
 description: ADD INDEX SQL keyword reference documentation.
 ---
 
-Indexes an existing [`symbol`](/docs/concept/symbol) column.
+Indexes an existing [`symbol`](/docs/concept/symbol/) column.
 
 ## Syntax
 
@@ -17,7 +17,7 @@ complete, the SQL optimizer will start using the new index for SQL executions.
 :::info
 
 For more information about indexes please refer to the
-[INDEX documentation](/docs/concept/indexes)
+[INDEX documentation](/docs/concept/indexes/)
 
 :::
 

@@ -67,9 +67,9 @@ operation. There are two root directories to be defined:
   temporary partitions. Unless otherwise specified, it points to the
   `root_directory/tmp` directory.
 
-Use the [configuration keys](/docs/reference/configuration) to edit these
+Use the [configuration keys](/docs/reference/configuration/) to edit these
 properties in
-[`COPY` configuration settings](/docs/reference/configuration#bulk-csv-import):
+[`COPY` configuration settings](/docs/reference/configuration/#bulk-csv-import):
 
 ```shell title="Example"
 cairo.sql.copy.root=/Users/UserName/Desktop

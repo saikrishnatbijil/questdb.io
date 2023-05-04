@@ -6,8 +6,8 @@ description: SHOW SQL keyword reference documentation.
 
 This keyword provides table, column, and partition information including
 metadata. The `SHOW` keyword is useful for checking the
-[designated timestamp setting](/docs/concept/designated-timestamp) column, the
-[partition attachment settings](/docs/reference/sql/alter-table-attach-partition),
+[designated timestamp setting](/docs/concept/designated-timestamp/) column, the
+[partition attachment settings](/docs/reference/sql/alter-table-attach-partition/),
 and partition storage size on disk.
 
 :::info
@@ -15,9 +15,9 @@ and partition storage size on disk.
 These commands return the tables, columns and partitions as a table. If you
 would like to query your tables and columns with filters or to use the results
 as part of a function, see the
-[table_columns()](/docs/reference/function/meta#table_columns),
-[tables()](/docs/reference/function/meta#all_tables), and
-[table_partitions()](/docs/reference/function/meta#table_partitions) functions.
+[table_columns()](/docs/reference/function/meta/#table_columns),
+[tables()](/docs/reference/function/meta/#all_tables), and
+[table_partitions()](/docs/reference/function/meta/#table_partitions) functions.
 
 :::
 

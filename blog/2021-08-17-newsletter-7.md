@@ -57,7 +57,7 @@ few weeks:
 - Developer Nation featured
   [our article on high-cardinality benchmarks](https://dev.to/developernation/announcements-from-shopify-microsoft-aws-php-challenging-the-myth-that-programming-careers-end-at-40-l3a)
 - The LibHunt platform lists us in
-  [top time series projects for open source](https://www.libhunt.com/t/time-series)
+  [top time series projects for open source](https://www.libhunt.com/l/java/topic/time-series)
 - Listed Blockchain outfit
   [Tymlez built an AWS Glue / Pyspark QuestDB writer](https://github.com/Tymlez/awsglue-questdb-writer)
 

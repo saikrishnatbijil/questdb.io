@@ -38,7 +38,7 @@ This page presents the concept, optional setting, and their indication for
 ### `Symbol` columns
 
 Columns can be specified as `SYMBOL` using
-[CREATE TABLE](/docs/reference/sql/create-table), similar to other types:
+[CREATE TABLE](/docs/reference/sql/create-table/), similar to other types:
 
 ```questdb-sql title="Create table with a SYMBOL type"
 CREATE TABLE my_table
@@ -47,7 +47,7 @@ timestamp(ts);
 ```
 
 The following additional symbol settings are defined, either globally as part of
-the [server configuration](/docs/reference/configuration) or locally when a
+the [server configuration](/docs/reference/configuration/) or locally when a
 table is created:
 
 - **Symbol capacity**: Optional setting used to indicate how many distinct
@@ -80,4 +80,4 @@ table is created:
 ### Symbols for column indexing
 
 `Symbols` may also be indexed for faster query execution. See
-[Index](/docs/concept/indexes) for more information.
+[Index](/docs/concept/indexes/) for more information.

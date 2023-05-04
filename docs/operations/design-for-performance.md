@@ -86,11 +86,11 @@ This example adds a `symbol` type with:
 - **index** for the symbol column with a storage block value
 
 A full description of the options used above for `symbol` types can be found in
-the [CREATE TABLE](/docs/reference/sql/create-table#symbol) page.
+the [CREATE TABLE](/docs/reference/sql/create-table/#symbol) page.
 
 #### Symbol caching
 
-[Symbol cache](/docs/concept/symbol#usage-of-symbols) enables the use of on-heap
+[Symbol cache](/docs/concept/symbol/#usage-of-symbols) enables the use of on-heap
 cache for reads and can enhance performance. However, the cache size grows as
 the number of distinct value increases, and the size of the cached symbol may
 hinder query performance.
@@ -100,13 +100,13 @@ We recommend that users check the JVM and GC metrics via
 of the following steps:
 
 - Disabling the symbol cache. See
-  [Usage of `symbols`](/docs/concept/symbol#usage-of-symbols) for server-wide
+  [Usage of `symbols`](/docs/concept/symbol/#usage-of-symbols) for server-wide
   and table-wide configuration options.
 - Increasing the JVM heap size using the `-Xmx` argument.
 
 #### Symbol capacity
 
-[Symbol capacity](/docs/concept/symbol#usage-of-symbols) should be the same or
+[Symbol capacity](/docs/concept/symbol/#usage-of-symbols) should be the same or
 slightly larger than the count of distinct symbol values.
 
 Undersized symbol columns slow down query performance. Similarly, there is a
@@ -121,7 +121,7 @@ Appropriate us of [indexes](/docs/concept/indexes/) provides faster read access
 to a table. However, indexes have a noticeable cost in terms of disk space and
 ingestion rate - we recommend starting with no indexes and adding them later,
 only if they appear to improve query performance. Refer to
-[Index trade-offs](/docs/concept/indexes#trade-offs) for more information.
+[Index trade-offs](/docs/concept/indexes/#trade-offs) for more information.
 
 ### Numbers
 

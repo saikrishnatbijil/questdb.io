@@ -70,7 +70,7 @@ QuestDB server. It also instructs the client to authenticate.
 
 This configuration also works with [QuestDB Cloud](https://questdb.io/cloud/).
 If you are using a self-managed QuestDB with
-[authentication enabled](/docs/reference/api/ilp/authenticate) then `authToken`
+[authentication enabled](/docs/reference/api/ilp/authenticate/) then `authToken`
 is the `d` portion of a JWK.
 
 ## General usage pattern
@@ -117,7 +117,7 @@ Receiving out-of-order data can have a performance impact:
   optimized and automated.
 
 - For QuestDB 6.5.5 and earlier versions, users need to configure
-  [Out-of-order commit lag](/docs/guides/out-of-order-commit-lag) setting.
+  [Out-of-order commit lag](/docs/guides/out-of-order-commit-lag/) setting.
 
 :::
 

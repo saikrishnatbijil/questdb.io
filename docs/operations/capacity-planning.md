@@ -15,7 +15,7 @@ edge cases and common setup configurations.
 Most of the configuration settings referred to below except for OS settings are
 configured in QuestDB by either a `server.conf` configuration file or as
 environment variables. For more details on applying configuration settings in
-QuestDB, refer to the [configuration](/docs/reference/configuration) page.
+QuestDB, refer to the [configuration](/docs/reference/configuration/) page.
 
 To monitor various metrics of the QuestDB instances, refer to the
 [Prometheus monitoring page](/docs/third-party-tools/prometheus/) or the
@@ -68,7 +68,7 @@ partition by month to by day, and so on.
 :::note
 
 - In QuestDB the write amplification is calculated by the
-  [metrics](/docs/third-party-tools/prometheus#scraping-prometheus-metrics-from-questdb):
+  [metrics](/docs/third-party-tools/prometheus/#scraping-prometheus-metrics-from-questdb):
   `questdb_physically_written_rows_total` / `questdb_committed_rows_total`.
 - Partitions are defined when a table is created. Refer to
   [CREATE TABLE](/docs/reference/sql/create-table/) for more information.
@@ -125,7 +125,7 @@ The number of worker threads shared across the application can be configured as
 well as affinity to pin processes to specific CPUs by ID. Shared worker threads
 service SQL execution subsystems and, in the default configuration, every other
 subsystem. More information on these settings can be found on the
-[shared worker](/docs/reference/configuration#shared-worker) configuration page.
+[shared worker](/docs/reference/configuration/#shared-worker) configuration page.
 
 QuestDB will allocate CPU resources differently depending on how many CPU cores
 are available. This default can be overridden via configuration. We recommend at
@@ -179,7 +179,7 @@ cairo.writer.data.append.page.size=1M
 ### InfluxDB over TCP
 
 We have
-[a documentation page](/docs/reference/api/ilp/tcp-receiver#capacity-planning)
+[a documentation page](/docs/reference/api/ilp/tcp-receiver/#capacity-planning)
 dedicated to capacity planning for ILP ingestion.
 
 ### InfluxDB over UDP
@@ -272,7 +272,7 @@ line.tcp.net.rcvbuf=1m
 ```
 
 For reference on the defaults of the `http` and `pg` protocols, refer to the
-[server configuration page](/docs/reference/configuration).
+[server configuration page](/docs/reference/configuration/).
 
 ### Pooled connection
 

@@ -118,6 +118,7 @@ class App {
     Properties properties = new Properties();
     properties.setProperty("user", "admin");
     properties.setProperty("password", "quest");
+    //set sslmode value to 'require' if connecting to a QuestDB Cloud instance
     properties.setProperty("sslmode", "disable");
     properties.setProperty("options", "-c statement_timeout=300000");
 

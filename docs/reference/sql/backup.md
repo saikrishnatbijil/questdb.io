@@ -14,8 +14,8 @@ Creates a backup for one, several, or all database tables.
 
 Backing up a database or tables requires a **backup directory** which is set
 using the `cairo.sql.backup.root`
-[configuration key](/docs/reference/configuration) in a
-[server.conf](/docs/concept/root-directory-structure#serverconf) file:
+[configuration key](/docs/reference/configuration/) in a
+[server.conf](/docs/concept/root-directory-structure/#serverconf) file:
 
 ```shell title="server.conf"
 cairo.sql.backup.root=/Users/UserName/Desktop
@@ -29,7 +29,7 @@ disallow random file access by QuestDB.
 The tables will be written in a directory with today's date with the default
 format `yyyy-MM-dd` (e.g., `2020-04-20`). A custom date format can be specified
 using the `cairo.sql.backup.dir.datetime.format`
-[configuration key](/docs/reference/configuration):
+[configuration key](/docs/reference/configuration/):
 
 ```shell title="server.conf"
 cairo.sql.backup.dir.datetime.format=yyyy-dd-MM
@@ -37,7 +37,7 @@ cairo.sql.backup.dir.datetime.format=yyyy-dd-MM
 
 Given a `BACKUP` query run on `2021-02-25`, the data and metadata files will be
 written following the
-[db directory structure](/docs/concept/root-directory-structure#db)
+[db directory structure](/docs/concept/root-directory-structure/#db)
 
 ```filestructure title="/path/to/backup_directory"
 ├── 2021-02-25

@@ -167,7 +167,6 @@ module.exports = {
                 "reference/api/ilp/overview",
                 "reference/api/ilp/columnset-types",
                 "reference/api/ilp/tcp-receiver",
-                "reference/api/ilp/udp-receiver",
                 "reference/api/ilp/authenticate",
               ],
             },

@@ -15,9 +15,9 @@ QuestDB. Some features that exists for Postgres do not apply to QuestDB.
 We provide examples in a number of programming languages. See our "develop" docs
 for:
 
-- [Inserting](/docs/develop/insert-data#postgresql-wire-protocol)
-- [Querying](/docs/develop/query-data#postgresql-wire-protocol)
-- [Updating](/docs/develop/update-data#postgres-compatibility)
+- [Inserting](/docs/develop/insert-data/#postgresql-wire-protocol)
+- [Querying](/docs/develop/query-data/#postgresql-wire-protocol)
+- [Updating](/docs/develop/update-data/#postgres-compatibility)
 
 ## Compatibility
 
@@ -25,7 +25,7 @@ for:
 
 - Querying (all types expect `BLOB`)
 - Prepared statements with bind parameters (check for specific libraries
-  [below](/docs/reference/api/postgres#libraries--programmatic-clients))
+  [below](/docs/reference/api/postgres/#libraries--programmatic-clients))
 - `INSERT` statements with bind parameters
 - `UPDATE` statements with bind parameters
 - DDL execution
@@ -35,11 +35,11 @@ for:
 Examples which demonstrate how to use Postgres clients in a number of different
 languages can be found on the following pages:
 
-- [Insert data](/docs/develop/insert-data#postgresql-wire-protocol) demonstrates
+- [Insert data](/docs/develop/insert-data/#postgresql-wire-protocol) demonstrates
   how to use the parameterized queries and prepared statements to insert data.
-- [Query data](/docs/develop/query-data#postgresql-wire-protocol) shows how to
+- [Query data](/docs/develop/query-data/#postgresql-wire-protocol) shows how to
   run queries against tables.
-- [Update data](/docs/develop/update-data#postgres-compatibility) shows how to
+- [Update data](/docs/develop/update-data/#postgres-compatibility) shows how to
   update tables.
 
 ### List of supported connection properties

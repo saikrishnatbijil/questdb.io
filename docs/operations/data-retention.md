@@ -13,13 +13,13 @@ achieved in QuestDB by removing data partitions from a table.
 
 This page provides a high-level overview of partitioning with examples to drop
 data by date. For more details on partitioning, see the
-[partitioning](/docs/concept/partitions) page.
+[partitioning](/docs/concept/partitions/) page.
 
 ## Strategy for data retention
 
 A simple approach to removing stale data is to drop data that has been
 partitioned by time. A table must have a
-[designated timestamp](/docs/concept/designated-timestamp) assigned and a
+[designated timestamp](/docs/concept/designated-timestamp/) assigned and a
 partitioning strategy specified during a `CREATE TABLE` operation to achieve
 this.
 
@@ -52,7 +52,7 @@ partitions**.
 :::
 
 To drop partitions, users can use the
-[ALTER TABLE DROP PARTITION](/docs/reference/sql/alter-table-drop-partition)
+[ALTER TABLE DROP PARTITION](/docs/reference/sql/alter-table-drop-partition/)
 syntax. Partitions may be dropped by:
 
 - `DROP PARTITION LIST` - specifying a comma-separated list of partitions to
@@ -107,9 +107,9 @@ FROM long_sequence(120);
 
 For reference, the following functions are used to generate the example data:
 
-- [timestamp sequence](/docs/reference/function/timestamp-generator#timestamp_sequence)
+- [timestamp sequence](/docs/reference/function/timestamp-generator/#timestamp_sequence)
   with 1 hour stepping
-- [row generator](/docs/reference/function/row-generator#long_sequence) with
+- [row generator](/docs/reference/function/row-generator/#long_sequence) with
   `long_sequence()` function which creates a `x:long` column
 
 The result of partitioning is visible when listing as directories on disk:

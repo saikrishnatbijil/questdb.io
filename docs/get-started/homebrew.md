@@ -31,7 +31,7 @@ brew install questdb
 ```
 
 On macOS, the location of the root directory of QuestDB and
-[server configuration](/docs/reference/configuration) files depending on the
+[server configuration](/docs/reference/configuration/) files depending on the
 chip:
 
 - Path on Macs with Apple Silicon (M1 or M2) chip:
@@ -105,5 +105,5 @@ brew upgrade questdb
 ## Next steps
 
 Once you installed the QuestDB with Homebrew, you can navigate to our
-[command-line options](/docs/reference/command-line-options) page to learn more
+[command-line options](/docs/reference/command-line-options/) page to learn more
 about its usage.

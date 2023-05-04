@@ -11,7 +11,7 @@ calculations.
 
 Checking if tables contain a designated timestamp column can be done via the
 `tables()` and `table_columns()` functions which are described in the
-[meta functions](/docs/reference/function/meta) documentation page.
+[meta functions](/docs/reference/function/meta/) documentation page.
 
 :::
 
@@ -1071,15 +1071,15 @@ Note that conversion of ISO timestamp format is optional. QuestDB automatically
 converts `string` to `timestamp` if it is a partial or full form of
 `yyyy-MM-ddTHH:mm:ss.SSSUUU` or `yyyy-MM-dd HH:mm:ss.SSSUUU` with a valid time
 offset, `+01:00` or `Z`. See more examples in
-[Native timestamp](/docs/reference/sql/where#native-timestamp-format)
-format](/docs/reference/sql/where#native-timestamp-format).
+[Native timestamp](/docs/reference/sql/where/#native-timestamp-format)
+
 
 ## to_timezone
 
 `to_timezone(timestamp, timezone)` - converts a timestamp value to a specified
 timezone. For more information on the time zone database used for this function,
 see the
-[QuestDB time zone database documentation](/docs/guides/working-with-timestamps-timezones).
+[QuestDB time zone database documentation](/docs/guides/working-with-timestamps-timezones/).
 
 **Arguments:**
 
@@ -1129,7 +1129,7 @@ SELECT to_timezone('2021-06-08T13:45:45.000000Z', 'PST')
 UTC. May be provided a timezone in string format or a UTC offset in hours and
 minutes. For more information on the time zone database used for this function,
 see the
-[QuestDB time zone database documentation](/docs/guides/working-with-timestamps-timezones).
+[QuestDB time zone database documentation](/docs/guides/working-with-timestamps-timezones/).
 
 **Arguments:**
 

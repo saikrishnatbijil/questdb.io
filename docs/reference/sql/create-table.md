@@ -17,7 +17,7 @@ To create a table by manually entering parameters and settings:
 
 Checking table metadata can be done via the `tables()` and `table_columns()`
 functions which are described in the
-[meta functions](/docs/reference/function/meta) documentation page.
+[meta functions](/docs/reference/function/meta/) documentation page.
 
 :::
 
@@ -65,7 +65,7 @@ Column names must be unique within each table and **must not** contain a period
 ## Type definition
 
 When specifying a column, a name and
-[type definition](/docs/reference/sql/datatypes) must be provided. The `symbol`
+[type definition](/docs/reference/sql/datatypes/) must be provided. The `symbol`
 type may have additional optional parameters applied.
 
 ![Flow chart showing the syntax of the different column types](/img/docs/diagrams/columnTypeDef.svg)
@@ -74,7 +74,7 @@ type may have additional optional parameters applied.
 
 Optional keywords and parameters may follow the `symbol` type which allow for
 further optimization on the handling of this type. For more information on the
-benefits of using this type, see the [symbol](/docs/concept/symbol) overview.
+benefits of using this type, see the [symbol](/docs/concept/symbol/) overview.
 
 #### Symbol capacity
 
@@ -84,7 +84,7 @@ When `distinctValueEstimate` is not explicitly specified, a default value of
 `cairo.default.symbol.capacity` is used.
 
 `distinctValueEstimate` - the value used to size data structures for
-[symbols](/docs/concept/symbol).
+[symbols](/docs/concept/symbol/).
 
 ```questdb-sql
 CREATE TABLE my_table(symb SYMBOL CAPACITY 128, price DOUBLE, ts TIMESTAMP),
@@ -125,8 +125,8 @@ CREATE TABLE test AS (SELECT CAST(x as DOUBLE) x FROM long_sequence(10));
 ## Column indexes
 
 Index definitions (`indexDef`) are used to create an
-[index](/docs/concept/indexes) for a table column. The referenced table column
-must be of type [symbol](/docs/concept/symbol).
+[index](/docs/concept/indexes/) for a table column. The referenced table column
+must be of type [symbol](/docs/concept/symbol/).
 
 ![Flow chart showing the syntax of the index function](/img/docs/diagrams/indexDef.svg)
 
@@ -146,7 +146,7 @@ CREATE TABLE my_table(symb SYMBOL INDEX CAPACITY 128, price DOUBLE, ts TIMESTAMP
   TIMESTAMP(ts);
 ```
 
-See [Index](/docs/concept/indexes#how-indexes-work) for more information about
+See [Index](/docs/concept/indexes/#how-indexes-work) for more information about
 index capacity.
 
 ## CREATE TABLE AS
@@ -175,14 +175,14 @@ CREATE TABLE new_table AS (SELECT * FROM source_table WHERE false),
 ```
 
 Here we changed type of `price` (assuming it was `INT`) to `LONG` and changed
-type of `sym` to [symbol](/docs/concept/symbol) and created an
-[index](/docs/concept/indexes).
+type of `sym` to [symbol](/docs/concept/symbol/) and created an
+[index](/docs/concept/indexes/).
 
 ## Designated timestamp
 
 The timestamp function allows for specifying which column (which must be of
 `timestamp` type) should be a designated timestamp for the table. For more
-information, see the [designated timestamp](/docs/concept/designated-timestamp)
+information, see the [designated timestamp](/docs/concept/designated-timestamp/)
 reference.
 
 :::caution
@@ -195,7 +195,7 @@ created.
 ## Partitioning
 
 `PARTITION BY` allows for specifying the
-[partitioning strategy](/docs/concept/partitions) for the table. Tables created
+[partitioning strategy](/docs/concept/partitions/) for the table. Tables created
 via SQL are not partitioned by default (`NONE`) and tables can be partitioned by one of
 the following:
 
@@ -214,13 +214,13 @@ created.
 
 ## WAL table parameter
 
-It is possible to create a [WAL table](/docs/concept/write-ahead-log), allowing concurrent data ingestion
+It is possible to create a [WAL table](/docs/concept/write-ahead-log/), allowing concurrent data ingestion
 and modification through multiple interfaces:
 
 - `WAL` creates a WAL table. When a WAL table is created, the table must has a [partition](#partitioning) that is not `NONE`.
 - `BYPASS WAL` creates a non-WAL table.
 - When neither option is specified,
-  [the server configuration](/docs/reference/configuration#cairo-engine),
+  [the server configuration](/docs/reference/configuration/#cairo-engine),
   `cairo.wal.enabled.default`, is used:
   - `true`: creates a WAL table.
   - `false`: creates a non-WAL table.
@@ -342,8 +342,8 @@ ingestion speed.
   | d    | days         |
 
 For more information on commit lag and the maximum uncommitted rows, see the
-guide for [out-of-order commits](/docs/guides/out-of-order-commit-lag) and
-[ILP commit strategy](/docs/reference/api/ilp/tcp-receiver#commit-strategy).
+guide for [out-of-order commits](/docs/guides/out-of-order-commit-lag/) and
+[ILP commit strategy](/docs/reference/api/ilp/tcp-receiver#commit-strategy/).
 
 ## CREATE TABLE LIKE
 
@@ -361,11 +361,11 @@ The following examples demonstrate creating tables from basic statements, and
 introduce features such as partitioning and designated timestamps. For more
 information on the concepts introduced to below, see
 
-- [designated timestamp](/docs/concept/designated-timestamp) reference on
+- [designated timestamp](/docs/concept/designated-timestamp/) reference on
   electing a timestamp column
-- [partition](/docs/concept/partitions) documentation which describes how
+- [partition](/docs/concept/partitions/) documentation which describes how
   partitions work in QuestDB
-- [symbol](/docs/concept/symbol) reference for using the `symbol` data type
+- [symbol](/docs/concept/symbol/) reference for using the `symbol` data type
 
 This example will create a table without a designated timestamp and does not
 have a partitioning strategy applied.

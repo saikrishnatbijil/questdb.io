@@ -21,7 +21,7 @@ export const platforms = [
 
 This page describes how to download and run QuestDB via binaries. QuestDB comes
 with a `questdb.sh` script on Linux or FreeBSD, and a `questdb.exe` executable
-on Windows. For macOS, check out [Homebrew](/docs/get-started/homebrew).
+on Windows. For macOS, check out [Homebrew](/docs/get-started/homebrew/).
 
 ## Prerequisites
 
@@ -195,5 +195,5 @@ questdb.exe start
 ## Next steps
 
 Once you extracted the tarball, you are ready to use QuestDB. Navigate to our
-[command-line options](/docs/reference/command-line-options) page to learn more
+[command-line options](/docs/reference/command-line-options/) page to learn more
 about its usage.

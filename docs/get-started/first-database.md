@@ -43,7 +43,7 @@ CREATE TABLE sensors (ID LONG, make STRING, city STRING);
 ```
 
 For more information about this statement, please refer to the
-[CREATE TABLE](/docs/reference/sql/create-table) reference documentation.
+[CREATE TABLE](/docs/reference/sql/create-table/) reference documentation.
 
 ## Inserting data
 

@@ -31,14 +31,14 @@ methods:
 This section describes how to connect to QuestDB using a variety of tools and
 programming languages through our various network endpoints.
 
-- [Connect](/docs/develop/connect) to the database through our various
+- [Connect](/docs/develop/connect/) to the database through our various
   endpoints. Learn which protocol is best for different use cases
-- [Insert data](/docs/develop/insert-data) using the InfluxDB Line Protocol,
+- [Insert data](/docs/develop/insert-data/) using the InfluxDB Line Protocol,
   PostgreSQL wire protocol or our HTTP REST API
-- [Query data](/docs/develop/query-data) with SQL queries via the PostgreSQL
+- [Query data](/docs/develop/query-data/) with SQL queries via the PostgreSQL
   Wire Protocol or exported to JSON or CSV via our HTTP REST API
 
-- [Web Console](/docs/develop/web-console) for quick SQL queries, charting and
+- [Web Console](/docs/develop/web-console/) for quick SQL queries, charting and
   CSV upload/export functionality
 
 ## Guides
@@ -46,31 +46,31 @@ programming languages through our various network endpoints.
 - [Migrating from InfluxDB](/docs/guides/influxdb-migration/)
 - [Large CSV import (COPY SQL)](/docs/guides/importing-data/)
 - [Small CSV import (REST API)](/docs/guides/importing-data-rest/)
-- [Modifying Data](/docs/guides/modifying-data)
+- [Modifying Data](/docs/guides/modifying-data/)
 - [Timestamps and time zones](/docs/guides/working-with-timestamps-timezones/)
 - [Out-of-order commit lag](/docs/guides/out-of-order-commit-lag/)
 
 ## Deployment
 
-- [AWS Marketplace AMI](/docs/deployment/aws-official-ami)
-- [Kubernetes](/docs/deployment/kubernetes)
-- [Google Cloud Platform](/docs/deployment/google-cloud-platform)
-- [DigitalOcean Droplet](/docs/deployment/digitalocean)
+- [AWS Marketplace AMI](/docs/deployment/aws-official-ami/)
+- [Kubernetes](/docs/deployment/kubernetes/)
+- [Google Cloud Platform](/docs/deployment/google-cloud-platform/)
+- [DigitalOcean Droplet](/docs/deployment/digitalocean/)
 
 ## Operations
 
 This section contains resources for managing QuestDB instances and has dedicated
 pages for the following topics:
 
-- [Design for performance](/docs/operations/design-for-performance) for
+- [Design for performance](/docs/operations/design-for-performance/) for
   configuring table settings to improve performance
-- [Capacity planning](/docs/operations/capacity-planning) for configuring server
+- [Capacity planning](/docs/operations/capacity-planning/) for configuring server
   settings and system resources
-- [Data retention](/docs/operations/data-retention) strategy to delete old data
+- [Data retention](/docs/operations/data-retention/) strategy to delete old data
   and save disk space
-- [Health monitoring](/docs/operations/health-monitoring) endpoint for
+- [Health monitoring](/docs/operations/health-monitoring/) endpoint for
   determining the status of the instance
-- [Backup and restore](/docs/operations/backup) using filesystem and
+- [Backup and restore](/docs/operations/backup/) using filesystem and
   point-in-time backup functionality. Notes for cloud providers.
 
 ## Third-party tools
@@ -98,21 +98,21 @@ utilities for collecting metrics and visualizing data:
 This section describes the architecture of QuestDB, how it stores and queries
 data, and introduces features and capabilities unique to the system.
 
-- [Storage model](/docs/concept/storage-model) describes how QuestDB stores
+- [Storage model](/docs/concept/storage-model/) describes how QuestDB stores
   records and partitions within tables
-- [Designated timestamp](/docs/concept/designated-timestamp) is a core feature
+- [Designated timestamp](/docs/concept/designated-timestamp/) is a core feature
   that enables time-oriented language capabilities and partitioning
-- [SQL extensions](/docs/concept/sql-extensions) allow performant time series
+- [SQL extensions](/docs/concept/sql-extensions/) allow performant time series
   analysis with a concise syntax
-- [JIT compiler](/docs/concept/jit-compiler) to speed up `WHERE` clauses
-- [Partitions](/docs/concept/partitions) can be used to perform time-based
+- [JIT compiler](/docs/concept/jit-compiler/) to speed up `WHERE` clauses
+- [Partitions](/docs/concept/partitions/) can be used to perform time-based
   queries more efficiently
-- [Symbol](/docs/concept/symbol) type makes storing and retrieving repetitive
+- [Symbol](/docs/concept/symbol/) type makes storing and retrieving repetitive
   strings efficient
-- [Indexes](/docs/concept/indexes) can be used for faster read access on
+- [Indexes](/docs/concept/indexes/) can be used for faster read access on
   specific columns
-- [Geospatial data](/docs/concept/geohashes) with geohashes
-- [Root directory](/docs/concept/root-directory-structure) describes the
+- [Geospatial data](/docs/concept/geohashes/) with geohashes
+- [Root directory](/docs/concept/root-directory-structure/) describes the
   directory contents of QuestDB for storage and configuration
 
 ## Reference
@@ -121,57 +121,57 @@ This section contains the reference documentation for the following categories:
 
 ### APIs
 
-- [REST](/docs/reference/api/rest)
-- [Postgres](/docs/reference/api/postgres)
-- [InfluxDB](/docs/reference/api/ilp/overview)
-- [Java (embedded)](/docs/reference/api/java-embedded)
+- [REST](/docs/reference/api/rest/)
+- [Postgres](/docs/reference/api/postgres/)
+- [InfluxDB](/docs/reference/api/ilp/overview/)
+- [Java (embedded)](/docs/reference/api/java-embedded/)
 
 ### Command-line options
 
 The following resource provides info on options that may be passed to QuestDB
 when starting services:
 
-- [Command-line options](/docs/reference/command-line-options) for starting and
+- [Command-line options](/docs/reference/command-line-options/) for starting and
   running QuestDB from an executable
 
 ### Configuration
 
-The [configuration](/docs/reference/configuration) page shows all the properties
+The [configuration](/docs/reference/configuration/) page shows all the properties
 that can be used to customize QuestDB.
 
-### ILP Client libraries
+### ILP Client Libraries
 
-- [Clients overview](/docs/reference/clients/overview)
-- [Java ILP client](/docs/reference/clients/java_ilp)
+- [Client Libraries overview](/docs/reference/clients/overview/)
+- [Java ILP client](/docs/reference/clients/java_ilp/)
 
 ### Data Types
 
-The [data types](/docs/reference/sql/datatypes) page lists the datatypes that
+The [data types](/docs/reference/sql/datatypes/) page lists the datatypes that
 can be used in QuestDB.
 
 ### Functions
 
-- [Aggregate](/docs/reference/function/aggregation)
-- [Analytic](/docs/reference/function/analytic)
-- [Binary](/docs/reference/function/binary)
-- [Boolean](/docs/reference/function/boolean)
-- [Conditional](/docs/reference/function/conditional)
-- [Date and time](/docs/reference/function/date-time)
-- [Meta](/docs/reference/function/meta)
-- [Numeric](/docs/reference/function/numeric)
-- [Random value generator](/docs/reference/function/random-value-generator)
-- [Row generator](/docs/reference/function/row-generator)
-- [Spatial](/docs/reference/function/spatial)
-- [Text](/docs/reference/function/text)
-- [Timestamp generator](/docs/reference/function/timestamp-generator)
-- [Timestamp](/docs/reference/function/timestamp)
-- [Trigonometric](/docs/reference/function/trigonometric)
+- [Aggregate](/docs/reference/function/aggregation/)
+- [Analytic](/docs/reference/function/analytic/)
+- [Binary](/docs/reference/function/binary/)
+- [Boolean](/docs/reference/function/boolean/)
+- [Conditional](/docs/reference/function/conditional/)
+- [Date and time](/docs/reference/function/date-time/)
+- [Meta](/docs/reference/function/meta/)
+- [Numeric](/docs/reference/function/numeric/)
+- [Random value generator](/docs/reference/function/random-value-generator/)
+- [Row generator](/docs/reference/function/row-generator/)
+- [Spatial](/docs/reference/function/spatial/)
+- [Text](/docs/reference/function/text/)
+- [Timestamp generator](/docs/reference/function/timestamp-generator/)
+- [Timestamp](/docs/reference/function/timestamp/)
+- [Trigonometric](/docs/reference/function/trigonometric/)
 
 ### Operators
 
-- [Bitwise](/docs/reference/operators/bitwise)
-- [Pattern matching](/docs/reference/operators/pattern-matching)
-- [Spatial](/docs/reference/operators/spatial)
+- [Bitwise](/docs/reference/operators/bitwise/)
+- [Pattern matching](/docs/reference/operators/pattern-matching/)
+- [Spatial](/docs/reference/operators/spatial/)
 
 ### SQL
 

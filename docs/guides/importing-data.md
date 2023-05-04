@@ -130,14 +130,14 @@ csvstack *.csv > singleFile.csv
 
 ### Configure `COPY`
 
-- Enable `COPY` and [configure](/docs/reference/configuration#csv-import) `COPY`
+- Enable `COPY` and [configure](/docs/reference/configuration/#csv-import) `COPY`
   directories to suit your server.
 - `cairo.sql.copy.root` must be set for `COPY` to work.
 
 ## Create the target table schema
 
 If you know the target table schema already, you can
-[skip this section](/docs/guides/importing-data#import-csv).
+[skip this section](/docs/guides/importing-data/#import-csv).
 
 QuestDB could analyze the input file and "guess" the schema. This logic is
 activated when target table does not exist.
@@ -205,8 +205,8 @@ process running in the background:
 
    5.1. The generated schema may not be completely correct. Check the log table
    and log file to resolve common errors using the id (see also
-   [Track import progress](/docs/guides/importing-data#track-import-progress)
-   and [FAQ](/docs/guides/importing-data#faq)):
+   [Track import progress](/docs/guides/importing-data/#track-import-progress)
+   and [FAQ](/docs/guides/importing-data/#faq)):
 
    ```questdb-sql
    SELECT * FROM sys.text_import_log WHERE id = '5179978a6d7a1772' ORDER BY ts DESC;
@@ -317,7 +317,7 @@ ordered CSV file `weather1mil.csv`, when importing, the log table shows:
 The log table contains only coarse-grained, top-level data. Import phase run
 times vary a lot (e.g. `partition_import` often takes 80% of the whole import
 execution time), and therefore
-[the server log](/docs/reference/configuration#logging) provides an alternative
+[the server log](/docs/reference/configuration/#logging) provides an alternative
 to follow more details of import:
 
 ```log title="import log"
@@ -332,7 +332,7 @@ to follow more details of import:
 2022-08-03T14:01:42.791789Z I i.q.c.t.CsvFileIndexer finished chunk [chunkLo=11549510915, chunkHi=15399347885, lines=30000011, errors=0]
 ```
 
-If the [`ON ERROR` option](/docs/reference/sql/copy#options) is set to `ABORT`,
+If the [`ON ERROR` option](/docs/reference/sql/copy/#options) is set to `ABORT`,
 import stops on the first error and the error is logged. Otherwise, all errors
 are listed in the log.
 

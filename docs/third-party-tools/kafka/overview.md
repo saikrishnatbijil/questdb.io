@@ -9,7 +9,7 @@ strategies are as the following:
 
 1. [QuestDB Kafka connector](/docs/third-party-tools/kafka/questdb-kafka/): The
    recommended strategy for connecting to Kafka using ILP and Kafka Connect.
-2. [JDBC connector](/docs/third-party-tools/kafka/jdbc): A generic connector
+2. [JDBC connector](/docs/third-party-tools/kafka/jdbc/): A generic connector
    using Kafka Connect.
 3. Write a dedicated program to read data from Kafka and write to QuestDB.
 4. Use a stream processing engine.

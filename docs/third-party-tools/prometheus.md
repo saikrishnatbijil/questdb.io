@@ -23,9 +23,9 @@ instance, and how to enable alerting from QuestDB to Prometheus Alertmanager.
 ## Prerequisites
 
 - **QuestDB** must be running and accessible. You can do so from
-  [Docker](/docs/get-started/docker), the
-  [binaries](/docs/get-started/binaries), or
-  [Homebrew](/docs/get-started/homebrew) for macOS users.
+  [Docker](/docs/get-started/docker/), the
+  [binaries](/docs/get-started/binaries/), or
+  [Homebrew](/docs/get-started/homebrew/) for macOS users.
 
 - **Prometheus** can be installed using
   [homebrew](https://formulae.brew.sh/formula/prometheus),
@@ -243,5 +243,5 @@ received status:
 
 The template used by QuestDB for alerts is user-configurable and is described in
 more detail in the
-[server configuration](/docs/reference/configuration#prometheus-alertmanager)
+[server configuration](/docs/reference/configuration/#prometheus-alertmanager)
 documentation.

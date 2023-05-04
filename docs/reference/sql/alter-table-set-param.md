@@ -9,7 +9,7 @@ description: SET PARAM SQL keyword reference documentation.
 :::note
 
 - Checking table metadata can be done via the `tables()` and `table_columns()`
-  functions, as described in the [meta functions](/docs/reference/function/meta)
+  functions, as described in the [meta functions](/docs/reference/function/meta/)
   documentation page.
 
 :::
@@ -47,7 +47,7 @@ SELECT id, name, maxUncommittedRows FROM tables();
 | 1   | my_table | 10000              |
 
 For more details on retrieving table and column information, see the
-[meta functions documentation](/docs/reference/function/meta).
+[meta functions documentation](/docs/reference/function/meta/).
 
 ## Parameters for QuestDB 6.5.5 and earlier versions
 
@@ -58,8 +58,8 @@ For more details on retrieving table and column information, see the
 - For QuestDB 6.5.5 and earlier versions, the following keywords are useful for
   configuring out-of-order ILP data ingestion on a per-table basis. For more
   information on more details and when to apply them, see the documentation for
-  [out-of-order data commits](/docs/guides/out-of-order-commit-lag) and
-  [ILP commit strategy](/docs/reference/api/ilp/tcp-receiver#commit-strategy).
+  [out-of-order data commits](/docs/guides/out-of-order-commit-lag/) and
+  [ILP commit strategy](/docs/reference/api/ilp/tcp-receiver/#commit-strategy).
 
 - From QuestDB 6.6 onwards, the database adjusts relevant settings automatically
   and provides maximum ingestion speed.
@@ -72,8 +72,8 @@ For more details on retrieving table and column information, see the
 ![Flow chart showing the syntax of the ALTER TABLE SET PARA with commit lag keywords](/img/docs/diagrams/alterTableSetParamCommitLag.svg)
 
 For context on commit lag, see the guide for
-[configuring commit lag of out-of-order data](/docs/guides/out-of-order-commit-lag)
-and [ILP commit strategy](/docs/reference/api/ilp/tcp-receiver#commit-strategy).
+[configuring commit lag of out-of-order data](/docs/guides/out-of-order-commit-lag/)
+and [ILP commit strategy](/docs/reference/api/ilp/tcp-receiver/#commit-strategy).
 
 `commitLag` allows for specifying the expected maximum _lag_ of late-arriving
 records when ingesting out-of-order data. The purpose of specifying a commit lag

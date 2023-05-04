@@ -15,7 +15,7 @@ description: UNION, EXCEPT, and INTERSECT  SQL keyword reference documentation.
 To work properly, all of the following must be true:
 
 - Each query statement should return the same number of column.
-- Each column to be combined should have data types that are either the same, or supported by `implicit cast`. See [CAST](/docs/reference/sql/cast) for more information.
+- Each column to be combined should have data types that are either the same, or supported by `implicit cast`. See [CAST](/docs/reference/sql/cast/) for more information.
 - Columns in each query statement should be in the same order.
 
 ## Syntax
@@ -228,7 +228,7 @@ WHERE value = 1);
 
 :::note
 
-* QuestDB applies `GROUP BY` implicitly. See [GROUP BY reference](/docs/reference/sql/group-by) for more information.
+* QuestDB applies `GROUP BY` implicitly. See [GROUP BY reference](/docs/reference/sql/group-by/) for more information.
 * Quest does not support the clause `HAVING` yet.
 
 :::

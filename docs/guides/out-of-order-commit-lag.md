@@ -78,7 +78,7 @@ ingestion efficiency can be improved.
 Commit lag is a user configurable value. On the server level configuration, the
 value is defined in milliseconds by `cairo.commit.lag`. Commit lag has an impact
 on the timing of commit, as the value is combined with other parameters for
-[ILP commit strategy](/docs/reference/api/ilp/tcp-receiver#commit-strategy).
+[ILP commit strategy](/docs/reference/api/ilp/tcp-receiver/#commit-strategy).
 
 The `cairo.commit.lag` value is applied each time when a commit happens. As a
 result, data older than the lag value will be committed and become visible.
@@ -87,7 +87,7 @@ result, data older than the lag value will be committed and become visible.
 
 The commit lag value should be considered together with
 `cairo.max.uncommitted.rows` as part of the
-[ILP commit strategy](/docs/reference/api/ilp/tcp-receiver#commit-strategy).
+[ILP commit strategy](/docs/reference/api/ilp/tcp-receiver/#commit-strategy).
 
 The default configuration for the server is as follows:
 
@@ -135,7 +135,7 @@ can choose the most suitable configuration based on their specific case:
 - Table configuration:
 
   - Setting table parameters via SQL using
-    [SET PARAM](/docs/reference/sql/alter-table-set-param#example)
+    [SET PARAM](/docs/reference/sql/alter-table-set-param/#example)
   - Creating table with parameters via SQL using
     [WITH](/docs/reference/sql/create-table/#create-table-with-parameters)
   - SQL `INSERT AS SELECT` with batch size and lag:

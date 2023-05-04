@@ -7,7 +7,7 @@ This page describes methods for configuring QuestDB server settings.
 Configuration can be set either:
 
 - In the `server.conf` configuration file available in the
-  [root directory](/docs/concept/root-directory-structure)
+  [root directory](/docs/concept/root-directory-structure/)
 - Using environment variables
 
 When a key is absent from both the configuration file and the environment
@@ -79,12 +79,12 @@ docker run -p 9000:9000 \
 
 This publishes the following ports:
 
-- `-p 9000:9000` - [REST API](/docs/reference/api/rest) and
-  [Web Console](/docs/develop/web-console)
-- `-p 9009:9009` - [InfluxDB line protocol](/docs/reference/api/ilp/overview)
-- `-p 8812:8812` - [Postgres wire protocol](/docs/reference/api/postgres)
+- `-p 9000:9000` - [REST API](/docs/reference/api/rest/) and
+  [Web Console](/docs/develop/web-console/)
+- `-p 9009:9009` - [InfluxDB line protocol](/docs/reference/api/ilp/overview/)
+- `-p 8812:8812` - [Postgres wire protocol](/docs/reference/api/postgres/)
 - `-p 9003:9003` -
-  [Min health server and Prometheus metrics](#minimal-http-server)
+  [Min health server and Prometheus metrics](#minimal-http-server/)
 
 The examples in this section change the default HTTP and REST API port from
 `9000` to `4000` for illustrative purposes, and demonstrate how to publish this
@@ -176,7 +176,7 @@ code of `200` unless the QuestDB process dies.
 
 Port `9003` also provides a `/metrics` endpoint with Prometheus metrics exposed.
 Examples of how to use the min server and Prometheus endpoint can be found on
-the [health monitoring page](/docs/operations/health-monitoring).
+the [health monitoring page](/docs/operations/health-monitoring/).
 
 :::
 
@@ -194,7 +194,7 @@ the [health monitoring page](/docs/operations/health-monitoring).
 
 This section describes configuration settings for the Web Console and the REST API available by
 default on port `9000`. For details on the use of this component, refer to the
-[web console documentation](/docs/develop/web-console) page.
+[web console documentation](/docs/develop/web-console/) page.
 
 | Property                                     | Default      | Description                                                                                                                                                                                                                                                                                                                                                                                                                            |
 | -------------------------------------------- | ------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -531,7 +531,7 @@ The UDP receiver is deprecated since QuestDB version 6.5.2. We recommend the
 
 The database startup phase checks for configuration issues, such as invalid or
 deprecated settings. Issues may be classified as advisories or errors. Advisory
-issues are [logged](/docs/concept/root-directory-structure#log-directory)
+issues are [logged](/docs/concept/root-directory-structure/#log-directory)
 without causing the database to stop its startup sequence: These are usually
 setting deprecation warnings. Configuration errors can optionally cause the
 database to fail its startup.

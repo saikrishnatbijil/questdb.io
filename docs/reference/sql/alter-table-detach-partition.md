@@ -4,7 +4,7 @@ sidebar_label: DETACH PARTITION
 description: DETACH PARTITION SQL keyword reference documentation.
 ---
 
-Makes partition data unavailable for reads and prepares partition directory for transportation. A partition detached by this SQL keyword can be "re-attached" using the complementary SQL keyword [ALTER TABLE ATTACH PARTITION](/docs/reference/sql/alter-table-attach-partition).
+Makes partition data unavailable for reads and prepares partition directory for transportation. A partition detached by this SQL keyword can be "re-attached" using the complementary SQL keyword [ALTER TABLE ATTACH PARTITION](/docs/reference/sql/alter-table-attach-partition/).
 
 ## Syntax
 

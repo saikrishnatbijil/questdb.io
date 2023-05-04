@@ -136,7 +136,7 @@ questdb.exe start [-d dir] [-f] [-j JAVA_HOME] [-t tag]
 
 #### Default root directory
 
-By default, QuestDB's [root directory](/docs/concept/root-directory-structure)
+By default, QuestDB's [root directory](/docs/concept/root-directory-structure/)
 will be the following:
 
 <!-- prettier-ignore-start -->

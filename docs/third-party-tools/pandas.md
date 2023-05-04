@@ -14,9 +14,9 @@ provides native support for ingesting Pandas dataframes via the InfluxDB Line Pr
 ## Prerequisites
 
 - QuestDB must be running and accessible. You can do so from
-  [Docker](/docs/get-started/docker), the
-  [binaries](/docs/get-started/binaries), or
-  [Homebrew](/docs/get-started/homebrew) for macOS users.
+  [Docker](/docs/get-started/docker/), the
+  [binaries](/docs/get-started/binaries/), or
+  [Homebrew](/docs/get-started/homebrew/) for macOS users.
 - Python 3.8 or later
 - [Pandas](https://pandas.pydata.org/) 
 - [pyarrow](https://pypi.org/project/pyarrow/)

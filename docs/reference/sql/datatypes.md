@@ -7,7 +7,7 @@ description: Data types reference documentation.
 The type system is derived from Java types.
 
 | Type Name         | Storage bits | Nullable | Description                                                                                                                                                                                                                                                         |
-| ----------------- | ------------ | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ----------------- | ------------ | -------- |---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `boolean`         | `1`          | No       | Boolean `true` or `false`.                                                                                                                                                                                                                                          |
 | `byte`            | `8`          | No       | Signed integer `-128` to `127`.                                                                                                                                                                                                                                     |
 | `short`           | `16`         | No       | Signed integer `-32768` to `32767`.                                                                                                                                                                                                                                 |
@@ -23,7 +23,7 @@ The type system is derived from Java types.
 | `uuid`            | `128`        | Yes      | [UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier) values. See also [the UUID type](#the-uuid-type).                                                                                                                                               |
 | `binary`          | `64+n*8`     | Yes      | Length-prefixed sequence of bytes whose length is stored as signed 64-bit integer with maximum value of `0x7fffffffffffffffL`.                                                                                                                                      |
 | `long256`         | `256`        | Yes      | Unsigned 256-bit integer. Does not support arbitrary arithmetic operations, but only equality checks. Suitable for storing hash code, such as crypto public addresses.                                                                                              |
-| `geohash(<size>)` | `8`-`64`     | Yes      | Geohash with precision specified as a number followed by `b` for bits, `c` for chars. See [the geohashes documentation](/docs/concept/geohashes) for details on use and storage.                                                                                    |
+| `geohash(<size>)` | `8`-`64`     | Yes      | Geohash with precision specified as a number followed by `b` for bits, `c` for chars. See [the geohashes documentation](/docs/concept/geohashes/) for details on use and storage.                                                                                   |
 
 ## Variable-sized type limitations
 
@@ -103,5 +103,5 @@ PreparedStatement ps = connection.prepareStatement("INSERT INTO my_table VALUES 
 ps.setObject(1, uuid);
 ```
 
-[QuestDB ILP clients](https://questdb.io/docs/reference/clients/overview/) can
+[QuestDB Client Libraries](https://questdb.io/docs/reference/clients/overview/) can
 send `UUIDs` as `strings` to be converted to UUIDs by the server.

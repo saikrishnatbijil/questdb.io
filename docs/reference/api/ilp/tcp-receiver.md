@@ -95,7 +95,7 @@ line.tcp.maintenance.job.interval=1000
 
 ### Interval-based commit
 
-A table's [commit lag](/docs/guides/out-of-order-commit-lag) metadata property
+A table's [commit lag](/docs/guides/out-of-order-commit-lag/) metadata property
 determines how much uncommitted data will need to remain uncommitted for
 performance reasons. This lag value is measured in time units from the table's
 data. Data older than the lag value will be committed and become visible. ILP

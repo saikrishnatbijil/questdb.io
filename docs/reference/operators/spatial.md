@@ -6,8 +6,8 @@ description: Spatial operators reference documentation.
 
 This page describes the available operators to assist with performing spatial
 calculations. For more information on this type of data, see the
-[geohashes documentation](/docs/concept/geohashes) and the
-[spatial functions](/docs/reference/function/spatial) which have been added to
+[geohashes documentation](/docs/concept/geohashes/) and the
+[spatial functions](/docs/reference/function/spatial/) which have been added to
 help with filtering and generating data.
 
 ## within

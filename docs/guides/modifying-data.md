@@ -5,7 +5,7 @@ QuestDB is a timeseries database optimized to append data.
 For best performance, design your application to avoid having to frequently
 edit existing records.
 
-The [`UPDATE`](/docs/reference/sql/update) statement is available in QuestDB
+The [`UPDATE`](/docs/reference/sql/update/) statement is available in QuestDB
 since version 6.4, `DELETE` is also planned to be included in upcoming releases.
 However, they are intended for correcting data that was inserted incorrectly
 or should have never been inserted in the first place (for example as part
@@ -98,9 +98,9 @@ RENAME table mytable_copy TO mytable;
 ## Delete by Dropping Partitions
 
 When you create tables with a timestamp, you may organise them into
-[partitions](/docs/concept/partitions) using the
-[`CREATE TABLE .. PARTITION BY`](/docs/reference/sql/create-table#partitioning)
+[partitions](/docs/concept/partitions/) using the
+[`CREATE TABLE .. PARTITION BY`](/docs/reference/sql/create-table/#partitioning)
 SQL statement.
 
-You may then use the [`ALTER TABLE DROP PARTITION`](/docs/reference/sql/alter-table-drop-partition)
+You may then use the [`ALTER TABLE DROP PARTITION`](/docs/reference/sql/alter-table-drop-partition/)
 SQL statement to drop partitions you no longer need.

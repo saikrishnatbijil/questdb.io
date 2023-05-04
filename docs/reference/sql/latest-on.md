@@ -23,16 +23,16 @@ where:
 
 ## Description
 
-`LATEST ON` is used as part of a [SELECT statement](/docs/reference/sql/select)
+`LATEST ON` is used as part of a [SELECT statement](/docs/reference/sql/select/)
 for returning the most recent records per unique time series identified by the
 `PARTITION BY` column values. This function requires a
-[designated timestamp](/docs/concept/designated-timestamp).
+[designated timestamp](/docs/concept/designated-timestamp/).
 
 :::note
 
 To use `LATEST ON`, a timestamp column used in the `LATEST ON` part needs to be
 specified as a **designated timestamp**. More information can be found in the
-[designated timestamp](/docs/concept/designated-timestamp) page for specifying
+[designated timestamp](/docs/concept/designated-timestamp/) page for specifying
 this at table creation or at query time.
 
 :::

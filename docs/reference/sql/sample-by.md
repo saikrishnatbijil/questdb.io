@@ -6,7 +6,7 @@ description: SAMPLE BY SQL keyword reference documentation.
 
 `SAMPLE BY` is used on time series data to summarize large datasets into
 aggregates of homogeneous time chunks as part of a
-[SELECT statement](/docs/reference/sql/select). Users performing `SAMPLE BY`
+[SELECT statement](/docs/reference/sql/select/). Users performing `SAMPLE BY`
 queries on datasets **with missing data** may make use of the
 [FILL](#fill-options) keyword to specify a fill behavior.
 
@@ -18,7 +18,7 @@ SELECT time, avg(price) FROM trades SAMPLE BY 30m
 
 To use `SAMPLE BY`, a table column needs to be specified as a designated
 timestamp. Details about this concept can be found in the
-[designated timestamp](/docs/concept/designated-timestamp) documentation.
+[designated timestamp](/docs/concept/designated-timestamp/) documentation.
 
 :::
 
@@ -243,7 +243,7 @@ The option aligns data to calendar dates, with two optional parameters:
 A time zone may be provided for sampling with calendar alignment. Details on the
 options for specifying time zones with available formats are provided in the
 guide for
-[working with timestamps and time zones](/docs/guides/working-with-timestamps-timezones).
+[working with timestamps and time zones](/docs/guides/working-with-timestamps-timezones/).
 
 ```questdb-sql
 SELECT ts, count() FROM sensors
@@ -280,7 +280,7 @@ In this case, the 24 hour samples begin at `2021-05-31T01:45:00.000000Z`:
 
 The timestamp values output from `SAMPLE BY` queries is in UTC. To have UTC
 values converted to specific timezones the
-[to_timezone() function](/docs/reference/function/date-time#to_timezone) should
+[to_timezone() function](/docs/reference/function/date-time/#to_timezone) should
 be used.
 
 ```questdb-sql

@@ -11,18 +11,18 @@ QuestDB attempts to implement standard ANSI SQL. We also try to be compatible
 with PostgreSQL, although parts of this are a work in progress. QuestDB
 implements these clauses which have the following execution order:
 
-1. [FROM](/docs/reference/sql/select)
-2. [ON](/docs/reference/sql/join)
-3. [JOIN](/docs/reference/sql/join)
-4. [WHERE](/docs/reference/sql/where)
-5. [LATEST ON](/docs/reference/sql/latest-on)
-6. [GROUP BY](/docs/reference/sql/group-by) (optional)
-7. [WITH](/docs/reference/sql/with)
-8. [HAVING](/docs/concept/sql-extensions#implicit-having) (implicit)
-9. [SELECT](/docs/reference/sql/select)
-10. [DISTINCT](/docs/reference/sql/distinct)
-11. [ORDER BY](/docs/reference/sql/order-by)
-12. [LIMIT](/docs/reference/sql/limit)
+1. [FROM](/docs/reference/sql/select/)
+2. [ON](/docs/reference/sql/join/)
+3. [JOIN](/docs/reference/sql/join/)
+4. [WHERE](/docs/reference/sql/where/)
+5. [LATEST ON](/docs/reference/sql/latest-on/)
+6. [GROUP BY](/docs/reference/sql/group-by/) (optional)
+7. [WITH](/docs/reference/sql/with/)
+8. [HAVING](/docs/concept/sql-extensions/#implicit-having) (implicit)
+9. [SELECT](/docs/reference/sql/select/)
+10. [DISTINCT](/docs/reference/sql/distinct/)
+11. [ORDER BY](/docs/reference/sql/order-by/)
+12. [LIMIT](/docs/reference/sql/limit/)
 
 We have also implemented sub-queries that users may execute at any part of a
 query that mentions a table name. The sub-query implementation adds almost zero
@@ -31,4 +31,4 @@ of functional language features to traditional SQL.
 
 For more information on the SQL extensions in QuestDB which deviate from ANSI
 SQL and PostgreSQL, see the
-[SQL extensions documentation](/docs/concept/sql-extensions).
+[SQL extensions documentation](/docs/concept/sql-extensions/).

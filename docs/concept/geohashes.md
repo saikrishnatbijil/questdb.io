@@ -12,8 +12,8 @@ including hints on converting from latitude and longitude, inserting via SQL,
 InfluxDB line protocol, and via Java embedded API.
 
 To facilitate working with this data type,
-[spatial functions](/docs/reference/function/spatial) and
-[operators](/docs/reference/operators/spatial) have been added to help with
+[spatial functions](/docs/reference/function/spatial/) and
+[operators](/docs/reference/operators/spatial/) have been added to help with
 filtering and generating data.
 
 ## Geohash description
@@ -292,7 +292,7 @@ columns within the query **must be indexed**.
 | 2021-09-02T14:20:09.280980Z | device_3  | e   | u33dr01d |
 
 For more information on the use of this operator, see the
-[spatial operators](/docs/reference/operators/spatial) reference.
+[spatial operators](/docs/reference/operators/spatial/) reference.
 
 ## Java embedded usage
 
@@ -302,7 +302,7 @@ the selected `Writer`'s `putGeoHash` method. The `putGeoHash` method accepts
 `GeoHashes.fromString` may be used for string conversion, but comes with some
 performance overhead as opposed to `long` values directly.
 
-Depending on whether the table is a [WAL](docs/concept/write-ahead-log/) table
+Depending on whether the table is a [WAL](/docs/concept/write-ahead-log/) table
 or not, the following components may be used:
 
 - `TableWriter` is used to write data directly into a table.
@@ -395,7 +395,7 @@ Invoking the method above will return one of the following:
 - `ColumnType.GEOLONG`
 
 For more information and detailed examples of using table readers and writers,
-see the [Java API documentation](/docs/reference/api/java-embedded).
+see the [Java API documentation](/docs/reference/api/java-embedded/).
 
 ## InfluxDB Line Protocol
 

@@ -10,7 +10,7 @@ An index stores the row locations for each value of the target column in order
 to provide faster read access. It allows you to bypass full table scans by
 directly accessing the relevant rows during queries with `WHERE` conditions.
 
-Indexing is available for [symbol](/docs/concept/symbol) columns. Index support
+Indexing is available for [symbol](/docs/concept/symbol/) columns. Index support
 for other types will be added over time.
 
 ## Index creation and deletion
@@ -18,19 +18,19 @@ for other types will be added over time.
 The following are ways to index a `symbol` column:
 
 - At table creation time using
-  [CREATE TABLE](/docs/reference/sql/create-table#index)
+  [CREATE TABLE](/docs/reference/sql/create-table/#index)
 - Using
-  [ALTER TABLE ALTER COLUMN ADD INDEX](/docs/reference/sql/alter-table-alter-column-add-index)
+  [ALTER TABLE ALTER COLUMN ADD INDEX](/docs/reference/sql/alter-table-alter-column-add-index/)
   to index an existing `symbol` column
 
 To delete an index:
 
-- [ALTER TABLE ALTER COLUMN DROP INDEX](/docs/reference/sql/alter-table-alter-column-drop-index)
+- [ALTER TABLE ALTER COLUMN DROP INDEX](/docs/reference/sql/alter-table-alter-column-drop-index/)
 
 ## How indexes work
 
 Index creates a table of row locations for each distinct value for the target
-[symbol](/docs/concept/symbol). Once the index is created, inserting data into
+[symbol](/docs/concept/symbol/). Once the index is created, inserting data into
 the table will update the index. Lookups on indexed values will be performed in
 the index table directly which will provide the memory locations of the items,
 thus avoiding unnecessary table scans.
@@ -71,7 +71,7 @@ to specify how many row IDs to store in a single storage block on disk:
   [`index` option](/docs/reference/sql/create-table/#column-indexes) for
   `CREATE TABLE`
 - Column-wide setting:
-  [ALTER TABLE COLUMN ADD INDEX](/docs/reference/sql/alter-table-alter-column-add-index)
+  [ALTER TABLE COLUMN ADD INDEX](/docs/reference/sql/alter-table-alter-column-add-index/)
 
 Fewer blocks used to store row IDs achieves better performance. At the same time
 over-sizing the setting will result in higher than necessary disk space usage.
@@ -79,7 +79,7 @@ over-sizing the setting will result in higher than necessary disk space usage.
 :::note
 
 - The **index capacity** and
-  [**symbol capacity**](/docs/concept/symbol#usage-of-symbols) are different
+  [**symbol capacity**](/docs/concept/symbol/#usage-of-symbols) are different
   settings.
 - The index capacity value should not be changed, unless an user is aware of all
   the implications.

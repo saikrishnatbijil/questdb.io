@@ -190,9 +190,9 @@ Returns a `table` with the following columns:
 - `active` - _BOOLEAN_, true if the partition is the last partition, and whether
   we are writing to it (at least one record)
 - `attached` - _BOOLEAN_, true if the partition is
-  [attached](/docs/reference/sql/alter-table-attach-partition)
+  [attached](/docs/reference/sql/alter-table-attach-partition/)
 - `detached` - _BOOLEAN_, true if the partition is
-  [detached](/docs/reference/sql/alter-table-detach-partition) (`name` of the
+  [detached](/docs/reference/sql/alter-table-detach-partition/) (`name` of the
   partition will contain the `.detached` extension)
 - `attachable` - _BOOLEAN_, true if the partition is detached and can be
   attached (`name` of the partition will contain the `.attachable` extension)

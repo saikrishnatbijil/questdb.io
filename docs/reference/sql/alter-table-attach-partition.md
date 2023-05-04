@@ -6,7 +6,7 @@ description: ATTACH PARTITION SQL keyword reference documentation.
 
 Restores one or more partitions to the table where they have been detached from
 by using the SQL
-[ALTER TABLE DETACH PARTITION](/docs/reference/sql/alter-table-detach-partition)
+[ALTER TABLE DETACH PARTITION](/docs/reference/sql/alter-table-detach-partition/)
 statement.
 
 This feature is part of the manual S3/cold storage solution, allowing restoring

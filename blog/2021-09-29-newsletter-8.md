@@ -75,8 +75,7 @@ our community highlights in recent weeks:
   [over 760 developers in our Slack community]({@slackUrl@})
 - Our community was asked to participate in research about
   [security and privacy in OSS](https://research.teamusec.de/2021-interviews-oss/)
-- Tech Ninja wrote about QuestDB in their
-  [Data and Intelligence Digest](https://medium.com/technexthere/data-and-intelligence-digest-7th-sept-2021-702dbf4c3b4c)
+- Tech Ninja wrote about QuestDB in their Data and Intelligence Digest
 - We published a guest post by Dean Markwick about
   [high-frequency finance using Julia](/blog/2021/09/17/high-frequency-finance-julia-lang/)
 - Code with MD published a

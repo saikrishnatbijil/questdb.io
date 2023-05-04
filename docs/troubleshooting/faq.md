@@ -17,13 +17,13 @@ The log has the following levels to assist filtering:
 
 ## How do I delete a row?
 
-See our guide on [modifying data](/docs/guides/modifying-data).
+See our guide on [modifying data](/docs/guides/modifying-data/).
 
 ## How do I convert a `STRING` column to a `SYMBOL` or vice versa?
 
 The SQL `UPDATE` keyword can be used to change the data type of a column. The
 same approach can also be used to increase the
-[capacity of a `SYMBOL` column](/docs/concept/symbol#symbol-columns) that is
+[capacity of a `SYMBOL` column](/docs/concept/symbol/#symbol-columns) that is
 undersized.
 
 The steps are as follows:
@@ -71,7 +71,7 @@ io.questdb.cairo.CairoException: [24] could not open read-only [file=/root/.ques
 
 The machine may have insufficient limits for the maximum number of open files.
 Try checking the `ulimit` value on your machine. Refer to
-[capacity planning](/docs/operations/capacity-planning#maximum-open-files) page
+[capacity planning](/docs/operations/capacity-planning/#maximum-open-files) page
 for more details.
 
 ## Why do I see `errno=12` mmap messages in the server logs?
@@ -85,7 +85,7 @@ Log messages may appear like the following:
 The machine may have insufficient limits of memory map areas a process may have.
 Try checking and increasing the `vm.max_map_count` value on your machine. Refer
 to
-[capacity planning](/docs/operations/capacity-planning#max-virtual-memory-areas-limit)
+[capacity planning](/docs/operations/capacity-planning/#max-virtual-memory-areas-limit)
 page for more details.
 
 ## How do I avoid duplicate rows with identical fields?
@@ -93,7 +93,7 @@ page for more details.
 We have an open
 [feature request to optionally de-duplicate rows](https://github.com/questdb/roadmap/issues/3)
 inserted with identical fields. Until then, you need to
-[modify the data](/docs/guides/modifying-data) after it's inserted and use a
+[modify the data](/docs/guides/modifying-data/) after it's inserted and use a
 `GROUP BY` query to identify duplicates.
 
 ## Can I query by time?

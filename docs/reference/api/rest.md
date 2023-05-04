@@ -10,7 +10,7 @@ and is compatible with most programming languages. API functions are fully keyed
 on the URL and they use query parameters as their arguments.
 
 The Web Console is the official Web client relying on the REST API. Find out
-more in the section [using the Web Console](/docs/develop/web-console).
+more in the section [using the Web Console](/docs/develop/web-console/).
 
 **Available methods**
 
@@ -23,8 +23,8 @@ more in the section [using the Web Console](/docs/develop/web-console).
 We provide examples in a number of programming languages. See our "develop" docs
 for:
 
-- [Inserting](/docs/develop/insert-data#http-rest-api)
-- [Querying](/docs/develop/query-data#http-rest-api)
+- [Inserting](/docs/develop/insert-data/#http-rest-api)
+- [Querying](/docs/develop/query-data/#http-rest-api)
 
 ## /imp - Import data
 
@@ -45,7 +45,7 @@ If the data follows a uniform pattern, the number of lines which are analyzed
 for schema detection can be reduced to improve performance during uploads using
 the `http.text.analysis.max.lines` key. Usage of this setting is described in
 the
-[HTTP server configuration](/docs/reference/configuration#minimal-http-server)
+[HTTP server configuration](/docs/reference/configuration/#minimal-http-server)
 documentation.
 
 :::
@@ -56,17 +56,17 @@ documentation.
 Content-Type with following optional URL parameters which must be URL encoded:
 
 | Parameter     | Required | Default          | Description                                                                                                                                                                                                                                                      |
-| ------------- | -------- | ---------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `atomicity`   | No       | `skipCol`              | `abort`, `skipRow` or `skipCol`. Behaviour when an error is detected in the data. `abort`: the entire file will be skipped. `skipRow`: the row is skipped. `skipCol`: the column is skipped.                                                                                                     |
+| ------------- | -------- | ---------------- |------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `atomicity`   | No       | `skipCol`              | `abort`, `skipRow` or `skipCol`. Behaviour when an error is detected in the data. `abort`: the entire file will be skipped. `skipRow`: the row is skipped. `skipCol`: the column is skipped.                                                                     |
 | `delimiter`   | No       |                  | URL encoded delimiter character. When set, import will try to detect the delimiter automatically. Since automatic delimiter detection requires at least two lines (rows) to be present in the file, this parameter may be used to allow single line file import. |
 | `durable`     | No       | `false`          | `true` or `false`. When set to `true`, import will be resilient against OS errors or power losses by forcing the data to be fully persisted before sending a response back to the user.                                                                          |
 | `fmt`         | No       | `tabular`        | Can be set to `json` to get the response formatted as such.                                                                                                                                                                                                      |
 | `forceHeader` | No       | `false`          | `true` or `false`. When `false`, QuestDB will try to infer if the first line of the file is the header line. When set to `true`, QuestDB will expect that line to be the header line.                                                                            |
-| `name`        | No       | Name of the file | Name of the table to create, [see below](/docs/reference/api/rest#names).                                                                                                                                                                                        |
+| `name`        | No       | Name of the file | Name of the table to create, [see below](/docs/reference/api/rest/#names).                                                                                                                                                                                       |
 | `overwrite`   | No       | `false`          | `true` or `false`. When set to true, any existing data or structure will be overwritten.                                                                                                                                                                         |
-| `partitionBy` | No       | `NONE`           | See [partitions](/docs/concept/partitions#properties).                                                                                                                                                                                                           |
+| `partitionBy` | No       | `NONE`           | See [partitions](/docs/concept/partitions/#properties).                                                                                                                                                                                                          |
 | `skipLev`     | No       | `false`          | `true` or `false`. Skip “Line Extra Values”, when set to true, the parser will ignore those extra values rather than ignoring entire line. An extra value is something in addition to what is defined by the header.                                             |
-| `timestamp`   | No       |                  | Name of the column that will be used as a [designated timestamp](/docs/concept/designated-timestamp).                                                                                                                                                            |
+| `timestamp`   | No       |                  | Name of the column that will be used as a [designated timestamp](/docs/concept/designated-timestamp/).                                                                                                                                                           |
 |  |
 
 ```shell title="Example usage"
@@ -251,7 +251,7 @@ Additionally, URL parameters are provided:
 - `timestamp=ts` to specify that the `ts` column is the designated timestamp
   column for this table
 - `partitionBy=MONTH` to set a
-  [partitioning strategy](/docs/operations/data-retention) on the table by
+  [partitioning strategy](/docs/operations/data-retention/) on the table by
   `MONTH`
 
 ```shell title="Providing a user-defined schema"
@@ -332,7 +332,7 @@ Here is an example with column-level errors due to unsuccessful casts:
 The following example imports a file which contains out-of-order records. The
 `timestamp` and `partitionBy` parameters **must be provided** for commit lag and
 max uncommitted rows to have any effect. For more information on these
-parameters, see [the commit lag guide](/docs/guides/out-of-order-commit-lag).
+parameters, see [the commit lag guide](/docs/guides/out-of-order-commit-lag/).
 
 ```shell
 curl -F data=@weather.csv \
@@ -425,7 +425,7 @@ SELECT query returns response in the following format:
 ```
 
 You can find the exact list of types in the
-[dedicated page](/docs/reference/sql/datatypes).
+[dedicated page](/docs/reference/sql/datatypes/).
 
 #### UPDATE query example:
 

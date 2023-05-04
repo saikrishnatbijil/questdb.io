@@ -84,7 +84,7 @@ import TabItem from "@theme/TabItem"
 ## Writing data
 
 This section provides example codes to write data to WAL and non-WAL tables. See
-[Write Ahead Log](docs/concept/write-ahead-log) for details about the
+[Write Ahead Log](/docs/concept/write-ahead-log) for details about the
 differences between WAL and non-WAL tables.
 
 The following writers are available for data ingestion:
@@ -492,5 +492,5 @@ caching of records pointless.
 
 ## InfluxDB sender library
 
-We have a [Java ILP client library](/docs/reference/clients/java_ilp/) to allow
+We have [Java Client Library](/docs/reference/clients/java_ilp/) to allow
 fast data ingestion.

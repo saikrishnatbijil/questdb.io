@@ -82,7 +82,7 @@ FROM ratings
 :::info
 
 Supported aggregation functions are listed on the
-[aggregation reference](/docs/reference/function/aggregation).
+[aggregation reference](/docs/reference/function/aggregation/).
 
 :::
 
@@ -136,7 +136,7 @@ Conditional results based on expressions.
 ![Flow chart showing the syntax of CASE](/img/docs/diagrams/case.svg)
 
 For more information, please refer to the
-[CASE reference](/docs/reference/sql/case)
+[CASE reference](/docs/reference/sql/case/)
 
 ### CAST
 
@@ -147,7 +147,7 @@ Convert values and expression between types.
 ![Flow chart showing the syntax of the CAST keyword](/img/docs/diagrams/cast.svg)
 
 For more information, please refer to the
-[CAST reference](/docs/reference/sql/cast)
+[CAST reference](/docs/reference/sql/cast/)
 
 ### DISTINCT
 
@@ -158,19 +158,19 @@ Returns distinct values of the specified column(s).
 ![Flow chart showing the syntax of the DISTINCT keyword](/img/docs/diagrams/distinct.svg)
 
 For more information, please refer to the
-[DISTINCT reference](/docs/reference/sql/distinct).
+[DISTINCT reference](/docs/reference/sql/distinct/).
 
 ### FILL
 
 Defines filling strategy for missing data in aggregation queries. This function
-complements [SAMPLE BY](/docs/reference/sql/sample-by) queries.
+complements [SAMPLE BY](/docs/reference/sql/sample-by/) queries.
 
 #### Syntax
 
 ![Flow chart showing the syntax of the FILL keyword](/img/docs/diagrams/fill.svg)
 
 For more information, please refer to the
-[FILL reference](/docs/reference/sql/fill).
+[FILL reference](/docs/reference/sql/fill/).
 
 ### JOIN
 
@@ -181,7 +181,7 @@ Join tables based on a key or timestamp.
 ![Flow chart showing the syntax of the high-level syntax of the JOIN keyword](/img/docs/diagrams/joinOverview.svg)
 
 For more information, please refer to the
-[JOIN reference](/docs/reference/sql/join)
+[JOIN reference](/docs/reference/sql/join/)
 
 ### LIMIT
 
@@ -192,7 +192,7 @@ Specify the number and position of records returned by a query.
 ![Flow chart showing the syntax of the LIMIT keyword](/img/docs/diagrams/limit.svg)
 
 For more information, please refer to the
-[LIMIT reference](/docs/reference/sql/limit).
+[LIMIT reference](/docs/reference/sql/limit/).
 
 ### ORDER BY
 
@@ -215,7 +215,7 @@ duplicates.
 ![Flow chart showing the syntax of the UNION, EXCEPT & INTERSECT keyword](/img/docs/diagrams/union-except-intersect.svg)
 
 For more information, please refer to the
-[UNION, EXCEPT & INTERSECT reference](/docs/reference/sql/union-except-intersect)
+[UNION, EXCEPT & INTERSECT reference](/docs/reference/sql/union-except-intersect/)
 
 ### WHERE
 
@@ -227,10 +227,10 @@ Filters query results
 
 QuestDB supports complex WHERE clauses along with type-specific searches. For
 more information, please refer to the
-[WHERE reference](/docs/reference/sql/where). There are different syntaxes for
-[text](/docs/reference/sql/where#symbol-and-string),
-[numeric](/docs/reference/sql/where#numeric), or
-[timestamp](/docs/reference/sql/where#timestamp-and-date) filters.
+[WHERE reference](/docs/reference/sql/where/). There are different syntaxes for
+[text](/docs/reference/sql/where/#symbol-and-string),
+[numeric](/docs/reference/sql/where/#numeric), or
+[timestamp](/docs/reference/sql/where/#timestamp-and-date) filters.
 
 ## Additional time series clauses
 
@@ -240,31 +240,31 @@ QuestDB augments SQL with the following clauses.
 
 Retrieves the latest entry by timestamp for a given key or combination of keys
 This function requires a
-[designated timestamp](/docs/concept/designated-timestamp).
+[designated timestamp](/docs/concept/designated-timestamp/).
 
 #### Syntax
 
 ![Flow chart showing the syntax of the LATEST ON keyword](/img/docs/diagrams/latestOn.svg)
 
 For more information, please refer to the
-[LATEST ON reference](/docs/reference/sql/latest-on).
+[LATEST ON reference](/docs/reference/sql/latest-on/).
 
 ### SAMPLE BY
 
 Aggregates time series data into homogeneous time chunks. For example daily
 average, monthly maximum etc. This function requires a
-[designated timestamp](/docs/concept/designated-timestamp).
+[designated timestamp](/docs/concept/designated-timestamp/).
 
 #### Syntax
 
 ![Flow chart showing the syntax of the SAMPLE BY keyword](/img/docs/diagrams/sampleBy.svg)
 
 For more information, please refer to the
-[SAMPLE BY reference](/docs/reference/sql/sample-by).
+[SAMPLE BY reference](/docs/reference/sql/sample-by/).
 
 ### TIMESTAMP
 
-Dynamically creates a [designated timestamp](/docs/concept/designated-timestamp)
+Dynamically creates a [designated timestamp](/docs/concept/designated-timestamp/)
 on the output of a query. This allows to perform timestamp operations like
 [SAMPLE BY](#sample-by) or [LATEST ON](#latest-on) on tables which originally do
 not have a designated timestamp.
@@ -281,4 +281,4 @@ and using timestamp functions on unordered data may produce unexpected results.
 ![Flow chart showing the syntax of the timestamp function](/img/docs/diagrams/dynamicTimestamp.svg)
 
 For more information, refer to the
-[TIMESTAMP reference](/docs/reference/function/timestamp)
+[TIMESTAMP reference](/docs/reference/function/timestamp/)

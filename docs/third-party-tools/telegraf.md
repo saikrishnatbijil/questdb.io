@@ -18,9 +18,9 @@ to a locally-running QuestDB instance for querying and visualization.
 ## Prerequisites
 
 - **QuestDB** must be running and accessible. You can do so from
-  [Docker](/docs/get-started/docker), the
-  [binaries](/docs/get-started/binaries), or
-  [Homebrew](/docs/get-started/homebrew) for macOS users.
+  [Docker](/docs/get-started/docker/), the
+  [binaries](/docs/get-started/binaries/), or
+  [Homebrew](/docs/get-started/homebrew/) for macOS users.
 
 - **Telegraf** can be installed using
   [homebrew](https://formulae.brew.sh/formula/telegraf),

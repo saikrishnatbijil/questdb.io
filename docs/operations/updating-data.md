@@ -12,8 +12,8 @@ under the hood when an update is executed.
 
 To be able to understand how table rows are updated in QuestDB, first we
 need to have an idea of how the data is stored. The documentation contains
-detailed descriptions of the [storage model](/docs/concept/storage-model) and
-the [directory layout](/docs/concept/root-directory-structure#db-directory)
+detailed descriptions of the [storage model](/docs/concept/storage-model/) and
+the [directory layout](/docs/concept/root-directory-structure/#db-directory)
 but if we quickly want to summarize it:
 - Each table has its own folder in the db root, the directory is named after the table
 - Partitions are manifested as subdirectories under the folder which represents the table
@@ -52,7 +52,7 @@ a new version where data is actually changing. For example, if only a single col
 is updated in a single partition of a table, then only a single column file will be
 rewritten.
 
-Please, also check the following guide on [modifying data](/docs/guides/modifying-data)
+Please, also check the following guide on [modifying data](/docs/guides/modifying-data/)
 in QuestDB for additional information.
 
 ## Vacuum updated columns
@@ -61,7 +61,7 @@ When a column is updated, the new version of the column is written to disk and a
 task starts to vacuum redundant column files. The term Vacuum originates from Postgres, it means
 the collection of garbage and release of disk space. The Vacuum task checks periodically if
 older column versions are still used by readers and deletes unused files.
-Vacuum runs automatically and there is also a [`VACUUM TABLE`](/docs/reference/sql/vacuum-table)
+Vacuum runs automatically and there is also a [`VACUUM TABLE`](/docs/reference/sql/vacuum-table/)
 SQL command to trigger it. 
 
 ## Limitations
