@@ -26,17 +26,17 @@ High-level overview:
 - `whereClause` - see [WHERE](/docs/reference/sql/where/) for more information.
 - The specific syntax for `joinClause` depends on the type of `JOIN`:
 
-  - `INNER` and `LEFT` `JOIN` allow arbitrary `JOIN` predicates, `operator`, in
-    the mandatory `ON` clause:
+  - `INNER` and `LEFT` `JOIN` has a mandatory `ON` clause allowing arbitrary
+    `JOIN` predicates, `operator`:
 
   ![Flow chart showing the syntax of the INNER, LEFT JOIN keyword](/img/docs/diagrams/InnerLeftJoin.svg)
 
-  - `ASOF`, `LT`, and `SPLICE` `JOIN` only allow `=` as the `JOIN` predicate in
-    the optional `ON` clause:
+  - `ASOF`, `LT`, and `SPLICE` `JOIN` has optional `ON` clause allowing only the
+    `=` predicate:
 
   ![Flow chart showing the syntax of the ASOF, LT, and SPLICE JOIN keyword](/img/docs/diagrams/AsofLtSpliceJoin.svg)
 
-  - `CROSS JOIN` does not allow the `ON` clause:
+  - `CROSS JOIN` does not allow any `ON` clause:
 
   ![Flow chart showing the syntax of the CROSS JOIN keyword](/img/docs/diagrams/crossJoin.svg)
 
@@ -47,13 +47,6 @@ unique column namespace of the resulting set.
 Though it is usually preferable to explicitly specify join conditions, QuestDB
 will analyze `WHERE` clauses for implicit join conditions and will derive
 transient join conditions where necessary.
-
-:::tip
-
-When tables are joined on a column that has the same name in both tables you can
-use the `ON (column)` shorthand.
-
-:::
 
 ## Execution order
 
@@ -94,6 +87,64 @@ SELECT *
 FROM a
 JOIN b ON (id);
 ```
+
+## Using the `ON` clause for the `JOIN` predicate
+
+When tables are joined on a column that has the same name in both tables you can
+use the `ON (column)` shorthand.
+
+When the `ON` clause is permitted (all except `CROSS JOIN`), it is possible to
+join multiple columns.
+
+For example, the following two tables contain identical column names `last_name`
+and `first_name`:
+
+`order_records`:
+
+| last_name | first_name | total   | order_date                  |
+| --------- | ---------- | ------- | --------------------------- |
+| Tom       | Smith      | 34.5000 | 2023-01-05T11:31:35.808000Z |
+| Jane      | Austen     | 4.5000  | 2023-01-05T15:34:25.378000Z |
+| Eliot     | Flint      | 89.9000 | 2023-01-05T17:00:37.872000Z |
+
+`customer_records`:
+
+| last_name | first_name | cust_id |
+| --------- | ---------- | ------- |
+| Jane      | Austen     | 101     |
+| Tom       | Smith      | 201     |
+| Eliot     | Flint      | 301     |
+
+It is possible to add multiple JOIN ON condition:
+
+```questdb-sql
+
+SELECT
+  *
+FROM
+  'order_records'
+  JOIN customer_records ON (
+    order_records.last_name = customer_records.last_name
+    AND order_records.first_name = customer_records.first_name
+  );
+```
+
+The query can be simplified further since the column names are identical:
+
+```questdb-sql
+
+SELECT * FROM 'order_records'
+JOIN customer_records
+ON (last_name, first_name);
+```
+
+The result of both queries is the following:
+
+| last_name | first_name | total   | order_date                  | last_name | first_name | cust_id |
+| --------- | ---------- | ------- | --------------------------- | --------- | ---------- | ------- |
+| Tom       | Smith      | 34.5000 | 2023-01-05T11:31:35.808000Z | Jane      | Austen     | 101     |
+| Jane      | Austen     | 4.5000  | 2023-01-05T15:34:25.378000Z | Tom       | Smith      | 201     |
+| Eliot     | Flint      | 89.9000 | 2023-01-05T17:00:37.872000Z | Eliot     | Flint      | 301     |
 
 ## (INNER) JOIN
 
@@ -224,6 +275,7 @@ This is the JOIN result:
 
 <div class="table-alternate">
 
+
 | timebid                     | timeask                     | bid | ask  |
 | --------------------------- | --------------------------- | --- | ---- |
 | 2019-10-17T00:00:00.000000Z | NULL                        | 101 | NULL |
@@ -236,8 +288,8 @@ This is the JOIN result:
 
 
 The result has all rows from the `bids` table joined with rows from the `asks`
-table. For each timestamp from the `bids` table, the query looks for a timestamp that
-is equal or prior to it from the `asks` table. If no matching timestamp is
+table. For each timestamp from the `bids` table, the query looks for a timestamp
+that is equal or prior to it from the `asks` table. If no matching timestamp is
 found, NULL is inserted.
 
 ### Using `ON` for matching column value
