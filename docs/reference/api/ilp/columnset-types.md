@@ -4,6 +4,14 @@ sidebar_label: Columnset Value Types
 description: Describes all support value types in ILP columnset.
 ---
 
+This page lists the supported ILP columnset value types and details about type
+casting.
+
+If a target column does not exist, QuestDB will create a column using the same
+type that the ILP client sends.
+
+Type casts that cause data loss will cause entire line to be rejected.
+
 ## Integer
 
 64-bit signed integer values, which correspond to QuestDB type `long`. The
@@ -22,12 +30,6 @@ CREATE TABLE temps (device SYMBOL, location SYMBOL, value SHORT);
 ```
 
 The line above will be accepted and `96i` will be cast to `short`.
-
-:::info
-
-Type casts that cause data loss will cause entire line to be rejected.
-
-:::
 
 ### Cast table
 
@@ -127,9 +129,9 @@ String values must be UTF-8 encoded before sending.
 The following `cast` operations are supported when existing table column type is
 not `string`:
 
-|          | `char` | `string` | `geohash` | `symbol` |
-| :------- | :----- | :------- | :-------- | :------- |
-| `string` | cast   | `native` | cast      | no       |
+|          | `char` | `string` | `geohash` | `symbol` | `uuid` |
+| :------- | :----- | :------- | :-------- | :------- | ------ |
+| `string` | cast   | `native` | cast      | cast     | cast   |
 
 ### Cast to CHAR
 
@@ -176,7 +178,7 @@ Send message including `16c` `geohash` value:
 tracking,obj=VLCC\ STEPHANIE gh="9v1s8hm7wpkssv1h" 1000000000\n
 ```
 
-The result. `geohash` value has been truncated to size of the column.
+The result: the `geohash` value has been truncated to size of the column.
 
 | ts                          | gh   |
 | :-------------------------- | :--- |
@@ -192,9 +194,79 @@ tracking,obj=VLCC\ STEPHANIE gh="" 2000000000\n
 | :-------------------------- | :----- |
 | 1970-01-01T00:00:01.000000Z | `null` |
 
-:::info Downcast of `geohash` value, which is inserting of lower resolution
-values into higher resolution column, will cause the entire line to be rejected.
+:::note
+
+Downcast of `geohash` value, which is inserting of lower resolution values into
+higher resolution column, will cause the entire line to be rejected.
+
 :::
+
+### Cast to SYMBOL
+
+The symbol values correspond to the QuestDB type [`symbol`](/docs/concept/symbol/).
+String values can be cast to the `symbol` type when the destination column
+exists and its type is `symbol`. This gives clients an option to populate
+`symbol` columns without knowing the type of the columns.
+
+```questdb-sql
+CREATE TABLE trade (
+    ticker SYMBOL,
+    timestamp TIMESTAMP
+) TIMESTAMP(ts) PARTITION BY HOUR;
+```
+
+Send message including `BTCUSD` as `string`:
+
+```shell
+trade ticker="BTCUSD" 1638202821000000000\n
+trade ticker="BTCUSD" 1638402821000000000\n
+```
+
+The `ticker` column is populated with `symbol` values:
+
+| timestamp                   | ticker |
+| :-------------------------- | :----- |
+| 2021-11-29T16:20:21.000000Z | BTCUSD |
+| 2021-12-01T23:53:41.000000Z | BTCUSD |
+
+We recommend sending `symbol` values directly as the `symbol` type because it
+will automatically create a `symbol` column if it doesn't exist.
+
+When sending `symbol` values as the `string` type and the column does not exist,
+then it will be created as the `string` type.
+
+### Cast to UUID
+
+String values can be cast to the `uuid` type when all the following are true:
+
+- The destination column exists.
+- The destination column type is `uuid`.
+- The `string` values are valid UUID.
+
+```questdb-sql
+CREATE TABLE trade (
+    ticker SYMBOL,
+    uuid UUID,
+    timestamp TIMESTAMP
+) TIMESTAMP(timestamp) PARTITION BY HOUR;
+```
+
+Send messages including the UUID value `a0eebc99-9c0b-4ef8-bb6d-6bb9bd380a11` as
+`string`:
+
+```shell
+trade,ticker="BTCUSD" uuid="a0eebc99-9c0b-4ef8-bb6d-6bb9bd380a11" 1638202821000000000\n
+trade,ticker="BTCUSD" uuid="a0eebc99-9c0b-4ef8-bb6d-6bb9bd380a11" 1638402821000000000\n
+```
+
+The `uuid` column is populated with `uuid` values:
+
+| timestamp                   | ticker | uuid                                 |
+| :-------------------------- | :----- | :----------------------------------- |
+| 2021-11-29T16:20:21.000000Z | BTCUSD | a0eebc99-9c0b-4ef8-bb6d-6bb9bd380a11 |
+| 2021-12-01T23:53:41.000000Z | BTCUSD | a0eebc99-9c0b-4ef8-bb6d-6bb9bd380a11 |
+
+When the `string` value is not a valid UUID, the entire line will be rejected.
 
 ## Timestamp
 
