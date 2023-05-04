@@ -155,7 +155,11 @@
 
 [[redirects]]
   from = "/tutorial/2021/11/22/high-frequency-finance-introduction-julia-lang"
-  to = "/blog/2021/11/22/high-frequency-finance-introduction-julia-lang/"
+  to = "/blog/analyzing-financial-time-series-data-julia-language-questdb/"
+
+[[redirects]]
+  from = "/blog/2021/11/22/high-frequency-finance-introduction-julia-lang/"
+  to = "/blog/analyzing-financial-time-series-data-julia-language-questdb/"
 
 [[redirects]]
   from = "/tutorial/2022/02/10/questdb-google-data-studio/"
