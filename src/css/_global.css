@@ -294,24 +294,21 @@ html[data-theme="light"] .admonition.admonition-note {
   background: #e2e5fc;
 }
 
-.admonition.alert--info {
+.admonition.alert--info,
+.admonition.alert--success {
   background: #383a49;
 }
-html[data-theme="light"] .admonition.alert--info {
+html[data-theme="light"] .admonition.alert--info,
+html[data-theme="light"] .admonition.alert--success {
   background: #e2e5fc;
 }
 
-.admonition.alert--success {
-  background: #0b430c;
-}
-html[data-theme="light"] .admonition.alert--success {
-  background: #d2f8d3;
-}
-
-.admonition.alert--danger {
+.admonition.alert--danger,
+.admonition.alert--warning {
   background: #302323;
 }
-html[data-theme="light"] .admonition.alert--danger {
+html[data-theme="light"] .admonition.alert--danger,
+html[data-theme="light"] .admonition.alert--warning {
   background: #faecaf;
 }
 
