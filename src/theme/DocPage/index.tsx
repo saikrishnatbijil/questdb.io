@@ -5,6 +5,7 @@ import React, { TransitionEvent, useCallback, useState } from "react"
 import { renderRoutes } from "react-router-config"
 import { MDXProvider } from "@mdx-js/react"
 import customFields from "../../config/customFields"
+import { StructuredData } from "../../components/StructuredData"
 
 import type { Props } from "@theme/DocPage"
 import DocSidebar from "@theme/DocSidebar"
@@ -13,6 +14,17 @@ import NotFound from "@theme/NotFound"
 import Layout from "@theme/Layout"
 
 import styles from "./styles.module.css"
+import { ensureTrailingSlash } from "../../utils/ensureTrailingSlash"
+
+type Breadcrumb = {
+  "@type": "ListItem"
+  position: number
+  name: string
+  item: string
+}
+
+const capitalizeFirstChar = (str: string) =>
+  str.charAt(0).toUpperCase() + str.slice(1)
 
 type Routes = Props["route"]["routes"]
 
@@ -73,13 +85,55 @@ const DocPage = ({
     | undefined
   const sidebar = sidebarName != null ? docsSidebars[sidebarName] : []
 
+  const documentationBreadcrumbs = currentDocRoute.path
+    .split("/")
+    .slice(1)
+    .reduce<{ acc: Breadcrumb[]; paths: string }>(
+      ({ acc, paths }, path, index) => {
+        const pathTrail =
+          typeof paths === "undefined" ? path : `${paths}/${path}`
+
+        const newItem: Breadcrumb = {
+          "@type": "ListItem",
+          position: index + 2,
+          name: capitalizeFirstChar(path.replace(/-/g, " ")),
+          item: `${siteConfig.url}${ensureTrailingSlash(pathTrail)}`,
+        }
+
+        return { acc: [...acc, newItem], paths: pathTrail }
+      },
+      { acc: [], paths: "" },
+    ).acc
+
+  const breadcrumbs = [
+    {
+      "@type": "ListItem",
+      position: 1,
+      name: "Home",
+      item: siteConfig.url,
+    },
+    ...documentationBreadcrumbs,
+  ]
+
   return (
-    <Layout
-      description={customFields.description}
-      key={isClient.toString()}
-      title="Introduction"
-    >
-      <div className={styles.doc}>
+    <>
+      <StructuredData>
+        {{
+          "@graph": [
+            {
+              "@type": "BreadcrumbList",
+              name: "Documentation",
+              itemListElement: breadcrumbs,
+            },
+          ],
+        }}
+      </StructuredData>
+      <Layout
+        description={customFields.description}
+        key={isClient.toString()}
+        title="Introduction"
+        wrapperClassName={styles.doc}
+      >
         {sidebarName != null && (
           <div
             className={clsx(styles.doc__sidebar, {
@@ -133,8 +187,8 @@ const DocPage = ({
             </MDXProvider>
           </div>
         </main>
-      </div>
-    </Layout>
+      </Layout>
+    </>
   )
 }
 
