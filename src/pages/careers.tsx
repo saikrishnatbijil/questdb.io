@@ -28,8 +28,8 @@ const currentOpenings: Opening[] = [
     location: "Remote",
   },
   {
-    href: "/careers/senior-backend-engineer-python/",
-    title: "Backend Engineer (Python)",
+    href: "/careers/senior-backend-engineer/",
+    title: "Senior Backend Engineer",
     location: "Remote",
   },
 
