@@ -224,5 +224,19 @@ export const logos: Record<string, CustomerLogo> = {
     alt: "OKX logo",
     width: 80,
     height: 24,
-  }
+  },
+  apacheSpark: {
+    src: "/img/logos/apache-spark.svg",
+    srcGrayscale: "/img/logos/apache-spark_grayscale.svg",
+    alt: "Apache Spark logo",
+    width: 80,
+    height: 24,
+  },
+  apacheSuperset: {
+    src: "/img/logos/apache-superset.svg",
+    srcGrayscale: "/img/logos/apache-superset_grayscale.svg",
+    alt: "Apache Superset logo",
+    width: 80,
+    height: 24,
+  },
 }

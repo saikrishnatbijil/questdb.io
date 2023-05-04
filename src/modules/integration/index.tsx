@@ -7,12 +7,15 @@ import Link from "@docusaurus/Link"
 import styles from "./styles.module.css"
 import SvgImage from "../../components/SvgImage"
 
+// SVGs are imported here to keep them in the bundle to avoid additional HTTP requests
 import PostgresLogo from "../../../static/img/logos/pg.svg"
 import GrafanaLogo from "../../../static/img/logos/grafana.svg"
 import KafkaLogo from "../../../static/img/logos/kafka.svg"
 import PythonLogo from "../../../static/img/logos/python_grayscale.svg"
 import PandasLogo from "../../../static/img/logos/pandas.svg"
 import TelegrafLogo from "../../../static/img/logos/influxdata.svg"
+import ApacheSparkLogo from "../../../static/img/logos/apache-spark_grayscale.svg"
+import ApacheSupersetLogo from "../../../static/img/logos/apache-superset_grayscale.svg"
 import MindsDBLogo from "../../../static/img/logos/mindsdb.svg"
 import CubeLogo from "../../../static/img/logos/cube.svg"
 import RedpandaLogo from "../../../static/img/logos/redpanda_grayscale.svg"
@@ -52,6 +55,15 @@ const integrations: Array<{
     logo: { ...logos.telegraf, svg: TelegrafLogo },
     label: "Telegraf",
     src: "/docs/third-party-tools/telegraf/",
+  },
+  {
+    logo: { ...logos.apacheSpark, width: 40, svg: ApacheSparkLogo },
+    label: "Spark",
+    src: "/blog/integrate-apache-spark-questdb-time-series-analytics/",
+  },
+  {
+    logo: { ...logos.apacheSuperset, width: 55, svg: ApacheSupersetLogo },
+    label: "Superset",
   },
   {
     logo: { ...logos.mindsDB, svg: MindsDBLogo },
