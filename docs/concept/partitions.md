@@ -22,7 +22,7 @@ import Screenshot from "@theme/Screenshot"
 
 - Partitioning is only possible on tables with a
   [designated timestamp](/docs/concept/designated-timestamp/).
-- Available partition intervals are `NONE`, `YEAR`, `MONTH`, `DAY`, and `HOUR`.
+- Available partition intervals are `NONE`, `YEAR`, `MONTH`, `WEEK`, `DAY`, and `HOUR`.
 - Default behavior is `PARTITION BY NONE` when using
   [CREATE TABLE](/docs/reference/sql/create-table/) and `PARTITION BY DAY` via
   [ILP ingestion](/docs/reference/api/ilp/overview/).
@@ -34,6 +34,7 @@ import Screenshot from "@theme/Screenshot"
 | --------------- | ---------------- |
 | `HOUR`          | `YYYY-MM-DD-HH`  |
 | `DAY`           | `YYYY-MM-DD`     |
+| `WEEK`          | `YYYY-Www`        |
 | `MONTH`         | `YYYY-MM`        |
 | `YEAR`          | `YYYY`           |
 

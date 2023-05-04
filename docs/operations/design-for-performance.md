@@ -48,7 +48,7 @@ information on this topic, see the following resources:
 #### Records per partition
 
 The number of records per partition should factor into the partitioning strategy
-(`YEAR`, `MONTH`, `DAY`, `HOUR`). Having too many records per partition or
+(`YEAR`, `MONTH`, `WEEK`, `DAY`, `HOUR`). Having too many records per partition or
 having too few records per partition and having query operations across too many
 partitions has the result of slower query times. A general guideline is that
 roughly between 1 million and 100 million records is optimal per partition.

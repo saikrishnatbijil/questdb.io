@@ -202,6 +202,7 @@ the following:
 - `NONE`: the default when partition is not defined.
 - `YEAR`
 - `MONTH`
+- `WEEK`
 - `DAY`
 - `HOUR`
 
