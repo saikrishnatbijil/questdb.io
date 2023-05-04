@@ -341,6 +341,10 @@
   from ="/blog/data-integration-strategies-for-tsdb/"
   to = "/blog/data-integration-time-series-etl-elt-cdc/"
 
+[[redirects]]
+  from ="/blog/2022/10/03/athletex-interview/"
+  to = "/blog"
+
 [[headers]]
   for = "/*"
   [headers.values]
