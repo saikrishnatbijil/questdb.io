@@ -32,7 +32,7 @@ const Counterflow = () => {
         <div className={juCss.jumbotron__summary}>
           <div className={juCss.jumbotron__header}>
             <Button
-              href="https://www.liveaction.com/encrypted-traffic-analysis?utm_source=questdb"
+              href="https://www.liveaction.com/"
               variant="plain"
             >
               <img
