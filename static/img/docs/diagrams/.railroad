@@ -198,7 +198,7 @@ dropIndex
  ::= 'ALTER' 'TABLE' tableName 'ALTER' 'COLUMN' columnName ( 'NOCACHE' | 'CACHE' )
 
 dropColumn
- ::= 'DROP' 'COLUMN' columnName (',' columnName)*
+ ::= 'DROP' 'COLUMN' columnName (',' columnName)* ':'
 
 addColumn
  ::= 'ADD' 'COLUMN' columnName typeDef (',' columnName typeDef)*
@@ -243,7 +243,7 @@ Show
  ::= 'SHOW' ('TABLES'|('COLUMNS'|'PARTITIONS') 'FROM' tableName ) ';'
 
 TruncateTable
-::= 'TRUNCATE TABLE' tableName
+::= 'TRUNCATE TABLE' tableName ';'
 
 Explain
 ::= 'EXPLAIN' statement 
