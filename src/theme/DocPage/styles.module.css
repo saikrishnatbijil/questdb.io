@@ -24,6 +24,7 @@ html[data-theme='light'] .doc {
 .doc__main {
   margin-left: calc(var(--doc-sidebar-width) * -1);
   flex: 0 1 var(--ifm-container-width);
+  width: 90vw;
 }
 
 @media (min-width: 997px) {
