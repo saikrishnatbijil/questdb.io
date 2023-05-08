@@ -21,7 +21,7 @@ const currentOpenings: Opening[] = [
     title: "Technical Content Lead",
     location: "Remote",
   },
-  
+
   {
     href: "/careers/ui-frontend-developer/",
     title: "UI / Front End Developer",

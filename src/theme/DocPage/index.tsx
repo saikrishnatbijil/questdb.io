@@ -87,7 +87,7 @@ const DocPage = ({
 
   const documentationBreadcrumbs = currentDocRoute.path
     .split("/")
-    .slice(1)
+    .filter(Boolean) // Remove empty strings, which are possible after `split`
     .reduce<{ acc: Breadcrumb[]; paths: string }>(
       ({ acc, paths }, path, index) => {
         const pathTrail =

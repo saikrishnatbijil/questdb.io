@@ -31,10 +31,7 @@ const Counterflow = () => {
       >
         <div className={juCss.jumbotron__summary}>
           <div className={juCss.jumbotron__header}>
-            <Button
-              href="https://www.liveaction.com/"
-              variant="plain"
-            >
+            <Button href="https://www.liveaction.com/" variant="plain">
               <img
                 alt="LiveAction logo"
                 className={juCss.jumbotron__logo}
