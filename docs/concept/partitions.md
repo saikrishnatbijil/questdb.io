@@ -1,5 +1,5 @@
 ---
-title: Partitions
+title: Time Partitions
 sidebar_label: Partitions
 description:
   Overview of QuestDB's partition system for time-series. This is an important
@@ -26,7 +26,7 @@ import Screenshot from "@theme/Screenshot"
 - Default behavior is `PARTITION BY NONE` when using
   [CREATE TABLE](/docs/reference/sql/create-table/) and `PARTITION BY DAY` via
   [ILP ingestion](/docs/reference/api/ilp/overview/).
-- Partitions are defined at table creation. For more information, refer to
+- Partitions are defined at table creation. For more information, refer to the
   [CREATE TABLE section](/docs/reference/sql/create-table/).
 - The naming convention for partition directories is as follows:
 
@@ -38,17 +38,19 @@ import Screenshot from "@theme/Screenshot"
 | `MONTH`         | `YYYY-MM`        |
 | `YEAR`          | `YYYY`           |
 
-## Advantages
+## Advantages of adding time partitions
 
-- Reduced disk IO for timestamp interval searches. This is because our SQL
+We recommend adding time partition to table to benefit from the following advantages:
+
+- Reducing disk IO for timestamp interval searches. This is because our SQL
   optimizer leverages partitioning.
-- Significantly improved calculations and seek times. This is achieved by
+- Significantly improving calculations and seek times. This is achieved by
   leveraging the chronology and relative immutability of data for previous
   partitions.
-- Physical separation of data files. This makes it easily to implement file
+- Separating data files physically. This makes it easily to implement file
   retention policies or extract certain intervals.
 
-## Checking partition information
+## Checking time partition information
 
 The following SQL keyword and function are implemented to present the partition
 information of a table:
