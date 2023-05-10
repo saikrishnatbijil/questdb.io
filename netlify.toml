@@ -347,7 +347,11 @@
 
 [[redirects]]
   from ="/blog/2022/10/03/athletex-interview/"
-  to = "/blog"
+  to = "/blog/"
+
+[[redirects]]
+  from ="/blog/2020/07/24/use-questdb-for-swag/"
+  to = "/community/"
 
 [[headers]]
   for = "/*"
