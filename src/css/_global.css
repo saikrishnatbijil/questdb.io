@@ -203,7 +203,7 @@ html[data-theme="light"] {
   --theme-button-secondary-hover-background-color: var(--palette-dark-30);
 
   --theme-button-tertiary-background-color: var(--palette-dark-30);
-  --theme-button-tertiary-text-color: var(--palette-white);
+  --theme-button-tertiary-text-color: var(--palette-dark-80);
   --theme-button-tertiary-hover-background-color: var(--palette-dark-40);
 
   --theme-tutorial-post-card-border: 1px solid transparent;
