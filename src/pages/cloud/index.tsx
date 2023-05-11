@@ -43,10 +43,16 @@ const CloudPage = () => {
               ],
             },
             {
-              "@type": "Product",
+              "@type": "SoftwareApplication",
+              applicationCategory: "DeveloperApplication",
               name: meta.name,
               image: meta.image,
               description: meta.description,
+              offers: {
+                "@type": "Offer",
+                price: "0.345", // lowest available hourly price
+                priceCurrency: "USD",
+              },
               brand: {
                 "@type": "Brand",
                 name: meta.name,
