@@ -6,6 +6,8 @@ import SubscribeIcon from "./subscribeIcon.svg"
 import Subscribe from "../Subscribe"
 import React from "react"
 import SvgImage from "../SvgImage"
+import Button from "@theme/Button"
+import styles from "./styles.module.css"
 
 export const ActionFooter = () => (
   <div className={footerCss.cards}>
@@ -45,8 +47,17 @@ export const ActionFooter = () => (
     >
       <Subscribe
         placeholder="Email address"
-        submitButtonVariant="tertiary"
+        submitButtonVariant="secondary"
         provider="newsletter"
+        renderSubmitButton={({ loading, defaultLoader }) => (
+          <Button
+            variant="tertiary"
+            type="submit"
+            className={styles.subscribeSubmit}
+          >
+            {loading ? defaultLoader : "Subscribe"}
+          </Button>
+        )}
       />
     </ActionCard>
   </div>
