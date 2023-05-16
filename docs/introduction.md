@@ -64,8 +64,8 @@ pages for the following topics:
 
 - [Design for performance](/docs/operations/design-for-performance/) for
   configuring table settings to improve performance
-- [Capacity planning](/docs/operations/capacity-planning/) for configuring server
-  settings and system resources
+- [Capacity planning](/docs/operations/capacity-planning/) for configuring
+  server settings and system resources
 - [Data retention](/docs/operations/data-retention/) strategy to delete old data
   and save disk space
 - [Health monitoring](/docs/operations/health-monitoring/) endpoint for
@@ -78,11 +78,12 @@ pages for the following topics:
 This section describes how to integrate QuestDB with third-party tools and
 utilities for collecting metrics and visualizing data:
 
-- [Flink](/docs/third-party-tools/flink/) guide for ingesting data from
-  Flink into QuestDB
-- [Grafana](/docs/third-party-tools/grafana/) instructions for connecting QuestDB
-  as a datasource for building visualizations and dashboards
-- [MindsDB](/docs/third-party-tools/mindsdb/) tutorial for connecting QuestDB to MindsDB for running models with Machine Learning capabilities.
+- [Flink](/docs/third-party-tools/flink/) guide for ingesting data from Flink
+  into QuestDB
+- [Grafana](/docs/third-party-tools/grafana/) instructions for connecting
+  QuestDB as a datasource for building visualizations and dashboards
+- [MindsDB](/docs/third-party-tools/mindsdb/) tutorial for connecting QuestDB to
+  MindsDB for running models with Machine Learning capabilities.
 - [Kafka](/docs/third-party-tools/kafka/overview/) guide for ingesting data from
   Kafka topics into QuestDB
 - [Pandas](/docs/third-party-tools/pandas/) for ingesting Pandas dataframes via
@@ -90,6 +91,8 @@ utilities for collecting metrics and visualizing data:
 - [Prometheus](/docs/third-party-tools/prometheus/) monitoring and alerting
 - [Redpanda](/docs/third-party-tools/redpanda/) instructions for a Kafka
   compatible data streaming tool
+- [Superset](/docs/third-party-tools/superset/) instructions for using Apache
+  Superset data visualization
 - [Telegraf](/docs/third-party-tools/telegraf/) guide for collecting system
   metrics, specifying QuestDB as an output and visualizing the results
 
@@ -136,8 +139,8 @@ when starting services:
 
 ### Configuration
 
-The [configuration](/docs/reference/configuration/) page shows all the properties
-that can be used to customize QuestDB.
+The [configuration](/docs/reference/configuration/) page shows all the
+properties that can be used to customize QuestDB.
 
 ### ILP Client Libraries
 

@@ -131,6 +131,7 @@ module.exports = {
           type: "link",
           href: "/blog/integrate-apache-spark-questdb-time-series-analytics",
         },
+        "third-party-tools/superset",
         "third-party-tools/telegraf",
       ],
     },
