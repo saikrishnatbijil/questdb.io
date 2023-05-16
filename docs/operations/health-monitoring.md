@@ -83,23 +83,29 @@ format. For more details, see the
 
 ## Unhandled error detection
 
-When metrics subsystem is
+When the metrics subsystem is
 [enabled](/docs/third-party-tools/prometheus/#scraping-prometheus-metrics-from-questdb)
-on the database, the health endpoint checks the occurrences of unhandled,
-critical errors since the database start and, if any of them were detected, it
-returns HTTP 500 status code. The check is based on the
+on the database, the health endpoint may be configured to check the occurrences
+of any unhandled errors since the database started. For any errors
+detected, it returns the HTTP 500 status code. The check is based on the
 `questdb_unhandled_errors_total` metric.
 
-When metrics subsystem is disabled, the health check endpoint always returns
-HTTP 200 status code.
+To enabled
+
+```ini title="server.conf to enable critical error checks in the health check endpoint"
+metrics.enabled=true
+http.pessimistic.health.check.enabled=true
+```
+
+When the metrics subsystem is disabled, the health check endpoint always returns
+the HTTP 200 status code.
 
 ## Avoiding CPU starvation
 
 On systems with
-[8 Cores and less](/docs/operations/capacity-planning/#cpu-cores),
-contention for threads might increase the latency of health check service
-responses. If you are in a situation where a load balancer thinks QuestDB
-service is dead with nothing apparent in QuestDB logs, you may need to configure
-a dedicated thread pool for the health check service. For more reference, see
-the
+[8 Cores and less](/docs/operations/capacity-planning/#cpu-cores), contention
+for threads might increase the latency of health check service responses. If you
+are in a situation where a load balancer thinks QuestDB service is dead with
+nothing apparent in QuestDB logs, you may need to configure a dedicated thread
+pool for the health check service. For more reference, see the
 [minimal HTTP server configuration](/docs/reference/configuration/#minimal-http-server).

@@ -62,26 +62,21 @@ import TabItem from "@theme/TabItem"
 
 <TabItem value="linux">
 
-
 ```shell
 ls *.csv | xargs cat > singleFile.csv
 ```
 
 </TabItem>
-
 
 <TabItem value="macos">
 
-
 ```shell
 ls *.csv | xargs cat > singleFile.csv
 ```
 
 </TabItem>
 
-
 <TabItem value="windows">
-
 
 ```shell
 $TextFiles = Get-Item C:\Users\path\to\csv\*.csv
@@ -91,9 +86,7 @@ $TextFiles foreach { Add-Content -Value $(Get-Content $_) -Path C:\Users\path\to
 
 </TabItem>
 
-
 </Tabs>
-
 
 For CSV files with headers, concatenation can be tricky. You could manually
 remove the first line of the files before concatenating, or use some smart
@@ -130,8 +123,8 @@ csvstack *.csv > singleFile.csv
 
 ### Configure `COPY`
 
-- Enable `COPY` and [configure](/docs/reference/configuration/#csv-import) `COPY`
-  directories to suit your server.
+- Enable `COPY` and [configure](/docs/reference/configuration/#csv-import) the
+  `COPY` directories to suit your server.
 - `cairo.sql.copy.root` must be set for `COPY` to work.
 
 ## Create the target table schema
@@ -378,9 +371,32 @@ dd bs=1 count=1000 skip=56 if=input_file.csv 2>/dev/null | head -1 >> errors.csv
 ## FAQ
 
 <details>
-  <summary>What happens in a database crash or OS reboot?</summary>
+  <summary>COPY on a table with symbol columns is very slow. How can I speed it up?</summary>
 <p>
 
+QuestDB uses `256` as the default symbol capacity. If the number of distinct
+symbol values exceeds this default significantly, the `COPY` performance will
+suffer. Make sure that you specify symbol capacities when creating the table
+before running the `COPY` command.
+
+Here is an example:
+
+```questdb-sql
+CREATE TABLE table_name (
+  ts TIMESTAMP,
+  sym SYMBOL CAPACITY 100000
+) TIMESTAMP(ts) PARTITION BY DAY;
+```
+
+Refer to the [symbol type documentation](/docs/concept/symbol/#symbol-columns)
+for more information on configuring the symbol capacity.
+
+</p>
+</details>
+
+<details>
+  <summary>What happens in a database crash or OS reboot?</summary>
+<p>
 
 If reboot/power loss happens while partitions are being attached, then table
 might be left with incomplete data. Please truncate table before re-importing
@@ -396,22 +412,18 @@ should not be affected.
 </p>
 </details>
 
-
 <details>
   <summary>I'm getting "COPY is disabled ['cairo.sql.copy.root' is not set?]" error message</summary>
 <p>
-
 
 Please set `cairo.sql.copy.root` setting, restart the instance and try again.
 
 </p>
 </details>
 
-
 <details>
   <summary>I'm getting "could not create temporary import work directory [path='somepath', errno=-1]" error message</summary>
 <p>
-
 
 Please make sure that the `cairo.sql.copy.root` and `cairo.sql.copy.work.root`
 are valid paths pointing to existing directories.
@@ -419,11 +431,9 @@ are valid paths pointing to existing directories.
 </p>
 </details>
 
-
 <details>
   <summary>I'm getting "[2] could not open read-only [file=somepath]" error message</summary>
 <p>
-
 
 Please check that import file path is valid and accessible to QuestDB instance
 users.
@@ -452,15 +462,11 @@ Results in the "[2] could not open read-only
 [file=/tmp/questdb_wrong/weather_example.csv]" error message.
 
 </p>
-
-
 </details>
-
 
 <details>
   <summary>I'm getting "column count mismatch [textColumnCount=4, tableColumnCount=3, table=someTable]" error message</summary>
 <p>
-
 
 There are more columns in input file than in the existing target table. Please
 remove column(s) from input file or add them to the target table schema.
@@ -468,11 +474,9 @@ remove column(s) from input file or add them to the target table schema.
 </p>
 </details>
 
-
 <details>
   <summary>I'm getting "timestamp column 'ts2' not found in file header" error message</summary>
 <p>
-
 
 Either input file is missing header or timestamp column name given in `COPY`
 command is invalid. Please add file header or fix timestamp option.
@@ -480,11 +484,9 @@ command is invalid. Please add file header or fix timestamp option.
 </p>
 </details>
 
-
 <details>
   <summary>I'm getting "column is not a timestamp [no=0, name='ts']" error message</summary>
 <p>
-
 
 Timestamp column given by the user or (if header is missing) assumed based on
 target table schema is of a different type.  
@@ -494,11 +496,9 @@ column order matches that of target table.
 </p>
 </details>
 
-
 <details>
   <summary>I'm getting "target table must be empty [table=t]" error message</summary>
 <p>
-
 
 `COPY` doesn't yet support importing into partitioned table with existing data.
 
@@ -520,11 +520,9 @@ to copy data into original target table.
 </p>
 </details>
 
-
 <details>
   <summary>I'm getting "io_uring error" error message</summary>
 <p>
-
 
 It's possible that you've hit a IO_URING-related kernel error.  
 Please set `cairo.iouring.enabled` setting to false, restart QuestDB instance,
@@ -533,11 +531,9 @@ and try again.
 </p>
 </details>
 
-
 <details>
   <summary>I'm getting "name is reserved" error message</summary>
 <p>
-
 
 The table you're trying import into is in bad state (metadata is incomplete).
 
@@ -552,11 +548,9 @@ and recreate the table or change the table name in the `COPY` command.
 </p>
 </details>
 
-
 <details>
   <summary>I'm getting "Unable to process the import request. Another import request may be in progress." error message</summary>
 <p>
-
 
 Only one import can be running at a time.
 
@@ -571,11 +565,9 @@ or wait until the current import is finished.
 </p>
 </details>
 
-
 <details>
   <summary>Import finished but table is (almost) empty</summary>
 <p>
-
 
 Please check the latest entries in log table:
 
@@ -612,11 +604,9 @@ referencing the offset as related to the start of the file.
 </p>
 </details>
 
-
 <details>
   <summary>Import finished but table column names are `f0`, `f1`, ...</summary>
 <p>
-
 
 Input file misses header and target table does not exist, so columns received
 synthetic names . You can rename them with the `ALTER TABLE` command:
@@ -627,4 +617,3 @@ ALTER TABLE table_name RENAME COLUMN f0 TO ts;
 
 </p>
 </details>
-
