@@ -123,12 +123,11 @@ module.exports = {
         "third-party-tools/prometheus",
         "third-party-tools/redpanda",
         {
-          label: "Spark",
           customProps: {
             tag: "New",
           },
-          type: "link",
-          href: "/blog/integrate-apache-spark-questdb-time-series-analytics",
+          type: "doc",
+          id: "third-party-tools/spark",
         },
         "third-party-tools/superset",
         "third-party-tools/telegraf",

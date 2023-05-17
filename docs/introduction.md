@@ -90,6 +90,7 @@ utilities for collecting metrics and visualizing data:
 - [Prometheus](/docs/third-party-tools/prometheus/) monitoring and alerting
 - [Redpanda](/docs/third-party-tools/redpanda/) instructions for a Kafka
   compatible data streaming tool
+- [Spark](/docs/third-party-tools/spark/) for large-scale data engineering
 - [Superset](/docs/third-party-tools/superset/) instructions for using Apache
   Superset data visualization
 - [Telegraf](/docs/third-party-tools/telegraf/) guide for collecting system
