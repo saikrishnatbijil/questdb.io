@@ -48,7 +48,6 @@ programming languages through our various network endpoints.
 - [Small CSV import (REST API)](/docs/guides/importing-data-rest/)
 - [Modifying Data](/docs/guides/modifying-data/)
 - [Timestamps and time zones](/docs/guides/working-with-timestamps-timezones/)
-- [Out-of-order commit lag](/docs/guides/out-of-order-commit-lag/)
 
 ## Deployment
 
