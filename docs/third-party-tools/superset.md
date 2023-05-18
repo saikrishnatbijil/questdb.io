@@ -8,18 +8,18 @@ business intelligence web application that enables users to visualize and
 explore data through customizable dashboards and reports.
 
 QuestDB provides the [QuestDB
-Connect]](https://pypi.org/project/questdb-connect/), a python module that
-implements the SQLAlchemy and superset engine, which are required to integrate
+Connect](https://pypi.org/project/questdb-connect/) python module that
+implements the SQLAlchemy and Superset engine, to integrate
 Superset with QuestDB.
 
 ## Requirements
 
 - Python from 3.8.x to 3.10.x
-- Psycopg2 for connectivity)
+- Psycopg2 for connectivity
 - SQLAlchemy for ORM and easy interaction
 - [Superset](https://superset.apache.org/docs/installation/installing-superset-from-scratch/)
   installation and initialization
-- QuestDB 7.2 or later
+- QuestDB 7.1.2 or later
 
 ## Installing QuestDB Connect
 
@@ -39,7 +39,7 @@ Select `+Database` to add the following parameters:
 
 - SUPPORTED DATABASES: Other
 - DISPLAY NAME: QuestDB
-- SQLALCHEMY URI: questdb://admin:quest@host.docker.internal:8812/main
+- SQLALCHEMY URI: `questdb://admin:quest@host.docker.internal:8812/main`
 
 Once connected, tables in QuestDB will be visible for creating Datasets in
 Superset.
@@ -80,11 +80,11 @@ are required for Mac M1 users:
 
    For more information, see
    [DEVELOPERS](https://github.com/questdb/questdb-connect/blob/main/DEVELOPERS.md)
-   in the QuestDB Connect GH repo.
+   in the QuestDB Connect GitHub repo.
 
 ## See also
 
-- [QuestDB Connect](https://github.com/questdb/questdb-connect)
+- The [QuestDB Connect](https://github.com/questdb/questdb-connect) GitHub repo
 - The
   [superset_toolkit](https://github.com/questdb/questdb-connect/tree/main/superset_toolkit)
   directory with replacement M1 files for the Superset repository

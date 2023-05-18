@@ -129,7 +129,13 @@ module.exports = {
           type: "doc",
           id: "third-party-tools/spark",
         },
-        "third-party-tools/superset",
+        {
+          customProps: {
+            tag: "New",
+          },
+          type: "doc",
+          id: "third-party-tools/superset",
+        },
         "third-party-tools/telegraf",
       ],
     },
