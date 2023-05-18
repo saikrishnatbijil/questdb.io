@@ -14,6 +14,14 @@ Some arguments may need explanations.
 - `this` does that and is useful
 - `this` does that and is also useful
 
+## Description
+
+Further explanation for when the first line introduction is not sufficient. 
+
+## Notes
+
+Edge cases.
+
 ## Examples
 
 Examples are introduced by a title text and an optional description. Ideally
