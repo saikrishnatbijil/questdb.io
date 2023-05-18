@@ -15,7 +15,7 @@ import Screenshot from "@theme/Screenshot"
   height={375}
   small
   src="/img/docs/console/overview.png"
-  width={500}
+  width={800}
 />
 
 ## Accessing the Web Console
@@ -30,7 +30,7 @@ running locally, this will be `http://localhost:9000`.
   height={375}
   small
   src="/img/docs/console/layout.png"
-  width={500}
+  width={800}
 />
 
 ### System tables in Schema explorer
@@ -94,7 +94,7 @@ The following options are available to toggle the grid layout:
   To freeze more columns, drag the vertical solid line to the desired column
 
   <Screenshot
-    alt="Screeenshot of the freeze-column line"
+    alt="Screenshot of the freeze-column line"
     height={375}
     small
     src="/img/docs/console/freeze-column.png"
@@ -118,7 +118,7 @@ the panel and shows the last 20 messages and notifications after query
 execution.
 
 <Screenshot
-  alt="Screenshot of the Web Console showing the location of the Import tab"
+  alt="Screenshot of the Web Console showing the location of the notification panel"
   height={535}
   small
   src="/img/docs/console/query-log.png"
