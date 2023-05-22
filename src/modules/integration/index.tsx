@@ -59,11 +59,12 @@ const integrations: Array<{
   {
     logo: { ...logos.apacheSpark, width: 40, svg: ApacheSparkLogo },
     label: "Spark",
-    src: "/blog/integrate-apache-spark-questdb-time-series-analytics/",
+    src: "/docs/third-party-tools/spark/",
   },
   {
     logo: { ...logos.apacheSuperset, width: 55, svg: ApacheSupersetLogo },
     label: "Superset",
+    src: "/docs/third-party-tools/superset/",
   },
   {
     logo: { ...logos.mindsDB, svg: MindsDBLogo },
