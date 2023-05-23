@@ -71,7 +71,7 @@
 
 [[redirects]]
   from = "/tutorial/2020/06/15/python-questdb-tutorial"
-  to = "/blog/2020/06/15/python-questdb-tutorial/"
+  to = "/blog/exploring-financial-tick-data-jupyter-notebook-pandas/"
 
 [[redirects]]
   from = "/tutorial/2020/08/25/questitto"
@@ -163,11 +163,11 @@
 
 [[redirects]]
   from = "/tutorial/2022/02/10/questdb-google-data-studio/"
-  to = "/blog/2022/02/10/questdb-google-data-studio/"
+  to = "/blog/exploring-financial-tick-data-jupyter-notebook-pandas/"
 
 [[redirects]]
   from = "/tutorial/2022/03/08/questdb-crypto-pandas/"
-  to = "/blog/2022/03/08/questdb-crypto-pandas/"
+  to = "/blog/exploring-financial-tick-data-jupyter-notebook-pandas/"
 
 [[redirects]]
   from = "/tutorial/2022/03/14/mock-sql-timeseries-data-questdb/"
@@ -352,6 +352,18 @@
 [[redirects]]
   from ="/blog/2020/07/24/use-questdb-for-swag/"
   to = "/community/"
+
+[[redirects]]
+  from ="/blog/2022/03/08/questdb-crypto-pandas/"
+  to = "/blog/exploring-financial-tick-data-jupyter-notebook-pandas/"
+
+[[redirects]]
+  from ="/blog/2022/02/10/questdb-google-data-studio/"
+  to = "/blog/exploring-financial-tick-data-jupyter-notebook-pandas/"
+
+[[redirects]]
+  from ="/blog/2020/06/15/python-questdb-tutorial/"
+  to = "/blog/exploring-financial-tick-data-jupyter-notebook-pandas/"
 
 [[headers]]
   for = "/*"
