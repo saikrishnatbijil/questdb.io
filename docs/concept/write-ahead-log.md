@@ -22,38 +22,35 @@ following concurrent transactions:
 - Data modifications
 - Table schema changes
 
-The following configurations and keywords enable and create WAL tables:
+### Enabling WAL and configurations
 
-- WAL table creation is enabled by the following methods:
+The following keywords enable WAL tables:
 
-  - Table-wide configuration via
-    [`CREATE TABLE`](/docs/reference/sql/create-table/)
+- WAL table creation via [`CREATE TABLE`](/docs/reference/sql/create-table/)
 
-    - `WAL` generates a WAL table.
-    - `BYPASS WAL` generates a non-WAL table.
+- Converting an existing table to a WAL table or vice versa via [`SET TYPE`](/docs/reference/sql/alter-table-set-type/) following a database restart.
 
-  - Server-wide configuration via `cairo.wal.enabled.default`
+- Server-wide configuration via `cairo.wal.enabled.default`
+  - When `cairo.wal.enabled.default` is set to `true` (default), the
+    [`CREATE TABLE`](/docs/reference/sql/create-table/) SQL keyword generates
+    WAL tables without `WAL`. The `BYPASS WAL` keyword still works as expected.
 
-    - When `cairo.wal.enabled.default` is set to `true`, the
-      [`CREATE TABLE`](/docs/reference/sql/create-table/) SQL keyword generates
-      WAL tables without `WAL`. The `BYPASS WAL` keyword still works as expected.
-
-- Parallel threads to apply WAL data to the table storage can be configured, see
-  [WAL table configuration](/docs/reference/configuration/#wal-table-configurations)
-  for more details.
+Parallel threads to apply WAL data to the table storage can be configured, see
+[WAL table configuration](/docs/reference/configuration/#wal-table-configurations)
+for more details.
 
 ### Comparison
 
 The following table highlights the main difference between a WAL and a non-WAL
 table:
 
-| WAL table                                                                                  | Non-WAL table                                                                                                             |
-| ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------- |
+| WAL table                                                                                  | Non-WAL table                                                                                                        |
+| ------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------- |
 | Concurrent data ingestion via multiple interfaces                                          | ILP locks the table for ingestion; concurrent data ingestion via other interfaces is not allowed - `Table Busy`error |
-| Unconstrained concurrent DDLs and DMLs                                                     | Concurrent DDLs and DMLs for ILP interface only                                                                           |
-| Asynchronous operations - in rare situations there may be slight delays in data visibility | Synchronous operations - no-wait commits                                                                                  |
-| Improved data freshness for `DROP` and `RENAME` of the table with a system-wide lock       | No change                                                                                                                 |
-| Some [impacts](#limitations) on existing operations                                        | No change                                                                                                                 |
+| Unconstrained concurrent DDLs and DMLs                                                     | Concurrent DDLs and DMLs for ILP interface only                                                                      |
+| Asynchronous operations - in rare situations there may be slight delays in data visibility | Synchronous operations - no-wait commits                                                                             |
+| Improved data freshness for `DROP` and `RENAME` of the table with a system-wide lock       | No change                                                                                                            |
+| Some [impacts](#limitations) on existing operations                                        | No change                                                                                                            |
 
 ### Limitations
 
@@ -87,21 +84,22 @@ from a non-WAL table:
 
 A WAL table uses the following components to manage concurrent commit requests:
 
-- **WAL**: acts as a dedicated API for each ingestion interface. When data is ingested via
-  multiple interfaces, dedicated `WALs` ensure that the table is not locked by
-  one interface only.
+- **WAL**: acts as a dedicated API for each ingestion interface. When data is
+  ingested via multiple interfaces, dedicated `WALs` ensure that the table is
+  not locked by one interface only.
 
-- **Sequencer**: centrally manages transactions, providing a single source of truth.
-  The sequencer generates unique `txn` numbers as transaction identifiers
-  and keeps a log that tracks their allocation, preventing duplicates. This log is called
-  `TransactionLog` and is stored in a meta file called `_txnlog`. See
+- **Sequencer**: centrally manages transactions, providing a single source of
+  truth. The sequencer generates unique `txn` numbers as transaction identifiers
+  and keeps a log that tracks their allocation, preventing duplicates. This log
+  is called `TransactionLog` and is stored in a meta file called `_txnlog`. See
   [root directory](/docs/concept/root-directory-structure/#db-directory) for
   more information.
 
-- **WAL apply job**: collects the commit requests based on the unique `txn` numbers
-  and sends them to the `TableWriter` to be committed.
+- **WAL apply job**: collects the commit requests based on the unique `txn`
+  numbers and sends them to the `TableWriter` to be committed.
 
-- **TableWriter**: updates the database and resolves any out-of-order data writes.
+- **TableWriter**: updates the database and resolves any out-of-order data
+  writes.
 
 <Screenshot
   alt="Diagram showing the sequencer allocating txn numbers to events cronologically"
@@ -121,7 +119,8 @@ A WAL table uses the following components to manage concurrent commit requests:
 
 ## Checking WAL configurations
 
-The following table metadata functions are useful for checking WAL table settings:
+The following table metadata functions are useful for checking WAL table
+settings:
 
 - [`tables()`](/docs/reference/function/meta/#tables) returns general table
   metadata, including whether a table is a WAL table or not.
