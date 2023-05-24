@@ -8,11 +8,6 @@ description:
   QuestDB 6.0.4 is available now with highlights such as performance
   improvements, increased parallelization of existing code, calendar alignment
   for `SAMPLE BY` queries, and a new Prometheus endpoint.
-keywords:
-  - postgres
-  - prometheus
-  - timeseries
-  - database
 image: /img/blog/2021-07-16/banner.webp
 tags: [influxdb, release]
 ---

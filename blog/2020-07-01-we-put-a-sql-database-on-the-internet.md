@@ -7,14 +7,7 @@ author_image_url: https://avatars.githubusercontent.com/davidgs
 description:
   What happens when you put a SQL database on the internet? Demo launch on
   HackerNews retrospective.
-keywords:
-  - hackernews
-  - retrospective
-  - sql database
-  - timeseries database
-  - questdb
-  - open source
-tags: [demo, hackernews, retrospective, community]
+tags: [demo, community]
 image: /img/blog/placeholder.webp
 ---
 

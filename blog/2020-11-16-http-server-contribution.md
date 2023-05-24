@@ -8,7 +8,7 @@ description:
   One of QuestDB’s major contributors, Alex Pelagenko, shares his experience on
   improving QuestDB’s HTTP server.
 image: /img/blog/2020-11-16/banner.jpg
-tags: [community, engineering, architecture]
+tags: [community, engineering]
 ---
 
 import Banner from "@theme/Banner"

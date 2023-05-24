@@ -7,13 +7,7 @@ author_image_url: https://avatars.githubusercontent.com/TheTanc
 description:
   How SIMD instructions make aggregations faster in QuestDB, including benchmark
   results and a comparison with Postgres.
-keywords:
-  - performance
-  - simd
-  - parallelization
-  - cpu
-  - questdb
-tags: [benchmark, performance, simd, release]
+tags: [benchmark, performance, release, simd]
 image: /img/blog/2020-04-02/banner.webp
 ---
 

@@ -9,15 +9,8 @@ description:
   QuestDB 6.3 brings parallel filter execution optimization to our SQL engine
   allowing us to reduce both cold and hot query execution times quite
   dramatically.
-keywords:
-  - sql
-  - multi-threading
-  - performance
-  - timeseries
-  - database
-  - engineering
 image: /img/blog/2022-05-26/banner.webp
-tags: [benchmark, engineering, release, story, performance]
+tags: [benchmark, engineering, release, performance]
 ---
 
 QuestDB 6.2, our previous minor version release,

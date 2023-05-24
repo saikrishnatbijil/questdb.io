@@ -8,14 +8,8 @@ description:
   Learn how to use QuestDB as a time series database for high-frequency trading,
   calculate the limit order book, price impact, trade sign distribution, and
   other concepts via the Julia programming language.
-keywords:
-  - julia
-  - finance
-  - timeseries
-  - database
-  - algotrading
 image: /img/blog/2021-09-17/banner.webp
-tags: [tutorial , finance, crypto, algotrading]
+tags: [tutorial , market data, crypto]
 ---
 
 This post was written by Dean Markwick, who has put together an excellent

@@ -8,16 +8,8 @@ description:
   Hacktoberfest 2022 is starting! We are super excited to meet with other open
   source contributors and maintainers. To celebrate this, we put together some
   hints for you to get started.
-keywords:
-  - database
-  - opensource
-  - timeseries
-  - hacktoberfest
-  - java
-  - react
-  - typescript
 image: /img/blog/2022-09-30/banner-hacktoberfest.webp
-tags: [community, event, hacktoberfest, github, swag, opensource]
+tags: [community, event, hacktoberfest, github, open source]
 ---
 
 import Screenshot from "@theme/Screenshot"

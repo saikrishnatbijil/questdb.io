@@ -8,14 +8,8 @@ description:
   We now support geospatial data in our time series database by adding geohashes
   to our type system along with language features to support common operations
   using this type.
-keywords:
-  - geospatial
-  - timeseries
-  - database
-  - geodata
-  - postgis
 image: /img/blog/2021-10-04/banner.webp
-tags: [demo, release, engineering, geospatial, postgis]
+tags: [demo, release, engineering, geospatial]
 ---
 
 The last significant features we shipped dealt with out-of-order data ingestion,

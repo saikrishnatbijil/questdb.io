@@ -8,15 +8,8 @@ description:
   QuestDB 6.2.0 brings a brand new JIT (Just-in-Time) compiler as a part of the
   SQL engine. This post describes our storage model, how we built a JIT compiler
   for SQL and our plans for improving it in future.
-keywords:
-  - jit
-  - compiler
-  - performance
-  - timeseries
-  - database
-  - engineering
 image: /img/blog/2022-01-12/banner.webp
-tags: [engineering, story, performance]
+tags: [engineering, performance]
 ---
 
 import Banner from "@theme/Banner"

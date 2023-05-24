@@ -8,13 +8,8 @@ description:
   What we learned by re-examining our approach to memory mapping. A low level
   implementation, as close as posibble to the kernel, enabled even greater
   performance.
-keywords:
-  - performance
-  - questdb
-  - database
-  - tutorial
 image: /img/blog/2020-08-19/banner.jpg
-tags: [engineering, performance, architecture]
+tags: [engineering, performance]
 ---
 
 import Banner from "@theme/Banner"

@@ -9,14 +9,8 @@ description:
   have numerical data for predicting housing prices or classification data for
   categorizing dog and cat breeds. It's also the special type of data used for
   training machine learning algorithms where time is the crucial component.
-keywords:
-  - python
-  - finance
-  - timeseries
-  - tensorflow
-  - machine learning
 image: /img/blog/2022-06-20/banner.webp
-tags: [python, tensorflow, machine learning, data science, time-series]
+tags: [python, machine learning, tensorflow, data science, time-series]
 ---
 
 This post is contributed by

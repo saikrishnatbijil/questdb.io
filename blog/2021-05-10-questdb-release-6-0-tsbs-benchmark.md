@@ -8,16 +8,8 @@ description:
   Our new ingestion framework can sort time series data before writing to disk.
   Here's how we built it and how it compares to InfluxDB, ClickHouse, and
   TimescaleDB.
-keywords:
-  - clickhouse
-  - influxdb
-  - timescaledb
-  - tsbs
-  - benchmark
-  - timeseries
-  - database
 image: /img/blog/2021-05-10/banner.webp
-tags: [engineering, benchmark, hackernews, clickhouse, timescaledb, influxdb, algorithms]
+tags: [engineering, benchmark, clickhouse, timescaledb, influxdb]
 ---
 
 The journey to today's version of QuestDB began with the original prototype in

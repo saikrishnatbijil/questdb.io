@@ -6,12 +6,7 @@ author_image_url: https://avatars.githubusercontent.com/dm13450
 description:
   Build Bitcoin volume curves using Julia and QuestDB to better understand the
   flow of trading throughout the day.
-keywords:
-  - timeseries
-  - julialang
-  - trading
-  - marketdata
-tags: [tutorial, julialang, market data, trading, bitcoin]
+tags: [tutorial, julialang, market data, bitcoin]
 image: /img/blog/2022-03-29/graph.webp
 ---
 

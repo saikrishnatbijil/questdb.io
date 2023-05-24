@@ -8,13 +8,8 @@ description:
   QuestDB can now be launched on DigitalOcean via 1-Click apps which allows you
   to get started with a high-performance time series database on the cloud
   quickly and easily.
-keywords:
-  - digitalocean
-  - telegraf
-  - timeseries
-  - database
 image: /img/blog/2021-08-24/banner.webp
-tags: [tutorial, digitalocean, deployment, cloud, infrastructure]
+tags: [tutorial, digitalocean, infrastructure]
 ---
 
 We're happy to announce that QuestDB is available with an official listing on

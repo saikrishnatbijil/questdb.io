@@ -7,7 +7,7 @@ author_image_url: https://avatars.githubusercontent.com/tris0laris
 description:
   Thoughts on why speed and performance are crucial to time series database
   ingestion and analytics.
-tags: [company, startup, performance]
+tags: [company, performance]
 image: /img/blog/placeholder.webp
 ---
 

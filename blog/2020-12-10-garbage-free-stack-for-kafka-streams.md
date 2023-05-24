@@ -7,17 +7,8 @@ author_image_url: https://avatars.githubusercontent.com/bluestreak01
 description:
   Our database's network stack handles multiple TCP connections on a single
   thread without garbage collection for reliably ingesting time series data.
-keywords:
-  - jdbc
-  - postgres
-  - tcp
-  - kafka
-  - garbage
-  - java
-  - timeseries
-  - database
 image: /img/blog/2020-12-10/banner.jpg
-tags: [kafka, postgres, architecture, engineering]
+tags: [kafka, postgres, engineering]
 ---
 
 import Banner from "@theme/Banner"

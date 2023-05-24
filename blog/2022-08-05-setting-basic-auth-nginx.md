@@ -6,15 +6,8 @@ author_url: https://kovidrathee.medium.com/
 author_image_url: https://miro.medium.com/fit/c/96/96/0*_CwYR2OmNap47tQO.jpg
 description:
   How to implement Nginx Basic Authentication for QuestDB open source.
-keywords:
-  - nginx
-  - security
-  - authentication
-  - proxy
-  - timeseries
-
 image: /img/blog/2022-08-05/banner.webp
-tags: [tutorial, nginx, security, authentication, proxy]
+tags: [tutorial, authentication, nginx]
 ---
 
 import Banner from "@theme/Banner"

@@ -7,7 +7,7 @@ author_image_url: https://avatars.githubusercontent.com/TheTanc
 description:
   Learn how to using Python to fetch cryptocurrency data from Coinbase, store it
   in QuestDB, and visualize the data using Grafana.
-tags: [tutorial, market data, crypto, trading, python, grafana]
+tags: [tutorial, market data, crypto, python, grafana]
 image: /img/blog/2022-03-15/banner.webp
 slug: crypto-data-visualization-dashboards-grafana
 ---

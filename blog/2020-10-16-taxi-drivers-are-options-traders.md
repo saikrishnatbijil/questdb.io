@@ -8,7 +8,7 @@ description:
   An experiment analyzing the NYC taxi dataset through the eyes of an options
   trader.
 image: /img/blog/2020-10-16/banner.jpg
-tags: [demo, story, analytics]
+tags: [demo]
 ---
 
 import Banner from "@theme/Banner"

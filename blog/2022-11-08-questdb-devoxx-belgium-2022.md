@@ -5,14 +5,8 @@ author_title: QuestDB team
 author_url: https://github.com/amyshwang
 author_image_url: https://avatars.githubusercontent.com/u/107401731?v=4
 description: An overview of QuestDB's participation at Devoxx Belgium this year.
-keywords:
-  - devoxx
-  - event
-  - java
-  - questdb
-  - timeseries
 image: /img/blog/2022-11-08/devoxx.webp
-tags: [devoxx, community, questdb, timeseries, event, java]
+tags: [community, questdb, time-series, event]
 ---
 
 As a member of the Java community, QuestDB sponsored this year's Devoxx Belgium

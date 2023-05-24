@@ -9,8 +9,7 @@ description:
   conference and exhibition. This year, Javier Ramirez, Developer Advocate at
   QuestDB, delivered a talk on "Ingesting A Million Time Series Per Second On A
   Single Instance".
-keywords: [bigdata, questdb, timeseries, event]
-tags: [community, bigdata, questdb, timeseries, event]
+tags: [community, big data, questdb, time-series, event]
 image: /img/blog/2022-10-20/big_data.webp
 ---
 

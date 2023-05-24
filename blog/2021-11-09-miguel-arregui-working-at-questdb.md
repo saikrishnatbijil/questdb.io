@@ -7,12 +7,8 @@ author_image_url: https://avatars.githubusercontent.com/marregui
 description:
   The story of how Miguel Arregui joined as a software engineer building the
   fastest open source time series database.
-keywords:
-  - startup
-  - remote
-  - engineering
 image: /img/blog/2021-11-09/banner.webp
-tags: [company, team]
+tags: [company]
 ---
 
 import Banner from "@theme/Banner"

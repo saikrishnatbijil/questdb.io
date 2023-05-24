@@ -8,13 +8,8 @@ description:
   An alpha version for QuestDB version 6.0 is available now to test with
   highlights such as out-of-order support, improved InfluxDB Line Protocol
   ingestion and multiple fixes and improvements
-keywords:
-  - postgres
-  - grafana
-  - timeseries
-  - database
 image: /img/blog/2021-04-20/og.webp
-tags: [release, docker]
+tags: [release]
 ---
 
 <!-- prettier-ignore-start -->

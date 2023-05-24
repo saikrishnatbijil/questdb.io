@@ -7,14 +7,7 @@ author_image_url: https://avatars.githubusercontent.com/bluestreak01
 description:
   Detailed explanation of QuestDB's thread messaging system. A benchmark also
   shows the capabilities of this system.
-keywords:
-  - performance
-  - opensource
-  - inter-thread messaging
-  - questdb
-  - database
-  - architecture
-tags: [engineering, multithreading, architecture]
+tags: [engineering]
 image: /img/blog/2020-03-15/header.webp
 ---
 

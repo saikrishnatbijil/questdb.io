@@ -7,17 +7,8 @@ author_image_url: https://avatars.githubusercontent.com/tris0laris
 description:
   We thank all our stakeholders, users and community members for your support
   during these challenging times.
-keywords:
-  - community
-  - team
-  - story
-  - ycombinator
-  - startup
-  - open source
-  - support
-  - ukraine
 image: /img/blog/2022-03-07/banner.webp
-tags: [company, team, community, announcement]
+tags: [company, community]
 ---
 
 import Banner from "@theme/Banner"
