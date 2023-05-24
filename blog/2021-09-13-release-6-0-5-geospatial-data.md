@@ -13,7 +13,7 @@ keywords:
   - geohash
   - timeseries
   - database
-image: /img/blog/2021-09-13/banner.png
+image: /img/blog/2021-09-13/banner.webp
 tags: [release, geospatial, influxdb]
 ---
 
@@ -52,7 +52,7 @@ import Screenshot from "@theme/Screenshot"
 <Screenshot
   alt="An illustration showing two maps with different geohash precision levels applied"
   height={598}
-  src="/img/blog/2021-09-13/geohashes.png"
+  src="/img/blog/2021-09-13/geohashes.webp"
   width={850}
 />
 

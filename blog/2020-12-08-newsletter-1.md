@@ -8,11 +8,11 @@ description:
   functionality in response to what our community expects from a
   high-performance time series database.
 tags: [newsletter]
-image: /img/blog/newsletter-preview.png
+image: /img/blog/newsletter-preview.webp
 slug: newsletter-kafka-jdbc-connector
 ---
 
-![QuestDB newsletter banner](/img/blog/newsletter.png)
+![QuestDB newsletter banner](/img/blog/newsletter.webp)
 
 2020 is quickly drawing to an end and we'd like to wrap up the month on a high
 note with you. We've been working hard making QuestDB more reliable and

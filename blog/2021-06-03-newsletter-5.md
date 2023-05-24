@@ -7,11 +7,11 @@ description:
   6.0.3 is available now. Here's the latest QuestDB news including for
   out-of-order performance and stability improvements and TSBS benchmark results
 tags: [newsletter]
-image: /img/blog/newsletter-preview.png
+image: /img/blog/newsletter-preview.webp
 slug: newsletter-bind-variables
 ---
 
-![QuestDB newsletter banner](/img/blog/newsletter.png)
+![QuestDB newsletter banner](/img/blog/newsletter.webp)
 
 The response to our 6.0 launch from new and existing users and the developer
 community has been amazing. We're excited to see our community grow and join us
@@ -59,7 +59,7 @@ ship out some gifts as a token of our appreciation. As a bonus, here's
 [Michael Friedrich](https://twitter.com/dnsmichi/status/1331940833621372929)
 from GitLab showing love for his swag in this amazing selfie:
 
-![Screenshot of a tweet from @dnsmichi](/img/blog/2021-06-03/tweet.png)
+![Screenshot of a tweet from @dnsmichi](/img/blog/2021-06-03/tweet.webp)
 
 ## QuestDB on the web
 

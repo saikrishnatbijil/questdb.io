@@ -256,9 +256,9 @@ And here are the results for strings, which represent 100 reads/writes:
 
 For those of you that are more graphicly-inclined:
 
-![Benchmark showing the relative performance of primitive types](/img/blog/2020-08-19/primitives.png)
+![Benchmark showing the relative performance of primitive types](/img/blog/2020-08-19/primitives.webp)
 
-![Benchmark showing the relative performance of string types](/img/blog/2020-08-19/strings.png)
+![Benchmark showing the relative performance of string types](/img/blog/2020-08-19/strings.webp)
 
 Again, we think these numbers speak for themselves, but we're always happy to
 hear from you, our users and community, about what you think.

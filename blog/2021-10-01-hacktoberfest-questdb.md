@@ -14,7 +14,7 @@ keywords:
   - timeseries
   - hacktoberfest
   - java
-image: /img/blog/2021-10-01/banner-hacktoberfest.png
+image: /img/blog/2021-10-01/banner-hacktoberfest.webp
 tags: [community, hacktoberfest, github, swag, opensource, digitalocean]
 ---
 
@@ -35,7 +35,7 @@ import Screenshot from "@theme/Screenshot"
 <Screenshot
   alt="QuestDB at Hacktoberfest 2021"
   height={450}
-  src="/img/blog/2021-10-01/banner-hacktoberfest.png"
+  src="/img/blog/2021-10-01/banner-hacktoberfest.webp"
   width={800}
 />
 

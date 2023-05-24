@@ -15,7 +15,7 @@ keywords:
   - grafana
   - loki
   - prometheus
-image: /img/blog/2022-12-13/banner.png
+image: /img/blog/2022-12-13/banner.webp
 tags:
   [
     kubernetes,
@@ -35,7 +35,7 @@ import Banner from "@theme/Banner"
 <Banner
   alt="A High-level diagram of the components used to monitor QuestDB."
   height={467}
-  src="/img/blog/2022-12-13/banner.png"
+  src="/img/blog/2022-12-13/banner.webp"
   width={650}
 >
   Photo by <a href="https://unsplash.com/@chrisliverani">Chris Liverani</a> via{" "}
@@ -87,7 +87,7 @@ These components work together as illustrated in the diagram below:
   alt="Diagram showing how components work together"
   title="Overview of the architecture"
   height={360}
-  src="/img/blog/2022-12-13/overview.png"
+  src="/img/blog/2022-12-13/overview.webp"
   width={650}
 />
 
@@ -397,15 +397,15 @@ kubectl port-forward --namespace default service/loki-grafana 3000:80
 First navigate to `http://localhost:3000` in your browser. You can log in using
 the username `admin` and the password that you obtained in the previous step.
 
-![Grafana login](/img/blog/2022-12-13/grafana-login.png)
+![Grafana login](/img/blog/2022-12-13/grafana-login.webp)
 
 Once you've logged in, use the sidebar to navigate to the "data sources" tab:
 
-![Grafana](/img/blog/2022-12-13/grafana-main-page.png)
+![Grafana](/img/blog/2022-12-13/grafana-main-page.webp)
 
 Here, you can see that the Loki data source is already registered for us:
 
-![Grafana data sources](/img/blog/2022-12-13/grafana-data-sources.png)
+![Grafana data sources](/img/blog/2022-12-13/grafana-data-sources.webp)
 
 We still need to add our Prometheus data source. Luckily, Grafana makes this
 easy for us.
@@ -416,7 +416,7 @@ Prometheus server's Service:
 `http://prometheus-server.default.svc.cluster.local`. Scroll down to the bottom,
 click "Save & test", and wait for the green checkmark popup in the right corner.
 
-![Grafana data source config](/img/blog/2022-12-13/grafana-data-source-config.png)
+![Grafana data source config](/img/blog/2022-12-13/grafana-data-source-config.webp)
 
 Now you're ready to create dashboards with QuestDB metrics and logs!
 

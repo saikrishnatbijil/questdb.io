@@ -15,7 +15,7 @@ keywords:
   - python
   - database
 tags: [tutorial, time-series, pandas, python, dataframes, questdb]
-image: "/img/blog/2023-03-09/banner.png"
+image: "/img/blog/2023-03-09/banner.webp"
 slug: loading-pandas-dataframes
 ---
 
@@ -24,7 +24,7 @@ import Banner from "@theme/Banner"
 <Banner
   alt="Picture showing a person surrounded by screen with Python functions, QuestDB logo, Python logo, and Pandas logo in the background."
   height={591}
-  src="/img/blog/2023-03-09/banner.png"
+  src="/img/blog/2023-03-09/banner.webp"
   width={770}
 />
 
@@ -123,7 +123,7 @@ print(df.head())
 Execute it within the docker container by running `python data_loader.py`.
 The program runs successfully and we should see the following:
 
-![A screenshot of the result of running data_loader.py: an overview of the data loaded](/img/blog/2023-03-09/data-loader-test.png)
+![A screenshot of the result of running data_loader.py: an overview of the data loaded](/img/blog/2023-03-09/data-loader-test.webp)
 
 We have just loaded the taxi trip records for 2022 January! Let’s try to load more
 data. Replace the content of `data_loader.py` by the code below to load all
@@ -238,7 +238,7 @@ Similarly to the data loader script, this script requires the host and port too.
 In the script above, we are using the Postgresql Python client and connecting to
 QuestDB using that. In the Python container, execute python `query_amount.py`:
 
-![A screenshot of the result of running query_amount.py: an overview of the query result](/img/blog/2023-03-09/query-amount.png)
+![A screenshot of the result of running query_amount.py: an overview of the query result](/img/blog/2023-03-09/query-amount.webp)
 
 When the script finishes, you should see the average total amount paid by
 passengers. Interestingly, there is a huge difference in the average between

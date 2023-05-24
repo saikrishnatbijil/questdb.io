@@ -16,7 +16,7 @@ keywords:
   - benchmark
   - timeseries
   - database
-image: /img/blog/2021-06-16/banner.png
+image: /img/blog/2021-06-16/banner.webp
 tags: [benchmark, clickhouse, timescaledb, influxdb, high cardinality]
 ---
 
@@ -144,7 +144,7 @@ import Screenshot from "@theme/Screenshot"
 <Screenshot
   alt="High-cardinality time series benchmark results showing QuestDB outperforming ClickHouse, TimescaleDB and InfluxDB when using six workers"
   height={415}
-  src="/img/blog/2021-06-16/maximum-throughput-by-device-4-threads.png"
+  src="/img/blog/2021-06-16/maximum-throughput-by-device-4-threads.webp"
   title="TSBS results using 4 threads on AWS EC2 m5.8xlarge"
   width={650}
 />
@@ -163,7 +163,7 @@ increased the worker count (16 threads) to the systems under test:
 <Screenshot
   alt="High-cardinality time series benchmark results showing QuestDB outperforming ClickHouse, TimescaleDB and InfluxDB when using sixteen workers"
   height={415}
-  src="/img/blog/2021-06-16/maximum-throughput-by-device-16-threads.png"
+  src="/img/blog/2021-06-16/maximum-throughput-by-device-16-threads.webp"
   title="TSBS results using 16 threads on AWS EC2 m5.8xlarge"
   width={650}
 />
@@ -181,7 +181,7 @@ We ran the same benchmarks on a separate system using the AMD Ryzen 3970X, using
 <Screenshot
   alt="High-cardinality time series benchmark results showing QuestDB, ClickHouse, TimescaleDB and InfluxDB when using six workers"
   height={415}
-  src="/img/blog/2021-06-16/maximum-throughput-by-device-scale-6-threads-ryzen.png"
+  src="/img/blog/2021-06-16/maximum-throughput-by-device-scale-6-threads-ryzen.webp"
   title="TSBS results using 6 threads on AMD Ryzen 3970X"
   width={650}
 />
@@ -201,7 +201,7 @@ workers is due to increased thread contention:
 <Screenshot
   alt="High-cardinality time series benchmark results showing ingestion performance of QuestDB when using four versus 16 threads"
   height={415}
-  src="/img/blog/2021-06-16/questdb-max-throughput-by-number-threads.png"
+  src="/img/blog/2021-06-16/questdb-max-throughput-by-number-threads.webp"
   title="TSBS results for QuestDB using 4 and 16 threads on AWS EC2 m5.8xlarge"
   width={650}
 />

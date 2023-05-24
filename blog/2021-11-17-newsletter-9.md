@@ -7,11 +7,11 @@ description:
   Here's QuestDB's latest updates including release 6.1.1, our Series A, a Yahoo
   case study, and new milestones achieved with our community
 tags: [newsletter]
-image: /img/blog/newsletter-preview.png
+image: /img/blog/newsletter-preview.webp
 slug: newsletter-yahoo-case-study-series-a
 ---
 
-![QuestDB newsletter banner](/img/blog/newsletter.png)
+![QuestDB newsletter banner](/img/blog/newsletter.webp)
 
 We're happy to bring you our roundup of updates from QuestDB HQ, including the
 latest releases with new SQL features, our community meetup with guest speakers

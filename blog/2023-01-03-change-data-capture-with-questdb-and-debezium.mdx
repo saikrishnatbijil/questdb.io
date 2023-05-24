@@ -13,7 +13,7 @@ keywords:
   - debezium
   - kafka connect
 tags: [tutorial, change data capture, debezium, kafka connect]
-image: /img/blog/2023-01-03/banner.png
+image: /img/blog/2023-01-03/banner.webp
 ---
 
 import Banner from "@theme/Banner"
@@ -21,7 +21,7 @@ import Banner from "@theme/Banner"
 <Banner
   alt="A screenshot showing data monitoring"
   height={500}
-  src="/img/blog/2023-01-03/banner.png"
+  src="/img/blog/2023-01-03/banner.webp"
   width={692}
 >
   Photo by <a href="https://unsplash.com/@bash__profile">Nicholas Cappello</a>{" "}
@@ -56,7 +56,7 @@ are detected by [Debezium](https://debezium.io/) (a popular CDC system) and fed
 to a Kafka topic. Finally, the Kafka Connect QuestDB connector listens to that
 topic and streams changes into QuestDB for analysis.
 
-![Diagram showing the design overview](/img/blog/2023-01-03/overview.png)
+![Diagram showing the design overview](/img/blog/2023-01-03/overview.webp)
 
 Structuring the data pipeline this way allows the application to be simple. The
 Java Spring App only needs to fetch the latest stock data and commit to
@@ -156,7 +156,7 @@ each candle shows the opening, closing, high, and low price, in a given time
 interval. The time interval can be changed by selecting the top-left 'Interval'
 option:
 
-![Screenshot showing a Grafana candle chart](/img/blog/2023-01-03/screenshot.png)
+![Screenshot showing a Grafana candle chart](/img/blog/2023-01-03/screenshot.webp)
 
 ## Deep dive
 
@@ -281,12 +281,12 @@ The Dockerfile downloads the latest release of the QuestDB Kafka connector,
 unzip it copies it to the Debezium container image. The resulting image has both
 Debezium and QuestDB Kafka connector installed:
 
-![Diagram showing Dockerfile-Coonnect adding the QuestDB Kafka Connector layer](/img/blog/2023-01-03/dockerfile-connect.png)
+![Diagram showing Dockerfile-Coonnect adding the QuestDB Kafka Connector layer](/img/blog/2023-01-03/dockerfile-connect.webp)
 
 The overall Kafka connector is completed with a Source connector and a Sink
 connector:
 
-![Diagram showing how the Source and Sink connector work with the Kafka cluster and the databases](/img/blog/2023-01-03/kafka-cluster.png)
+![Diagram showing how the Source and Sink connector work with the Kafka cluster and the databases](/img/blog/2023-01-03/kafka-cluster.webp)
 
 #### Debezium Connector
 

@@ -13,7 +13,7 @@ keywords:
   - grafana
   - timeseries
   - database
-image: /img/blog/2021-04-20/og.png
+image: /img/blog/2021-04-20/og.webp
 tags: [release, docker]
 ---
 
@@ -24,7 +24,7 @@ import Banner from "@theme/Banner"
 <Banner
   alt="Announcement for QuestDB 6.0 alpha with out-of-order inserts and compatibility with the Time Series Benchmarking Suite"
   height={362}
-  src="/img/blog/2021-04-20/og.png"
+  src="/img/blog/2021-04-20/og.webp"
   width={650}
 >
 </Banner>

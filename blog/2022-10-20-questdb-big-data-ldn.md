@@ -11,7 +11,7 @@ description:
   Single Instance".
 keywords: [bigdata, questdb, timeseries, event]
 tags: [community, bigdata, questdb, timeseries, event]
-image: /img/blog/2022-10-20/big_data.png
+image: /img/blog/2022-10-20/big_data.webp
 ---
 
 import Screenshot from "@theme/Screenshot"
@@ -32,7 +32,7 @@ Javier to tell us more about the experience.
   alt="Big Data London took place on 21 and 22 September 2022 this year"
   title="Big Data London took place on 21 and 22 September 2022 this year."
   height={360}
-  src="/img/blog/2022-10-20/big_data.png"
+  src="/img/blog/2022-10-20/big_data.webp"
   width={650}
 />
 

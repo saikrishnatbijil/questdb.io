@@ -13,7 +13,7 @@ keywords:
   - telegraf
   - timeseries
   - database
-image: /img/blog/2021-08-24/banner.png
+image: /img/blog/2021-08-24/banner.webp
 tags: [tutorial, digitalocean, deployment, cloud, infrastructure]
 ---
 
@@ -38,7 +38,7 @@ import Screenshot from "@theme/Screenshot"
 <Screenshot
   alt="A list of applications available on the DigitalOcean marketplace"
   height={591}
-  src="/img/blog/2021-08-24/do-marketplace.png"
+  src="/img/blog/2021-08-24/do-marketplace.webp"
   width={650}
 />
 
@@ -68,7 +68,7 @@ steps:
 <Screenshot
   alt="Choosing the RAM and CPU capacity for a QuestDB DigitalOcean Droplet"
   height={591}
-  src="/img/blog/2021-07-09/choosing-droplet.png"
+  src="/img/blog/2021-07-09/choosing-droplet.webp"
   width={770}
 />
 
@@ -82,7 +82,7 @@ steps:
 <Screenshot
   alt="Finalizing the creation step of a DigitalOcean Droplet running QuestDB"
   height={591}
-  src="/img/blog/2021-07-09/questdb-droplet.png"
+  src="/img/blog/2021-07-09/questdb-droplet.webp"
   width={770}
 />
 
@@ -116,7 +116,7 @@ to get started.
 <Screenshot
   alt="A diagram showing system metrics collected by multiple Telegraf agents sent to QuestDB as a time series database for storage"
   height={591}
-  src="/img/blog/2021-07-09/banner.png"
+  src="/img/blog/2021-07-09/banner.webp"
   width={770}
 />
 

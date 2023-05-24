@@ -8,7 +8,7 @@ description:
   Thoughts on why speed and performance are crucial to time series database
   ingestion and analytics.
 tags: [company, startup, performance]
-image: /img/blog/placeholder.png
+image: /img/blog/placeholder.webp
 ---
 
 Good data from the past helps us make better decisions in the present. Most of

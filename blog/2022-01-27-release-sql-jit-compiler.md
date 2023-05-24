@@ -13,7 +13,7 @@ keywords:
   - performance
   - timeseries
   - database
-image: /img/blog/2022-01-27/banner.png
+image: /img/blog/2022-01-27/banner.webp
 tags: [release]
 ---
 
@@ -22,7 +22,7 @@ import Banner from "@theme/Banner"
 <Banner
   alt="Latest features in QuestDB version 6.2 including SQL JIT compiler"
   height={360}
-  src="/img/blog/2022-01-27/banner.png"
+  src="/img/blog/2022-01-27/banner.webp"
   width={650}
 />
 
@@ -65,7 +65,7 @@ import Screenshot from "@theme/Screenshot"
   alt="A diagram comparing query execution times with JIT enabled and disabled"
   title="Query execution times with JIT enabled and disabled"
   height={598}
-  src="/img/blog/2022-01-12/cold-v-hot-run-two.png"
+  src="/img/blog/2022-01-12/cold-v-hot-run-two.webp"
   width={650}
 />
 
@@ -178,7 +178,7 @@ tables.
   alt="Query execution time benchmark"
   title="Query execution time benchmark"
   height={191}
-  src="/img/blog/2022-01-27/table-autocomplete.png"
+  src="/img/blog/2022-01-27/table-autocomplete.webp"
   width={650}
 />
 

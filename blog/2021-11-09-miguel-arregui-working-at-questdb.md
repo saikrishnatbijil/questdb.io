@@ -11,7 +11,7 @@ keywords:
   - startup
   - remote
   - engineering
-image: /img/blog/2021-11-09/banner.png
+image: /img/blog/2021-11-09/banner.webp
 tags: [company, team]
 ---
 
@@ -20,7 +20,7 @@ import Banner from "@theme/Banner"
 <Banner
   alt="A graphic with a photo of Miguel Arregui, software engineer at QuestDB"
   height={360}
-  src="/img/blog/2021-11-09/banner.png"
+  src="/img/blog/2021-11-09/banner.webp"
   width={650}
 />
 

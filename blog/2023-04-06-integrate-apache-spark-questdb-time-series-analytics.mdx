@@ -8,7 +8,7 @@ description:
   Tutorial demonstrating the process to integrate Apache Spark with QuestDB to
   assist time-series data engineering.
 tags: [tutorial, spark, big data, time-series, python, market data]
-image: /img/blog/2023-04-06/banner.png
+image: /img/blog/2023-04-06/banner.webp
 slug: integrate-apache-spark-questdb-time-series-analytics
 ---
 
@@ -17,7 +17,7 @@ import Banner from "@theme/Banner"
 <Banner
   alt="Apache Spark logo and QuestDB logo"
   height={500}
-  src="/img/blog/2023-04-06/banner.png"
+  src="/img/blog/2023-04-06/banner.webp"
   width={692}
 ></Banner>
 
@@ -43,7 +43,7 @@ parallel.
 
 The schematic diagram below depicts an example job:
 
-![Daigram showing data exported to Spark as jobs](/img/blog/2023-04-06/spark-diagram.png)
+![Daigram showing data exported to Spark as jobs](/img/blog/2023-04-06/spark-diagram.webp)
 
 In this tutorial, we will load data from a QuestDB table into a Spark
 application and explore the inner working of Spark to refine data loading.
@@ -319,7 +319,7 @@ Now we turn to the Spark UI.
 
 It tells us that the job was done in a single task:
 
-![Spark UI showing one task completed](/img/blog/2023-04-06/ui.png)
+![Spark UI showing one task completed](/img/blog/2023-04-06/ui.webp)
 
 The truth is that we have already suspected this. The execution plan told us
 (`numPartitions=1`) and we did not see any parallelism in the QuestDB logs
@@ -444,7 +444,7 @@ match what we have seen in the QuestDB logs earlier: `rowCount=487309`,
 We can check Spark UI again; it also confirms that the job was completed in 3
 separate tasks, each of them working on a single partition.
 
-![Spark UI showing three tasks completed](/img/blog/2023-04-06/ui-three-tasks.png)
+![Spark UI showing three tasks completed](/img/blog/2023-04-06/ui-three-tasks.webp)
 
 Sometimes it might be tricky to know the minimum and maximum timestamps when
 creating the DataFrame. In the worst case, you could query the database for

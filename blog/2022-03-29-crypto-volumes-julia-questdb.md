@@ -12,7 +12,7 @@ keywords:
   - trading
   - marketdata
 tags: [tutorial, julialang, market data, trading, bitcoin]
-image: /img/blog/2022-03-29/graph.png
+image: /img/blog/2022-03-29/graph.webp
 ---
 
 import Banner from "@theme/Banner"
@@ -20,7 +20,7 @@ import Banner from "@theme/Banner"
 <Banner
   alt="crypto volume profiles with questdb and julia"
   height={467}
-  src="/img/blog/2022-03-29/graph.png"
+  src="/img/blog/2022-03-29/graph.webp"
   width={650}
 ></Banner>
 
@@ -149,7 +149,7 @@ We iterate through all the different files and receive a message telling us
 whether the file was successfully uploaded. We can go to the web GUI and check
 to make sure everything worked by counting the number of rows.
 
-![QuestDB GUI screenshot](/img/blog/2022-03-29/questdb_gui.png "QuestDB GUI screenshot")
+![QuestDB GUI screenshot](/img/blog/2022-03-29/questdb_gui.webp "QuestDB GUI screenshot")
 
 Now let's connect to the database in Julia and see if we get the same result.
 

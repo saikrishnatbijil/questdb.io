@@ -8,13 +8,13 @@ description:
   on bringing version 6.0.0 to fruition, and we hope you enjoy the latest
   content from recent weeks.
 tags: [newsletter]
-image: /img/blog/newsletter-preview.png
+image: /img/blog/newsletter-preview.webp
 slug: newsletter-release-out-of-order-ingestion-capacity-planning
 ---
 
 import Screenshot from "@theme/Screenshot"
 
-![QuestDB newsletter banner](/img/blog/newsletter.png)
+![QuestDB newsletter banner](/img/blog/newsletter.webp)
 
 We're happy to share the latest updates about QuestDB on the web while we work
 on bringing version 6.0.0 to fruition, and we hope you enjoy the latest content
@@ -73,7 +73,7 @@ directly behind Alibaba Cloud TSDB and Amazon Timestream:
 
 <Screenshot
   alt="A screenshot of QuestDB ranking on db-engines"
-  src="/img/blog/2021-03-02/db-engines-ranking.png"
+  src="/img/blog/2021-03-02/db-engines-ranking.webp"
   title={
     <a
       href="https://db-engines.com/en/ranking/time+series+dbms"

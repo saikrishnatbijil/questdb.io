@@ -15,7 +15,7 @@ keywords:
   - database
   - architecture
 tags: [engineering, multithreading, architecture]
-image: /img/blog/2020-03-15/header.png
+image: /img/blog/2020-03-15/header.webp
 ---
 
 import Banner from "@theme/Banner"
@@ -23,7 +23,7 @@ import Banner from "@theme/Banner"
 <Banner
   alt="Flock of birds flying in a harmonised way"
   height={360}
-  src="/img/blog/2020-03-15/header.png"
+  src="/img/blog/2020-03-15/header.webp"
   width={650}
 />
 

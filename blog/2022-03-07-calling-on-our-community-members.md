@@ -16,7 +16,7 @@ keywords:
   - open source
   - support
   - ukraine
-image: /img/blog/2022-03-07/banner.png
+image: /img/blog/2022-03-07/banner.webp
 tags: [company, team, community, announcement]
 ---
 
@@ -25,7 +25,7 @@ import Banner from "@theme/Banner"
 <Banner
   alt="Flag of Ukraine"
   height={427}
-  src="/img/blog/2022-03-07/banner.png"
+  src="/img/blog/2022-03-07/banner.webp"
   width={640}
 />
 

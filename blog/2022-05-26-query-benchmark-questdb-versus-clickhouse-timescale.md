@@ -16,7 +16,7 @@ keywords:
   - timeseries
   - database
   - engineering
-image: /img/blog/2022-05-26/banner.png
+image: /img/blog/2022-05-26/banner.webp
 tags: [benchmark, engineering, release, story, performance]
 ---
 
@@ -145,7 +145,7 @@ import Screenshot from "@theme/Screenshot"
   alt="A chart comparing hot query execution times of QuestDB, ClickHouse and TimescaleDB - Query 1"
   title="Hot query execution times of QuestDB, ClickHouse and TimescaleDB - Query 1"
   height={265}
-  src="/img/blog/2022-05-26/filter-benchmark.png"
+  src="/img/blog/2022-05-26/filter-benchmark.webp"
   width={700}
 />
 
@@ -196,7 +196,7 @@ How do databases from our list deal with such query? Let's measure and find out!
   alt="A chart comparing hot LIMIT query execution times of QuestDB, ClickHouse and TimescaleDB - Query 2"
   title="Hot LIMIT query execution times of QuestDB, ClickHouse and TimescaleDB - Query 2"
   height={283}
-  src="/img/blog/2022-05-26/filter-with-limit-benchmark.png"
+  src="/img/blog/2022-05-26/filter-with-limit-benchmark.webp"
   width={734}
 />
 
@@ -232,7 +232,7 @@ timestamp.
   alt="A diagram showing column file partitioning"
   title="Column file layout example"
   height={301}
-  src="/img/blog/2022-05-26/storage-format.png"
+  src="/img/blog/2022-05-26/storage-format.webp"
   width={757}
 />
 
@@ -248,7 +248,7 @@ frame utilizing both CPU and disk resources in a much more optimal way.
   alt="A diagram showing how parallel page frame scanning works"
   title="Parallel page frame scanning example"
   height={403}
-  src="/img/blog/2022-05-26/how-filtering-works.png"
+  src="/img/blog/2022-05-26/how-filtering-works.webp"
   width={682}
 />
 
@@ -301,7 +301,7 @@ The below chart shows the cold execution times.
   alt="A chart comparing cold query execution time improvements in QuestDB 6.3 - Query 3"
   title="Cold query execution time improvements in QuestDB 6.3 - Query 3"
   height={273}
-  src="/img/blog/2022-05-26/before-and-after-cold-runs.png"
+  src="/img/blog/2022-05-26/before-and-after-cold-runs.webp"
   width={718}
 />
 
@@ -334,7 +334,7 @@ the average hot execution time for the same query.
   alt="A chart comparing hot query execution time improvements in QuestDB 6.3 - Query 3"
   title="Hot query execution time improvements in QuestDB 6.3 - Query 3"
   height={281}
-  src="/img/blog/2022-05-26/before-and-after-hot-runs.png"
+  src="/img/blog/2022-05-26/before-and-after-hot-runs.webp"
   width={768}
 />
 

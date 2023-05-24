@@ -12,7 +12,7 @@ keywords:
   - data lifecycle
 
 tags: [tutorial, data lifecycle]
-image: /img/blog/2022-11-02/banner.png
+image: /img/blog/2022-11-02/banner.webp
 ---
 
 import Banner from "@theme/Banner"
@@ -20,7 +20,7 @@ import Banner from "@theme/Banner"
 <Banner
   alt="A screenshot showing data monitoring"
   height={500}
-  src="/img/blog/2022-11-02/banner.png"
+  src="/img/blog/2022-11-02/banner.webp"
   width={692}
 />
 

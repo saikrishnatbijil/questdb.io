@@ -15,7 +15,7 @@ keywords:
   - questdb
   - open source
 tags: [demo, hackernews, retrospective, community]
-image: /img/blog/placeholder.png
+image: /img/blog/placeholder.webp
 ---
 
 If you listen to, well, pretty much anyone rational, they will tell you in no
@@ -155,7 +155,7 @@ this would be a stunningly bad decision.
 
 The result was ... not what they were expecting:
 
-![query results showing unholy number of results](/img/blog/2020-07-01/join.png)
+![query results showing unholy number of results](/img/blog/2020-07-01/join.webp)
 
 Yeah, that's 2,671,914,914,060,072,000 rows. In 69ms (including network transfer
 time). That's a lot of results in a very short amount of time. Definitely not

@@ -7,11 +7,11 @@ description:
   Here's the latest QuestDB news including performance and stability
   improvements and high-cardinality benchmark results
 tags: [newsletter]
-image: /img/blog/newsletter-preview.png
+image: /img/blog/newsletter-preview.webp
 slug: newsletter-cardinality-tsbs-benchmark-timescaledb-influxdb-clickhouse
 ---
 
-![QuestDB newsletter banner](/img/blog/newsletter.png)
+![QuestDB newsletter banner](/img/blog/newsletter.webp)
 
 The last month has been exciting for the QuestDB team; we've had a lot of kudos
 sent our way including a feature as the top release for
@@ -27,7 +27,7 @@ pain point for time-series databases. We were happy with the results showing how
 QuestDB handles up to 10 million unique devices, and we published an article
 with the results and methodologmy:
 
-[![Chart showing trends of ingestion rate](/img/blog/2021-07-06/high-cardinality-benchmakrs.png)](/blog/2021/06/16/high-cardinality-time-series-data-performance/)
+[![Chart showing trends of ingestion rate](/img/blog/2021-07-06/high-cardinality-benchmakrs.webp)](/blog/2021/06/16/high-cardinality-time-series-data-performance/)
 
 The article was trending on the
 [#1 spot on Reddit's r/programming](https://www.reddit.com/r/programming/comments/o4top6/how_databases_handle_10_million_devices_in/)
@@ -55,7 +55,7 @@ made waves, and we're delighted to see follow-ups from the community:
   [showed his appreciation](https://twitter.com/jrhunt/status/1401753183668490241)
   for the content we are publishing:
 
-[![Screenshot of a tweet from @jrhunt](/img/blog/2021-07-06/tweet.png)](https://twitter.com/jrhunt/status/1401753183668490241)
+[![Screenshot of a tweet from @jrhunt](/img/blog/2021-07-06/tweet.webp)](https://twitter.com/jrhunt/status/1401753183668490241)
 
 Last but not least, Tim Borowski explained
 [why QuestDB is his database of choice for industrial IoT](https://www.developer-week.de/programm/#/talk/schnell-schneller-questdb)

@@ -5,7 +5,7 @@ author_title: Guest
 author_url: https://github.com/Yitaek
 author_image_url: https://avatars.githubusercontent.com/Yitaek
 description: "An overview of three methods to ingest live market data into QuestDB."
-image: /img/blog/2023-04-18/banner.png
+image: /img/blog/2023-04-18/banner.webp
 tags: [market data, tutorial, crypto, tick data, time-series, pinned]
 slug: ingesting-financial-tick-data-using-time-series-database
 ---
@@ -15,7 +15,7 @@ import Banner from "@theme/Banner"
 <Banner
   alt="Diagram showing Go to Kafka and to QuestDB"
   height={500}
-  src="/img/blog/2023-04-18/banner.png"
+  src="/img/blog/2023-04-18/banner.webp"
   width={692}
 ></Banner>
 
@@ -102,7 +102,7 @@ to see data populated (especially from Gemini).
 Navigate to localhost:9000 to access the web console. We can query data from
 Coinbase via `SELECT * FROM trades-COINBASE`:
 
-![Screenshot of the SELECT statement result](/img/blog/2023-04-18/select-coinbase-screenshot.png)
+![Screenshot of the SELECT statement result](/img/blog/2023-04-18/select-coinbase-screenshot.webp)
 
 You can see all the supported exchanges and supported channels (e.g., L1/L2/L3
 books, trades, ticket, candles, open interest, etc) on the
@@ -179,7 +179,7 @@ Underneath the hood, cryptofeed library utilizes plain socket connections via
 QuestDB. As such, it is important to provide the raw ILP string in the write
 callback function.
 
-![Screenshot of the SELECT * FROM trades statement result](/img/blog/2023-04-18/select-trades.png)
+![Screenshot of the SELECT * FROM trades statement result](/img/blog/2023-04-18/select-trades.webp)
 
 The biggest advantage of using Cryptofeed is the large number of preconfigured
 integrations with various exchanges. The library does the heavy lifting of
@@ -262,7 +262,7 @@ main()
 The code above polls the REST endpoints of Binance and Gemini API and writes the
 data to a table called `prices`:
 
-![Screenshot of the SELECT * FROM prices statement result](/img/blog/2023-04-18/select-prices.png)
+![Screenshot of the SELECT * FROM prices statement result](/img/blog/2023-04-18/select-prices.webp)
 
 While writing a custom data ingestion function is more work than simply using
 Cryptofeed, it can be a great option if you need to customize the fields or run
@@ -282,7 +282,7 @@ This reference architecture has a function that polls Coinbase API for latest
 price data and publishes it to Kafka topics. QuestDB Kafka Connector in turn
 publishes that data to QuestDB.
 
-![Screenshot of the SELECT * FROM topic_BTC statement result](/img/blog/2023-04-18/select-topic-btc.png)
+![Screenshot of the SELECT * FROM topic_BTC statement result](/img/blog/2023-04-18/select-topic-btc.webp)
 
 ## Wrapping up
 

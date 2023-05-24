@@ -10,7 +10,7 @@ description:
   benchmark results using this new SQL command.
 keywords: [io_uring, benchmark, questdb, time series]
 tags: [benchmark, engineering, release, performance, clickhouse]
-image: /img/blog/2022-09-12/cover.png
+image: /img/blog/2022-09-12/cover.webp
 ---
 
 import Screenshot from "@theme/Screenshot"
@@ -119,7 +119,7 @@ Let's start with the most powerful AWS EC2 instance from the original benchmark:
   alt="Bar chart showing import comparison. From fast to slow: ClickHouse, QuestDB, Apache Pinot, TimescaleDB, DuckDB, and Apache Druid."
   title="Ingesting a 76GB CSV file, from fast to slow: ClickHouse, QuestDB, Apache Pinot, TimescaleDB, DuckDB, and Apache Druid."
   height={360}
-  src="/img/blog/2022-09-12/cover.png"
+  src="/img/blog/2022-09-12/cover.webp"
   width={650}
 />
 
@@ -166,7 +166,7 @@ What we got is the following:
   alt="Bar chart showing QuestDB import performance using different HW."
   title="QuestDB ingestion time for ClickBench's 76GB CSV file by instance type and storage."
   height={360}
-  src="/img/blog/2022-09-12/comparison.png"
+  src="/img/blog/2022-09-12/comparison.webp"
   width={650}
 />
 
@@ -251,7 +251,7 @@ The indexes we build at phase 2 may be illustrated in the following way:
   alt="A diagram showing temporary indexes built during parallel import."
   title="Temporary indexes built during parallel import."
   height={265}
-  src="/img/blog/2022-09-12/diagram.png"
+  src="/img/blog/2022-09-12/diagram.webp"
   width={700}
 />
 

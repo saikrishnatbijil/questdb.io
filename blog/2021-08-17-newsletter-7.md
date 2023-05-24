@@ -7,11 +7,11 @@ description:
   Here's QuestDB's July news including release 6.0.4, Prometheus support,
   continuous queries, and the latest resources and tutorials
 tags: [newsletter]
-image: /img/blog/newsletter-preview.png
+image: /img/blog/newsletter-preview.webp
 slug: newsletter-prometheus-integration
 ---
 
-![QuestDB newsletter banner](/img/blog/newsletter.png)
+![QuestDB newsletter banner](/img/blog/newsletter.webp)
 
 It's been an exciting month at QuestDB HQ; we released software version 6.0.4
 with basic Prometheus support, and we had continued community growth with new
@@ -32,7 +32,7 @@ code, and calendar alignment for `SAMPLE BY` queries. We're also excited by the
 introduction of a framework for exposing **Prometheus** metrics by our community
 member Piotr Rżysko:
 
-[![Screenshot of Prometheus dashboard showing data from QuestDB](/img/blog/2021-08-17/prometheus.png)](/blog/2021/07/16/release-6-0-4-prometheus-metrics/)
+[![Screenshot of Prometheus dashboard showing data from QuestDB](/img/blog/2021-08-17/prometheus.webp)](/blog/2021/07/16/release-6-0-4-prometheus-metrics/)
 
 The initial implementation adds a simple counter for the number of executed SQL
 queries. For more details on this release, including the full release notes, see

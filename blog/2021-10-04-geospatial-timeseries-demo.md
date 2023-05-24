@@ -14,7 +14,7 @@ keywords:
   - database
   - geodata
   - postgis
-image: /img/blog/2021-10-04/banner.png
+image: /img/blog/2021-10-04/banner.webp
 tags: [demo, release, engineering, geospatial, postgis]
 ---
 
@@ -51,7 +51,7 @@ import Screenshot from "@theme/Screenshot"
 <Screenshot
   alt="An illustration showing two maps with different geohash precision levels applied"
   height={598}
-  src="/img/blog/2021-09-13/geohashes.png"
+  src="/img/blog/2021-09-13/geohashes.webp"
   width={650}
 />
 
@@ -126,7 +126,7 @@ following example, which uses [plotly](https://plotly.com/) via Python:
 <Screenshot
   alt="An example geohash plotted on a map using plotly via Python"
   height={598}
-  src="/img/blog/2021-10-04/plotly.png"
+  src="/img/blog/2021-10-04/plotly.webp"
   width={650}
 />
 

@@ -17,7 +17,7 @@ keywords:
   - simd
   - clickhouse
 tags: [engineering, benchmark, performance]
-image: /img/blog/2020-05-12/banner.png
+image: /img/blog/2020-05-12/banner.webp
 ---
 
 import Banner from "@theme/Banner"
@@ -25,7 +25,7 @@ import Banner from "@theme/Banner"
 <Banner
   alt="Wile E. Coyote and the Road Runner cartoon"
   height={257}
-  src="/img/blog/2020-05-12/banner.png"
+  src="/img/blog/2020-05-12/banner.webp"
   width={655}
 />
 
@@ -154,17 +154,17 @@ different orders of magnitude.
 
 We start with both our numbers expressed in scientific notation.
 
-![Numbers expressed in scientific notation](/img/blog/2020-05-12/significantDigits.png)
+![Numbers expressed in scientific notation](/img/blog/2020-05-12/significantDigits.webp)
 
 Let's expand into decimal notation and place them on a similar scale so all
 digits fit.
 
-![Numbers expressed in decimal notation](/img/blog/2020-05-12/digitsExpanded.png)
+![Numbers expressed in decimal notation](/img/blog/2020-05-12/digitsExpanded.webp)
 
 Now, let us express this sum back as one number in scientific notation. We have
 to `truncate` the result back to 5 significant digits.
 
-![A number expressed in 2 parts: the significant digits and the truncated part](/img/blog/2020-05-12/digitsResult.png)
+![A number expressed in 2 parts: the significant digits and the truncated part](/img/blog/2020-05-12/digitsResult.webp)
 
 The result is incorrect. In fact, it is as if we did not sum anything.
 
@@ -316,12 +316,12 @@ Without null values, both databases sum naively at roughly the same speed. With
 Kahan summation, QuestDB performs at the same speed while Clickhouse's
 performance drops by ~40%.
 
-![QuestDB vs Clickhouse benchmark for Kahan's sums](/img/blog/2020-05-12/kahanComparison.png)
+![QuestDB vs Clickhouse benchmark for Kahan's sums](/img/blog/2020-05-12/kahanComparison.webp)
 
 As we include null values, Clickhouse's performance degrades by 28% and 50% for
 naive and Kahan summation, respectively.
 
-![QuestDB vs Clickhouse benchmark for Kahan's sums with nulls](/img/blog/2020-05-12/kahanNullComparison.png)
+![QuestDB vs Clickhouse benchmark for Kahan's sums with nulls](/img/blog/2020-05-12/kahanNullComparison.webp)
 
 ## What we learned
 
