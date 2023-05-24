@@ -30,6 +30,7 @@ const Banner = ({ alt, children, height, src, width }: Props) => {
         height={height}
         src={src}
         width={width}
+        loading="lazy"
       />
       {children != null && (
         <figcaption className={styles.caption}>{children}</figcaption>
