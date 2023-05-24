@@ -7,7 +7,7 @@ module.exports = {
   crunchbaseUrl: "https://www.crunchbase.com/organization/quest-db",
   demoUrl: `https://demo.${domain}`,
   description:
-    "QuestDB is an open source SQL database for time-series data. The database is column-oriented and optimized for fast ingest and SQL analytics.",
+    "QuestDB is an open source time-series database. The database is column-oriented and optimized for high-speed ingest and blazingly fast SQL analytics.",
   dockerUrl: "https://hub.docker.com/r/questdb/questdb",
   domain,
   githubOrgUrl,
