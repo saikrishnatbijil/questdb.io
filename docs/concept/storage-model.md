@@ -64,14 +64,17 @@ does so lock-free to ensure minimal impact on concurrent reads.
 
 The **consistency** assurance of the data stored is limited to QuestDB
 auto-repairing abnormally terminated transactions. We do not yet support
-user-defined constraints, checks and triggers.
+user-defined constraints, checks, and triggers.
 
-By default QuestDB relies on OS-level data **durability** leaving the OS to
-write dirty pages to disk. Data durability can be also configured with
-`commit()` optionally being able to invoke `msync()` with a choice of
-synchronous or asynchronous IO. The `msync()` calls are made for column files
-only, so while the `sync`/`async` commit modes improve the overall durability,
-they don't guarantee durability in the face of OS errors or power loss.
+By default, QuestDB relies on OS-level data **durability** for data files
+leaving the OS to write dirty pages to disk. Data durability can also be
+configured to invoke `msync()`/`fsync()` for column files on each commit at the
+cost of reduced ingestion throughput. Consider enabling the `sync` commit mode
+to improve data durability in the face of OS errors or power loss:
+
+```ini title="server.conf"
+cairo.commit.mode=sync
+```
 
 <Screenshot
   alt="Diagram of a commit across several column files"
@@ -82,11 +85,11 @@ they don't guarantee durability in the face of OS errors or power loss.
 
 ## Summary
 
-The QuestDB storage model uses memory mapped files and cross-process atomic
-transaction updates as a low overhead method of inter-process communication.
+The QuestDB storage model uses memory-mapped files and cross-process atomic
+transaction updates as a low-overhead method of inter-process communication.
 Data committed by one process can be instantaneously read by another process,
-either randomly (via queries) or incrementally (as a data queue). QuestDB provides
-a variety of reader implementations.
+either randomly (via queries) or incrementally (as a data queue). QuestDB
+provides a variety of reader implementations.
 
 <Screenshot
   alt="Architecture of the storage model with column files, readers/writers and the mapped memory"
