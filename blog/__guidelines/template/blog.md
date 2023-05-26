@@ -2,36 +2,41 @@
 title: Article title
 author:
 author_title: Guest post
-author_url: 
-author_image_url: 
-description:
-  A brief description of the tutorial.
+author_url:
+author_image_url:
+description: A brief description of the tutorial.
 keywords:
   - concept1
   - concept2
-image: /img/blog/path/file.png
+image: /img/blog/path/banner.webp
 tags: [tutorial, tag1, tag2]
 slug: seo-friendly-url
 ---
 
-
-Brief introduction of
-[Author_Name](URL) and the topic of the article.
-
-<!--truncate-->
-
 import Banner from "@theme/Banner"
+import Screenshot from "@theme/Screenshot"
+
+<!--preview image should use the banner.webp filename to ensure that a thumbnail is created and presented properly-->
+
 
 <Banner
-  alt="Title of the banner image"
-  height={467}
-  src="/img/blog/path/file.png"
-  width={650}
-></Banner>
+  alt="An image of a meter and database with logos of Golang, GitHub, QuestDB"
+  src="/img/blog/path/banner.webp"
+  width={528}
+  height={234}
+/>
 
 ## Title in sentence case
 
-![Image description](path/to/img.png)
+<Screenshot
+  alt="A screenshot of the CPU profile graph from the pprof web UI"
+  title="A glimpse of the CPU profile graph from the pprof web UI"
+  src="/img/blog/2023-05-26/cpu-profile.webp"
+  width={1056}
+  height={469}
+/>
 
 ## Title in sentence case
+
 ## Title in sentence case
+

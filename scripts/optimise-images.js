@@ -15,29 +15,40 @@ const src = "static/img"
 const dist = src
 const log = (msg) => process.stdout.write(msg)
 
-const optimiseWithSharp = async (file, ext) => {
-  log(`Optimising ${file} with \`sharp()\`... `)
+const withSharp = async (filePath, ext) => {
+  log(`Optimising ${filePath} with \`sharp()\`... `)
 
   // `sharp` cannot overwrite the original file, so we need to create a temporary one
-  const tmpFilePath = `${file}.tmp`
+  const tmpFilePath = `${filePath}.tmp`
 
-  await sharp(file)
+  const jpgOptions = {
+    progressive: true,
+    quality: 75,
+  }
+
+  const formatOptions = {
+    jpg: jpgOptions,
+    jpeg: jpgOptions,
+    webp: {
+      lossless: true,
+      quality: 75,
+    },
+  }
+
+  await sharp(filePath)
     .resize({
-      height: 1440,
+      width: 1000,
+      height: 1000,
       fit: sharp.fit.inside,
-      width: 1920,
       withoutEnlargement: true,
     })
-    .toFormat(ext === "jpg" ? "jpeg" : ext, {
-      progressive: true,
-      quality: 75,
-    })
+    .toFormat(ext, formatOptions[ext])
     .toFile(tmpFilePath)
     .then(() => {
       log("OK!\n")
 
       // Move the temporary file to the original file path
-      fs.renameSync(tmpFilePath, file)
+      fs.renameSync(tmpFilePath, filePath)
     })
     .catch((err) => {
       log("ERROR!\n")
@@ -45,10 +56,10 @@ const optimiseWithSharp = async (file, ext) => {
     })
 }
 
-const optimiseWithImagemin = async (file) => {
-  log(`Optimising ${file} with \`imagemin()\`... `)
+const withImagemin = async (filePath) => {
+  log(`Optimising ${filePath} with \`imagemin()\`... `)
 
-  imagemin([file], {
+  imagemin([filePath], {
     plugins: [
       imageminGifsicle({
         interlaced: true,
@@ -75,14 +86,50 @@ const optimiseWithImagemin = async (file) => {
   )
 }
 
-const optimiseImages = async () => {
+const makeThumbnail = async (filePath, thumbPath) => {
+  const dirname = path.dirname(filePath)
+  const outputPath = path.join(dirname, thumbPath)
+
+  await sharp(filePath)
+    .resize(500, 300)
+    .toFormat("webp", { lossless: false })
+    .toFile(outputPath)
+    .then(() => {
+      log(`Created thumbnail ${outputPath}!\n`)
+    })
+    .catch((err) => {
+      log(`Error creating thumbnail for ${filePath}!\n`)
+      console.log(err)
+    })
+}
+
+const main = async () => {
+  if (filePath.endsWith("banner.thumb.webp")) {
+    log("Skipping optimisation of banner.thumb.webp\n")
+    return
+  }
+
+  if (filePath.endsWith("banner.webp")) {
+    await makeThumbnail(filePath, "banner.thumb.webp")
+  }
+
   const fileExtension = path.extname(filePath).toLowerCase().replace(".", "")
 
-  if (["jpg", "jpeg", "png"].includes(fileExtension)) {
-    await optimiseWithSharp(filePath, fileExtension)
+  const optimisers = {
+    "jpe?g|png|webp": withSharp,
+    "gif|svg": withImagemin,
+  }
+
+  const optimiseFunc = Object.entries(optimisers).find(([key]) => {
+    const regex = new RegExp(key)
+    return regex.test(fileExtension)
+  })
+
+  if (optimiseFunc) {
+    await optimiseFunc[1](filePath, fileExtension)
   } else {
-    await optimiseWithImagemin(filePath)
+    console.log(`No optimise function found for ${fileExtension} file`)
   }
 }
 
-optimiseImages()
+main()
