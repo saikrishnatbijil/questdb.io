@@ -292,10 +292,6 @@ const config = {
               label: "Reddit",
               href: customFields.redditUrl,
             },
-            {
-              label: "Discussions",
-              to: customFields.linenUrl,
-            },
           ],
         },
         {

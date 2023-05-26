@@ -20,6 +20,5 @@ module.exports = {
   twitterUrl: "https://twitter.com/questdb",
   videosUrl: "https://www.youtube.com/c/QuestDB",
   redditUrl: "https://www.reddit.com/r/questdb",
-  linenUrl: "https://community-chat.questdb.io",
   cloudUrl: "https://cloud.questdb.com/",
 }
