@@ -23,6 +23,12 @@ const currentOpenings: Opening[] = [
   },
 
   {
+    href: "/careers/ux-designer/",
+    title: "UX Designer",
+    location: "Remote",
+  },
+
+  {
     href: "/careers/ui-frontend-developer/",
     title: "UI / Front End Developer",
     location: "Remote",
