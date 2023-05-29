@@ -527,4 +527,4 @@ say hello [in our Slack Community]({@slackUrl@}).
 
 ## Additional Resources
 
-[What is Time-Series Data?](/blog/time-series-data/)
+[What is Time-Series Data?](/glossary/time-series-database/)

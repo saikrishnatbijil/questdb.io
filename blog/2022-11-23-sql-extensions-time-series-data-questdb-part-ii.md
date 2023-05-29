@@ -97,7 +97,7 @@ following data after running a `SELECT *` query on the `taxi_trips` table:
 ## Understanding the basics of `SAMPLE BY`
 
 The `SAMPLE BY` extension allows you to create groups and buckets of data based
-on time ranges. This is especially valuable for [time-series data](/blog/time-series-data/) 
+on time ranges. This is especially valuable for [time-series data](/glossary/time-series-database/) 
 as you can calculate frequently used aggregates with extreme simplicity. `SAMPLE BY` offers
 you the ability to summarize or aggregate data from very fine to very coarse
 [units of time](/docs/reference/sql/sample-by#sample-units), i.e., from

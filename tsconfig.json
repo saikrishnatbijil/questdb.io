@@ -47,7 +47,7 @@
       "@theme/ILPClientsTable": ["src/theme/ILPClientsTable"],
       "@theme/BlogPostItem": ["src/theme/BlogPostItem"],
       "@theme/BlogPostPage": ["src/theme/BlogPostPage"],
-      "@theme/DemoConsoleButton": ["src/theme/DemoConsoleButton"]
+      "@theme/DemoConsoleButton": ["src/theme/DemoConsoleButton"],
     }
   },
   "include": ["src/", "types/"]

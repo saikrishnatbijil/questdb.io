@@ -103,7 +103,7 @@ for each additional billion. But if you can get 100 billion data points for each
 new machine by using higher-performance software, then you have a really reduced
 cost for each machine. You furthermore end up needing fewer of them.
 
-Performance in [time-series data](/blog/time-series-data/) is about helping you reach the best decision as
-effectively as possible. That’s why QuestDB is glad to be building
-high-performance time-series data solutions that are significantly faster than
-the competition.
+Performance in [time-series data](/glossary/time-series-database/) is about
+helping you reach the best decision as effectively as possible. That’s why
+QuestDB is glad to be building high-performance time-series data solutions that
+are significantly faster than the competition.
