@@ -43,7 +43,7 @@ export const ContactForm = ({
     }
 
     try {
-      await fetch("https://crast.questdb.io/contact/form", {
+      await fetch("https://crast.questdb.io/contact/cloud", {
         body: JSON.stringify(payload),
         headers: { "Content-Type": "application/json" },
         method: "POST",
