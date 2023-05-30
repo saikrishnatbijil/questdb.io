@@ -10,17 +10,6 @@ metadata. The `SHOW` keyword is useful for checking the
 [partition attachment settings](/docs/reference/sql/alter-table-attach-partition/),
 and partition storage size on disk.
 
-:::info
-
-These commands return the tables, columns and partitions as a table. If you
-would like to query your tables and columns with filters or to use the results
-as part of a function, see the
-[table_columns()](/docs/reference/function/meta/#table_columns),
-[tables()](/docs/reference/function/meta/#all_tables), and
-[table_partitions()](/docs/reference/function/meta/#table_partitions) functions.
-
-:::
-
 ## Syntax
 
 ![Flow chart showing the syntax of the SHOW keyword](/img/docs/diagrams/show.svg)
@@ -69,3 +58,11 @@ SHOW PARTITIONS FROM my_table;
 | 1     | WEEK        | 2023-W01   | 2023-01-02 00:00:00.0 | 2023-01-08 23:24:00.0 | 280     | 98304    | 96.0 KiB      | false    | false  | true     | false    | false      |
 | 2     | WEEK        | 2023-W02   | 2023-01-09 00:00:00.0 | 2023-01-15 23:24:00.0 | 280     | 98304    | 96.0 KiB      | false    | false  | true     | false    | false      |
 | 3     | WEEK        | 2023-W03   | 2023-01-16 00:00:00.0 | 2023-01-18 12:00:00.0 | 101     | 83902464 | 80.0 MiB      | false    | true   | true     | false    | false      |
+
+## See also
+
+The following functions allow querying tables with filters and using the results as part of a function:
+
+- [table_columns()](/docs/reference/function/meta/#table_columns)
+- [tables()](/docs/reference/function/meta/#all_tables)
+- [table_partitions()](/docs/reference/function/meta/#table_partitions)

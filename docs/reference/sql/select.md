@@ -79,12 +79,8 @@ FROM ratings
 
 ## Aggregation
 
-:::info
-
 Supported aggregation functions are listed on the
 [aggregation reference](/docs/reference/function/aggregation/).
-
-:::
 
 ### Aggregation by group
 

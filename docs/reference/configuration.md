@@ -172,7 +172,7 @@ This server runs embedded in a QuestDB instance by default and enables health
 checks of an instance via HTTP. It responds to all requests with a HTTP status
 code of `200` unless the QuestDB process dies.
 
-:::info
+:::tip
 
 Port `9003` also provides a `/metrics` endpoint with Prometheus metrics exposed.
 Examples of how to use the min server and Prometheus endpoint can be found on

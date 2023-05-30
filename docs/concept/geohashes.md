@@ -209,13 +209,6 @@ CREATE TABLE geo_data
 index(device_id) timestamp(ts);
 ```
 
-:::info
-
-The `within` operator may only be used when all symbol columns in the query are
-indexed.
-
-:::
-
 This creates a table with a `symbol` type column as an identifier and we can
 insert values as follows:
 
@@ -269,7 +262,12 @@ WHERE device_id = 'device_3' sample by 1h;
 ### Within operator
 
 The `within` operator can be used as a prefix match to evaluate if a geohash is
-equal to or is within a larger grid. The following query will return the most
+equal to or is within a larger grid. 
+
+It can only be applied in `LATEST ON` queries and all symbol
+columns within the query **must be indexed**.
+
+The following query will return the most
 recent entries by device ID if the `g8c` column contains a geohash within
 `u33d`:
 
@@ -278,13 +276,6 @@ SELECT * FROM geo_data
 WHERE g8c within(#u33d)
 LATEST ON ts PARTITION BY device_id;
 ```
-
-:::info
-
-The `within` operator can only be applied in `LATEST BY` queries and all symbol
-columns within the query **must be indexed**.
-
-:::
 
 | ts                          | device_id | g1c | g8c      |
 | --------------------------- | --------- | --- | -------- |
@@ -414,7 +405,7 @@ CREATE TABLE tracking (ts timestamp, geohash geohash(8c));
 tracking geohash="46swgj10"
 ```
 
-:::info
+:::note
 
 The ILP parser does not support geohash literals, only strings. This means that
 table columns of type `geohash` type with the desired precision must exist
@@ -466,18 +457,16 @@ ts,geohash
 Just like ILP, CSV import supports geohash strings only, so the same
 restrictions apply.
 
-## Postgres
+## The PostgreSQL wire protocol
 
-Geohashes may also be used over Postgres wire protocol as other data types. The
-Python example below demonstrates how to connect to QuestDB over postgres wire,
-insert and query geohashes:
+Geohashes may also be used over the PostgreSQL wire protocol as other data types. 
 
-:::info
-
-When querying geohash values over Postgres wire protocol, QuestDB always returns
+When querying geohash values over the PostgreSQL wire protocol, QuestDB always returns
 geohashes in text mode (i.e. as strings) as opposed to binary
 
-:::
+The
+Python example below demonstrates how to connect to QuestDB over the PostgreSQL wire protocol,
+insert and query geohashes:
 
 ```python
 import psycopg2 as pg

@@ -16,6 +16,8 @@ data manually.
 
 ![Flow chart showing the syntax of ALTER TABLE with ATTACH PARTITION keyword](/img/docs/diagrams/alterTableAttachPartition.svg)
 
+The `WHERE` clause is not supported when attaching partitions.
+
 ## Description
 
 Before executing `ATTACH PARTITION`, the partition folders to be attached must
@@ -46,13 +48,13 @@ partition folder, create a symbolic link with the name
 format`<partition_name>.attachable` from the table's folder, and set the target
 path to the detached partition folder.
 
-:::info
+In Windows, symbolic links require admin privileges, and thus this method is not
+recommended.
 
-- SQL statements that hit partitions attached via symbolic links may have slower
-  runtimes if their volumes have a slower disk.
+:::note
 
-- In Windows, symbolic links require admin privileges, and thus this method is
-  not recommended.
+SQL statements that hit partitions attached via symbolic links may have slower
+runtime if their volumes have a slower disk.
 
 :::
 
@@ -69,8 +71,9 @@ following operations:
 - [`UPDATE`](/docs/reference/sql/update/): Attempts to update the read-only
   partitions result in an error.
 - [`INSERT`](/docs/reference/sql/insert/): Attemps to insert data into a
-  read-only partition result in a critical-level log message being logged by the server, and the insertion is a no-op.
-  If [Prometheus monitoring](/docs/third-party-tools/prometheus/) is configured, an
+  read-only partition result in a critical-level log message being logged by the
+  server, and the insertion is a no-op. If
+  [Prometheus monitoring](/docs/third-party-tools/prometheus/) is configured, an
   alert will be triggered.
 
 For read-only partitions, the following operations are supported:
@@ -197,14 +200,7 @@ the following SQL statement:
 ALTER TABLE tab ATTACH PARTITION LIST '2022', '2023', '2024', '2025', '2026', '2027';
 ```
 
-:::info
-
-- The SQL reference to the partitions does not include the suffix `.attachable`.
-- The `WHERE` clause is not supported when attaching partitions.
-- The latest partition cannot be detached. However, it can be irreversibly
-  deleted using [DROP TABLE](/docs/reference/sql/drop/).
-
-:::
+The SQL reference to the partitions does not include the suffix `.attachable`.
 
 ## Limitation
 

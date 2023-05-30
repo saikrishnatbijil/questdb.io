@@ -6,7 +6,7 @@ description: SNAPSHOT SQL keyword reference documentation.
 
 Prepares the database for a filesystem (disk) snapshot.
 
-:::warning
+:::note
 
 Snapshot statements are not supported on Windows OS.
 
@@ -46,7 +46,7 @@ but the end snapshot artifact may become available later. In such case, the
 `SNAPSHOT COMPLETE` statement (step 3) may be run without waiting for the end
 artifact, but once the snapshot creation has started.
 
-:::info
+:::caution
 
 No DDL statements, such as `ALTER TABLE my_table DROP COLUMN my_col`, should be
 run in parallel with the above steps. Otherwise, the snapshot may contain

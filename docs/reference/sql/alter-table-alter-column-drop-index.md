@@ -20,7 +20,7 @@ This operation is similar to:
 UPDATE tab SET column=column;
 ```
 
-Where `column` is a symbol column that has an index before the operation, and no
+Where `column` is a symbol column that has an [index](/docs/concept/indexes/) before the operation, and no
 index afterwards. Readers of the table might be using the index in transaction
 A, in the meantime, a writer creates transaction B containing the new version of
 the column, minus the index (metadata is set to not have index, and index files
@@ -28,13 +28,6 @@ are not copied across to the newer version). When the readers are finished,
 QuestDB automatically deletes all the files pertaining to the version of the
 column in transaction A (QuestDB uses hardlinks internally to avoid an actual
 copy operation of the data files, as they do not change at all).
-
-:::info
-
-For more information about indexes please refer to the
-[INDEX documentation](/docs/concept/indexes/)
-
-:::
 
 ## Example
 

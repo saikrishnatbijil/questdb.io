@@ -13,7 +13,7 @@ To create a table by manually entering parameters and settings:
 
 ![Flow chart showing the syntax of the CREATE TABLE keyword](/img/docs/diagrams/createTable.svg)
 
-:::info
+:::note
 
 Checking table metadata can be done via the `tables()` and `table_columns()`
 functions which are described in the
@@ -185,12 +185,8 @@ The timestamp function allows for specifying which column (which must be of
 information, see the [designated timestamp](/docs/concept/designated-timestamp/)
 reference.
 
-:::caution
-
 The designated timestamp column **cannot be changed** after the table has been
 created.
-
-:::
 
 ## Partitioning
 
@@ -206,12 +202,8 @@ the following:
 - `DAY`
 - `HOUR`
 
-:::caution
-
 The partitioning strategy **cannot be changed** after the table has been
 created.
-
-:::
 
 ## WAL table parameter
 

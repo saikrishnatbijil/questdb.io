@@ -73,14 +73,6 @@ and the server will respond with identical results, e.g.:
 curl -v http://127.0.0.1:9003/status
 ```
 
-:::info
-
-The `/metrics` path segment is reserved for metrics exposed in Prometheus
-format. For more details, see the
-[Prometheus documentation](/docs/third-party-tools/prometheus/).
-
-:::
-
 ## Unhandled error detection
 
 When the metrics subsystem is

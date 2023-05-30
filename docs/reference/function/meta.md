@@ -152,15 +152,7 @@ SELECT type, count() FROM table_columns('my_table');
 ## table_partitions
 
 `table_partitions('tableName')` returns information for the partitions of a
-table.
-
-:::info
-
-Use `table_partitions('tableName')` method to filter the partitions. The SQL
-keyword [`SHOW PARTITIONS`](/docs/reference/sql/show/#show-partitions) does not
-support filters.
-
-:::
+table with the option to filter the partitions.
 
 **Arguments:**
 

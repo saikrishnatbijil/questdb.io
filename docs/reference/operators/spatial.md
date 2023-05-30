@@ -13,9 +13,7 @@ help with filtering and generating data.
 ## within
 
 `within(geohash, ...)` - evaluates if a comma-separated list of geohashes are
-equal to are within another geohash.
-
-:::info
+equal to are within another geohash:
 
 - The `within` operator can only be used in `LATEST ON` queries and all symbol
   columns within the query **must be indexed**.
@@ -26,8 +24,6 @@ equal to are within another geohash.
 - Filtering happens logically after `LATEST ON`.
 
 - Apart from the `within` operator, only simple filters on the designated timestamp are allowed in the `WHERE` clause.
-
-:::
 
 **Arguments:**
 

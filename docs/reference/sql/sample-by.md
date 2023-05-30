@@ -6,21 +6,13 @@ description: SAMPLE BY SQL keyword reference documentation.
 
 `SAMPLE BY` is used on time series data to summarize large datasets into
 aggregates of homogeneous time chunks as part of a
-[SELECT statement](/docs/reference/sql/select/). Users performing `SAMPLE BY`
-queries on datasets **with missing data** may make use of the
-[FILL](#fill-options) keyword to specify a fill behavior.
+[SELECT statement](/docs/reference/sql/select/).
 
-```questdb-sql title="Sample trades table in 30 minute intervals"
-SELECT time, avg(price) FROM trades SAMPLE BY 30m
-```
+To use `SAMPLE BY`, a table column needs to be specified as a
+[designated timestamp](/docs/concept/designated-timestamp/).
 
-:::info
-
-To use `SAMPLE BY`, a table column needs to be specified as a designated
-timestamp. Details about this concept can be found in the
-[designated timestamp](/docs/concept/designated-timestamp/) documentation.
-
-:::
+Users performing `SAMPLE BY` queries on datasets **with missing data** may make
+use of the [FILL](#fill-options) keyword to specify a fill behavior.
 
 ## Syntax
 
@@ -47,7 +39,7 @@ Where the unit for sampled groups may be one of the following:
 | `h`  | hour        |
 | `d`  | day         |
 | `M`  | month       |
-| `y`  | year       |
+| `y`  | year        |
 
 For example, given a table `trades`, the following query returns the number of
 trades per hour:
@@ -66,6 +58,14 @@ restrictions apply:
   `NONE`, `NULL`, `PREV`, `LINEAR` and constants may be used.
 - `LINEAR` strategy is not supported for keyed queries, i.e. queries that
   contain non-aggregated columns other than the timestamp in the SELECT clause.
+- The `FILL` keyword must precede alignment described in the
+  [sample calculation section](#sample-calculation), i.e.:
+
+  ```questdb-sql
+  SELECT ts, max(price) max FROM prices
+  SAMPLE BY 1h FILL(LINEAR)
+  ALIGN TO ...
+  ```
 
 | fillOption | Description                                                                                                               |
 | ---------- | ------------------------------------------------------------------------------------------------------------------------- |
@@ -157,19 +157,6 @@ SELECT ts, max(price) max FROM prices SAMPLE BY 1h FILL(NULL);
 | **2021-01-01T03:00:00.000000Z** | **null** |
 | 2021-01-01T04:00:00.000000Z     | max4     |
 | 2021-01-01T05:00:00.000000Z     | max5     |
-
-:::info
-
-The `FILL` keyword must precede alignment described in the
-[sample calculation section](#sample-calculation), i.e.:
-
-```questdb-sql
-SELECT ts, max(price) max FROM prices
-SAMPLE BY 1h FILL(LINEAR)
-ALIGN TO ...
-```
-
-:::
 
 ### Multiple fill values
 

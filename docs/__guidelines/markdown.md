@@ -9,13 +9,13 @@ This page describes elements and components from
 
 We use the following elements.
 
-- No more than one block per page
+- No more than two blocks per page
 
 ### Note
 
 :::note
 
-This is something important the user should be aware of. But no danger.
+This is something important the user should be aware of. But no danger. If the content of the note flows well with the main text, consider avoiding using the note block.
 
 :::
 

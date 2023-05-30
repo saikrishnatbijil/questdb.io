@@ -7,14 +7,6 @@ description: Date and time functions reference documentation.
 This page describes the available functions to assist with performing time-based
 calculations.
 
-:::info
-
-Checking if tables contain a designated timestamp column can be done via the
-`tables()` and `table_columns()` functions which are described in the
-[meta functions](/docs/reference/function/meta/) documentation page.
-
-:::
-
 ## Date and timestamp format
 
 The date and timestamp format is formed by units and arbitrary text. A unit is a
@@ -1228,4 +1220,3 @@ SELECT month(ts), count() FROM transactions;
 | 2015 | 2323  |
 | 2016 | 9876  |
 | 2017 | 2567  |
-

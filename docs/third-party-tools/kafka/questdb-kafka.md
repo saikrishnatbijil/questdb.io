@@ -20,12 +20,8 @@ This page has the following main sections:
 This guide shows the steps to use the QuestDB Kafka connector to read JSON data
 from Kafka topics and write them as rows into a QuestDB table.
 
-:::info 
-
 For Confluent users, please check the instructions in the
 [Confluent Docker images](https://github.com/questdb/kafka-questdb-connector/tree/main/kafka-questdb-connector-samples/confluent-docker-images).
-
-:::
 
 ### Prerequisites
 
@@ -183,7 +179,7 @@ the Kafka Connect connector.
 The connector supports the following configuration options:
 
 | Name                              | Type      | Example                                                     | Default            | Meaning                                                    |
-|-----------------------------------|-----------|-------------------------------------------------------------|--------------------|------------------------------------------------------------|
+| --------------------------------- | --------- | ----------------------------------------------------------- | ------------------ | ---------------------------------------------------------- |
 | topics                            | `string`  | orders                                                      | N/A                | Topics to read from                                        |
 | key.converter                     | `string`  | <sub>org.apache.kafka.connect.storage.StringConverter</sub> | N/A                | Converter for keys stored in Kafka                         |
 | value.converter                   | `string`  | <sub>org.apache.kafka.connect.json.JsonConverter</sub>      | N/A                | Converter for values stored in Kafka                       |
@@ -200,8 +196,8 @@ The connector supports the following configuration options:
 | username                          | `string`  | user1                                                       | admin              | User name for QuestDB. Used only when token is non-empty   |
 | token                             | `string`  | <sub>QgHCOyq35D5HocCMrUGJinEsjEscJlC</sub>                  | N/A                | Token for QuestDB authentication                           |
 | tls                               | `boolean` | true                                                        | false              | Use TLS for QuestDB connection                             |
-| retry.backoff.ms                  | `long`      | 1000                                                        | 3000               | Connection retry interval in milliseconds                  |
-| max.retries                       | `long`      | 1                                                           | 10                 | Maximum number of connection retry attempts                   |
+| retry.backoff.ms                  | `long`    | 1000                                                        | 3000               | Connection retry interval in milliseconds                  |
+| max.retries                       | `long`    | 1                                                           | 10                 | Maximum number of connection retry attempts                |
 
 ### How does the connector work?
 

@@ -20,11 +20,7 @@ A designated timestamp is elected by using the
   partitions are applied automatically by day by default with a `timestamp`
   column
 
-:::info
-
-- Checking if tables contain a designated timestamp column can be done via the
-  `tables()` and `table_columns()` functions which are described in the
-  [meta functions](/docs/reference/function/meta/) documentation page.
+:::note
 
 - The native timestamp format used by QuestDB is a Unix timestamp in microsecond
   resolution. See
@@ -38,13 +34,13 @@ A designated timestamp is elected by using the
 - Only a column of type `timestamp` can be elected as a designated timestamp.
 - Only one column can be elected for a given table.
 
-## Out-of-order policy
+## Checking the designated timestamp settings
 
-As of version 6.0.0, QuestDB supports the ingestion of records that are
-out-of-order (O3) by time. QuestDB detects and adjusts data ingestion for O3
-data automatically and no manual configuration is required.
+The [meta functions](/docs/reference/function/meta/), `tables()` and
+`table_columns()`, are designed to show the designated timestamp settings of the
+selected table.
 
-## Advantages
+## Advantages of electing a designated timestamp
 
 Electing a designated timestamp allows you to:
 
@@ -52,3 +48,9 @@ Electing a designated timestamp allows you to:
   [partitions reference](/docs/concept/partitions/).
 - Use time series joins such as `ASOF JOIN`. For more information, see the
   [JOIN reference](/docs/reference/sql/join/).
+
+## Out-of-order policy
+
+As of version 6.0.0, QuestDB supports the ingestion of records that are
+out-of-order (O3) by time. QuestDB detects and adjusts data ingestion for O3
+data automatically and no manual configuration is required.

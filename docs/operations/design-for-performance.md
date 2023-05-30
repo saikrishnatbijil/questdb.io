@@ -60,13 +60,9 @@ for strings that are repeated often in a dataset. The benefit of using this data
 type is lower storage requirements than regular strings and faster performance
 on queries as symbols are internally stored as `int` values.
 
-:::info
-
 Only symbols can be [indexed](/docs/concept/indexes/) in QuestDB. Although
 multiple indexes can be specified for a table, there would be a performance
 impact on the rate of ingestion.
-
-:::
 
 The following example shows the creation of a table with a `symbol` type that
 has multiple options passed for performance optimization.

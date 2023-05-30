@@ -7,13 +7,7 @@ description: WHERE SQL keyword reference documentation.
 `WHERE` clause filters data. Filter expressions are required to return boolean
 result.
 
-:::info
-
-QuestDB includes a JIT compiler for SQL queries which contain `WHERE` clauses.
-To find out more about this functionality with details on enabling its use, see
-the [JIT compiler documentation](/docs/concept/jit-compiler/).
-
-:::
+QuestDB includes a [JIT compiler](/docs/concept/jit-compiler/) for SQL queries which contain `WHERE` clauses.
 
 ## Syntax
 

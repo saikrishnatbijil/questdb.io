@@ -19,7 +19,7 @@ learn how to:
 As an example, we will look at hypothetical temperature readings from a variety
 of sensors.
 
-:::info
+:::note
 
 All commands are run through the [Web Console](/docs/develop/web-console/)
 accessible at `http://localhost:9000`.
