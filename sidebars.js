@@ -107,6 +107,20 @@ module.exports = {
       label: "Third-party Tools",
       type: "category",
       items: [
+        {
+          customProps: {
+            tag: "New",
+          },
+          type: "doc",
+          id: "third-party-tools/spark",
+        },
+        {
+          customProps: {
+            tag: "New",
+          },
+          type: "doc",
+          id: "third-party-tools/superset",
+        },
         "third-party-tools/flink",
         "third-party-tools/grafana",
         {
@@ -122,20 +136,6 @@ module.exports = {
         "third-party-tools/pandas",
         "third-party-tools/prometheus",
         "third-party-tools/redpanda",
-        {
-          customProps: {
-            tag: "New",
-          },
-          type: "doc",
-          id: "third-party-tools/spark",
-        },
-        {
-          customProps: {
-            tag: "New",
-          },
-          type: "doc",
-          id: "third-party-tools/superset",
-        },
         "third-party-tools/telegraf",
       ],
     },
