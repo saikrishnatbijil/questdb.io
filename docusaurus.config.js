@@ -264,6 +264,10 @@ const config = {
               label: "Slack Community",
               to: customFields.slackUrl,
             },
+            {
+              label: "Glossary",
+              to: "/glossary/",
+            }
           ],
         },
         {
