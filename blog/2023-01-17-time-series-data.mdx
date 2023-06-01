@@ -8,8 +8,7 @@ description:
   This article introduces time-series data and its applications and shows how a
   time-series database is best suited to process this data type.
 image: /img/blog/2023-01-17/banner.jpg
-tags:
-  [time-series, tsdb, SQL]
+tags: [time-series, tsdb, SQL]
 slug: time-series-data
 ---
 
@@ -29,11 +28,12 @@ import Screenshot from "@theme/Screenshot"
 ## Introduction
 
 This blog post covers the basics of time-series data and its most common use
-cases and applications. We introduce the time-series database category, which has
-seen an explosion in popularity since a decade ago.
+cases and applications. We introduce the time-series database category, which
+has seen an explosion in popularity since a decade ago.
 
 Additionally, we will cover the design and trade-offs for a time-series database
-and show how SQL can deal with time-series data workloads, using QuestDB's ANSI SQL syntax as an example.
+and show how SQL can deal with time-series data workloads, using QuestDB's ANSI
+SQL syntax as an example.
 
 <!--truncate-->
 
@@ -64,41 +64,42 @@ even nanosecond, and the trend is best presented as time-series data.
   title="Chart with price of Bitcoin and Ethereum"
 />
 
-Financial markets are the birthplace of time-series data. The price of securities
-change quickly, and every increment is known as tick data. Those increments can be
-in milliseconds, microseconds or even nanoseconds. 
+Financial markets are the birthplace of time-series data. The price of
+securities change quickly, and every increment is known as tick data. Those
+increments can be in milliseconds, microseconds or even nanoseconds.
 
-Financial exchanges expose the price of stocks, but there is also a broader spectrum
-of securities, such as commodities and bonds. Since 2009, a new asset class has emerged
-with cryptocurrencies such as Bitcoin and Ethereum.
+Financial exchanges expose the price of stocks, but there is also a broader
+spectrum of securities, such as commodities and bonds. Since 2009, a new asset
+class has emerged with cryptocurrencies such as Bitcoin and Ethereum.
 
 ### Sensor data and industrial analytics
 
-Time-series data is a critical component in various industries, including energy,
-space exploration, telco, and manufacturing. 
+Time-series data is a critical component in various industries, including
+energy, space exploration, telco, and manufacturing.
 
 In oil & gas exploration, sensors are used to measure the pressure, temperature,
 and flow rates of oil wells. Similarly, in electricity grids, smart meters are
-used to record the energy consumption of households and businesses, generating 
-time-series data that can be analyzed to optimize the grid's performance. 
+used to record the energy consumption of households and businesses, generating
+time-series data that can be analyzed to optimize the grid's performance.
 
-In space exploration, sensors and monitoring devices are installed throughout the rocket,
-including the engine. This data includes critical parameters such as pressure, temperature,
-fuel consumption, and thrust, which are recorded over time.
-The data is used to monitor the rocket's performance, optimize trajectory and fuel consumption,
-and detect anomalies in real-time.
+In space exploration, sensors and monitoring devices are installed throughout
+the rocket, including the engine. This data includes critical parameters such as
+pressure, temperature, fuel consumption, and thrust, which are recorded over
+time. The data is used to monitor the rocket's performance, optimize trajectory
+and fuel consumption, and detect anomalies in real-time.
 
 ### Application metrics and analytics
 
 The behaviour of users on an application or website is often analyzed to refine
-the user journey. In e-commerce, companies track and react to consumer behaviors dynamically,
-in order to automate marketing campaign triggers. To do so, they record online order tracking,
-keyword searches, and log user interaction with online advertisement. 
+the user journey. In e-commerce, companies track and react to consumer behaviors
+dynamically, in order to automate marketing campaign triggers. To do so, they
+record online order tracking, keyword searches, and log user interaction with
+online advertisement.
 
-These analytics are often displayed in real-time on a dashboard such as Grafana. 
+These analytics are often displayed in real-time on a dashboard such as Grafana.
 
-Other industries of choice for analytics include cyber security (network flow data),
-DevOps (servers), SaaS apps and Web3.
+Other industries of choice for analytics include cyber security (network flow
+data), DevOps (servers), SaaS apps and Web3.
 
 <Screenshot
   src="/img/pages/case-study/central-group/dashboard-2.png"
@@ -110,21 +111,23 @@ amongst several ad platforms (screenshot altered to protect sensitive data)."
 
 ### Asset tracking
 
-The integration of GPS sensors into a fleet of delivery trucks enables 
-real-time tracking of their location, speed, and direction. The resulting time-series data
-is typically transmitted to a central server for analysis. By analyzing this data, logistics
-and mobility operators can optimize delivery schedules, reduce fuel consumption, and monitor fleets behavior.
+The integration of GPS sensors into a fleet of delivery trucks enables real-time
+tracking of their location, speed, and direction. The resulting time-series data
+is typically transmitted to a central server for analysis. By analyzing this
+data, logistics and mobility operators can optimize delivery schedules, reduce
+fuel consumption, and monitor fleets behavior.
 
-Additionally to timestamped data, geospatial data is also in use to track the location of 
-objects on a map. QuestDB features the [geohash data type](/docs/concept/geohashes/)
-natively.
+Additionally to timestamped data, geospatial data is also in use to track the
+location of objects on a map. QuestDB features the
+[geohash data type](/docs/concept/geohashes/) natively.
 
-### Machine learning forecasting 
+### Machine learning forecasting
 
-Machine learning forecasting models use time-series data to predict future values of a variable
-by learning from past patterns and trends. These models take into account seasonality, 
-trends, and fluctuations in the data to make accurate forecasts. 
-Prophet is an example of a forecasting model developed by Facebook.
+Machine learning forecasting models use time-series data to predict future
+values of a variable by learning from past patterns and trends. These models
+take into account seasonality, trends, and fluctuations in the data to make
+accurate forecasts. Prophet is an example of a forecasting model developed by
+Facebook.
 
 ## Time-series data features
 
@@ -153,33 +156,42 @@ database category for the past five years according to
 
 ## Time-series databases are optimized to process time-series data
 
-As use cases and the need for time series analysis are increasing exponentially, so is the amount of raw data itself. To
-better cope with the ever-growing amount of data, time-series databases emerged a decade ago. They focus on performance
-with fast ingests to process a higher number of data points. The trade-off is less stringent consistency guarantees,
-which are typically must-haves for OLTP workloads. 
+As use cases and the need for time series analysis are increasing exponentially,
+so is the amount of raw data itself. To better cope with the ever-growing amount
+of data, [time-series databases](/glossary/time-series-database/) emerged a
+decade ago. They focus on performance with fast ingests to process a higher
+number of data points. The trade-off is less stringent consistency guarantees,
+which are typically must-haves for OLTP workloads.
 
-It is pretty common for time-series databases not to be ACID compliant. Unlike traditional databases in which older data
-entries are typically updated with the most recent data point to show the latest state, time-series databases
-continuously accumulate data points over time. This way, one can draw insights from the evolution of metrics to conclude
-meaningful insights from the data. 
+It is pretty common for time-series databases not to be ACID compliant. Unlike
+traditional databases in which older data entries are typically updated with the
+most recent data point to show the latest state, time-series databases
+continuously accumulate data points over time. This way, one can draw insights
+from the evolution of metrics to conclude meaningful insights from the data.
 
-This is why TSDBs are optimized for write operations rather than updates. Once the data is stored in a database, most
-use cases require querying this data in real-time to uncover insights on the data quickly. DevOps teams will set
-real-time alerts to detect anomalies in server metrics such as CPU or memory. E-commerce websites need to understand
-buyers' behavior to gather new insights and optimize their stock. A fintech company will want to detect fraud as
+This is why TSDBs are optimized for write operations rather than updates. Once
+the data is stored in a database, most use cases require querying this data in
+real-time to uncover insights on the data quickly. DevOps teams will set
+real-time alerts to detect anomalies in server metrics such as CPU or memory.
+E-commerce websites need to understand buyers' behavior to gather new insights
+and optimize their stock. A fintech company will want to detect fraud as
 transactions occur.
 
 ## Most important features and trade-offs for a time-series database
 
-Time-series databases are not optimized for OLTP workloads that typically include lots of regular update and delete
-operations. Those are better handled by relational databases such as PostgreSQL or MySQL. In contrast, time-series data
-is mostly an append-only workload with delete operations performed in batches on less recent data. With time-series, we
-are concerned the most about the recent data coming in that is being analyzed on the fly. 
+Time-series databases are not optimized for OLTP workloads that typically
+include lots of regular update and delete operations. Those are better handled
+by relational databases such as PostgreSQL or MySQL. In contrast, time-series
+data is mostly an append-only workload with delete operations performed in
+batches on less recent data. With time-series, we are concerned the most about
+the recent data coming in that is being analyzed on the fly.
 
-To better cater to these needs, time-series databases pack a set of features that makes them stand out from relational
-databases and other types. We provide a list of these must-have features for a TSDB. Then, we show how you can do this
-on QuestDB, an open-source time-series database with fast ingests and SQL queries. You can run the examples on the
-QuestDB demo site to check the query performance.
+To better cater to these needs, time-series databases pack a set of features
+that makes them stand out from relational databases and other types. We provide
+a list of these must-have features for a TSDB. Then, we show how you can do this
+on QuestDB, an open-source time-series database with fast ingests and SQL
+queries. You can run the examples on the QuestDB demo site to check the query
+performance.
 
 - **Automated partitioning management**
 
@@ -262,9 +274,9 @@ QuestDB demo site to check the query performance.
   As time-series data is mostly machine data, it is produced and streamed to a
   database in a continuous fashion. The ability to sustain streamed data rather
   than in slow batches quickly becomes a must. The
-  [InfluxDB line protocol](/docs/reference/api/ilp/overview/) is very
-  efficient and offers a lot of flexibility. For example, you can create new
-  columns on the fly without specifying a schema ahead of time.
+  [InfluxDB line protocol](/docs/reference/api/ilp/overview/) is very efficient
+  and offers a lot of flexibility. For example, you can create new columns on
+  the fly without specifying a schema ahead of time.
 
 ## Additional resources on time-series data
 

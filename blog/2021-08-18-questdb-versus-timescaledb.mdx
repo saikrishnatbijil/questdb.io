@@ -9,7 +9,6 @@ description:
   performance of QuestDB versus TimescaleDB.
 tags: [benchmark, timescaledb]
 image: /img/blog/shared/og-timescaledb.webp
-
 ---
 
 import Banner from "@theme/Banner"
@@ -27,23 +26,23 @@ who has put together a tutorial to show how to measure the ingestion rates and
 query performance of TimescaleDB and QuestDB databases using the time series
 benchmark suite. Thanks for the submission, Kovid!
 
-## What are timeseries databases used for?
+## What are time-series databases used for?
 
 In a connected world, billions of users are generating more data than ever. From
 human communication to the digital footprint we create, IoT sensors have become
 ubiquitous, and financial transactions are completely digitized. We have an
 explosion of the volume of time-centric data, and we are struggling to keep up
-with it all. Timeseries databases are on the rise and OSS projects like QuestDB,
-InfluxDB, TimescaleDB, and cloud-based solutions like Amazon Timestream, etc.,
-are in higher demand than ever. Timeseries databases have officially come of
-age.
+with it all. [Times-series databases](/glossary/time-series-database/) are on
+the rise and OSS projects like QuestDB, InfluxDB, TimescaleDB, and cloud-based
+solutions like Amazon Timestream, etc., are in higher demand than ever.
+Time-series databases have officially come of age.
 
 All these products are competing for more space in the time-series domain, and
 in doing that, they're making each other better. This article will look at two
-major timeseries databases and compare them using an open-source benchmarking
+major times-eries databases and compare them using an open-source benchmarking
 tool called TSBS — Time Series Benchmarking Suite. This benchmarking suite is
 based on the testing scripts originally developed at InfluxDB, later enhanced by
-other major timeseries databases, and currently maintained by TimescaleDB.
+other major time-series databases, and currently maintained by TimescaleDB.
 
 ## What is the Time Series Benchmark Suite (TSBS)?
 
@@ -54,7 +53,7 @@ database read and write performance. Similar tools exist for different types of
 databases. Performance testing makes sense when the benchmarking tool simulates
 real-life scenarios by creating realistic bursts and reading streams.
 
-The access and usage pattern for timeseries databases is very different from a
+The access and usage pattern for time-series databases is very different from a
 traditional database — that is why we need a tool like TSBS. TSBS currently
 supports two kinds of loads:
 
@@ -318,8 +317,8 @@ summary:
 
 ## Conclusion
 
-TSBS is the de facto standard for benchmarking timeseries databases. In this
-tutorial, you learned how to use TSBS to compare two timeseries databases by
+TSBS is the de facto standard for benchmarking time-series databases. In this
+tutorial, you learned how to use TSBS to compare two time-series databases by
 easily generating test data and emulating realistic read and write loads. As
 mentioned before, TSBS currently supports test data generation for DevOps and
 IoT (vehicle diagnostics). You can create your test data generation scripts to

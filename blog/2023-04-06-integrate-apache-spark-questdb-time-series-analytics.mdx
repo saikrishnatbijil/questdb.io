@@ -23,9 +23,10 @@ import Banner from "@theme/Banner"
 
 [Spark](https://spark.apache.org/) is an analytics engine for large-scale data
 engineering. Despite its long history, it still has its well-deserved place in
-the big data landscape. QuestDB, on the other hand, is a time-series database
-with a very high data ingestion rate. This means that Spark desperately needs
-data, a lot of it! ...and QuestDB has it, a match made in heaven.
+the big data landscape. QuestDB, on the other hand, is a
+[time-series database](/glossary/time-series-database/) with a very high data
+ingestion rate. This means that Spark desperately needs data, a lot of it!
+...and QuestDB has it, a match made in heaven.
 
 Of course, there is pandas for data analytics! The key here is the expression
 _large-scale_. Unlike pandas, Spark is a distributed system and can scale really
@@ -306,8 +307,8 @@ second time for the data:
 ```
 
 Clearly, even a few carefully placed `.cache()` calls can improve the overall
-performance of an application, sometimes significantly. What else should we
-take into consideration when thinking about performance?
+performance of an application, sometimes significantly. What else should we take
+into consideration when thinking about performance?
 
 Earlier, we mentioned that our Spark application consists of tasks, which are
 working on the different partitions of the data parallel. So, partitioned data
@@ -539,9 +540,9 @@ passing a SQL query to the DataFrame. Do we, really?
 Our `trades` table is limited to three data types only. What about all the other
 types you can find in QuestDB?
 
-We expect that Spark will successfully map a `double` or a `timestamp` when queried
-from the database, but what about a `geohash`? It is not that obvious what is
-going to happen.
+We expect that Spark will successfully map a `double` or a `timestamp` when
+queried from the database, but what about a `geohash`? It is not that obvious
+what is going to happen.
 
 As always, when unsure, we should test.
 
@@ -881,8 +882,8 @@ The above works as expected.
 
 ## Conclusion
 
-Our ride might seem bumpy, but we finally have everything
-working. Our new motto should be "There is a config option for everything!".
+Our ride might seem bumpy, but we finally have everything working. Our new motto
+should be "There is a config option for everything!".
 
 To summarize what we have found:
 

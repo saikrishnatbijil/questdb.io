@@ -23,7 +23,8 @@ import Screenshot from "@theme/Screenshot"
 
 ## Data visualization for time-series data
 
-One of the most common uses of a time-series database is visualizing data on a
+One of the most common uses of a
+[time-series database](/glossary/time-series-database/) is visualizing data on a
 dashboard to inform business decisions. This tutorial will show you how to
 connect QuestDB and Apache Superset. QuestDB is an open-source time-series
 database and Apache Superset is an open-source data exploration and
@@ -152,11 +153,10 @@ can remove columns and add calculated columns or metadata.
 
 ## Creating your first chart
 
-At this point, you should see a dialog to select a visualization type. 
+At this point, you should see a dialog to select a visualization type.
 
-If not, select the `Charts` link at the top of the Superset
-web interface and click the name of the dataset we created in the previous
-step.
+If not, select the `Charts` link at the top of the Superset web interface and
+click the name of the dataset we created in the previous step.
 
 We're now ready to create a chart.
 
@@ -165,11 +165,12 @@ chart. If you cannot find the thumbnail, you can always type `Table` in the
 search box or navigate through the different types of charts using the
 categories on the left.
 
-When you select the `Table` type and `CREATE NEW CHART`, you should see
-the `Chart` dialog. This is virtually the same for all the charts, with
-different options depending on the chart type.
+When you select the `Table` type and `CREATE NEW CHART`, you should see the
+`Chart` dialog. This is virtually the same for all the charts, with different
+options depending on the chart type.
 
-At the top of this dialog, there are two tabs: one for defining the data to display, and one for customizing the chart appearance.
+At the top of this dialog, there are two tabs: one for defining the data to
+display, and one for customizing the chart appearance.
 
 For this first chart, we want to display the total number of entries, the
 average trip distance, and the average total amount paid, grouped by vendor, cab
@@ -246,8 +247,8 @@ This time, the chart dialog has more options than before.
 Let's select the `timestamp` column for the `Shared query fields` section,
 `SUM(daily_actual)` as the `Query A` metric, `country_code` as the `Query A`
 dimension, `SUM(daily_forecast)` as the `Query B` metric, and `country_code` as
-the `Query B` dimension. Uncheck `SORT DESCENDING` for `A` and `B` queries,
-and click `UPDATE CHART`.
+the `Query B` dimension. Uncheck `SORT DESCENDING` for `A` and `B` queries, and
+click `UPDATE CHART`.
 
 If all goes well, you will see a line chart representing the energy data. Click
 `SAVE`, name the chart (e.g., "Energy Forecast"), and add it to your existing
@@ -262,9 +263,9 @@ dashboard.
 
 ## Wrapping up
 
-Apache Superset is a complete tool for creating data visualizations. In
-this post, we have connected QuestDB to Apache Superset and added some basic
-charts. There are many more charts and options you can use.
+Apache Superset is a complete tool for creating data visualizations. In this
+post, we have connected QuestDB to Apache Superset and added some basic charts.
+There are many more charts and options you can use.
 
 The next step is to explore the Superset documentation. You can learn how to
 create business dashboards for both batch and real-time scenarios.
