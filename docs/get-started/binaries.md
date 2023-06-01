@@ -83,6 +83,9 @@ else.
 
 ## Run QuestDB
 
+This section lists commands to run QuestDB for different OSes. They can be used
+to run No JVM binaries.
+
 <!-- prettier-ignore-start -->
 
 <Tabs defaultValue="nix"
@@ -121,6 +124,7 @@ questdb.exe
 
 </Tabs>
 
+
 The file structure is as the following:
 
 ```bash
@@ -135,8 +139,10 @@ The file structure is as the following:
 For information about the file structure, see
 [root directory](/docs/concept/root-directory-structure/).
 
+## Upgrade QuestDB version
 
-### Upgrade QuestDB version
+This section lists commands to upgrade QuestDB for different OSes. They can be used
+to run No JVM binaries.
 
 :::note
 
