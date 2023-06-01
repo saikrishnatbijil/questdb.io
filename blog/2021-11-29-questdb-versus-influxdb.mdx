@@ -24,10 +24,10 @@ import Screenshot from "@theme/Screenshot"
 
 Time-series data is emerging as the dominant type of data produced in IoT,
 financial services, manufacturing, DevOps, monitoring, and machine learning.
-Time-series databases are specialized for storing and analyzing this kind of
-data efficiently and quickly. This article compares QuestDB with InfluxDB to
-help understand the key differences so you can choose a time-series database
-that fits your use case.
+[Time-series databases](/glossary/time-series-database/) are specialized for
+storing and analyzing this kind of data efficiently and quickly. This article
+compares QuestDB with InfluxDB to help understand the key differences so you can
+choose a time-series database that fits your use case.
 
 The typical uses of time-series databases are for:
 
@@ -140,9 +140,9 @@ this index has its limitations, explored in more detail below.
 
 QuestDB uses columnar data structures but indexes data in vector-based
 append-only column files. Sorting of out-of-order data occurs in a staging area
-in memory, while sorted and persisted data is merged later using an append model.
-The main motivation for merging with persisted data in this way is to keep the
-storage engine performant on both read and write operations.
+in memory, while sorted and persisted data is merged later using an append
+model. The main motivation for merging with persisted data in this way is to
+keep the storage engine performant on both read and write operations.
 
 InfluxDB has a shard group concept as a partitioning strategy, allowing for
 grouping data by time. Users can provide a

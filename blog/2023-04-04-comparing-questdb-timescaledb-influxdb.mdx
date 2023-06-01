@@ -57,10 +57,10 @@ import Screenshot from "@theme/Screenshot"
 
 ### Why use a time-series database?
 
-Time-series databases (TSDB) are databases optimized to ingest, process, and
-store timestamped data. Such data may include metrics from servers and
-applications, readings from IoT sensors, user interaction on a website or an
-app, or trading activity on financial markets.
+[Time-series databases (TSDB)](/glossary/time-series-database/) are databases
+optimized to ingest, process, and store timestamped data. Such data may include
+metrics from servers and applications, readings from IoT sensors, user
+interaction on a website or an app, or trading activity on financial markets.
 
 The following properties usually characterize time-series workloads:
 
@@ -79,14 +79,15 @@ While other databases can also handle time-series data to a certain extent,
 TSDBs are designed with the above properties to handle data ingestion, storage,
 and aggregation over time more efficiently. So as the demand for time series
 data continues to explode on the heels of cloud computing, IoT, financial market
-data, and machine learning, how should architects go about choosing a time-series database?
+data, and machine learning, how should architects go about choosing a
+time-series database?
 
 ## InfluxDB
 
 First released in 2013, InfluxDB is the market leader in the TSDB space,
 overtaking Graphite and OpenTSDB that came before. As with many OSS database
-companies, [InfluxDB](https://www.influxdata.com/) is licensed with MIT License for
-a single node, with paid-plans available for InfluxDB Cloud and InfluxDB
+companies, [InfluxDB](https://www.influxdata.com/) is licensed with MIT License
+for a single node, with paid-plans available for InfluxDB Cloud and InfluxDB
 enterprise that provide clustering and other production-ready features.
 
 <Screenshot
@@ -243,16 +244,15 @@ and characterized by high cardinality:
   data diminishes over time, TimescaleDB can be used to move older data to save
   disk space.
 
+Overall, TimescaleDB is a good fit for teams looking for a performance boost
+without heavy refactoring to migrate off their existing SQL databases. Even
+though TimescaleDB is still relatively new (first release in 2017), the decision
+to build on top of PostgreSQL has boosted its adoption numbers to reach the top
+5 TSDBs.
 
-
-Overall, TimescaleDB is a good fit for teams looking for a
-performance boost without heavy refactoring to migrate off their existing SQL
-databases. Even though TimescaleDB is still relatively new (first release in
-2017), the decision to build on top of PostgreSQL has boosted its adoption
-numbers to reach the top 5 TSDBs. 
-
-One drawback is the lack of a streaming ingestion protocol like the InfluxDB Line Protocol.
-This makes ingestion less flexible and less focused on performance as a result.
+One drawback is the lack of a streaming ingestion protocol like the InfluxDB
+Line Protocol. This makes ingestion less flexible and less focused on
+performance as a result.
 
 - **Pros:** PostgreSQL-compatibility, scales well with data cardinality, various
   deployment models available.
@@ -265,8 +265,7 @@ This makes ingestion less flexible and less focused on performance as a result.
 For those looking to take advantage of the flexibility of InfluxDB line protocol
 and the familiarity of PostgreSQL, a younger time series database may satisfy
 both requirements without sacrificing performance. QuestDB (YC S20) is an
-open-source TSDB written in low-latency Java, C++, and Rust. It ranks in \#10
-on
+open-source TSDB written in low-latency Java, C++, and Rust. It ranks in \#10 on
 [DB-Engines Time Series DBMS](https://db-engines.com/en/ranking/time+series+dbms),
 although it officially
 [launched less than three years ago](https://news.ycombinator.com/item?id=23975807).
@@ -302,16 +301,17 @@ things:
   processing columns in parallel by all available threads.
 
 - **Compatibility:** QuestDB supports InfluxDB line protocol, PostgreSQL wire,
-  REST API and CSV upload to ingest data. Users accustomed to other time-series databases
-  can easily port over their existing applications without a significant rewrite,
-  and users can choose amongst a set of ingestion protocols depending on their
-  use cases. There are client libraries in multiple languages for the InfluxDB
-  Line Protocol.
+  REST API and CSV upload to ingest data. Users accustomed to other time-series
+  databases can easily port over their existing applications without a
+  significant rewrite, and users can choose amongst a set of ingestion protocols
+  depending on their use cases. There are client libraries in multiple languages
+  for the InfluxDB Line Protocol.
 
 - **Querying via SQL:** Despite supporting multiple ingestion mechanisms,
   QuestDB uses SQL as the query language, so there's no need to learn a
   domain-specific language like Flux. Additionally, there are
-  time-series-specific [SQL extensions](https://questdb.io/blog/2022/11/23/sql-extensions-time-series-data-questdb-part-ii/)
+  time-series-specific
+  [SQL extensions](https://questdb.io/blog/2022/11/23/sql-extensions-time-series-data-questdb-part-ii/)
   to handle time-series data with ease.
 
 In terms of performance, QuestDB
@@ -319,10 +319,10 @@ In terms of performance, QuestDB
 with an ingestion rate reaching 4.3 million rows per second. This was computed
 through the [TSBS benchmark](https://github.com/timescale/tsbs), currently
 maintained by TimescaleDB, selecting the `cpu-only` use case. The chosen
-instance had 32 CPUs and 64GB of RAM, with a fast SSD disk (NVMe).
-Fast disks allow to better cope with writes that are I/O bound - in this case when a lot of 
-out of order data is being ingested concurrently. For most use cases, slower disks
-such as AWS EBS volumes are enough to extract sufficient performance.
+instance had 32 CPUs and 64GB of RAM, with a fast SSD disk (NVMe). Fast disks
+allow to better cope with writes that are I/O bound - in this case when a lot of
+out of order data is being ingested concurrently. For most use cases, slower
+disks such as AWS EBS volumes are enough to extract sufficient performance.
 
 <Screenshot
   alt="A chart showing high-cardinality ingestion performance of InfluxDB, TimescaleDB, and QuestDB"
@@ -344,8 +344,9 @@ of its shortcomings at the time of writing is the lack of replication, which
 will be available to open source users
 [soon](https://github.com/orgs/questdb/projects/1/views/5). When it comes to
 third party integrations, QuestDB integrates with some of the most popular tools
-(e.g., PostgreSQL, Grafana, Pandas, Apache Kafka, Apache Flink, MindsDB, Telegraf, Kubernetes...).
-There are more integrations underway, such as more dashboards / BI tools.
+(e.g., PostgreSQL, Grafana, Pandas, Apache Kafka, Apache Flink, MindsDB,
+Telegraf, Kubernetes...). There are more integrations underway, such as more
+dashboards / BI tools.
 
 - **Pros:** fast ingestion, better performance using fewer resources, support
   for both InfluxDB protocol and PostgreSQL wire, querying via standard SQL,
@@ -357,13 +358,14 @@ There are more integrations underway, such as more dashboards / BI tools.
 ## Conclusion
 
 As the demand for time series data continues to grow, time-series databases
-specialized to deal with this data will see massive adoption and fierce competition. 
-Besides the three open-source TSDBs covered in this article, there are also public cloud
-offerings from AWS (AWS Timestream) and Azure (Azure Series Insights).
+specialized to deal with this data will see massive adoption and fierce
+competition. Besides the three open-source TSDBs covered in this article, there
+are also public cloud offerings from AWS (AWS Timestream) and Azure (Azure
+Series Insights).
 
-As with all databases, choosing the "perfect" time-series database depends primarily on 
-your business requirements, data model, and use case. InfluxDB works well if your
-data fits the Tagset model with a rich ecosystem of integrations readily
-available. TimescaleDB is a natural fit for existing PostgreSQL users. Finally,
-if performance is the primary concern, QuestDB is a popular and
-developer-friendly database that is growing rapidly.
+As with all databases, choosing the "perfect" time-series database depends
+primarily on your business requirements, data model, and use case. InfluxDB
+works well if your data fits the Tagset model with a rich ecosystem of
+integrations readily available. TimescaleDB is a natural fit for existing
+PostgreSQL users. Finally, if performance is the primary concern, QuestDB is a
+popular and developer-friendly database that is growing rapidly.
