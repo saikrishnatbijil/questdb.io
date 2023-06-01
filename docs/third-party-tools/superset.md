@@ -7,85 +7,88 @@ description: Guide for using Superset with QuestDB
 business intelligence web application that enables users to visualize and
 explore data through customizable dashboards and reports.
 
-QuestDB provides the [QuestDB
-Connect](https://pypi.org/project/questdb-connect/) python module that
-implements the SQLAlchemy and Superset engine, to integrate
-Superset with QuestDB.
+QuestDB provides the
+[QuestDB Connect](https://pypi.org/project/questdb-connect/) python package that
+implements the SQLAlchemy dialect and Superset engine specification, to
+integrate Apache Superset with QuestDB.
 
-## Requirements
+## Installing Apache Superset via Docker (recommended)
 
-- Python from 3.8.x to 3.10.x
-- Psycopg2 for connectivity
-- SQLAlchemy for ORM and easy interaction
-- [Superset](https://superset.apache.org/docs/installation/installing-superset-from-scratch/)
-  installation and initialization
+We recommend the Docker-based Apache Superset installation. You will need to
+install the following requirements:
+
+- Docker
 - QuestDB 7.1.2 or later
 
-## Installing QuestDB Connect
+Then, following the steps below:
 
-Installing QuestDB Connect using pip:
+1. Clone the [Superset repo](https://github.com/apache/superset):
 
 ```bash
-pip install questdb-connect
+git clone https://github.com/apache/superset.git
 ```
 
-## Connecting QuestDB
-
-Once installed and initialized, Superset is accessible via `localhost:8088`.
-
-From Superset UI, select Setting > Database Connections
-
-Select `+Database` to add the following parameters:
-
-- SUPPORTED DATABASES: Other
-- DISPLAY NAME: QuestDB
-- SQLALCHEMY URI: `questdb://admin:quest@host.docker.internal:8812/main`
-
-Once connected, tables in QuestDB will be visible for creating Datasets in
-Superset.
-
-## Additional steps for Mac M1 users
-
-Superset is not optimized for Apple M1 chip. As a result, the following steps
-are required for Mac M1 users:
-
-1. Clone the [Superset repo](https://github.com/apache/superset)
-2. Amend the following files
-   - Replace the `Dockerfile` with the
-     [Dockerfile](https://github.com/questdb/questdb-connect/blob/main/superset_toolkit/Dockerfile)
-     provided by the QuestDB Connect. This specifies the `arm64` option and uses `16.20-bullseye`.
-   - Replace the `docker-compose.yaml` with the
-     [docker-compose.yml](https://github.com/questdb/questdb-connect/blob/main/superset_toolkit/docker-compose.yml)
-     provided by the QuestDB Connect. This uses the `16.20-bullseye`.
-3. Create a file `docker/requirements-local.txt` with the content:
-
-   ```txt
-   questdb-connect==0.0.42
-   ```
-
-   The is the QuestDB Connect version. Check `pypi` for the latest release
-   version number.
-
-4. Build the image:
+2. Change your directory:
 
    ```bash
-   docker build -t apache/superset:latest-dev .
+   cd superset
    ```
 
-5. Run Apache Superset:
+3. Create a file `docker/requirements-local.txt` with the requirement to
+   `questdb-connect`:
+
+```bash
+touch ./docker/requirements-local.txt
+echo "questdb-connect==1.0.6" > docker/requirements-local.txt
+```
+4. Run Apache Superset:
 
    ```bash
-   docker-compose up
+   docker-compose -f docker-compose-non-dev.yml pull
+   docker-compose -f docker-compose-non-dev.yml up
    ```
 
-   For more information, see
-   [DEVELOPERS](https://github.com/questdb/questdb-connect/blob/main/DEVELOPERS.md)
-   in the QuestDB Connect GitHub repo.
+   This step will initialize your Apache Superset installation, creating a
+   default admin, users, and several other settings. The first time you start
+   Apache Superset it can take a few minutes until it is completely initialized.
+   Please keep an eye on the console output to see when Apache Superset is ready
+   to be used.
+
+## Installing Superset via QuestDB Connect
+
+If you have a stand-alone installation of Apache Superset and are using Apache
+Superset without Docker, you need to install the following requirements :
+
+- Python from 3.9 to 3.11
+- [Superset](https://superset.apache.org/docs/installation/installing-superset-from-scratch/)
+- QuestDB 7.1.2 or later
+
+Install QuestDB Connect using `pip`:
+
+```bash
+pip install 'questdb-connect==1.0.6'
+```
+
+## Connecting QuestDB to Superset
+
+Once installed and initialized, Apache Superset is accessible via
+`localhost:8088`.
+
+1. Sign in with the following details:
+   - Username: admin
+   - Password: admin
+2. From Superset UI, select Setting > Database Connections
+3. Select `+Database` to add the following parameters:
+   - SUPPORTED DATABASES: Other
+   - DISPLAY NAME: QuestDB
+   - SQLALCHEMY URI: `questdb://admin:quest@host.docker.internal:8812/qdb`
+4. For the `SQLALCHEMY URI` field, use `host.docker.internal` when running
+   Apache Superset from Docker and `localhost` for outside of Docker.
+5. Once connected, tables in QuestDB will be visible for creating Datasets in
+   Apache Superset.
 
 ## See also
 
-- The [QuestDB Connect](https://github.com/questdb/questdb-connect) GitHub repo
-- The
-  [superset_toolkit](https://github.com/questdb/questdb-connect/tree/main/superset_toolkit)
-  directory with replacement M1 files for the Superset repository
+- [QuestDB Connect at GitHub](https://github.com/questdb/questdb-connect/)
 - [QuestDB Connect Python module](https://pypi.org/project/questdb-connect/)
+- [Apache Superset install](https://superset.apache.org/docs/installation/installing-superset-from-scratch/)
