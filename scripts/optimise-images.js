@@ -31,7 +31,7 @@ const withSharp = async (filePath, ext) => {
     jpeg: jpgOptions,
     webp: {
       lossless: true,
-      quality: 75,
+      quality: 100,
     },
   }
 

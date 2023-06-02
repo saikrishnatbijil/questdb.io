@@ -92,7 +92,10 @@
   },
   "lint-staged": {
     "static/**/*": "scripts/check-size-hook.sh",
-    "*.{png,jpeg,jpg,gif,svg,webp}": "node scripts/optimise-images.js"
+    "*.{png,jpeg,jpg,gif,svg,webp}": [
+      "node scripts/optimise-images.js",
+      "git add static/img"
+    ]
   },
   "resolutions": {
     "sharp": "0.26.3",
