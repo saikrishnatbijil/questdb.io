@@ -6,7 +6,7 @@ author_url: https://github.com/davidgs
 author_image_url: https://avatars.githubusercontent.com/davidgs
 description:
   What we learned by re-examining our approach to memory mapping. A low level
-  implementation, as close as posibble to the kernel, enabled even greater
+  implementation, as close as possible to the kernel, enabled even greater
   performance.
 image: /img/blog/2020-08-19/banner.jpg
 tags: [engineering, performance]
