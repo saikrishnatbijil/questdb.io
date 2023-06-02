@@ -131,7 +131,7 @@ The latest additions from Yitaek are:
 **Capacity planning** is considered part of deployment requirements to forecast
 CPU, memory, and network capacity depending on your environment's expected
 demands. The
-[capacity planning documentation](/docs/operations/capacity-planning/) describes
+[capacity planning documentation](/docs/deployment/capacity-planning/) describes
 how to configure these system resources with example scenarios for edge cases
 and standard configuration to ensure a QuestDB deployment is robust and
 efficient.

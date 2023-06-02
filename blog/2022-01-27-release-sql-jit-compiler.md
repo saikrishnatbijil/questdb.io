@@ -197,7 +197,7 @@ table readers read the metadata atomically.
 ## Simplified network configuration
 
 We cleaned up all of the
-[network configuration](/docs/operations/capacity-planning#network-configuration)
+[network configuration](/docs/deployment/capacity-planning#network-configuration)
 settings and made them more intuitive and consistent. For the sake of backward
 compatibility, all old setting names are also supported. Still, we recommend our
 users update the configurations to improve the overall developer experience.

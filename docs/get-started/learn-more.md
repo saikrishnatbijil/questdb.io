@@ -8,7 +8,7 @@ description:
 
 To learn more about QuestDB and to create a proof of concept, please refer to
 [Design for performance](/docs/operations/design-for-performance/). In addition,
-our [Capacity planning](/docs/operations/capacity-planning/) provides a more
+our [Capacity planning](/docs/deployment/capacity-planning/) provides a more
 advanced optimization guide for using QuestDB in production environment.
 
 The below are a few concepts and SQL keywords that QuestDB leverages for optimal

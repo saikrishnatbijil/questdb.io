@@ -85,6 +85,7 @@ module.exports = {
       label: "Deployment",
       type: "category",
       items: [
+        "deployment/capacity-planning",
         "deployment/aws-official-ami",
         "deployment/kubernetes",
         "deployment/google-cloud-platform",
@@ -96,7 +97,6 @@ module.exports = {
       type: "category",
       items: [
         "operations/design-for-performance",
-        "operations/capacity-planning",
         "operations/data-retention",
         "operations/health-monitoring",
         "operations/backup",

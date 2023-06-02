@@ -365,6 +365,10 @@
   from ="/blog/2020/06/15/python-questdb-tutorial/"
   to = "/blog/exploring-financial-tick-data-jupyter-notebook-pandas/"
 
+[[redirects]]
+  from ="/docs/operations/capacity-planning/"
+  to = "/docs/deployment/capacity-planning/"
+
 [[headers]]
   for = "/*"
   [headers.values]

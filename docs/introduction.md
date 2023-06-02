@@ -51,6 +51,8 @@ programming languages through our various network endpoints.
 
 ## Deployment
 
+- [Capacity planning](/docs/deployment/capacity-planning/) for configuring
+  server settings and system resources
 - [AWS Marketplace AMI](/docs/deployment/aws-official-ami/)
 - [Kubernetes](/docs/deployment/kubernetes/)
 - [Google Cloud Platform](/docs/deployment/google-cloud-platform/)
@@ -63,8 +65,6 @@ pages for the following topics:
 
 - [Design for performance](/docs/operations/design-for-performance/) for
   configuring table settings to improve performance
-- [Capacity planning](/docs/operations/capacity-planning/) for configuring
-  server settings and system resources
 - [Data retention](/docs/operations/data-retention/) strategy to delete old data
   and save disk space
 - [Health monitoring](/docs/operations/health-monitoring/) endpoint for

@@ -12,7 +12,7 @@ To monitor various metrics of the QuestDB instances, refer to the
 [Prometheus monitoring page](/docs/third-party-tools/prometheus/) or the
 [Health monitoring page](/docs/operations/health-monitoring/).
 
-Refer to [Capacity planning](/docs/operations/capacity-planning/) for deployment
+Refer to [Capacity planning](/docs/deployment/capacity-planning/) for deployment
 considerations.
 
 ## Optimizing queries
