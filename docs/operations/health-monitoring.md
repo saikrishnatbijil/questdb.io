@@ -13,7 +13,7 @@ exposed via an HTTP endpoint.
 ## Prometheus metrics endpoint
 
 Prometheus is an open-source systems monitoring and alerting toolkit. Prometheus
-collects and stores metrics as time series data, i.e. metrics information is
+collects and stores metrics as time-series data, i.e. metrics information is
 stored with the timestamp at which it was recorded, alongside optional key-value
 pairs called labels.
 

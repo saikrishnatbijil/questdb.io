@@ -1,13 +1,13 @@
 ---
 title: Create my first dataset
 description:
-  This document shows how to work with QuestDB as a time series database by
-  generating dummy time series data, insert the data into a table, then querying
+  This document shows how to work with QuestDB as a time-series database by
+  generating dummy time-series data, insert the data into a table, then querying
   and cleaning up the example data set.
 ---
 
 The goal of this guide is to explore QuestDB's features and to interact with
-time series data and assumes you have an instance running. You can find guides
+time-series data and assumes you have an instance running. You can find guides
 to setup QuestDB on the [introduction page](/docs/). In this tutorial, you will
 learn how to:
 

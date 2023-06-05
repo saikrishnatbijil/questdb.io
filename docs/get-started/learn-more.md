@@ -19,7 +19,7 @@ time series performance:
 - [Commit lag](/docs/guides/out-of-order-commit-lag/): A guide on out-of-order
   data ingestion and associated configuration parameters
 - [SQL extensions](/docs/concept/sql-extensions/): A guide to special QuestDB
-  SQL keywords and syntax designed for time series data
+  SQL keywords and syntax designed for time-series data
 - [Designated timestamp](/docs/concept/designated-timestamp/) and
   [Partitions](/docs/concept/partitions/): Concepts and settings relevant to
   partitioning tables based on time

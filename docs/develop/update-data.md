@@ -1,7 +1,7 @@
 ---
 title: Update data
 description:
-  This page demonstrates how to update time series data in QuestDB from
+  This page demonstrates how to update time-series data in QuestDB from
   NodeJS, Java, Python and cURL. The examples show how to use the REST and Postgres APIs.
 ---
 

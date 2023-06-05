@@ -177,5 +177,5 @@ processed result into a new table.
 
 ## See also
 
-- [Comparing InfluxDB, TimescaleDB, and QuestDB time series databases](/blog/comparing-influxdb-timescaledb-questdb-time-series-databases)
+- [Comparing InfluxDB, TimescaleDB, and QuestDB time-series databases](/blog/comparing-influxdb-timescaledb-questdb-time-series-databases)
 - [Comparing InfluxDB and QuestDB databases](/blog/2021/11/29/questdb-versus-influxdb/)

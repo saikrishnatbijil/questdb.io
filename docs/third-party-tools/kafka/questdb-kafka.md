@@ -29,7 +29,8 @@ You will need the following:
 
 - Kafka
 - A running QuestDB instance
-- A local [JDK installation](https://docs.oracle.com/en/java/javase/18/install/overview-jdk-installation.html#GUID-8677A77F-231A-40F7-98B9-1FD0B48C346A)
+- A local
+  [JDK installation](https://docs.oracle.com/en/java/javase/18/install/overview-jdk-installation.html#GUID-8677A77F-231A-40F7-98B9-1FD0B48C346A)
 
 ### Configure Kafka
 
@@ -346,7 +347,8 @@ is no need to handle them explicitly.
 
 
 <details>
-  <summary>QuestDB is a time series database, how does it fit into Change Data
+  <summary>QuestDB is a 
+  <a href="/glossary/time-series-database/"> time-series database</a>, how does it fit into Change Data
 Capture via Debezium?</summary>
 <p>
 

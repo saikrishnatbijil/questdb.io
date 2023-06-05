@@ -4,7 +4,7 @@ sidebar_label: SAMPLE BY
 description: SAMPLE BY SQL keyword reference documentation.
 ---
 
-`SAMPLE BY` is used on time series data to summarize large datasets into
+`SAMPLE BY` is used on time-series data to summarize large datasets into
 aggregates of homogeneous time chunks as part of a
 [SELECT statement](/docs/reference/sql/select/).
 
@@ -413,6 +413,6 @@ SELECT ts, avg(quantity*price) FROM trades SAMPLE BY 1d ALIGN TO CALENDAR;
 
 This section includes links to additional information such as tutorials:
 
-- [SQL Extensions for Time Series Data in QuestDB](/blog/2022/11/23/sql-extensions-time-series-data-questdb-part-ii/)
+- [SQL Extensions for Time-Series Data in QuestDB](/blog/2022/11/23/sql-extensions-time-series-data-questdb-part-ii/)
 
 - [Three SQL Keywords for Finding Missing Data](/blog/three-sql-keywords-for-finding-missing-data/)

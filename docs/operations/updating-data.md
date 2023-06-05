@@ -19,7 +19,7 @@ but if we quickly want to summarize it:
 - Partitions are manifested as subdirectories under the folder which represents the table
 - The actual data is stored in column files inside these subdirectories
 - Column files store data **ordered by the designated timestamp** and they are
-**append-only**. This goes naturally with time series data, just think about market
+**append-only**. This goes naturally with time-series data, just think about market
 data where the price of different financial instruments are tracked during the
 trading day, for example
 
