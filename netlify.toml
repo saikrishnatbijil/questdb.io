@@ -291,7 +291,11 @@
 
 [[redirects]]
   from = "/blog/2020/11/26/why-timeseries-data/"
-  to = "/blog/time-series-data/"
+  to = "/glossary/time-series-database/"
+
+[[redirects]]
+  from = "/blog/time-series-data/"
+  to = "/glossary/time-series-database/"
 
 [[redirects]]
   from = "/blog/laoding-pandas-dataframes/"
