@@ -46,22 +46,6 @@ import Screenshot from "@theme/Screenshot"
   title="Example of a chart that plots time-series data: Daily energy usage and forecast in Germany, in May 2018."
 />
 
-<Screenshot
-  alt="Example of a chart that plots time-series data: Daily energy usage and forecast in Germany, in May 2018."
-  height={342}
-  src="/img/glossary/time-series-database/chart1.webp"
-  width={770}
-  title="Example of a chart that plots time-series data: Daily energy usage and forecast in Germany, in May 2018."
-/>
-
-<Screenshot
-  alt="Example of a chart that plots time-series data: Daily energy usage and forecast in Germany, in May 2018."
-  height={342}
-  src="/img/glossary/time-series-database/chart2.webp"
-  width={770}
-  title="Example of a chart that plots time-series data: Daily energy usage and forecast in Germany, in May 2018."
-/>
-
 ## How do time-series databases deal with time-series data?
 
 Time-series databases make different design choices to optimize for time-series
