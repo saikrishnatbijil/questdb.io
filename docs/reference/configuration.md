@@ -476,7 +476,7 @@ line protocol.
 
 | Property                  | Default | Description                                                                                             |
 | ------------------------- | ------- | ------------------------------------------------------------------------------------------------------- |
-| line.default.partition.by | DAY     | The default partitioning strategy applied to new tables dynamically created by sending records via ILP. |
+| line.default.partition.by | DAY     | Table partition strategy to be used with tables that are created automatically by ILP. Possible values are: `HOUR`, `DAY`, `WEEK`, `MONTH`, and `YEAR`. |
 
 #### TCP specific settings
 
@@ -502,7 +502,6 @@ line protocol.
 | line.tcp.writer.worker.affinity            |              | Comma-separated list of thread numbers which should be pinned for line protocol ingestion over TCP. CPU core indexes are 0-based.                                                                                                                     |
 | line.tcp.io.worker.count                   |              | Number of dedicated I/O worker threads assigned to parse TCP input. When `0`, the writer jobs will use the shared pool.                                                                                                                               |
 | line.tcp.io.worker.affinity                |              | Comma-separated list of thread numbers which should be pinned for line protocol ingestion over TCP. CPU core indexes are 0-based.                                                                                                                     |
-| line.tcp.default.partition.by              | DAY          | Table partition strategy to be used with tables that are created automatically by ILP. Possible values are: `HOUR`, `DAY`, `WEEK`, `MONTH`, and `YEAR`.                                                                                               |
 | line.tcp.disconnect.on.error               | true         | Disconnect TCP socket that sends malformed messages.                                                                                                                                                                                                  |
 
 #### UDP specific settings

@@ -23,9 +23,10 @@ import Screenshot from "@theme/Screenshot"
 - Partitioning is only possible on tables with a
   [designated timestamp](/docs/concept/designated-timestamp/).
 - Available partition intervals are `NONE`, `YEAR`, `MONTH`, `WEEK`, `DAY`, and `HOUR`.
-- Default behavior is `PARTITION BY NONE` when using
-  [CREATE TABLE](/docs/reference/sql/create-table/) and `PARTITION BY DAY` via
-  [ILP ingestion](/docs/reference/api/ilp/overview/).
+- Default behavior is`PARTITION BY NONE` when using
+  [CREATE TABLE](/docs/reference/sql/create-table/).
+- Default behavior is `PARTITION BY DAY` via
+  [ILP ingestion](/docs/reference/api/ilp/overview/). This is set by `line.default.partition.by`.
 - Partitions are defined at table creation. For more information, refer to the
   [CREATE TABLE section](/docs/reference/sql/create-table/).
 - The naming convention for partition directories is as follows:
