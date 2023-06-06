@@ -8,48 +8,56 @@ import Screenshot from "@theme/Screenshot"
 This page shows how to insert data into QuestDB using different programming
 languages and tools.
 
-[InfluxDB Line Protocol](#influxdb-line-protocol) is the recommended primary
-ingestion method in QuestDB and is recommended for high-performance
-applications.
+## Overview
 
-For transactional data inserts, use the
-[PostgreSQL wire protocol](#postgresql-wire-protocol).
+QuestDB supports the following data ingestion methods:
 
-For operational (ad-hoc) data ingestion, the [Web Console](#web-console) makes
-it easy to upload CSV files and insert via SQL statements. You can also perform
-these same actions via the [HTTP REST API](#http-rest-api). For
-[large CSV import](/docs/guides/importing-data/) (database migrations), use SQL
-`COPY`.
+- [InfluxDB Line Protocol](#influxdb-line-protocol): the recommended primary
+  ingestion method in QuestDB for high-performance applications.
+  - Dedicated ILP [client libraries](/docs/reference/clients/overview/) available
+- [PostgreSQL wire protocol](#postgresql-wire-protocol): interoperability with
+  the PostgreSQL ecosystem.
 
-In summary, these are the different options:
+  - SQL `INSERT` and `COPY` statements, including parameterized queries.
+  - `psql` on the command line
+  - Support for most PostgreSQL keywords and functions
+- [HTTP REST API](#http-rest-api): compatibility with a wide range of libraries
+  and tools.
+  - SQL `INSERT` for ad-hoc SQL queries
+  - `curl` command and CSV file upload on the commend line
+  - Accessing QuestDB via the [Web Console](#web-console):
+    - Code editor for SQL `INSERT` queries
+    - SQL `COPY` for one-off [database migration](/docs/guides/importing-data/)
+    - [CSV file upload](#uploading-csv-file) for uploading batches of
+    CSV files
 
-- [InfluxDB Line Protocol](#influxdb-line-protocol-ilp)
-  - High performance.
-  - Dynamic schema.
-  - Concurrent table structure changes.
-  - [Client Libraries](/docs/reference/clients/overview/) in various programming
-    languages.
-- [Web Console](#web-console)
-  - CSV upload.
-  - SQL `INSERT` statements.
-  - SQL `COPY` for [large CSV import](/docs/guides/importing-data/).
-- [PostgreSQL wire protocol](#postgresql-wire-protocol)
-  - SQL `INSERT` statements, including parameterized queries.
-  - Use `psql` on the command line.
-  - Interoperability with third-party tools and libraries.
-- [HTTP REST API](#http-rest-api)
-  - CSV upload.
-  - SQL `INSERT` statements.
-  - Use `curl` on the command line.
+### Recommended insert method
 
-Here is a summary table comparing the different ways to insert data we support:
+The table below outlines the general recommendation for data ingestion based on
+the shape of the data and different scenarios:
 
-| Protocol                  | Record Insertion Reporting       | Data Insertion Performance          |
-| :------------------------ | :------------------------------- | :---------------------------------- |
-| InfluxDB Line Protocol    | Server logs; Disconnect on error | **Best**                            |
-| CSV upload via HTTP REST  | Configurable                     | Good                                |
-| SQL `INSERT` via Postgres | Transaction-level                | Good                                |
-| SQL `COPY` statements     | Transaction-level                | Suitable for one-off data migration |
+| Date shape                | One-ff data import                | Periodical batch ingestion        | Real-time ingestion |
+| :------------------------ | :-------------------------------- | :-------------------------------- | :------------------ |
+| Sorted data               | - Web Console/REST API CSV upload | - ILP                             | ILP                 |
+|                           | - Web Console SQL COPY            | - PosgreSQL                       |                     |
+|                           |                                   | - Web Console/REST API CSV upload |                     |
+| Lightly out of order data | Web Console/REST API CSV upload   | - ILP                             | ILP                 |
+|                           |                                   | - PosgreSQL                       |                     |
+|                           |                                   | - Web Console/REST API CSV upload |                     |
+| Heavily out of order data | Web Console SQL COPY              | - ILP                             | ILP                 |
+|                           |                                   | - PosgreSQL                       |                     |
+|                           |                                   | - Web Console/REST API CSV upload |                     |
+
+Lightly out of order data refers to data with the following traits:
+
+- The expected lag is usually within a few minutes.
+- The data is mostly sorted. Timestamps are growing in time with occasional
+  exceptions that are within the lag.
+
+Heavily out of order data refers to data with the following traits:
+
+- The data is mostly unsorted.
+- The data belongs to different parts of different partitions in an arbitrary manner.
 
 ## InfluxDB Line Protocol (ILP)
 
@@ -215,7 +223,7 @@ socket_close($socket);
 </Tabs>
 
 
-## Telegraf
+### Telegraf
 
 The [Telegraf guide](/docs/third-party-tools/telegraf/) helps you configure a
 Telegraf agent to collect and send metrics to QuestDB via ILP.
@@ -648,7 +656,8 @@ There are two SQL keywords to insert data:
 
 ### Uploading CSV file
 
-It is also possible to upload CSV files using the [Import tab](/docs/develop/web-console/#import) in the Web Console:
+It is also possible to upload CSV files using the
+[Import tab](/docs/develop/web-console/#import) in the Web Console:
 
 <Screenshot
   alt="Screenshot of the UI for import"

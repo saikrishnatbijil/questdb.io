@@ -6,23 +6,26 @@ import TabItem from "@theme/TabItem"
 This page describes how to query data from QuestDB using different programming
 languages and tools.
 
+## Overview
+
 For ad-hoc SQL queries, including CSV download and charting use the web console.
 Applications can choose between the HTTP REST API which returns JSON or use
 the PostgreSQL wire protocol.
 
-Here are all your options:
+QuestDB supports the following data querying methods:
 
-* [Web Console](#web-console)
-  * SQL `SELECT` statements.
-  * Download query results as CSV.
-  * Chart query results.
-* [PostgreSQL wire protocol](#postgresql-wire-protocol)
-  * SQL `SELECT` statements.
-  * Use `psql` on the command line.
-  * Interoperability with third-party tools and libraries.
-* [HTTP REST API](#http-rest-api)
-  * SQL `SELECT` statements as JSON or CSV.
-  * Result paging.
+- [HTTP REST API](#http-rest-api): compatibility with a wide range of libraries
+  and tools.
+  - Accessing QuestDB via the [Web Console](#web-console):
+    -  SQL `SELECT` statements.
+    - Download query results as CSV.
+    - Chart query results.
+  - SQL `SELECT` statements as JSON or CSV
+  - Result paging
+- [PostgreSQL wire protocol](#postgresql-wire-protocol): interoperability with
+  the PostgreSQL ecosystem.
+   - SQL `SELECT` statements.
+   - Use `psql` on the command line.
 
 ## Web Console
 
