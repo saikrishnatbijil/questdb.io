@@ -6,6 +6,10 @@ description:
   feature that will help you craft more efficient queries.
 ---
 
+[Database partitioning](/glossary/database-partitioning/) is the technique that
+splits data in a large database into smaller chunks in order to improve the
+performance and scalability of the database system.
+
 QuestDB offers the option to partition tables by intervals of time. Data for
 each interval is stored in separate sets of files.
 
@@ -35,13 +39,14 @@ import Screenshot from "@theme/Screenshot"
 | --------------- | ---------------- |
 | `HOUR`          | `YYYY-MM-DD-HH`  |
 | `DAY`           | `YYYY-MM-DD`     |
-| `WEEK`          | `YYYY-Www`        |
+| `WEEK`          | `YYYY-Www`       |
 | `MONTH`         | `YYYY-MM`        |
 | `YEAR`          | `YYYY`           |
 
 ## Advantages of adding time partitions
 
-We recommend adding time partition to table to benefit from the following advantages:
+We recommend adding time partition to table to benefit from the following
+advantages:
 
 - Reducing disk IO for timestamp interval searches. This is because our SQL
   optimizer leverages partitioning.
@@ -56,8 +61,12 @@ We recommend adding time partition to table to benefit from the following advant
 The following SQL keyword and function are implemented to present the partition
 information of a table:
 
-- The SQL keyword [SHOW PARTITIONS](/docs/reference/sql/show/#show-partitions) returns general partition information for the selected table.
-- The function [table_partitions('tableName')](/docs/reference/function/meta/) returns generation partition and allows filtering for the selected table.
+- The SQL keyword [SHOW PARTITIONS](/docs/reference/sql/show/#show-partitions)
+  returns general partition information for the selected table.
+- The function [table_partitions('tableName')](/docs/reference/function/meta/)
+  returns the same information as `SHOW PARTITIONS` and can be used in a
+  `SELECT` statement to support more complicated queries such as `WHERE`,
+  `JOIN`, and `UNION`.
 
 ## Storage example
 
