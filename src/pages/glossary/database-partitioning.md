@@ -1,11 +1,12 @@
 ---
-title: Database Partitioning
+index_title: Database Partitioning
+title: What Is Database Partitioning?
 wrapperClassName: career
 ---
 
 import Screenshot from "@theme/Screenshot"
 
-# What is database partitioning?
+# What Is Database Partitioning?
 
 Database partitioning (or data partitioning) is a technique used to split data
 in a large database into smaller chunks called partitions. Each partition is
