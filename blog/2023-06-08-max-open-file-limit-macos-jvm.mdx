@@ -37,7 +37,8 @@ While querying a database table which contains a large amount of historical
 data, we can easily hit limits set by the operating system.
 
 One such limit is the maximum number of file descriptors a process is allowed to
-use. On most operating systems, it is straightforward to increase this limit,
+use. On most operating systems, it is straightforward to
+[increase this limit](/docs/deployment/capacity-planning/#maximum-open-files),
 usually required after the database reaches a certain size. It turns out to be
 more involved on macOS. You try to use `ulimit`, `launchctl`, `sysctl`, and it
 seems that the limit has been increased, but the application still hits a wall.
@@ -200,8 +201,8 @@ around 4000.
 `4 * 950 + 200 = 4000`, the closest value is the previously set soft limit,
 which is 4096.
 
-I increased the soft limit and changed the hard limit to `Integer.MAX` (basically
-unlimited).
+I increased the soft limit and changed the hard limit to `Integer.MAX`
+(basically unlimited).
 
 ```shell
 > ulimit -H -n 2147483647
@@ -247,9 +248,9 @@ it would probably make sense to change the soft limit to the hard limit.
 This would be backward compatible, too. Currently, for QuestDB on macOS, we have
 the 10240 as an absolute limit unless someone has set a hard limit lower than
 that (e.g., `ulimit -H -n 8192`). After removing the 10240 limit, QuestDB will
-switch to the soft limit, so the existing hard limit should also be set as
-soft limit. Otherwise, suddenly we could start using a much lower value, as
-defined by the soft limit. The default could be as low as 256!
+switch to the soft limit, so the existing hard limit should also be set as soft
+limit. Otherwise, suddenly we could start using a much lower value, as defined
+by the soft limit. The default could be as low as 256!
 
 ## Conclusion
 

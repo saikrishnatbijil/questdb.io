@@ -126,7 +126,8 @@ The number of worker threads shared across the application can be configured as
 well as affinity to pin processes to specific CPUs by ID. Shared worker threads
 service SQL execution subsystems and, in the default configuration, every other
 subsystem. More information on these settings can be found on the
-[shared worker](/docs/reference/configuration/#shared-worker) configuration page.
+[shared worker](/docs/reference/configuration/#shared-worker) configuration
+page.
 
 QuestDB will allocate CPU resources differently depending on how many CPU cores
 are available. This default can be overridden via configuration. We recommend at
@@ -299,20 +300,39 @@ done in response to such OS errors.
 The storage model of QuestDB has the benefit that most data structures relate
 closely to the file system, with columnar data being stored in its own `.d` file
 per partition. In edge cases with extremely large tables, frequent out-of-order
-ingestion, or high number of table partitions, the number of open files may hit
+ingestion, or a high number of table partitions, the number of open files may hit
 a user or system-wide maximum limit and can cause unpredictable behavior.
 
-The following commands allow for checking current user and system limits for
-maximum number of open files:
+In a Linux/macOS environment, the following commands allow for checking the current
+user limits for the maximum number of open files:
 
-```bash title="checking ulimit"
+```bash
 # Soft limit
 ulimit -Sn
 # Hard limit
 ulimit -Hn
 ```
 
-**Setting system-wide open file limit:**
+#### Setting the open file limit for the current user:
+
+On a Linux environment, it is enough to increase the hard limit, while on macOS,
+both hard and soft limits should be set. See
+[Max Open Files Limit on MacOS for the JVM](/blog/max-open-file-limit-macos-jvm/)
+for more details.
+
+Modify user limits using `ulimit`:
+```bash
+# Hard limit
+ulimit -H -n 49152
+# Soft limit
+ulimit -S -n 49152
+```
+
+If the user limit is set above the system-wide limit, the system-wide limit
+should be increased to the same value, too.
+
+
+#### Setting the system-wide open file limit on Linux:
 
 To increase this setting and have the configuration persistent, the limit on the
 number of concurrently open files can be changed in `/etc/sysctl.conf`:
@@ -329,6 +349,19 @@ check the current value:
 sysctl -p
 # query current settings
 sysctl fs.file-max
+```
+
+#### Setting system-wide open file limit on macOS:
+
+On macOS, the system-wide limit can be modified by using `launchctl`:
+
+```shell
+sudo launchctl limit maxfiles 98304 2147483647
+```
+
+To confirm the change, view the current settings using `sysctl`:
+```shell
+sysctl -a | grep kern.maxf
 ```
 
 ### Max virtual memory areas limit
