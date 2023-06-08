@@ -94,6 +94,8 @@ utilities for collecting metrics and visualizing data:
 - [Redpanda](/docs/third-party-tools/redpanda/) instructions for a Kafka
   compatible data streaming tool
 - [Spark](/docs/third-party-tools/spark/) for large-scale data engineering
+- [SQLAlchemy](/docs/third-party-tools/sqlalchemy/) guide for using the SQL
+  toolkit with QuestDB
 - [Superset](/docs/third-party-tools/superset/) instructions for using Apache
   Superset data visualization
 - [Telegraf](/docs/third-party-tools/telegraf/) guide for collecting system

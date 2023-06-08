@@ -119,6 +119,13 @@ module.exports = {
             tag: "New",
           },
           type: "doc",
+          id: "third-party-tools/sqlalchemy",
+        },
+        {
+          customProps: {
+            tag: "New",
+          },
+          type: "doc",
           id: "third-party-tools/superset",
         },
         "third-party-tools/flink",
