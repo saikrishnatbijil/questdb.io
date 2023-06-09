@@ -1,5 +1,5 @@
 ---
-title: QuestDB Kafka connector
+title: QuestDB Kafka Connector
 description:
   QuestDB ships a QuestDB Kafka connector for ingesting messages from Kafka via
   the ILP protocol.
@@ -7,7 +7,8 @@ description:
 
 QuestDB ships a
 [QuestDB Kafka connector](https://github.com/questdb/kafka-questdb-connector)
-for fast ingestion from Kafka into QuestDB.
+for fast ingestion from Kafka into QuestDB. This is useful for processing
+[change data capture](/glossary/change-data-capture/) for the dataflow.
 
 This page has the following main sections:
 
@@ -166,9 +167,7 @@ You can find additional sample projects on the
 [QuestDB Kafka connector](https://github.com/questdb/kafka-questdb-connector/tree/main/kafka-questdb-connector-samples)
 Github project page. It includes a
 [sample integration](https://github.com/questdb/kafka-questdb-connector/tree/main/kafka-questdb-connector-samples/stocks)
-with [Debezium](https://debezium.io/) for
-[Change Data Capture](https://en.wikipedia.org/wiki/Change_data_capture) from
-PostgreSQL.
+with [Debezium](https://debezium.io/) for CDC from PostgreSQL.
 
 ## Configuration manual
 
