@@ -341,7 +341,9 @@ QuestDB.
 | cairo.system.table.prefix                      | sys.              | Prefix of the tables used for QuestDB internal data storage. These tables are hidden from QuestDB webconsole.                                                                                                                                                                           |
 | cairo.volumes                                  | -                 | A comma separated list of _alias -> root-path_ pairs defining allowed volumes to be used in [CREATE TABLE IN VOLUME](/docs/reference/sql/create-table/#table-target-volume) statements.                                                                                                 |
 | cairo.system.table.prefix                      | sys.              | Prefix of the tables used for QuestDB internal data storage. These tables are hidden from QuestDB web console.                                                                                                                                                                          |
-| cairo.wal.enabled.default                      | false             | Setting defining whether WAL table is the default when using `CREATE TABLE`.                                                                                                                                                                                                            |
+| cairo.wal.enabled.default                      | false             | Setting defining whether WAL table is the default when using `CREATE TABLE`.                                   |
+| cairo.o3.partition.split.min.size              | 50MB              | The estimated partition size on disk. This setting is one of the conditions to trigger [auto-partitioning](/docs/deployment/capacity-planning/#auto-partitioning)    |
+| cairo.o3.last.partition.max.splits             | 20                | The number of partition pieces allowed before the last partition piece is merged back to the physical partition.               |
 
 ### WAL table configurations
 

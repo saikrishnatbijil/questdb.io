@@ -57,8 +57,11 @@ QuestDB database.
 
 ### Write amplification
 
-When ingesting out-of-order data, high disk write rate combined with high write
-amplification may slow down the performance.
+In QuestDB the write amplification is calculated by the [metrics](/docs/third-party-tools/prometheus/#scraping-prometheus-metrics-from-questdb):
+`questdb_physically_written_rows_total` / `questdb_committed_rows_total`.
+
+When ingesting out-of-order data, a high disk write rate combined with high
+write amplification may slow down the performance.
 
 For data ingestion over PGWire, or as a further step for ILP ingestion, smaller
 table [partitions](/docs/concept/partitions/) maybe reduce the write
@@ -66,15 +69,26 @@ amplification. This applies to tables with partition directories exceeding a few
 hundred MBs on disk. For example, partition by day can be reduced to by hour,
 partition by month to by day, and so on.
 
-:::note
+#### Partition split
 
-- In QuestDB the write amplification is calculated by the
-  [metrics](/docs/third-party-tools/prometheus/#scraping-prometheus-metrics-from-questdb):
-  `questdb_physically_written_rows_total` / `questdb_committed_rows_total`.
-- Partitions are defined when a table is created. Refer to
-  [CREATE TABLE](/docs/reference/sql/create-table/) for more information.
+From QuestDB 7.2, heavily out-of-order commits can split the partitions into
+parts to reduce write amplification. When data is merged into an existing
+partition as a result of an out-of-order insert, the partition will be split
+into two parts: the prefix sub-partition and the suffix sub-partition.
 
-:::
+Considering an example of the following partition details:
+
+- A partition `2023-01-01.1` with 1,000 rows every hour, and therefore 24,000
+  rows in total.
+- Inserting one row with the timestamp `2023-01-01T23:00`
+
+When the out-of-order row `2023-01-01T23:00` is inserted, the partition is split
+into 2 parts:
+
+- Prefix: `2023-01-01.1` with 23,000 rows
+- Suffix (including the merged row):`2023-01-01T75959-999999.2` with 1,001 rows
+
+See [Splitting and squashing time partitions](/docs/concept/partitions/#splitting-and-squashing-time-partitions) for more information.
 
 ## CPU and RAM configuration
 
@@ -93,11 +107,11 @@ read operations.
 
 ### Memory page size configuration
 
-For frequent out-of-order (O3) writes over high number of columns/tables, the
+For frequent out-of-order (O3) writes over a high number of columns/tables, the
 performance may be impacted by the size of the memory page being too big as this
 increases the demand for RAM. The memory page, `cairo.o3.column.memory.size`, is
 set to 8M by default. This means that the table writer uses 16MB (2x8MB) RAM per
-each column when it receives O3 writes. Decreasing the value in the interval of
+column when it receives O3 writes. Decreasing the value in the interval of
 [128K, 8M] based on the number of columns used may improve O3 write performance.
 
 ### CPU cores
@@ -139,9 +153,8 @@ QuestDB will configure a shared worker pool to handle everything except the
 InfluxDB line protocol (ILP) writer which gets a dedicated CPU core. The worker
 count is calculated as follows:
 
-$(cpuAvailable) - (line.tcp.writer.worker.count)$
-
-Minimal size of the shared worker pool is 2, even on a single-core machine.
+$(cpuAvailable) - (line.tcp.writer.worker.count)$ The minimal size of the shared
+worker pool is 2, even on a single-core machine.
 
 #### 16 CPU cores or less
 
@@ -171,7 +184,7 @@ $32-2-6-1$
 
 The default page size for writers is 16MB. In cases where there are a large
 number of small tables, using 16MB to write a maximum of 1MB of data, for
-example, is a waste of OS resources. To changes the default value, set the
+example, is a waste of OS resources. To change the default value, set the
 `cairo.writer.data.append.page.size` value in `server.conf`:
 
 ```ini title="server.conf"
@@ -240,7 +253,7 @@ And `<config>` is one of the following settings:
 | `sndbuf`  | Maximum send buffer size on each TCP socket. If value is -1 socket send buffer remains unchanged from OS default.                                                                                                          |
 | `rcvbuf`  | Maximum receive buffer size on each TCP socket. If value is -1, the socket receive buffer remains unchanged from OS default.                                                                                               |
 
-For example, this is configuration for Linux with relatively low number of
+For example, this is the configuration for Linux with a relatively low number of
 concurrent connections:
 
 ```ini title="server.conf InfluxDB line protocol network example configuration for moderate number of concurrent connections"
@@ -256,8 +269,8 @@ line.tcp.net.connection.timeout=60000
 line.tcp.net.rcvbuf=4m
 ```
 
-Let's assume you would like to configure InfluxDB line protocol for large number
-of concurrent connection on Windows:
+Let's assume you would like to configure InfluxDB line protocol for a large
+number of concurrent connections on Windows:
 
 ```ini title="server.conf InfluxDB line protocol network example configuration for large number of concurrent connections on Windows"
 # bind to specific NIC on port 9009, NIC is identified by IP address
@@ -366,8 +379,8 @@ sysctl -a | grep kern.maxf
 
 ### Max virtual memory areas limit
 
-If the host machine has insufficient limits of map areas, this may result in out
-of memory exceptions. To increase this value and have the configuration
+If the host machine has insufficient limits of map areas, this may result in
+out- of-memory exceptions. To increase this value and have the configuration
 persistent, mapped memory area limits can be changed in `/etc/sysctl.conf`:
 
 ```ini title="/etc/sysctl.conf"

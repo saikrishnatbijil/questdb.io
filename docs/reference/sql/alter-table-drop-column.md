@@ -4,11 +4,7 @@ sidebar_label: DROP COLUMN
 description: DROP COLUMN SQL keyword reference documentation.
 ---
 
-Drops a column from an existing table.
-
-Before the operation can proceed, any current transactions are committed,
-regardless of the success or failure of the `DROP` operation. Dropping a column
-does not lock the table for reading and does not wait on any reads to finish.
+Deletes a column from an existing table.
 
 Dropping columns will also attempt to remove files belonging to the column from
 all partitions, thus freeing up disk space immediately. If this is not

@@ -220,6 +220,10 @@ detachPartition
    | 'ALTER' 'TABLE' tableName 'DETACH' 'PARTITION' 'WHERE' timestampColumn ( '=' | '>' | '<' | '>=' | '<=' ) "'" timestamp "'"
    | 'ALTER' 'TABLE' tableName 'DETACH' 'PARTITION' 'WHERE' timestampColumn 'IN' '(' timestamp (',' timestamp)* ')'
 
+squashPartitions
+
+ ::= 'SQUASH' 'PARTITIONS' tableName ';'
+
 setParam
  ::= 'SET' 'PARAM' ( 'maxUncommittedRows' '=' n)
 

@@ -233,14 +233,16 @@ module.exports = {
               label: "ALTER TABLE",
               items: [
                 "reference/sql/alter-table-add-column",
-                "reference/sql/alter-table-rename-column",
-                "reference/sql/alter-table-drop-column",
                 "reference/sql/alter-table-attach-partition",
                 "reference/sql/alter-table-detach-partition",
+                "reference/sql/alter-table-drop-column",
                 "reference/sql/alter-table-drop-partition",
+                "reference/sql/alter-table-rename-column",
+                "reference/sql/alter-table-resume-wal",
                 "reference/sql/alter-table-set-param",
                 "reference/sql/alter-table-set-type",
-                "reference/sql/alter-table-resume-wal",
+                "reference/sql/alter-table-squash-partitions",
+                
               ],
             },
             {
@@ -248,8 +250,8 @@ module.exports = {
               label: "ALTER COLUMN",
               items: [
                 "reference/sql/alter-table-alter-column-add-index",
-                "reference/sql/alter-table-alter-column-drop-index",
                 "reference/sql/alter-table-alter-column-cache",
+                "reference/sql/alter-table-alter-column-drop-index",
               ],
             },
             "reference/sql/backup",

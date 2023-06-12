@@ -26,11 +26,13 @@ import Screenshot from "@theme/Screenshot"
 
 - Partitioning is only possible on tables with a
   [designated timestamp](/docs/concept/designated-timestamp/).
-- Available partition intervals are `NONE`, `YEAR`, `MONTH`, `WEEK`, `DAY`, and `HOUR`.
+- Available partition intervals are `NONE`, `YEAR`, `MONTH`, `WEEK`, `DAY`, and
+  `HOUR`.
 - Default behavior is`PARTITION BY NONE` when using
   [CREATE TABLE](/docs/reference/sql/create-table/).
 - Default behavior is `PARTITION BY DAY` via
-  [ILP ingestion](/docs/reference/api/ilp/overview/). This is set by `line.default.partition.by`.
+  [ILP ingestion](/docs/reference/api/ilp/overview/). This is set by
+  `line.default.partition.by`.
 - Partitions are defined at table creation. For more information, refer to the
   [CREATE TABLE section](/docs/reference/sql/create-table/).
 - The naming convention for partition directories is as follows:
@@ -45,16 +47,17 @@ import Screenshot from "@theme/Screenshot"
 
 ## Advantages of adding time partitions
 
-We recommend adding time partition to table to benefit from the following
-advantages:
+We recommend partitioning tables to benefit from the following advantages:
 
 - Reducing disk IO for timestamp interval searches. This is because our SQL
   optimizer leverages partitioning.
 - Significantly improving calculations and seek times. This is achieved by
   leveraging the chronology and relative immutability of data for previous
   partitions.
-- Separating data files physically. This makes it easily to implement file
+- Separating data files physically. This makes it easy to implement file
   retention policies or extract certain intervals.
+- From QuestDB 7.2, heavily out-of-order commits can [split the partitions](#splitting-and-squashing-time-partitions) into
+  parts to reduce [write amplification](/docs/deployment/capacity-planning/#write-amplification).
 
 ## Checking time partition information
 
@@ -67,6 +70,99 @@ information of a table:
   returns the same information as `SHOW PARTITIONS` and can be used in a
   `SELECT` statement to support more complicated queries such as `WHERE`,
   `JOIN`, and `UNION`.
+
+## Splitting and squashing time partitions
+
+From QuestDB 7.2, heavily out-of-order commits can split the partitions into
+parts to reduce write amplification. When data is merged into an existing
+partition as a result of an out-of-order insert, the partition will be split
+into two parts: the prefix sub-partition and the suffix sub-partition.
+
+A partition split happens when both of the following are true:
+
+- The prefix size is bigger than the combination of the suffix and the rows to be
+  merged.
+- The estimated prefix size on disk is higher than
+  `cairo.o3.partition.split.min.size` (50MB by default).
+
+Partition split is iterative and therefore a partition can be split into more
+than two parts after several commits. To control the number of parts QuestDB
+squashes them together following the following principles:
+
+- For the last (yearly, ..., hourly) partition, its parts are squashed together
+  when the number of parts exceeds `cairo.o3.last.partition.max.splits` (20 by
+  default).
+- For all the partitions except the last one, the QuestDB engine squashes them
+  aggressively to maintain only one physical partition at the end of every
+  commit.
+
+All partition operations (ALTER TABLE
+[ATTACH](/docs/reference/sql/alter-table-attach-partition/)/
+[DETACH](/docs/reference/sql/alter-table-detach-partition/)/
+[DROP](/docs/reference/sql/alter-table-drop-partition/) PARTITION) do not
+consider partition splits as individual partitions and work on the table
+partitioning unit (year, week, ..., hour).
+
+For example, when a daily partition consisting of several parts is dropped, all
+the parts belonging to the given date are dropped. Similarly, when the multipart
+daily partition is detached, it is squashed into a single piece first and then
+detached.
+
+### Examples
+
+For example, Let's consider the following table `x`:
+
+```questdb-sql
+CREATE TABLE x AS (
+  SELECT
+    cast(x as int) i,
+    - x j,
+    rnd_str(5, 16, 2) as str,
+    timestamp_sequence('2023-02-04T00', 60 * 1000L) ts
+  FROM
+    long_sequence(60 * 23 * 2 * 1000)
+) timestamp (ts) PARTITION BY DAY WAL;
+```
+
+```questdb-sql
+SHOW PARTITIONS FROM x;
+```
+
+| index | partitionBy | name       | minTimestamp                | maxTimestamp                | numRows | diskSize  | diskSizeHuman | readOnly | active | attached | detached | attachable |
+| ----- | ----------- | ---------- | --------------------------- | --------------------------- | ------- | --------- | ------------- | -------- | ------ | -------- | -------- | ---------- |
+| 0     | DAY         | 2023-02-04 | 2023-02-04T00:00:00.000000Z | 2023-02-04T23:59:59.940000Z | 1440000 | 71281136  | 68.0 MiB      | FALSE    | FALSE  | TRUE     | FALSE    | FALSE      |
+| 1     | DAY         | 2023-02-05 | 2023-02-05T00:00:00.000000Z | 2023-02-05T21:59:59.940000Z | 1320000 | 100663296 | 96.0 MiB      | FALSE    | TRUE   | TRUE     | FALSE    | FALSE      |
+
+Inserting an out-of-order row:
+
+```questdb-sql
+INSERT INTO
+  x(ts)
+VALUES
+  ('2023-02-05T21');
+
+
+SHOW PARTITIONS FROM x;
+```
+
+| index | partitionBy | name                     | minTimestamp                | maxTimestamp                | numRows | diskSize | diskSizeHuman | readOnly | active | attached | detached | attachable |
+| ----- | ----------- | ------------------------ | --------------------------- | --------------------------- | ------- | -------- | ------------- | -------- | ------ | -------- | -------- | ---------- |
+| 0     | DAY         | 2023-02-04               | 2023-02-04T00:00:00.000000Z | 2023-02-04T23:59:59.940000Z | 1440000 | 71281136 | 68.0 MiB      | FALSE    | FALSE  | TRUE     | FALSE    | FALSE      |
+| 1     | DAY         | 2023-02-05               | 2023-02-05T00:00:00.000000Z | 2023-02-05T20:59:59.880000Z | 1259999 | 65388544 | 62.4 MiB      | FALSE    | FALSE  | TRUE     | FALSE    | FALSE      |
+| 2     | DAY         | 2023-02-05T205959-880001 | 2023-02-05T20:59:59.940000Z | 2023-02-05T21:59:59.940000Z | 60002   | 83886080 | 80.0 MiB      | FALSE    | TRUE   | TRUE     | FALSE    | FALSE      |
+
+To merge the new partition part back to the main partition for downgrading:
+
+```questdb-sql
+ALTER TABLE x SQUASH PARTITIONS;
+
+SHOW PARTITIONS FROM x;
+```
+
+| index | partitionBy | name       | minTimestamp                | maxTimestamp                | numRows | diskSize | diskSizeHuman | readOnly | active | attached | detached | attachable |
+| ----- | ----------- | ---------- | --------------------------- | --------------------------- | ------- | -------- | ------------- | -------- | ------ | -------- | -------- | ---------- |
+| 0     | DAY         | 2023-02-04 | 2023-02-04T00:00:00.000000Z | 2023-02-04T23:59:59.940000Z | 1440000 | 71281136 | 68.0 MiB      | FALSE    | FALSE  | TRUE     | FALSE    | FALSE      |
+| 1     | DAY         | 2023-02-05 | 2023-02-05T00:00:00.000000Z | 2023-02-05T21:59:59.940000Z | 1320001 | 65388544 | 62.4 MiB      | FALSE    | TRUE   | TRUE     | FALSE    | FALSE      |
 
 ## Storage example
 
