@@ -9,7 +9,6 @@ description:
   data in Grafana via Google Cloud Platform
 tags: [tutorial, streaming, iot, grafana]
 image: /img/blog/shared/og-iot.webp
-
 ---
 
 import Banner from "@theme/Banner"
@@ -37,8 +36,8 @@ people are tracking their biometrics data closely and integrating IoT into their
 everyday lives. In my search for a DIY heart rate tracker, I found an excellent
 walkthrough from Brandon Freitag and
 [Gabe Weiss](https://medium.com/u/87b2115d4438), using Google Cloud services to
-stream data from a Raspberry Pi with a heart rate sensor to BigQuery via IoT
-Core and Cloud Dataflow.
+[stream data](/glossary/stream-processing/) from a Raspberry Pi with a heart
+rate sensor to BigQuery via IoT Core and Cloud Dataflow.
 
 import Screenshot from "@theme/Screenshot"
 
@@ -354,9 +353,8 @@ following:
 docker run -p 3000:3000 grafana/grafana
 ```
 
-Navigate to `http://localhost:3000/login` using the
-default credentials (`admin`:`admin`). Under **Configuration -> Data Sources**,
-search for Postgres:
+Navigate to `http://localhost:3000/login` using the default credentials
+(`admin`:`admin`). Under **Configuration -> Data Sources**, search for Postgres:
 
 <Screenshot
   alt="A screenshot of adding QuestDB as a data source in Grafana"

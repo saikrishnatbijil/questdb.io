@@ -36,11 +36,12 @@ quicker you can respond to changes in this data, the better. The best tool for
 this job is easily a time series database, a type of database designed to write
 and read large amounts of measurements that change over time.
 
-In this tutorial, you will learn how to read data from a REST API and stream it
-to QuestDB, an open-source time series database. We will use Grafana to
-visualize the data and notify Slack of changes that interest us. We use Python
-to fetch data from the API and stream it to QuestDB, and you can easily
-customize the scripts to check different stocks or even APIs.
+In this tutorial, you will learn how to read data from a REST API and
+[stream](/glossary/stream-processing/) it to QuestDB, an open-source time series
+database. We will use Grafana to visualize the data and notify Slack of changes
+that interest us. We use Python to fetch data from the API and stream it to
+QuestDB, and you can easily customize the scripts to check different stocks or
+even APIs.
 
 ## Prerequisites
 
@@ -249,7 +250,8 @@ Your Slack workspace should display a test notification coming from Grafana:
 Next up, we can create a new panel on Grafana and configure alerts based on
 queries we're interested in:
 
-1. Navigate to `http://localhost:3000/dashboard/new` and click **+ Add new panel**
+1. Navigate to `http://localhost:3000/dashboard/new` and click **+ Add new
+   panel**
 2. In the **Query** panel, click the pencil icon or click **Edit SQL**
 3. Paste the following example query
 

@@ -34,12 +34,12 @@ technologies promised cheaper storage and better scalability, data pipelines
 could move away from pre-built extractions and batch uploads to a more streaming
 architecture.
 
-[Change data capture](https://en.wikipedia.org/wiki/Change_data_capture) (CDC)
-fits nicely into this paradigm shift where changes to data from one source can
-be streamed to other destinations. As the name implies, CDC tracks changes in
-data (usually a database) and provides plugins to act on those changes. For
-event-driven architectures, CDC is especially useful as a consistent data
-delivery mechanism between service boundaries (e.g.,
+[Change data capture (CDC)](/glossary/change-data-capture/) fits nicely into
+this paradigm shift where changes to data from one source can be
+[streamed](/glossary/stream-processing/) to other destinations. As the name
+implies, CDC tracks changes in data (usually a database) and provides plugins to
+act on those changes. For event-driven architectures, CDC is especially useful
+as a consistent data delivery mechanism between service boundaries (e.g.,
 [Outbox Pattern](https://microservices.io/patterns/data/transactional-outbox.html)).
 In a complex microservice environment, CDC helps to simplify data delivery logic
 by offloading the burden to the CDC systems.
@@ -123,7 +123,8 @@ curl -X POST -H "Content-Type: application/json" -d '{"name":"questdb-connect","
 ## Final result
 
 Now all the updates written to the PostgreSQL table will also be reflected in
-QuestDB. To validate, navigate to `http://localhost:19000` and select from the stock table:
+QuestDB. To validate, navigate to `http://localhost:19000` and select from the
+stock table:
 
 ```questdb-sql
 SELECT * FROM stock;
@@ -366,9 +367,9 @@ The important things to note here are:
 - `connector.class`: The QuestDB Kafka connector class name. This tells Kafka
   Connect to use the QuestDB Kafka connector.
 
-- `value.converter`: The Debezium connector produces the data in JSON
-  format. This is why we need to configure the QuestDB connector to use
-  the JSON converter to read the data: `org.apache.kafka.connect.json.JsonConverter`.
+- `value.converter`: The Debezium connector produces the data in JSON format.
+  This is why we need to configure the QuestDB connector to use the JSON
+  converter to read the data: `org.apache.kafka.connect.json.JsonConverter`.
 
 - `symbols`: Stock symbols are translated to
   [QuestDB symbol type](/docs/concept/symbol/), used for string values with low
@@ -470,8 +471,8 @@ SAMPLE BY $Interval ALIGN TO CALENDAR;
 ```
 
 We have created a system that continuously tracks and stores the latest prices
-for multiple stocks in a PostgreSQL table. These prices are then fed as events to
-Kafka through Debezium, which captures every price change. The QuestDB Kafka
+for multiple stocks in a PostgreSQL table. These prices are then fed as events
+to Kafka through Debezium, which captures every price change. The QuestDB Kafka
 connector reads these events from Kafka and stores each change as a new row in
 QuestDB, allowing us to retain a comprehensive history of stock prices. This
 history can then be analyzed and visualized using tools such as Grafana, as

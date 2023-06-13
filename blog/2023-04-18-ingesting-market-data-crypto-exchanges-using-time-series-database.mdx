@@ -1,10 +1,11 @@
 ---
-title: Ingesting Financial Tick Data Using a Time-Series Database 
+title: Ingesting Financial Tick Data Using a Time-Series Database
 author: Yitaek Hwang
 author_title: Guest
 author_url: https://github.com/Yitaek
 author_image_url: https://avatars.githubusercontent.com/Yitaek
-description: "An overview of three methods to ingest live market data into QuestDB."
+description:
+  "An overview of three methods to ingest live market data into QuestDB."
 image: /img/blog/2023-04-18/banner.webp
 tags: [market data, tutorial, crypto, time-series, pinned]
 slug: ingesting-financial-tick-data-using-time-series-database
@@ -21,12 +22,12 @@ import Banner from "@theme/Banner"
 
 ## Introduction
 
-In this tutorial, we’ll take a look at three different ways to ingest crypto market data 
-into QuestDB for further analysis:
+In this tutorial, we’ll take a look at three different ways to ingest crypto
+market data into QuestDB for further analysis:
 
 1. Using the [Cryptofeed](https://github.com/bmoscon/cryptofeed) library
 2. Writing a custom data pipeline
-3. Via Change Data Capture (CDC)
+3. Via [Change Data Capture (CDC)](/glossary/change-data-capture/)
 
 ## Prerequisites
 
@@ -274,7 +275,8 @@ Finally, you can ingest data via Change Data Capture (CDC) if you have an
 external data stream or database that you can listen on. For example, an
 external data market team might publish price data on Kafka or push updates to a
 relational database. Instead of polling this data directly, you could opt to
-leverage CDC patterns to stream changes to QuestDB instead.
+leverage CDC patterns to [stream changes](/glossary/stream-processing/) to
+QuestDB instead.
 
 An example of this architecture is detailed in
 [Realtime crypto tracker with QuestDB Kafka Connector](/blog/realtime-crypto-tracker-with-questdb-kafka-connector/).
@@ -309,47 +311,36 @@ great choice to minimize the infrastructure burden.
 
 - **What is level 1, Level 2, Level 3 market data?**
 
-
   Level 1 market data provides basic market data including current bid and ask
   prices, last traded price, and the size on each buy/sell side. Level 2 market
   data provides market depth data (e.g., 5-10 bid/ask prices). Level 3 adds
   additional information on market depth data typically up to 20 best bid/ask
   prices along with custom orders.
 
-
 - **What is an order book?**
 
-
-  An order book is a collection of buy and sell orders for a security or commodity
-  being traded. It organizes current bids and asks by price, updating it
-  constantly as orders are being executed.
-
+  An order book is a collection of buy and sell orders for a security or
+  commodity being traded. It organizes current bids and asks by price, updating
+  it constantly as orders are being executed.
 
 - **What are Candlestick charts?**
 
-
-  Candlestick charts are a popular form of financial chart uses to show the price
-  movement. The candle comprises of opening, closing, high, and low prices for the
-  financial instrument of note.
-
+  Candlestick charts are a popular form of financial chart uses to show the
+  price movement. The candle comprises of opening, closing, high, and low prices
+  for the financial instrument of note.
 
 - **What is an exchange API?**
-
 
   Exchange API is the application programming interface that exposes data (e.g.,
   market depth, latest price, etc) provided by exchanges.
 
-
 - **What is Change Data Capture (CDC)?**
-
 
   Change Data Capture (CDC) is a design pattern used with databases to track
   changes to the underlying dataset. CDC enables near real-time data replication
   and integration.
 
-
 - **What is Kafka?**
-
 
   Kafka is a distributed streaming platform that is used for data pipelines,
   streaming analytics, and data integration.

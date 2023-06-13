@@ -35,7 +35,7 @@ Thanks for another great contribution, Yitaek!
 ## Introduction
 
 Recently, I've been experimenting with QuestDB as a primary time series database
-to stream and analyze IoT and financial data:
+to [stream](/glossary/stream-processing/) and analyze IoT and financial data:
 
 - [Streaming Heart Rate Data with IoT Core and QuestDB](/blog/2021/02/05/streaming-heart-rate-data-with-iot-core-and-questdb)
 - [Real-time Crypto Tracker with Kafka and QuestDB](/blog/realtime-crypto-tracker-with-questdb-kafka-connector/)
@@ -240,8 +240,8 @@ export POD_NAME=$(kubectl get pods --namespace default -l \ "app=prometheus,comp
 kubectl --namespace default port-forward $POD_NAME 9090
 ```
 
-Once port-forwarding is active, visit `localhost:9090` and check
-that we're able to scrape `pg_up`:
+Once port-forwarding is active, visit `localhost:9090` and check that we're able
+to scrape `pg_up`:
 
 <Screenshot
   alt="A screenshot of Prometheus monitoring the uptime of a QuestDB instance"
