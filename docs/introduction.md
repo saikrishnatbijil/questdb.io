@@ -178,6 +178,7 @@ can be used in QuestDB.
 ### Operators
 
 - [Bitwise](/docs/reference/operators/bitwise/)
+- [Comparison](/docs/reference/operators/comparison/)
 - [Pattern matching](/docs/reference/operators/pattern-matching/)
 - [Spatial](/docs/reference/operators/spatial/)
 

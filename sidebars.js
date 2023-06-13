@@ -219,6 +219,7 @@ module.exports = {
           label: "Operators",
           items: [
             "reference/operators/bitwise",
+            "reference/operators/comparison",
             "reference/operators/pattern-matching",
             "reference/operators/spatial",
           ],
