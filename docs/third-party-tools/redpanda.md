@@ -8,7 +8,7 @@ description:
 platform that uses C++ and Raft to replace Java and Zookeeper. Since it is Kafka
 compatible, it can be used with the
 [QuestDB Kafka connector](/docs/third-party-tools/kafka/questdb-kafka/),
-providing an alternative data streaming option.
+providing an alternative data [streaming](/glossary/stream-processing) option.
 
 ## Prerequisites
 
@@ -200,7 +200,8 @@ Now the Kafka Connect is initiated.
 
 ## Send a message
 
-Open the Redpand UI topic page, `http://127.0.0.1:8080/topics`.It should display `example-topic`:
+Open the Redpand UI topic page, `http://127.0.0.1:8080/topics`.It should display
+`example-topic`:
 
 ![Screenshot of the Redpanda UI showing the example-topic](/img/docs/guide/redpanda/redpanda-topic.png)
 

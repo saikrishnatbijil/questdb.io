@@ -9,10 +9,10 @@ description:
 import InterpolateReleaseData from "../../src/components/InterpolateReleaseData"
 import CodeBlock from "@theme/CodeBlock"
 
-QuestDB ships a
+[Apache Flink](https://flink.apache.org/) is a popular framework and
+[stream processing](/glossary/stream-processing) engine. QuestDB ships a
 [QuestDB Flink Sink connector](https://github.com/questdb/flink-questdb-connector)
-for fast ingestion from [Apache Flink](https://flink.apache.org/) into QuestDB.
-The connector implements the
+for fast ingestion from Apache Flink into QuestDB. The connector implements the
 [Table API and SQL](https://nightlies.apache.org/flink/flink-docs-release-1.16/docs/dev/table/overview/)
 for Flink.
 
@@ -47,19 +47,21 @@ Flink. The overall steps are the followings:
 
 - Download [Apache Flink distribution](https://flink.apache.org/downloads/) and
   unpack it.
-- [Download](https://repo1.maven.org/maven2/org/questdb/flink-questdb-connector/0.2/flink-questdb-connector-0.2.jar) the QuestDB Flink connector from Maven Central
-  and place it in the `lib` directory of your Flink installation.
+- [Download](https://repo1.maven.org/maven2/org/questdb/flink-questdb-connector/0.2/flink-questdb-connector-0.2.jar)
+  the QuestDB Flink connector from Maven Central and place it in the `lib`
+  directory of your Flink installation.
 - Go to the `bin` directory of your Flink installation and run the following to
   start a Flink cluster:
 
   ```shell
   ./start-cluster.sh
   ```
+
 - While still in the `bin` directory, start a Flink SQL console by running:
 
   ```shell
   ./sql-client.sh
-  ````
+  ```
 
   Then, run the following SQL command in the Flink SQL console:
 
@@ -163,8 +165,11 @@ CREATE TABLE Orders (
 ```
 
 ## Connector Distribution
-The connector is distributed as a single jar file. The jar file is available in the
-[Maven Central repository](https://repo1.maven.org/maven2/org/questdb/flink-questdb-connector/) and it's available under the following coordinates:
+
+The connector is distributed as a single jar file. The jar file is available in
+the
+[Maven Central repository](https://repo1.maven.org/maven2/org/questdb/flink-questdb-connector/)
+and it's available under the following coordinates:
 
 ```xml
 <dependency>
@@ -173,6 +178,7 @@ The connector is distributed as a single jar file. The jar file is available in 
   <version>LATEST</version>
 </dependency>
 ```
+
 The latest version is:
 [![a badge with the latest connector version in Maven Central](https://maven-badges.herokuapp.com/maven-central/org.questdb/flink-questdb-connector/badge.svg)](https://maven-badges.herokuapp.com/maven-central/org.questdb/flink-questdb-connector)
 

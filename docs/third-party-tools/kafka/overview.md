@@ -12,7 +12,7 @@ strategies are as the following:
 2. [JDBC connector](/docs/third-party-tools/kafka/jdbc/): A generic connector
    using Kafka Connect.
 3. Write a dedicated program to read data from Kafka and write to QuestDB.
-4. Use a stream processing engine.
+4. Use a [stream processing](/glossary/stream-processing) engine.
 
 Each strategy has different trade-offs. The rest of this page discusses each
 strategy and aims to guide advanced users.
@@ -64,6 +64,6 @@ program and using one of the connectors. Engines such as
 transformations, enrichment, and filtering; at the same time, they can help you
 with shared concerns such as fault-tolerance and serialization. However, they
 often have a non-trivial learning curve. QuestDB offers a
-[connector for Apache Flink](/docs/third-party-tools/flink/).
-It is the recommended strategy if you are an existing Flink user, and you need
-to do complex transformations while inserting entries from Kafka to QuestDB.
+[connector for Apache Flink](/docs/third-party-tools/flink/). It is the
+recommended strategy if you are an existing Flink user, and you need to do
+complex transformations while inserting entries from Kafka to QuestDB.
