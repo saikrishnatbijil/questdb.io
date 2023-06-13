@@ -350,10 +350,6 @@
   to = "/blog/data-integration-time-series-etl-elt-cdc/"
 
 [[redirects]]
-  from ="/blog/2022/10/03/athletex-interview/"
-  to = "/blog/"
-
-[[redirects]]
   from ="/blog/2020/07/24/use-questdb-for-swag/"
   to = "/community/"
 
