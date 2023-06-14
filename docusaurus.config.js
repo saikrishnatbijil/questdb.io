@@ -178,6 +178,10 @@ const config = {
               activeBaseRegex: "/blog/tags/tutorial/?$",
             },
             {
+              label: "Glossary",
+              to: "/glossary/",
+            },
+            {
               label: "QuestDB Swag",
               to: "/community/",
             },
@@ -267,7 +271,7 @@ const config = {
             {
               label: "Glossary",
               to: "/glossary/",
-            }
+            },
           ],
         },
         {
