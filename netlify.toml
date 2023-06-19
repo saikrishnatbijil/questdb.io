@@ -375,4 +375,4 @@
     X-Frame-Options = "SAMEORIGIN"
     X-XSS-Protection = "0"
     X-Content-Type-Options = "nosniff"
-    Content-Security-Policy = "frame-src 'self' app.netlify.com calendly.com *.questdb.io www.youtube.com www.slideshare.net;"
+    Content-Security-Policy = "frame-src 'self' app.netlify.com calendly.com *.questdb.io www.youtube.com www.slideshare.net forms.hsforms.com;"

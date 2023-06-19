@@ -4,25 +4,23 @@ import { CSSTransition, TransitionGroup } from "react-transition-group"
 
 import Button from "@theme/Button"
 import Chevron from "@theme/Chevron"
-import Layout from "../theme/Layout"
-import Subscribe from "../components/Subscribe"
+import Layout from "../../theme/Layout"
 import useResizeObserver from "@theme/useResizeObserver"
 
-import clCss from "../css/enterprise/cloud.module.css"
-import caCss from "../css/enterprise/card.module.css"
-import ilCss from "../css/enterprise/illustration.module.css"
-import peCss from "../css/enterprise/performance.module.css"
-import quCss from "../css/enterprise/quote.module.css"
-import prCss from "../css/property.module.css"
-import seCss from "../css/section.module.css"
-import style from "../css/enterprise/style.module.css"
-import _quotes from "../assets/quotes"
+import clCss from "../../css/enterprise/cloud.module.css"
+import caCss from "../../css/enterprise/card.module.css"
+import ilCss from "../../css/enterprise/illustration.module.css"
+import peCss from "../../css/enterprise/performance.module.css"
+import quCss from "../../css/enterprise/quote.module.css"
+import prCss from "../../css/property.module.css"
+import seCss from "../../css/section.module.css"
+import _quotes from "../../assets/quotes"
 
-import SvgImage from "../components/SvgImage"
+import SvgImage from "../../components/SvgImage"
 
-import AwsLogo from "../assets/img/aws.svg"
-import AzureLogo from "../assets/img/azure.svg"
-import GoogleCloudLogo from "../assets/img/gc.svg"
+import AwsLogo from "../../assets/img/aws.svg"
+import AzureLogo from "../../assets/img/azure.svg"
+import GoogleCloudLogo from "../../assets/img/gc.svg"
 
 const quotes = _quotes.map(({ author, company, logo, role, text }) => {
   const Quote = () => (
@@ -130,12 +128,9 @@ const Enterprise = () => {
             premise or on the cloud.
           </p>
 
-          <Subscribe
-            placeholder="Work Email"
-            submitButtonText="Contact Us"
-            provider="enterprise"
-            className={style.subscribe}
-          />
+          <Button variant="primary" to="/enterprise/contact">
+            Contact us
+          </Button>
 
           <img
             alt="Artistic view of the console with sub-queries"
