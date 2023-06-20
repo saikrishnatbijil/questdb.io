@@ -42,7 +42,7 @@ const Availability = ({ status }: { status: Status }) => {
       return <span className={style.comingSoon}>Coming soon</span>
     case "contact-us":
       return (
-        <Link to="/enterprise" className={style.link}>
+        <Link to="/enterprise/contact" className={style.link}>
           Contact us
         </Link>
       )
