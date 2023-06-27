@@ -139,8 +139,8 @@ docker-compose up -d
   width={748}
 />
 
-Navigate to `http://localhost:9000` to open QuestDB's Web
-Console, click on the “Upload” icon on the left-hand panel, and import the
+Navigate to `http://localhost:9000` to open QuestDB's Web Console, click on the
+“Upload” icon on the left-hand panel, and import the
 [csv files of interest](https://www.kaggle.com/sudalairajkumar/cryptocurrencypricehistory).
 While this example uses the Ethereum dataset, any of the coin datasets will work
 perfectly.
@@ -185,8 +185,8 @@ consists of entities we call 'cubes' that define metrics by dimensions
 (qualitative categories) and measures (numerical values). So, with that in mind,
 let's continue by creating a cube for our Ethereum data.
 
-Navigate to `localhost:4000/#/schema` and click on the
-Ethereum table we imported into QuestDB:
+Navigate to `localhost:4000/#/schema` and click on the Ethereum table we
+imported into QuestDB:
 
 <Screenshot
   alt="Generate Schema on Cube"
@@ -279,11 +279,11 @@ Next, we can recreate the classic price-over-time graph:
 />
 
 Additionally with Cube, you can pre-aggregate data to speed up the queries. Cube
-will create materialized rollups of specified dimensions and measures
-internally, and use aggregate awareness logic to route the queries. This logic
-will use the most optimal pre-aggregation available to serve the query instead
-of processing the raw dataset. You can define pre-aggregations within your data
-model as shown below.
+will create [materialized](/glossary/materialized-view/) rollups of specified
+dimensions and measures internally, and use aggregate awareness logic to route
+the queries. This logic will use the most optimal pre-aggregation available to
+serve the query instead of processing the raw dataset. You can define
+pre-aggregations within your data model as shown below.
 
 ```js
 preAggregations: {
@@ -334,9 +334,9 @@ There are three API endpoints that you can use to access your data model:
 
 3. SQL API: If you're querying data using standard ANSI SQL format, you can
    connect to Cube with the [SQL API](https://cube.dev/docs/backend/sql). No
-   need to learn additional syntax—just use SQL to interact with your data.
-   This is especially useful if you are working with BI tools, dashboards, or
-   data science models.
+   need to learn additional syntax—just use SQL to interact with your data. This
+   is especially useful if you are working with BI tools, dashboards, or data
+   science models.
 
 <Screenshot
   alt="GraphQL API"

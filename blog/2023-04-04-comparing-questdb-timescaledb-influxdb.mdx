@@ -232,11 +232,11 @@ and characterized by high cardinality:
 - **Continuous Aggregation:** TimescaleDB also supports
   [continuous aggregation of data](https://docs.timescale.com/timescaledb/latest/overview/core-concepts/continuous-aggregates/)
   to make computing key metrics like hourly average, minimum, and maximum values
-  fast. Behind the scenes, the data is stored using PostgreSQL materialized
-  views; additional storage is needed as a trade-off for faster queries. For
-  time-based aggregations (e.g., average temperature between 3 pm and 4 pm vs.
-  the exact temperature at 3 pm), scanning fewer data for each aggregation can
-  help performance-wise.
+  fast. Behind the scenes, the data is stored using PostgreSQL
+  [materialized views](/glossary/materialized-view/); additional storage is
+  needed as a trade-off for faster queries. For time-based aggregations (e.g.,
+  average temperature between 3 pm and 4 pm vs. the exact temperature at 3 pm),
+  scanning fewer data for each aggregation can help performance-wise.
 
 - **Data Retention:** Large deletes are a costly operation in traditional
   relational databases. However, since TimescaleDB stores data in chunks, it

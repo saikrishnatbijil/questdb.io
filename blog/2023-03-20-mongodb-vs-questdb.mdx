@@ -82,9 +82,9 @@ integrates concepts from both the B-tree and the LSM-tree storage models.
 
 Unlike a traditional RDBMS, data in MongoDB is not organized in tables, rows,
 and columns, but in Collections of Documents that contain fields. MongoDB
-supports Time-Series Collections, which are behind-the-scenes materialized
-[views](https://www.mongodb.com/docs/manual/core/views/#views) backed by an
-internal collection.
+supports Time-Series Collections, which are behind-the-scenes
+[materialized views](/glossary/materialized-view/) backed by an internal
+collection.
 
 With its column-based storage engine, QuestDB stores data densely in arrays. It
 packs SIMD instructions that speed up queries by leveraging modern CPUs. The
