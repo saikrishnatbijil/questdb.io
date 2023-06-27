@@ -22,10 +22,10 @@ events, a look at what we're working on, and other news from QuestDB HQ!
 ## High-cardinality benchmarks
 
 We previously wrote about the maximum throughput of different time series
-databases. To follow up, we ran high-cardinality benchmarks, which is a common
-pain point for time-series databases. We were happy with the results showing how
-QuestDB handles up to 10 million unique devices, and we published an article
-with the results and methodologmy:
+databases. To follow up, we ran [high-cardinality](/glossary/high-cardinality/)
+benchmarks, which is a common pain point for time-series databases. We were
+happy with the results showing how QuestDB handles up to 10 million unique
+devices, and we published an article with the results and methodology:
 
 [![Chart showing trends of ingestion rate](/img/blog/2021-07-06/high-cardinality-benchmakrs.webp)](/blog/2021/06/16/high-cardinality-time-series-data-performance/)
 

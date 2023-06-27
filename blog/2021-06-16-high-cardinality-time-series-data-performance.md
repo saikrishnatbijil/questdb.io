@@ -21,7 +21,7 @@ tags: [benchmark, clickhouse, timescaledb, influxdb, high cardinality]
 ---
 
 If you're working with large amounts of data, you've likely heard about
-high-cardinality or ran into issues relating to it. It might sound like an
+[high-cardinality](/glossary/high-cardinality/) or ran into issues relating to it. It might sound like an
 intimidating topic if you're unfamiliar with it, but this article explains what
 cardinality is and why it crops up often with databases of all types. IoT and
 monitoring are use cases where high-cardinality is more likely to be a concern.

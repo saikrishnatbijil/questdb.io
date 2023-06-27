@@ -140,9 +140,10 @@ To understand how InfluxDB works, we need to grasp the following key concepts:
 - **Data storage (TSM & TSI):** data points are stored in time-structured merge
   tree (TSM), and time series index (TSI) files. TSM can be thought of a
   [LSM tree with write-ahead log (WAL) and read-only files similar to SSTables](https://docs.influxdata.com/influxdb/v2.6/reference/internals/storage-engine)
-  that are sorted and compressed. In the event of high cardinality (i.e., large
-  number of elements in a set), performance can decrease. The proprietary
-  InfluxDB Cloud (IOx) claims high cardinality is not an issue anymore.
+  that are sorted and compressed. In the event of
+  [high cardinality](/glossary/high-cardinality/) (i.e., large number of elements
+  in a set), performance can decrease. The proprietary InfluxDB Cloud (IOx)
+  claims high cardinality is not an issue anymore.
 
 - **Query languages:** InfluxDB originally supported only InfluxQL, an SQL-like
   language, but in 2018

@@ -252,8 +252,9 @@ $ ./tsbs_load_influx --db-name=benchmark --file=/tmp/influx_data --urls=http://l
 
 Here, we use a `cpu-only` scenario with two days of CPU data for various numbers
 of simulated hosts. The number of hosts is set to 100, 1K, 100K, and 10M to
-demonstrate the effects of high data cardinality on ingestion performance. We
-use ten client connections for the benchmark in both cases.
+demonstrate the effects of [high data cardinality](/glossary/high-cardinality/) on
+ingestion performance. We use ten client connections for the benchmark in both
+cases.
 
 The chart below summarizes the results for ingestion performance:
 

@@ -43,8 +43,7 @@ engaging with the project through GitHub issues and all other forms of feedback!
 - We reached **3.4k GitHub stars** !
 - Our contributors opened in the last month for feature requests and bug reports
   and we have had many more feature requests via Slack and Stack Overflow
-- We're about to reach
-  [600 developers on our community Slack]({@slackUrl@})
+- We're about to reach [600 developers on our community Slack]({@slackUrl@})
 - Increased activity on our community Slack with a total of **5330 messages**
   last month and an average of **40 daily active users**
 - We hosted a
@@ -98,8 +97,8 @@ replication on QuestDB which has been a highly-requested feature. We are also
 exploring the possibility to enable ML and data science applications close to
 the database layer and approaches for adding support for other dimensions such
 as geospatial data. Following our TSBS benchmark results, we are running
-performance tests for high-cardinality data sets which is often a cause of
-issues in time series data ingestion.
+performance tests for [high cardinality](/glossary/high-cardinality/) data sets
+which is often a cause of issues in time series data ingestion.
 
 We're glad to see our community growing and giving us valuable feedback on the
 features and functionality we can focus on. If you’ve any questions about this
