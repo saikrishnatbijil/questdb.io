@@ -1,167 +1,153 @@
 import React from "react"
 import style from "./styles.module.css"
-import { Feature, FeatureTable } from "../FeatureTable"
 import { Section } from "../../../components/Section"
+import { Col, Row } from "../../../components/FeatureTable/types"
+import { FeatureTable } from "../../../components/FeatureTable"
 
-const CoreFeaturesItems: Feature[] = [
+const cols: Col[] = [
+  {
+    title: "Open Source",
+  },
+  {
+    title: "QuestDB Cloud",
+  },
+]
+
+const coreFeaturesRows: Row[] = [
   {
     title: "High-throughput ingestion",
-    inOpenSource: "available",
-    inCloud: "available",
+    values: ["available", "available"],
   },
   {
     title: "Out-of-order ingestion",
-    inOpenSource: "available",
-    inCloud: "available",
+    values: ["available", "available"],
   },
   {
     title: "High-performance SQL",
-    inOpenSource: "available",
-    inCloud: "available",
+    values: ["available", "available"],
   },
   {
     title: "Time-series-native SQL extensions",
-    inOpenSource: "available",
-    inCloud: "available",
+    values: ["available", "available"],
   },
   {
     title: "High-performance data migration",
-    inOpenSource: "available",
-    inCloud: "available",
+    values: ["available", "available"],
   },
   {
     title: "Geospatial data type",
-    inOpenSource: "available",
-    inCloud: "available",
+    values: ["available", "available"],
   },
   {
     title: "Cloud-native backups",
-    inOpenSource: "available",
-    inCloud: "available",
+    values: ["available", "available"],
   },
   {
     title: "Built-in web console",
-    inOpenSource: "available",
-    inCloud: "available",
+    values: ["available", "available"],
   },
   {
     title: "Cold storage support",
-    inOpenSource: "unavailable",
-    inCloud: "coming-soon",
+    values: ["unavailable", "coming-soon"],
   },
   {
     title: "Data compression",
-    inOpenSource: "unavailable",
-    inCloud: "coming-soon",
+    values: ["unavailable", "coming-soon"],
   },
 ]
 
-const SecurityFeaturesItems: Feature[] = [
+const securityFeaturesRows: Row[] = [
   {
     title: "Authentication",
-    inOpenSource: "available",
-    inCloud: "available",
+    values: ["available", "available"],
   },
   {
     title: "SSO Authentication",
-    inOpenSource: "not-applicable",
-    inCloud: "available-new",
+    values: ["not-applicable", "available-new"],
   },
   {
     title: "TLS encryption",
-    inOpenSource: "not-applicable",
-    inCloud: "available",
+    values: ["not-applicable", "available"],
   },
   {
     title: "EBS volume encryption",
-    inOpenSource: "not-applicable",
-    inCloud: "available",
+    values: ["not-applicable", "available"],
   },
   {
     title: "VPC peering",
-    inOpenSource: "not-applicable",
-    inCloud: "coming-soon",
+    values: ["not-applicable", "coming-soon"],
   },
   {
     title: "Role-based authorization",
-    inOpenSource: "unavailable",
-    inCloud: "coming-soon",
+    values: ["unavailable", "coming-soon"],
   },
   {
     title: "Bring your own key encryption",
-    inOpenSource: "not-applicable",
-    inCloud: "coming-soon",
+    values: ["not-applicable", "coming-soon"],
   },
   {
     title: "IP whitelisting",
-    inOpenSource: "not-applicable",
-    inCloud: "available-new",
+    values: ["not-applicable", "available-new"],
   },
 ]
 
-const HighAvailabilityFeaturesItems: Feature[] = [
+const highAvailabilityFeaturesRows: Row[] = [
   {
     title: "Cloud-native replication",
-    inOpenSource: "coming-soon",
-    inCloud: "coming-soon",
+    values: ["coming-soon", "coming-soon"],
   },
   {
     title: "High-availability reads",
-    inOpenSource: "coming-soon",
-    inCloud: "coming-soon",
+    values: ["coming-soon", "coming-soon"],
   },
   {
     title: "High-availability writes",
-    inOpenSource: "unavailable",
-    inCloud: "coming-soon",
+    values: ["unavailable", "coming-soon"],
   },
 ]
 
-const ManagedInfractionFeaturesItems: Feature[] = [
+const managedInfrastructureRows: Row[] = [
   {
     title: "Scheduled backups",
-    inOpenSource: "not-applicable",
-    inCloud: "available",
+    values: ["not-applicable", "available"],
   },
   {
     title: "Monitoring and alerting",
-    inOpenSource: "not-applicable",
-    inCloud: "available",
+    values: ["not-applicable", "available"],
   },
   {
     title: "Start / Stop instance",
-    inOpenSource: "not-applicable",
-    inCloud: "available-new",
+    values: ["not-applicable", "available-new"],
   },
   {
     title: "Auto scaling",
-    inOpenSource: "not-applicable",
-    inCloud: "coming-soon",
+    values: ["not-applicable", "coming-soon"],
   },
   {
     title: "Zero-downtime upgrades",
-    inOpenSource: "unavailable",
-    inCloud: "coming-soon",
+    values: ["unavailable", "coming-soon"],
   },
 ]
 
-const SupportFeaturesItems: Feature[] = [
+const supportFeaturesRows: Row[] = [
   {
     title: "Community support",
-    inOpenSource: "available",
-    inCloud: "available",
+    values: ["available", "available"],
   },
   {
     title: "Standard customer support",
-    inOpenSource: "unavailable",
-    inCloud: "available",
+    values: ["unavailable", "available"],
   },
   {
     title: "Customized SLA",
-    inOpenSource: "unavailable",
-    inCloud: "contact-us",
+    values: ["unavailable", "contact-us"],
   },
 ]
+
+const tableProps = {
+  cols,
+  firstColWidth: "50%",
+}
 
 export const CompareFeatures = () => {
   return (
@@ -172,21 +158,35 @@ export const CompareFeatures = () => {
 
       <Section noGap>
         <div className={style.tables}>
-          <FeatureTable title="Core features" items={CoreFeaturesItems} />
+          <FeatureTable
+            title="Core features"
+            rows={coreFeaturesRows}
+            {...tableProps}
+          />
 
           <FeatureTable
             title="Managed infrastructure"
-            items={ManagedInfractionFeaturesItems}
+            rows={managedInfrastructureRows}
+            {...tableProps}
           />
 
-          <FeatureTable title="Security" items={SecurityFeaturesItems} />
+          <FeatureTable
+            title="Security"
+            rows={securityFeaturesRows}
+            {...tableProps}
+          />
 
           <FeatureTable
             title="High availability"
-            items={HighAvailabilityFeaturesItems}
+            rows={highAvailabilityFeaturesRows}
+            {...tableProps}
           />
 
-          <FeatureTable title="Support" items={SupportFeaturesItems} />
+          <FeatureTable
+            title="Support"
+            rows={supportFeaturesRows}
+            {...tableProps}
+          />
         </div>
       </Section>
     </Section>

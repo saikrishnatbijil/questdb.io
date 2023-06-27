@@ -1,0 +1,17 @@
+.root {
+  max-width: 800px;
+}
+
+.subtitle {
+  max-width: 550px;
+}
+
+@media screen and (min-width: 1000px) {
+  .subtitle {
+    max-width: 700px;
+  }
+}
+
+.cta {
+  margin-top: var(--ifm-heading-margin-bottom);
+}
