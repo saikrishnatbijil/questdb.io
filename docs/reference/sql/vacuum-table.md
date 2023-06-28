@@ -4,7 +4,19 @@ sidebar_label: VACUUM TABLE
 description: VACUUM TABLE SQL keyword reference documentation
 ---
 
-The `VACUUM TABLE` command triggers partition and column version cleanup.
+`VACUUM TABLE` reclaims storage by scanning file systems and deleting duplicate
+directories and files.
+
+## Syntax
+
+![Flow chart showing Vacuum Table syntax](/img/docs/diagrams/vacuumTable.svg)
+
+## Description
+
+This command provides a manual mechanism to reclaim the disk space. The
+implementation scans file system to detect duplicate directories and files.
+Frequent usage of the command can be relatively expensive. Thus, `VACUUM TABLE`
+has to be executed sparingly.
 
 When a table is appended in an out-of-order manner, the `VACUUM TABLE` command
 writes a new partition version to the disk. The old partition version directory
@@ -18,23 +30,12 @@ circumstances, they can be left behind. In this case, `VACUUM TABLE` can be used
 to re-trigger the deletion process of the old column files.
 
 The `VACUUM TABLE` command starts a new scan over table partition directories
-and column files. It detects redundant, unused files consuming the disk
-space and deletes them. `VACUUM TABLE` executes asynchronously, i.e. it may keep
+and column files. It detects redundant, unused files consuming the disk space
+and deletes them. `VACUUM TABLE` executes asynchronously, i.e. it may keep
 scanning and deleting files after their response is returned to the SQL client.
-
-This command provides a manual mechanism to reclaim the disk space. The
-implementation scans file system to detect duplicate directories and files and
-frequent usage of the command can be relatively expensive. Thus, `VACUUM TABLE`
-has to be executed sparingly.
-
-## Syntax
-
-<!--- "VacuumQuery ::= 'VACUUM' 'TABLE' tableName" -->
-
-![Flow chart showing Vacuum Table syntax](/img/docs/diagrams/vacuumTable.svg)
 
 ## Example
 
 ```questdb-sql
-VACUUM TABLE trades
+VACUUM TABLE trades;
 ```

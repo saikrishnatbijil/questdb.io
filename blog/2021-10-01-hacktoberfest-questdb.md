@@ -8,14 +8,8 @@ description:
   Hacktoberfest 2021 is starting! We are super excited to meet with other open
   source contributors and maintainers. To celebrate this, we put together some
   hints for you to get started.
-keywords:
-  - database
-  - opensource
-  - timeseries
-  - hacktoberfest
-  - java
-image: /img/blog/2021-10-01/banner-hacktoberfest.png
-tags: [community, hacktoberfest, github, swag, opensource, digitalocean]
+image: /img/blog/2021-10-01/banner-hacktoberfest.webp
+tags: [community, hacktoberfest, github, open source, digitalocean]
 ---
 
 Hacktoberfest 2021 is starting today! For the first time, QuestDB is
@@ -35,7 +29,7 @@ import Screenshot from "@theme/Screenshot"
 <Screenshot
   alt="QuestDB at Hacktoberfest 2021"
   height={450}
-  src="/img/blog/2021-10-01/banner-hacktoberfest.png"
+  src="/img/blog/2021-10-01/banner-hacktoberfest.webp"
   width={800}
 />
 

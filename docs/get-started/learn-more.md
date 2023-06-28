@@ -8,7 +8,7 @@ description:
 
 To learn more about QuestDB and to create a proof of concept, please refer to
 [Design for performance](/docs/operations/design-for-performance/). In addition,
-our [Capacity planning](/docs/operations/capacity-planning/) provides a more
+our [Capacity planning](/docs/deployment/capacity-planning/) provides a more
 advanced optimization guide for using QuestDB in production environment.
 
 The below are a few concepts and SQL keywords that QuestDB leverages for optimal
@@ -19,7 +19,7 @@ time series performance:
 - [Commit lag](/docs/guides/out-of-order-commit-lag/): A guide on out-of-order
   data ingestion and associated configuration parameters
 - [SQL extensions](/docs/concept/sql-extensions/): A guide to special QuestDB
-  SQL keywords and syntax designed for time series data
+  SQL keywords and syntax designed for time-series data
 - [Designated timestamp](/docs/concept/designated-timestamp/) and
   [Partitions](/docs/concept/partitions/): Concepts and settings relevant to
   partitioning tables based on time

@@ -382,7 +382,9 @@ helm install my-questdb questdb/questdb`}
           title="Any (no JVM)"
         >
           <p className={biCss.binary__docs}>
-            <Link to="/docs/get-started/binaries#any-no-jvm-version">Docs</Link>
+            <Link to="/docs/get-started/binaries/#download-the-binaries">
+              Docs
+            </Link>
           </p>
         </Binary>
         <Binary

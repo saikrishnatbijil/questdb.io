@@ -24,6 +24,7 @@ const config = {
     require.resolve("./plugins/optimize/index"),
     require.resolve("./plugins/manifest/index"),
     require.resolve("./plugins/delay-code-block-appearance"),
+    require.resolve("./plugins/glossary"),
     [
       "@docusaurus/plugin-pwa",
       {
@@ -70,11 +71,13 @@ const config = {
         ),
       },
     ],
-    ...[
-      process.env.POSTHOG_API_KEY
-        ? require.resolve("posthog-docusaurus/src/index.js")
-        : null,
-    ],
+    /**
+     * ...[
+     *   process.env.POSTHOG_API_KEY
+     *     ? require.resolve("posthog-docusaurus/src/index.js")
+     *     : null,
+     * ],
+     */
 
     ...[
       process.env.NODE_ENV === "development"
@@ -84,9 +87,11 @@ const config = {
   ].filter(Boolean),
 
   themeConfig: {
-    posthog: {
-      apiKey: process.env.POSTHOG_API_KEY,
-    },
+    /**
+     * posthog: {
+     *   apiKey: process.env.POSTHOG_API_KEY,
+     * },
+     */
     colorMode: {
       defaultMode: "dark",
       disableSwitch: false,
@@ -171,6 +176,10 @@ const config = {
               label: "Tutorials",
               to: "/blog/tags/tutorial/",
               activeBaseRegex: "/blog/tags/tutorial/?$",
+            },
+            {
+              label: "Glossary",
+              to: "/glossary/",
             },
             {
               label: "QuestDB Swag",
@@ -259,6 +268,10 @@ const config = {
               label: "Slack Community",
               to: customFields.slackUrl,
             },
+            {
+              label: "Glossary",
+              to: "/glossary/",
+            },
           ],
         },
         {
@@ -287,10 +300,6 @@ const config = {
             {
               label: "Reddit",
               href: customFields.redditUrl,
-            },
-            {
-              label: "Discussions",
-              to: customFields.linenUrl,
             },
           ],
         },

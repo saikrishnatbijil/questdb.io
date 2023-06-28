@@ -6,8 +6,8 @@ author_image_url: https://avatars.githubusercontent.com/puzpuzpuz
 description:
   "An investigation of weird hardware utilization highlighting some interesting
   Linux kernel behaviors."
-tags: [engineering, linux, database, persistence, page cache]
-image: /img/blog/2023-05-02/banner.png
+tags: [engineering, database]
+image: /img/blog/2023-05-02/banner.webp
 slug: investigating-linux-phantom-disk-reads
 ---
 
@@ -25,7 +25,7 @@ as well as Linux kernel magic.
 <Banner
   alt="Logo of Linux and QuestDB"
   height={234}
-  src="/img/blog/2023-05-02/banner.png"
+  src="/img/blog/2023-05-02/banner.webp"
   width={528}
 ></Banner>
 
@@ -46,7 +46,7 @@ like the following `iostat` output:
 <Screenshot
   alt="iostat utility output with a high number of disk reads"
   height={469}
-  src="/img/blog/2023-05-02/iostat-phantom-reads.png"
+  src="/img/blog/2023-05-02/iostat-phantom-reads.webp"
   width={1056}
 />
 
@@ -283,7 +283,7 @@ That was it! No more "phantom reads":
 <Screenshot
   alt="iostat utility output with a low number of disk reads"
   height={469}
-  src="/img/blog/2023-05-02/iostat-no-phantom-reads.png"
+  src="/img/blog/2023-05-02/iostat-no-phantom-reads.webp"
   width={1056}
 />
 

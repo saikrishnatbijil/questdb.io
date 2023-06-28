@@ -25,17 +25,15 @@ where:
 
 `LATEST ON` is used as part of a [SELECT statement](/docs/reference/sql/select/)
 for returning the most recent records per unique time series identified by the
-`PARTITION BY` column values. This function requires a
-[designated timestamp](/docs/concept/designated-timestamp/).
+`PARTITION BY` column values.
 
-:::note
+`LATEST ON` requires a
+[designated timestamp](/docs/concept/designated-timestamp/) column. Use
+[sub-queries](#latest-on-over-sub-query) for tables without the designated
+timestamp.
 
-To use `LATEST ON`, a timestamp column used in the `LATEST ON` part needs to be
-specified as a **designated timestamp**. More information can be found in the
-[designated timestamp](/docs/concept/designated-timestamp/) page for specifying
-this at table creation or at query time.
-
-:::
+The query syntax has an impact on the [execution order](#execution-order) of the
+`LATEST ON` clause and the `WHERE` clause.
 
 To illustrate how `LATEST ON` is intended to be used, consider the `trips` table
 [in the QuestDB demo instance](https://demo.questdb.io/). This table has a
@@ -60,33 +58,10 @@ LATEST ON pickup_datetime PARTITION BY payment_type;
 
 The above query returns the latest value within each time series stored in the
 table. Those time series are determined based on the values in the column(s)
-specified in the `PARTITION BY` part of the `LATEST ON` clause. In our example
-those time series are represented by different payment types. Then the column
-used in the `LATEST ON` part of the clause stands for the designated timestamp
-column for the table. This allows the database to find the latest value within
-each time series.
-
-The below sections will demonstrate other ways to use the `LATEST ON` clause.
-
-You can also write this query with the old syntax:
-
-```questdb-sql
-SELECT payment_type, pickup_datetime, trip_distance
-FROM trips
-LATEST BY payment_type;
-```
-
-:::note
-
-The old `LATEST BY` syntax is deprecated and will be removed soon. While it's still supported
-by the database, you should use the new `LATEST ON PARTITION BY` syntax in your
-applications. There are two key requirements when using the new syntax:
-
-1. A timestamp column must always be specified
-2. `LATEST ON` has to follow the `WHERE` clause. In the old syntax, it was vice
-   versa.
-
-:::
+specified in the `LATEST ON` clause. In our example those time series are
+represented by different payment types. Then the column used in the `LATEST ON`
+part of the clause stands for the designated timestamp column for the table.
+This allows the database to find the latest value within each time series.
 
 ## Examples
 
@@ -126,7 +101,7 @@ This provides us with a table with the following content:
 
 ### Single column
 
-When `LATEST ON` is provided a single column of the type `SYMBOL`, the query
+When a single `symbol` column is specified in `LATEST ON` queries, the query
 will end after all distinct symbol values are found.
 
 ```questdb-sql title="Latest records by customer ID"
@@ -164,17 +139,18 @@ The results return the most recent records for each unique combination of
 | 2       | EUR         | 880.2   | FALSE    | 2020-04-22T16:18:34.404665Z |
 | 1       | USD         | 330.5   | FALSE    | 2020-04-22T16:20:14.404997Z |
 
-:::info
+#### Performance considerations
 
-For a single `SYMBOL` column, QuestDB will know all distinct values upfront and
-stop scanning table contents once the latest entry has been found for each
-distinct symbol value. When `LATEST ON` is provided multiple columns, QuestDB
-has to scan the entire table to find distinct combinations of column values.
+When the `LATEST ON` clause contains a single `symbol` column, QuestDB will know
+all distinct values upfront and stop scanning table contents once the latest
+entry has been found for each distinct symbol value.
+
+When the `LATEST ON` clause contains multiple columns, QuestDB has to scan the
+entire table to find distinct combinations of column values.
+
 Although scanning is fast, performance will degrade on hundreds of millions of
 records. If there are multiple columns in the `LATEST ON` clause, this will
 result in a full table scan.
-
-:::
 
 ### LATEST ON over sub-query
 
@@ -223,7 +199,7 @@ recent records per unique `cust_id` value:
 The following queries illustrate how to change the execution order in a query by
 using brackets.
 
-### WHERE first
+#### WHERE first
 
 ```questdb-sql
 SELECT * FROM balances
@@ -242,7 +218,7 @@ balance which is above 800. The execution order is as follows:
 | 1       | USD         | 1500    | 2020-04-22T16:11:22.704665Z |
 | 2       | EUR         | 880.2   | 2020-04-22T16:18:34.404665Z |
 
-### LATEST ON first
+#### LATEST ON first
 
 ```questdb-sql
 (SELECT * FROM balances LATEST ON ts PARTITION BY cust_id) --note the brackets
@@ -260,7 +236,7 @@ records, then filters out those below 800. The steps are:
 | ------- | ----------- | ------- | -------- | --------------------------- |
 | 2       | EUR         | 880.2   | FALSE    | 2020-04-22T16:18:34.404665Z |
 
-### Combination
+#### Combination
 
 It's possible to combine a time-based filter with the balance filter from the
 previous example to query the latest values for the `2020-04-21` date and filter
@@ -275,5 +251,5 @@ Since QuestDB allows you to omit the `SELECT * FROM` part of the query, we
 omitted it to keep the query compact.
 
 Such a combination is very powerful since it allows you to find the latest
-values for a time-slice of the data and then apply a filter to them in a single
+values for a time slice of the data and then apply a filter to them in a single
 query.

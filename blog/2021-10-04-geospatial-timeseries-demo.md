@@ -8,14 +8,8 @@ description:
   We now support geospatial data in our time series database by adding geohashes
   to our type system along with language features to support common operations
   using this type.
-keywords:
-  - geospatial
-  - timeseries
-  - database
-  - geodata
-  - postgis
-image: /img/blog/2021-10-04/banner.png
-tags: [demo, release, engineering, geospatial, postgis]
+image: /img/blog/2021-10-04/banner.webp
+tags: [demo, release, engineering, geospatial]
 ---
 
 The last significant features we shipped dealt with out-of-order data ingestion,
@@ -51,7 +45,7 @@ import Screenshot from "@theme/Screenshot"
 <Screenshot
   alt="An illustration showing two maps with different geohash precision levels applied"
   height={598}
-  src="/img/blog/2021-09-13/geohashes.png"
+  src="/img/blog/2021-09-13/geohashes.webp"
   width={650}
 />
 
@@ -126,7 +120,7 @@ following example, which uses [plotly](https://plotly.com/) via Python:
 <Screenshot
   alt="An example geohash plotted on a map using plotly via Python"
   height={598}
-  src="/img/blog/2021-10-04/plotly.png"
+  src="/img/blog/2021-10-04/plotly.webp"
   width={650}
 />
 

@@ -8,14 +8,8 @@ description:
   Learn how to use QuestDB as a time series database for high-frequency trading,
   calculate the limit order book, price impact, trade sign distribution, and
   other concepts via the Julia programming language.
-keywords:
-  - julia
-  - finance
-  - timeseries
-  - database
-  - algotrading
-image: /img/blog/2021-09-17/banner.png
-tags: [tutorial , finance, crypto, algotrading]
+image: /img/blog/2021-09-17/banner.webp
+tags: [tutorial , market data, crypto]
 ---
 
 This post was written by Dean Markwick, who has put together an excellent
@@ -112,7 +106,7 @@ import Screenshot from "@theme/Screenshot"
 <Screenshot
   alt="Plotting SQL query results of entire table from QuestDB via Julia"
   height={598}
-  src="/img/blog/2021-09-17/sql-connection-via-julia.png"
+  src="/img/blog/2021-09-17/sql-connection-via-julia.webp"
   width={650}
 />
 
@@ -138,7 +132,7 @@ plot(acplot, aclogplot, fmt=:png)
 <Screenshot
   alt="Plotting order sign correlation in QuestDB via Julia"
   height={598}
-  src="/img/blog/2021-09-17/order-sign-correlation.png"
+  src="/img/blog/2021-09-17/order-sign-correlation.webp"
   width={650}
 />
 
@@ -174,7 +168,7 @@ plot!(log.(1:length(ac)), coef(sideModel)[1] .+ coef(sideModel)[2] .* log.(1:len
 <Screenshot
   alt="Plotting order sign correlation in QuestDB via Julia"
   height={598}
-  src="/img/blog/2021-09-17/order-sign-correlation-2.png"
+  src="/img/blog/2021-09-17/order-sign-correlation-2.webp"
   width={650}
 />
 
@@ -205,7 +199,7 @@ plot(tradesSizePlot, tradesSizeLogPlot, fmt=:png)
 <Screenshot
   alt="Plotting size distribution in QuestDB via Julia"
   height={598}
-  src="/img/blog/2021-09-17/size-distribution.png"
+  src="/img/blog/2021-09-17/size-distribution.webp"
   width={650}
 />
 
@@ -228,7 +222,7 @@ plot(bds, alphak, xlabel="k", ylabel="Alpha", label=:none, fmt=:png)
 <Screenshot
   alt="Plotting size distribution in QuestDB via Julia"
   height={598}
-  src="/img/blog/2021-09-17/size-distribution-2.png"
+  src="/img/blog/2021-09-17/size-distribution-2.webp"
   width={650}
 />
 
@@ -309,7 +303,7 @@ plot!(-1:0.1:1, coef(miModel)[1] .* collect(-1:0.1:1), label="Model", linewidth=
 <Screenshot
   alt="Plotting market impact in QuestDB via Julia"
   height={598}
-  src="/img/blog/2021-09-17/market-impact.png"
+  src="/img/blog/2021-09-17/market-impact.webp"
   width={650}
 />
 
@@ -361,7 +355,7 @@ logCostPlot = plot(log.(costData.MeanSize),
 <Screenshot
   alt="Plotting top of book results in QuestDB via Julia"
   height={598}
-  src="/img/blog/2021-09-17/top-of-book.png"
+  src="/img/blog/2021-09-17/top-of-book.webp"
   width={650}
 />
 
@@ -412,7 +406,7 @@ plot!(-8:0.1:3, coef(costModel)[1] .+ coef(costModel)[2] .* (-8:0.1:3),
 <Screenshot
   alt="Plotting top of book results in QuestDB via Julia"
   height={598}
-  src="/img/blog/2021-09-17/top-of-book-2.png"
+  src="/img/blog/2021-09-17/top-of-book-2.webp"
   width={650}
 />
 

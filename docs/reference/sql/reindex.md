@@ -4,17 +4,10 @@ sidebar_label: REINDEX
 description: REINDEX SQL keyword reference documentation.
 ---
 
-Rebuilds one or more index columns of the given table.
+Rebuilds one or more [index](/docs/concept/indexes/) columns of the given table.
 This operation is intended to be used after a hardware or software crash, when the index data are corrupted and the table cannot be opened for writes.
 
 The operation can only be performed when there is no other reader and writer working on the table. During the operation, the table is locked and no read and write should be performed on the selected table.
-
-:::info
-
-For more information about indexes please refer to the
-[INDEX documentation](/docs/concept/indexes/)
-
-:::
 
 ## Syntax
 

@@ -3,52 +3,61 @@
 import Tabs from "@theme/Tabs"
 import TabItem from "@theme/TabItem"
 import { RemoteRepoExample } from "@theme/RemoteRepoExample"
+import Screenshot from "@theme/Screenshot"
 
 This page shows how to insert data into QuestDB using different programming
 languages and tools.
 
-[InfluxDB Line Protocol](#influxdb-line-protocol) is the recommended primary
-ingestion method in QuestDB and is recommended for high-performance
-applications.
+## Overview
 
-For transactional data inserts, use the
-[PostgreSQL wire protocol](#postgresql-wire-protocol).
+QuestDB supports the following data ingestion methods:
 
-For operational (ad-hoc) data ingestion, the [Web Console](#web-console) makes
-it easy to upload CSV files and insert via SQL statements. You can also perform
-these same actions via the [HTTP REST API](#http-rest-api). For
-[large CSV import](/docs/guides/importing-data/) (database migrations), use SQL
-`COPY`.
+- [InfluxDB Line Protocol](#influxdb-line-protocol): the recommended primary
+  ingestion method in QuestDB for high-performance applications.
+  - Dedicated ILP [client libraries](/docs/reference/clients/overview/) available
+- [PostgreSQL wire protocol](#postgresql-wire-protocol): interoperability with
+  the PostgreSQL ecosystem.
 
-In summary, these are the different options:
+  - SQL `INSERT` and `COPY` statements, including parameterized queries.
+  - `psql` on the command line
+  - Support for most PostgreSQL keywords and functions
+- [HTTP REST API](#http-rest-api): compatibility with a wide range of libraries
+  and tools.
+  - SQL `INSERT` for ad-hoc SQL queries
+  - `curl` command and CSV file upload on the commend line
+  - Accessing QuestDB via the [Web Console](#web-console):
+    - Code editor for SQL `INSERT` queries
+    - SQL `COPY` for one-off [database migration](/docs/guides/importing-data/)
+    - [CSV file upload](#uploading-csv-file) for uploading batches of
+    CSV files
 
-- [InfluxDB Line Protocol](#influxdb-line-protocol-ilp)
-  - High performance.
-  - Dynamic schema.
-  - Concurrent table structure changes.
-  - [Client Libraries](/docs/reference/clients/overview/) in various programming
-    languages.
-- [Web Console](#web-console)
-  - CSV upload.
-  - SQL `INSERT` statements.
-  - SQL `COPY` for [large CSV import](/docs/guides/importing-data/).
-- [PostgreSQL wire protocol](#postgresql-wire-protocol)
-  - SQL `INSERT` statements, including parameterized queries.
-  - Use `psql` on the command line.
-  - Interoperability with third-party tools and libraries.
-- [HTTP REST API](#http-rest-api)
-  - CSV upload.
-  - SQL `INSERT` statements.
-  - Use `curl` on the command line.
+### Recommended insert method
 
-Here is a summary table comparing the different ways to insert data we support:
+The table below outlines the general recommendation for data ingestion based on
+the shape of the data and different scenarios:
 
-| Protocol                   | Record Insertion Reporting       | Data Insertion Performance          |
-| :------------------------- | :------------------------------- | :---------------------------------- |
-| InfluxDB Line Protocol     | Server logs; Disconnect on error | **Best**                            |
-| CSV upload via HTTP REST   | Configurable                     | Good                                |
-| SQL `INSERT` via Postgres  | Transaction-level                | Good                                |
-| SQL `COPY` statements      | Transaction-level                | Suitable for one-off data migration |
+| Date shape                | One-ff data import                | Periodical batch ingestion        | Real-time ingestion |
+| :------------------------ | :-------------------------------- | :-------------------------------- | :------------------ |
+| Sorted data               | - Web Console/REST API CSV upload | - ILP                             | ILP                 |
+|                           | - Web Console SQL COPY            | - PosgreSQL                       |                     |
+|                           |                                   | - Web Console/REST API CSV upload |                     |
+| Lightly out of order data | Web Console/REST API CSV upload   | - ILP                             | ILP                 |
+|                           |                                   | - PosgreSQL                       |                     |
+|                           |                                   | - Web Console/REST API CSV upload |                     |
+| Heavily out of order data | Web Console SQL COPY              | - ILP                             | ILP                 |
+|                           |                                   | - PosgreSQL                       |                     |
+|                           |                                   | - Web Console/REST API CSV upload |                     |
+
+Lightly out of order data refers to data with the following traits:
+
+- The expected lag is usually within a few minutes.
+- The data is mostly sorted. Timestamps are growing in time with occasional
+  exceptions that are within the lag.
+
+Heavily out of order data refers to data with the following traits:
+
+- The data is mostly unsorted.
+- The data belongs to different parts of different partitions in an arbitrary manner.
 
 ## InfluxDB Line Protocol (ILP)
 
@@ -69,16 +78,20 @@ find additional details on the message format, ports and authentication.
 
 ### Client libraries
 
-The [Client Libraries](/docs/reference/clients/overview/) provide user-friendly ILP clients
-for a growing number of languages.
+The [Client Libraries](/docs/reference/clients/overview/) provide user-friendly
+ILP clients for a growing number of languages.
 
 ### Authentication
 
-By default, Open Source ILP Server is unauthenticated. To configure authentication on the server, follow our [server configuration guide](/docs/reference/api/ilp/authenticate/#server-configuration).
-To configure authentication on the client, follow the relevant documentation section in the [Client Libraries overview](/docs/reference/clients/overview/).
+By default, Open Source ILP Server is unauthenticated. To configure
+authentication on the server, follow our
+[server configuration guide](/docs/reference/api/ilp/authenticate/#server-configuration).
+To configure authentication on the client, follow the relevant documentation
+section in the [Client Libraries overview](/docs/reference/clients/overview/).
 
-QuestDB Cloud servers are configured for authentication already.
-Snippets for all the supported languages can be found at https://cloud.questdb.com under the instance "Connect" tab. 
+QuestDB Cloud servers are configured for authentication already. Snippets for
+all the supported languages can be found at https://cloud.questdb.com under the
+instance "Connect" tab.
 
 ### Examples
 
@@ -209,7 +222,8 @@ socket_close($socket);
 
 </Tabs>
 
-## Telegraf
+
+### Telegraf
 
 The [Telegraf guide](/docs/third-party-tools/telegraf/) helps you configure a
 Telegraf agent to collect and send metrics to QuestDB via ILP.
@@ -237,7 +251,6 @@ feedback and error reporting, but have worse overall performance.
 
 Here are a few examples demonstrating SQL `INSERT` queries:
 
-
 <Tabs defaultValue="psql" values={[
   { label: "psql", value: "psql" },
   { label: "Python", value: "python" },
@@ -250,11 +263,16 @@ Here are a few examples demonstrating SQL `INSERT` queries:
 
 <TabItem value="psql">
 
+
 :::note
 
-If you using the QuestDB Cloud, your database requires TLS to connect. You can find host, port, and password configuration at https://cloud.questdb.com, on your instance "Connect" tab. To enable SSL from psql in the commands below, please follow this pattern:
+If you using the QuestDB Cloud, your database requires TLS to connect. You can
+find host, port, and password configuration at https://cloud.questdb.com, on
+your instance "Connect" tab. To enable SSL from psql in the commands below,
+please follow this pattern:
 
-psql -h {hostname} -p {port} -U admin "dbname=qdb sslmode=require" -c '{SQL_STATEMENT}'
+psql -h {hostname} -p {port} -U admin "dbname=qdb sslmode=require" -c
+'{SQL_STATEMENT}'
 
 :::
 
@@ -291,15 +309,15 @@ docker run -it --rm --network=host -e PGPASSWORD=quest \
 <TabItem value="python">
 
 
-This example uses the
-[psychopg3](https://www.psycopg.org/psycopg3/docs/) adapter.
+This example uses the [psychopg3](https://www.psycopg.org/psycopg3/docs/)
+adapter.
 
-To [install](https://www.psycopg.org/psycopg3/docs/basic/install.html) the client library, use `pip`:
+To [install](https://www.psycopg.org/psycopg3/docs/basic/install.html) the
+client library, use `pip`:
 
 ```shell
 python3 -m pip install "psycopg[binary]"
 ```
-
 
 ```python
 import psycopg as pg
@@ -615,20 +633,38 @@ fn main() -> Result<(), Error> {
 QuestDB ships with an embedded [Web Console](/docs/develop/web-console/) running
 by default on port `9000`.
 
-```questdb-sql title='Creating a table and inserting some data'
-
-CREATE TABLE takeaway_order (ts TIMESTAMP, id SYMBOL, status SYMBOL)
-  TIMESTAMP(ts);
-
-INSERT INTO takeaway_order VALUES (now(), 'order1', 'placed');
-INSERT INTO takeaway_order VALUES (now(), 'order2', 'placed');
-```
+### Inserting data via SQL
 
 SQL statements can be written in the code editor and executed by clicking the
-**Run** button. Note that the web console runs a single statement at a time.
+**Run** button. Note that the Web Console runs a single statement at a time.
 
-For inserting bulk data or migrating data from other databases, see
-[large CSV import](/docs/guides/importing-data/).
+There are two SQL keywords to insert data:
+
+- [INSERT](/docs/reference/sql/insert/):
+
+  ```questdb-sql title='Creating a table and inserting some data'
+
+  CREATE TABLE takeaway_order (ts TIMESTAMP, id SYMBOL, status SYMBOL)
+    TIMESTAMP(ts);
+
+  INSERT INTO takeaway_order VALUES (now(), 'order1', 'placed');
+  INSERT INTO takeaway_order VALUES (now(), 'order2', 'placed');
+  ```
+
+- [COPY](/docs/reference/sql/copy/): For inserting bulk data or migrating data
+  from other databases. See [large CSV import](/docs/guides/importing-data/).
+
+### Uploading CSV file
+
+It is also possible to upload CSV files using the
+[Import tab](/docs/develop/web-console/#import) in the Web Console:
+
+<Screenshot
+  alt="Screenshot of the UI for import"
+  height={535}
+  src="/img/docs/console/import-ui.png"
+  width={800}
+/>
 
 ## HTTP REST API
 
@@ -637,7 +673,7 @@ tools. The REST API is accessible on port `9000` and has the following
 insert-capable entrypoints:
 
 | Entrypoint                                 | HTTP Method | Description                             | API Docs                                                      |
-| :----------------------------------------- | :---------- | :-------------------------------------- |:--------------------------------------------------------------|
+| :----------------------------------------- | :---------- | :-------------------------------------- | :------------------------------------------------------------ |
 | [`/imp`](#imp-uploading-tabular-data)      | POST        | Import CSV data                         | [Reference](/docs/reference/api/rest/#imp---import-data)      |
 | [`/exec?query=..`](#exec-sql-insert-query) | GET         | Run SQL Query returning JSON result set | [Reference](/docs/reference/api/rest/#exec---execute-queries) |
 

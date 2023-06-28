@@ -1,12 +1,13 @@
 ---
-title: Ingesting Financial Tick Data Using a Time-Series Database 
+title: Ingesting Financial Tick Data Using a Time-Series Database
 author: Yitaek Hwang
 author_title: Guest
 author_url: https://github.com/Yitaek
 author_image_url: https://avatars.githubusercontent.com/Yitaek
-description: "An overview of three methods to ingest live market data into QuestDB."
-image: /img/blog/2023-04-18/banner.png
-tags: [market data, tutorial, crypto, tick data, time-series, pinned]
+description:
+  "An overview of three methods to ingest live market data into QuestDB."
+image: /img/blog/2023-04-18/banner.webp
+tags: [market data, tutorial, crypto, time-series, pinned]
 slug: ingesting-financial-tick-data-using-time-series-database
 ---
 
@@ -15,18 +16,18 @@ import Banner from "@theme/Banner"
 <Banner
   alt="Diagram showing Go to Kafka and to QuestDB"
   height={500}
-  src="/img/blog/2023-04-18/banner.png"
+  src="/img/blog/2023-04-18/banner.webp"
   width={692}
 ></Banner>
 
 ## Introduction
 
-In this tutorial, we’ll take a look at three different ways to ingest crypto market data 
-into QuestDB for further analysis:
+In this tutorial, we’ll take a look at three different ways to ingest crypto
+market data into QuestDB for further analysis:
 
 1. Using the [Cryptofeed](https://github.com/bmoscon/cryptofeed) library
 2. Writing a custom data pipeline
-3. Via Change Data Capture (CDC)
+3. Via [Change Data Capture (CDC)](/glossary/change-data-capture/)
 
 ## Prerequisites
 
@@ -102,7 +103,7 @@ to see data populated (especially from Gemini).
 Navigate to localhost:9000 to access the web console. We can query data from
 Coinbase via `SELECT * FROM trades-COINBASE`:
 
-![Screenshot of the SELECT statement result](/img/blog/2023-04-18/select-coinbase-screenshot.png)
+![Screenshot of the SELECT statement result](/img/blog/2023-04-18/select-coinbase-screenshot.webp)
 
 You can see all the supported exchanges and supported channels (e.g., L1/L2/L3
 books, trades, ticket, candles, open interest, etc) on the
@@ -179,7 +180,7 @@ Underneath the hood, cryptofeed library utilizes plain socket connections via
 QuestDB. As such, it is important to provide the raw ILP string in the write
 callback function.
 
-![Screenshot of the SELECT * FROM trades statement result](/img/blog/2023-04-18/select-trades.png)
+![Screenshot of the SELECT * FROM trades statement result](/img/blog/2023-04-18/select-trades.webp)
 
 The biggest advantage of using Cryptofeed is the large number of preconfigured
 integrations with various exchanges. The library does the heavy lifting of
@@ -262,7 +263,7 @@ main()
 The code above polls the REST endpoints of Binance and Gemini API and writes the
 data to a table called `prices`:
 
-![Screenshot of the SELECT * FROM prices statement result](/img/blog/2023-04-18/select-prices.png)
+![Screenshot of the SELECT * FROM prices statement result](/img/blog/2023-04-18/select-prices.webp)
 
 While writing a custom data ingestion function is more work than simply using
 Cryptofeed, it can be a great option if you need to customize the fields or run
@@ -274,7 +275,8 @@ Finally, you can ingest data via Change Data Capture (CDC) if you have an
 external data stream or database that you can listen on. For example, an
 external data market team might publish price data on Kafka or push updates to a
 relational database. Instead of polling this data directly, you could opt to
-leverage CDC patterns to stream changes to QuestDB instead.
+leverage CDC patterns to [stream changes](/glossary/stream-processing/) to
+QuestDB instead.
 
 An example of this architecture is detailed in
 [Realtime crypto tracker with QuestDB Kafka Connector](/blog/realtime-crypto-tracker-with-questdb-kafka-connector/).
@@ -282,7 +284,7 @@ This reference architecture has a function that polls Coinbase API for latest
 price data and publishes it to Kafka topics. QuestDB Kafka Connector in turn
 publishes that data to QuestDB.
 
-![Screenshot of the SELECT * FROM topic_BTC statement result](/img/blog/2023-04-18/select-topic-btc.png)
+![Screenshot of the SELECT * FROM topic_BTC statement result](/img/blog/2023-04-18/select-topic-btc.webp)
 
 ## Wrapping up
 
@@ -309,47 +311,36 @@ great choice to minimize the infrastructure burden.
 
 - **What is level 1, Level 2, Level 3 market data?**
 
-
   Level 1 market data provides basic market data including current bid and ask
   prices, last traded price, and the size on each buy/sell side. Level 2 market
   data provides market depth data (e.g., 5-10 bid/ask prices). Level 3 adds
   additional information on market depth data typically up to 20 best bid/ask
   prices along with custom orders.
 
-
 - **What is an order book?**
 
-
-  An order book is a collection of buy and sell orders for a security or commodity
-  being traded. It organizes current bids and asks by price, updating it
-  constantly as orders are being executed.
-
+  An order book is a collection of buy and sell orders for a security or
+  commodity being traded. It organizes current bids and asks by price, updating
+  it constantly as orders are being executed.
 
 - **What are Candlestick charts?**
 
-
-  Candlestick charts are a popular form of financial chart uses to show the price
-  movement. The candle comprises of opening, closing, high, and low prices for the
-  financial instrument of note.
-
+  Candlestick charts are a popular form of financial chart uses to show the
+  price movement. The candle comprises of opening, closing, high, and low prices
+  for the financial instrument of note.
 
 - **What is an exchange API?**
-
 
   Exchange API is the application programming interface that exposes data (e.g.,
   market depth, latest price, etc) provided by exchanges.
 
-
 - **What is Change Data Capture (CDC)?**
-
 
   Change Data Capture (CDC) is a design pattern used with databases to track
   changes to the underlying dataset. CDC enables near real-time data replication
   and integration.
 
-
 - **What is Kafka?**
-
 
   Kafka is a distributed streaming platform that is used for data pipelines,
   streaming analytics, and data integration.

@@ -8,7 +8,7 @@ description:
   An experiment analyzing the NYC taxi dataset through the eyes of an options
   trader.
 image: /img/blog/2020-10-16/banner.jpg
-tags: [demo, story, analytics]
+tags: [demo]
 ---
 
 import Banner from "@theme/Banner"
@@ -73,7 +73,7 @@ import Screenshot from "@theme/Screenshot"
 
 <Screenshot
   alt="A chart of call option payoff showing how cab drivers earnings increase with their average realized driving speed"
-  src="/img/blog/2020-10-16/cab-hourly-earnings-by-speed.png"
+  src="/img/blog/2020-10-16/cab-hourly-earnings-by-speed.webp"
 />
 
 Rewriting the fare formula as follows, we recognize the call option formula
@@ -94,7 +94,7 @@ look like the below:
 
 <Screenshot
   alt="A chart of call option payoff showing how cab drivers earnings increase with their average realized driving speed broken down between fixed and variable"
-  src="/img/blog/2020-10-16/cab-hourly-earnings-by-speed-breakdown.png"
+  src="/img/blog/2020-10-16/cab-hourly-earnings-by-speed-breakdown.webp"
 />
 
 There is a reason for this system. It is designed to align the interests of
@@ -148,7 +148,7 @@ game in the following chart:
 
 <Screenshot
   alt="A chart showing the outcome profile of the dice game and the corresponding probabilities and probability-weighed expected payout values"
-  src="/img/blog/2020-10-16/die-game-payout-profile.png"
+  src="/img/blog/2020-10-16/die-game-payout-profile.webp"
 />
 
 where:
@@ -192,7 +192,7 @@ above).
 
 <Screenshot
   alt="A chart of call option payoff with the corresponding probability and weighed value area as overlay"
-  src="/img/blog/2020-10-16/option-payoff-probability-value.png"
+  src="/img/blog/2020-10-16/option-payoff-probability-value.webp"
 />
 
 We can play with our two parameters to get a grasp on the pricing dynamics. Here
@@ -200,14 +200,14 @@ is how the average speed changes the distribution and expected option value:
 
 <Screenshot
   alt="A chart showing how distribution of outcomes and value change with the expected mean"
-  src="/img/blog/2020-10-16/payout-change-with-avg.png"
+  src="/img/blog/2020-10-16/payout-change-with-avg.webp"
 />
 
 And here is the effect of standard deviation:
 
 <Screenshot
   alt="A chart showing how distribution of outcomes and value change with the standard deviation"
-  src="/img/blog/2020-10-16/payout-change-with-stdev.png"
+  src="/img/blog/2020-10-16/payout-change-with-stdev.webp"
 />
 
 We can see that a higher mean and a higher standard deviation result in higher
@@ -250,7 +250,7 @@ it below. Over 10 years, the average speed dropped significantly from 13.3 to
 
 <Screenshot
   alt="A chart showing the evolution of the average cab driver speed over time and how it consistently dropped below the threshold"
-  src="/img/blog/2020-10-16/average-speed-over-time.png"
+  src="/img/blog/2020-10-16/average-speed-over-time.webp"
 />
 
 This number is a simplification since it assumes constant speed and no idle
@@ -282,7 +282,7 @@ floor.
 
 <Screenshot
   alt="A chart showing the evolution of the average cab driver potential fare range against the actual average fare"
-  src="/img/blog/2020-10-16/potential-average-fare-range.png"
+  src="/img/blog/2020-10-16/potential-average-fare-range.webp"
 />
 
 Now that we have the average speed, we can use the standard deviation to model
@@ -292,7 +292,7 @@ For the vast majority of rides, drivers can expect to average below 12mph.
 
 <Screenshot
   alt="A chart showing the evolution of the distribution of NYC cab drivers' average speed over time"
-  src="/img/blog/2020-10-16/distribution-speed-over-time.png"
+  src="/img/blog/2020-10-16/distribution-speed-over-time.webp"
 />
 
 To sum up, the following chart shows how the economics have changed over time.
@@ -301,7 +301,7 @@ the lower trending mean.
 
 <Screenshot
   alt="A chart showing how the distribution of outcomes changes due to a lower mean, and the resulting change in option"
-  src="/img/blog/2020-10-16/distribution-shift-with-lower-mean.png"
+  src="/img/blog/2020-10-16/distribution-shift-with-lower-mean.webp"
 />
 
 We can now use our data to extract the actual option value from the fare as
@@ -315,7 +315,7 @@ Slowly but surely, it stopped being a significant part in the driver’s earning
 
 <Screenshot
   alt="A chart of the hourly fare earned by taxi drivers over the years broken down by whether it is fixed or variable"
-  src="/img/blog/2020-10-16/variable-hourly-fare-over-time.png"
+  src="/img/blog/2020-10-16/variable-hourly-fare-over-time.webp"
 />
 
 I don’t have the data to tell why the average speed is lower, but I would
@@ -345,7 +345,7 @@ incentive becomes apparent if we look at it over time as follows:
 
 <Screenshot
   alt="A chart showing how the value of the incentive of driving customers faster has disappeared for NYC cab drivers"
-  src="/img/blog/2020-10-16/incentive-value-evolution-over-time.png"
+  src="/img/blog/2020-10-16/incentive-value-evolution-over-time.webp"
 />
 
 So, are there any reasons left for cabs to drive customers around faster?

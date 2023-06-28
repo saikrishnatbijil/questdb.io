@@ -1,26 +1,49 @@
 ---
 title: Grafana
-description: Guide for time series data visualization with QuestDB and Grafana
+description: Guide for time-series data visualization with QuestDB and Grafana
 ---
 
 [Grafana](https://grafana.com/) is a popular observability and monitoring
-application used to visualize data and help with time series data analysis. It
+application used to visualize data and help with time-series data analysis. It
 has an extensive ecosystem of widgets and plugins. QuestDB supports connecting
 to Grafana via the [Postgres](/docs/reference/api/postgres/) endpoint.
 
 ## Prerequisites
 
-- [Grafana](https://grafana.com/grafana/download) should be installed and
-  running.
-- QuestDB should be installed and running via
-  [Docker](/docs/get-started/docker/)
+- [Docker](/docs/get-started/docker/) to run both Grafana and QuestDB
+
+We will use the `--add-host` parameter for both Grafana and QuestDB.
 
 ## Start Grafana
 
-You can start a grafana docker container with this command:
+Start Grafana using `docker run`:
 
 ```shell
-docker run -it --rm --name=grafana -p 3000:3000 grafana/grafana-oss:latest
+docker run --add-host=host.docker.internal:host-gateway \
+-p 3000:3000 --name=grafana \
+-v grafana-storage:/var/lib/grafana \
+grafana/grafana-oss
+```
+
+Once the Grafana server has started, you can access it via port 3000
+(`http://localhost:3000`). The default login credentials are as follows:
+
+```shell
+user:admin
+password:admin
+```
+
+## Start QuestDB
+
+The Docker version for QuestDB can be run by exposing the port `8812` for the
+PostgreSQL connection and port `9000` for the web and REST interface:
+
+```shell
+docker run --add-host=host.docker.internal:host-gateway \
+-p 9000:9000 -p 9009:9009 -p 8812:8812 -p 9003:9003 \
+-e QDB_PG_READONLY_USER_ENABLED=true \
+questdb/questdb:latest
+
 ```
 
 ## Add a data source
@@ -30,22 +53,16 @@ docker run -it --rm --name=grafana -p 3000:3000 grafana/grafana-oss:latest
 3. Click `Add data source`
 4. Choose the `PostgreSQL` plugin and configure it with the following settings:
 
-```bash
-host: <localhost>:8812
-database: qdb
-user: admin
-password: quest
-SSL mode: disable
+```
+host:host.docker.internal:8812
+database:qdb
+user:user
+password:quest
+TLS/SSL mode:disable
 ```
 
 5. When adding a panel, use the "text edit mode" by clicking the pencil icon and
   adding a query
-
-:::note
-
-**localhost** will be the IP address reported by QuestDB on startup.
-
-:::
 
 ## Global variables
 

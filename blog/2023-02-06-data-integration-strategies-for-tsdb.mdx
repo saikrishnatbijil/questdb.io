@@ -6,14 +6,8 @@ author_url: https://github.com/Yitaek
 author_image_url: https://avatars.githubusercontent.com/Yitaek
 description:
   An overview of popular data integration strategies with a highlight on CDC.
-keywords:
-  - kafka
-  - data integration
-  - cdc
-  - elt
-  - etl
-tags: [data integration, elt, etl, cdc, time-series, tsdb]
-image: "/img/blog/2023-02-06/banner.png"
+tags: [etl, change data capture, time-series, tsdb]
+image: "/img/blog/2023-02-06/banner.webp"
 slug: data-integration-time-series-etl-elt-cdc
 ---
 
@@ -23,11 +17,9 @@ import Screenshot from "@theme/Screenshot"
 <Banner
   alt="Abstract images expressing data"
   height={433}
-  src="/img/blog/2023-02-06/banner.png"
+  src="/img/blog/2023-02-06/banner.webp"
   width={650}
 />
-
-## Data integration strategies for time-series data
 
 ## Introduction to data integration strategies for time-series databases
 
@@ -50,7 +42,8 @@ solutions for time-series databases:
 
 - **ETL** (Extract, Transform, Load)
 - **ELT** (Extract, Load, Transform)
-- **Data Streaming with CDC** (Change Data Capture)
+- **[Data Streaming](/glossary/stream-processing/) with CDC**
+  [(Change Data Capture)](/glossary/change-data-capture/)
 
 Given the need for real-time insights for time series data, many modern
 event-driven architectures now implement data streaming with CDC. To illustrate
@@ -68,7 +61,7 @@ into the target system (typically a data warehouse).
   alt="Overview of the ETL model"
   title="ETL model overview"
   height={433}
-  src="/img/blog/2023-02-06/etl-model.png"
+  src="/img/blog/2023-02-06/etl-model.webp"
   width={650}
 />
 
@@ -103,7 +96,7 @@ data lakes that can deal with the processing requirements
   alt="Overview of the ELT model"
   title="ELT model overview"
   height={433}
-  src="/img/blog/2023-02-06/elt-model.png"
+  src="/img/blog/2023-02-06/elt-model.webp"
   width={650}
 />
 
@@ -145,7 +138,7 @@ lakes or warehouses.
   alt="Three cylinders showing data flow. Cylinders are connected with arrows showing flow from left to right. The first cylinder is labeled 'data source', the second - 'cdc' and the third - 'target system'"
   title="CDC model overview"
   height={433}
-  src="/img/blog/2023-02-06/cdc-model.png"
+  src="/img/blog/2023-02-06/cdc-model.webp"
   width={650}
 />
 
@@ -169,7 +162,7 @@ wrote about recently to stream stock prices into QuestDB.
   alt="High-level workflow overview of how CDC can be used for QuestDB via Kafka"
   title="High-level overview of CDC implementation architecture"
   height={433}
-  src="/img/blog/2023-02-06/workflow.png"
+  src="/img/blog/2023-02-06/workflow.webp"
   width={650}
 />
 

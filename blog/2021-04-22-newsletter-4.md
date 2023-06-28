@@ -7,11 +7,11 @@ description:
   The 6.0 alpha release is available now for early feedback ahead of the
   official launch, for out-of-order inserts and TSBS compatibility
 tags: [newsletter]
-image: /img/blog/newsletter-preview.png
+image: /img/blog/newsletter-preview.webp
 slug: newsletter-time-series-benchmarking-suite-postgres-conference
 ---
 
-![QuestDB newsletter banner](/img/blog/newsletter.png)
+![QuestDB newsletter banner](/img/blog/newsletter.webp)
 
 With the official launch of 6.0 just around the corner, we want to keep you up
 to speed on our latest updates, news and content from recent weeks.

@@ -46,13 +46,9 @@ FROM long_sequence(5);
 `make_geohash(lon, lat, bits)` returns a geohash equivalent of latitude and
 longitude, with precision specified in bits.
 
-:::info
-
 `make_geohash()` is intended to be used via SQL over HTTP / PostgreSQL wire
 protocol, for use within Java (embedded) scenario, see the
 [Java embedded documentation for geohashes](/docs/concept/geohashes/#java-embedded-usage).
-
-:::
 
 **Arguments:**
 

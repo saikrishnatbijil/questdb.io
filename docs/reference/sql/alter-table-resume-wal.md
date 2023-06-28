@@ -10,7 +10,7 @@ recovery from errors.
 ## Syntax
 
 ![Flow chart showing the syntax of the ALTER TABLE keyword](/img/docs/diagrams/alterTable.svg)
-![Flow chart showing the syntax of ALTER TABLE with ADD COLUMN keyword](/img/docs/diagrams/alterTableResumeWal.svg)
+![Flow chart showing the syntax of ALTER TABLE with RESUME WAL keyword](/img/docs/diagrams/alterTableResumeWal.svg)
 
 ## Description
 
@@ -51,20 +51,16 @@ table is `3`.
 The following query restarts transactions from the failed transaction, `4`:
 
 ```questdb-sql
-
 ALTER TABLE  weather_wal RESUME WAL;
-
 ```
 
 Alternatively, specifying the `sequencerTxn` to skip the failed commit (`4` in
 this case):
 
 ```questdb-sql
-
-ALTER TABLE  weather_wal RESUME WAL TRANSACTION 5;
+ALTER TABLE  weather_wal RESUME WAL FROM TRANSACTION 5;
 
 -- This is equivalent to
 
-ALTER TABLE  weather_wal RESUME WAL TXN 5;
-
+ALTER TABLE  weather_wal RESUME WAL FROM TXN 5;
 ```

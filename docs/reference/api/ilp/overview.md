@@ -145,7 +145,7 @@ omitted, the server will insert each message using the system clock as the row
 timestamp. See `cairo.timestamp.locale` and `line.tcp.timestamp`
 [configuration options](/docs/reference/configuration/).
 
-:::warning
+:::caution
 
 - While
   [`columnset` timestamp type units](/docs/reference/api/ilp/columnset-types/#timestamp)

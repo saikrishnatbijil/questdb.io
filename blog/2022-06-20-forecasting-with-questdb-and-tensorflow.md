@@ -9,14 +9,8 @@ description:
   have numerical data for predicting housing prices or classification data for
   categorizing dog and cat breeds. It's also the special type of data used for
   training machine learning algorithms where time is the crucial component.
-keywords:
-  - python
-  - finance
-  - timeseries
-  - tensorflow
-  - machine learning
-image: /img/blog/2022-06-20/banner.png
-tags: [python, tensorflow, machine learning, data science, time-series]
+image: /img/blog/2022-06-20/banner.webp
+tags: [python, machine learning, tensorflow, data science, time-series]
 ---
 
 This post is contributed by
@@ -32,7 +26,7 @@ import Banner from "@theme/Banner"
 <Banner
   alt="QuestDB log and Tensorflow logo"
   height={467}
-  src="/img/blog/2022-06-20/banner.png"
+  src="/img/blog/2022-06-20/banner.webp"
   width={650}
 ></Banner>
 
@@ -258,7 +252,7 @@ the `read_excel()` function provided by the [pandas](https://pandas.pydata.org/)
 library. Once the data set is read, you can check its first few rows with the
 help of the `head()` function. Your data set should look something like this:
 
-![Read Dataset](/img/blog/2022-06-20/read-dataset.png)
+![Read Dataset](/img/blog/2022-06-20/read-dataset.webp)
 
 ### Creating QuestDB Tables
 
@@ -372,7 +366,7 @@ indexed_df.head()
 
 You should now see the DataFrame as follows:
 
-![Data](/img/blog/2022-06-20/data.png)
+![Data](/img/blog/2022-06-20/data.webp)
 
 To see how the value of INR is varying according to time, you can plot a curve
 between time and INR using this code:
@@ -384,7 +378,7 @@ indexed_df.plot()
 
 The plot should look something like this:
 
-![All data set values](/img/blog/2022-06-20/plot-all-values.png)
+![All data set values](/img/blog/2022-06-20/plot-all-values.webp)
 
 Time series forecasting is a supervised approach, which means it uses input
 features and labels to do forecasting. As of now, you only have Date as an index
@@ -407,7 +401,7 @@ data.head()
 
 Once complete, your data set should look like this:
 
-![Preprocessed data](/img/blog/2022-06-20/processed-data.png)
+![Preprocessed data](/img/blog/2022-06-20/processed-data.webp)
 
 Next, you need to split the data into two different categories—train and test:
 
@@ -470,7 +464,7 @@ fitted on the input data.
 Once you execute the above code, your model training will start. It should look
 something like this:
 
-![Model training](/img/blog/2022-06-20/model-training.png)
+![Model training](/img/blog/2022-06-20/model-training.webp)
 
 Once the model is ready, you’ll need to test it on the test set to check its
 accuracy:
@@ -488,7 +482,7 @@ plt.legend()
 
 The graphs displaying actual labels and predicted labels should look like this:
 
-![Model testing](/img/blog/2022-06-20/model-testing-1.png)
+![Model testing](/img/blog/2022-06-20/model-testing-1.webp)
 
 As you can see, the predictions are the approximation of actual values, which
 indicates that the model is performing well enough. Since the testing data has a
@@ -505,7 +499,7 @@ plt.legend()
 The simplified plot showing only one hundred actual and predicted values would
 be something like this:
 
-![Model testing](/img/blog/2022-06-20/model-testing-2.png)
+![Model testing](/img/blog/2022-06-20/model-testing-2.webp)
 
 Now, your time series forecasting model is ready, and you can use it to make
 predictions for upcoming dates. The code notebook for the full project can be
@@ -533,4 +527,4 @@ say hello [in our Slack Community]({@slackUrl@}).
 
 ## Additional Resources
 
-[What is Time-Series Data?](/blog/time-series-data/)
+[What is Time-Series Data?](/glossary/time-series-database/)

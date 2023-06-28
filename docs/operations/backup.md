@@ -17,6 +17,11 @@ QuestDB provides two strategies for creating backups:
 - **Point-in-time** (PIT) backup
 - **Filesystem** backup
 
+For a backup to be successful, the database backup must contain database
+metadata files and directories (`db`, `config` etc.) See the
+[root directory](/docs/concept/root-directory-structure) documentation for
+details about these directories.
+
 ## Limitations
 
 QuestDB officially supports the following filesystems:
@@ -35,8 +40,8 @@ on them.
 :::caution
 
 - A backup includes the contents of the database up to the point of executing a
-backup. Any data inserted while a backup is underway is not stored as part of
-the backup.
+  backup. Any data inserted while a backup is underway is not stored as part of
+  the backup.
 
 - Users can't use NFS or a similar distributed filesystem directly with QuestDB,
   but users may copy a backup to such a filesystem after a backup has been made.
@@ -128,14 +133,6 @@ docker run \
  -p 8812:8812 -p 9003:9003 \
  -v "/path/to/backup_directory:/root/.questdb/" questdb/questdb
 ```
-
-:::info
-
-The database backup must contain database metadata files and directories (`db`,
-`config` etc.). The contents of these directories is described in more detail in
-the [root directory](/docs/concept/root-directory-structure/) documentation.
-
-:::
 
 ## Examples
 

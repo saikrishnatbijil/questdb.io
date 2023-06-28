@@ -7,11 +7,11 @@ description:
   2021 has been a great start for us at QuestDB, and we'd like to share our
   highlights so far.
 tags: [newsletter]
-image: /img/blog/newsletter-preview.png
+image: /img/blog/newsletter-preview.webp
 slug: newsletter-sql-create-table-if-not-exist
 ---
 
-![QuestDB newsletter banner](/img/blog/newsletter.png)
+![QuestDB newsletter banner](/img/blog/newsletter.webp)
 
 ## January Update
 

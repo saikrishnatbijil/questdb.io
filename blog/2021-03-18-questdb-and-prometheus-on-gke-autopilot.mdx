@@ -7,14 +7,8 @@ author_image_url: https://avatars.githubusercontent.com/Yitaek
 description:
   Learn how Google Kubernetes Engine in Autopilot can run QuestDB and Prometheus
   with automated backups for a production-ready time series database deployment.
-keywords:
-  - timeseries
-  - kubernetes
-  - autopilot
-  - prometheus
-  - devops
-tags: [tutorial, prometheus, kubernetes, autopilot, devops]
-image: /img/blog/shared/og-google-kubernetes-engine.png
+tags: [tutorial, prometheus, kubernetes]
+image: /img/blog/shared/og-google-kubernetes-engine.webp
 ---
 
 import Banner from "@theme/Banner"
@@ -41,7 +35,7 @@ Thanks for another great contribution, Yitaek!
 ## Introduction
 
 Recently, I've been experimenting with QuestDB as a primary time series database
-to stream and analyze IoT and financial data:
+to [stream](/glossary/stream-processing/) and analyze IoT and financial data:
 
 - [Streaming Heart Rate Data with IoT Core and QuestDB](/blog/2021/02/05/streaming-heart-rate-data-with-iot-core-and-questdb)
 - [Real-time Crypto Tracker with Kafka and QuestDB](/blog/realtime-crypto-tracker-with-questdb-kafka-connector/)
@@ -88,7 +82,7 @@ import Screenshot from "@theme/Screenshot"
 <Screenshot
   alt="A screenshot of the Google Cloud console UI for creating a Kubernetes cluster"
   height={320}
-  src="/img/blog/2021-03-18/create-cluster.png"
+  src="/img/blog/2021-03-18/create-cluster.webp"
   width={400}
 />
 
@@ -123,7 +117,7 @@ autoscaler triggers a scaling up event and schedules the questdb pod.
 <Screenshot
   alt="The status dashboard for Kubernetes services in Google Cloud Console"
   height={88}
-  src="/img/blog/2021-03-18/cluster-status-green.png"
+  src="/img/blog/2021-03-18/cluster-status-green.webp"
   width={650}
 />
 
@@ -137,7 +131,7 @@ kubectl port-forward questdb-0 9000:9000
 <Screenshot
   alt="The QuestDB web console running on Kubernetes, accessed via port forwarding"
   height={228}
-  src="/img/blog/2021-03-18/questdb-console.png"
+  src="/img/blog/2021-03-18/questdb-console.webp"
   width={650}
 />
 
@@ -246,13 +240,13 @@ export POD_NAME=$(kubectl get pods --namespace default -l \ "app=prometheus,comp
 kubectl --namespace default port-forward $POD_NAME 9090
 ```
 
-Once port-forwarding is active, visit `localhost:9090` and check
-that we're able to scrape `pg_up`:
+Once port-forwarding is active, visit `localhost:9090` and check that we're able
+to scrape `pg_up`:
 
 <Screenshot
   alt="A screenshot of Prometheus monitoring the uptime of a QuestDB instance"
   height={500}
-  src="/img/blog/2021-03-18/prometheus.png"
+  src="/img/blog/2021-03-18/prometheus.webp"
   width={650}
 />
 
@@ -367,7 +361,7 @@ Lastly, verify backups are being made in our bucket:
 <Screenshot
   alt="Incremental backups of QuestDB in a storage bucket on Google Cloud"
   height={230}
-  src="/img/blog/2021-03-18/velero-backups.png"
+  src="/img/blog/2021-03-18/velero-backups.webp"
   width={650}
 />
 

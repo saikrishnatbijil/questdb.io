@@ -7,14 +7,8 @@ author_image_url: https://avatars.githubusercontent.com/TheTanc
 description:
   How SIMD instructions make aggregations faster in QuestDB, including benchmark
   results and a comparison with Postgres.
-keywords:
-  - performance
-  - simd
-  - parallelization
-  - cpu
-  - questdb
-tags: [benchmark, performance, simd, release]
-image: /img/blog/2020-04-02/banner.png
+tags: [benchmark, performance, release, simd]
+image: /img/blog/2020-04-02/banner.webp
 ---
 
 import Banner from "@theme/Banner"
@@ -22,7 +16,7 @@ import Banner from "@theme/Banner"
 <Banner
   alt="QuestDB release 4.2 banner"
   height={143}
-  src="/img/blog/2020-04-02/banner.png"
+  src="/img/blog/2020-04-02/banner.webp"
   width={650}
 />
 
@@ -68,9 +62,9 @@ and the AMD Ryzen 3900X. Both were running on 4 threads.
 | max of 1Bn doubles                | create table zz as (select rnd_double() d from long_sequence(1000000000));<br/>select max(d) from zz;   |
 | max of 1Bn longs                  | create table zz as (select rnd_long() l from long_sequence(1000000000));<br/>select max(l) from zz;     |
 
-![Intel 8850H benchmark](/img/blog/2020-04-02/benchmark8850h.png)
+![Intel 8850H benchmark](/img/blog/2020-04-02/benchmark8850h.webp)
 
-![AMD 3900X benchmark](/img/blog/2020-04-02/benchmark3900x.png)
+![AMD 3900X benchmark](/img/blog/2020-04-02/benchmark3900x.webp)
 
 The dataset producing the results shown above does not contain NULL values.
 Interestingly, when introducing nulls, QuestDB sum() query time is unchanged.
@@ -92,7 +86,7 @@ The execution times outlined above become more interesting once put into
 context. This is how QuestDB compares to Postgres when doing a sum of 1 billion
 numbers from a given table `select sum(d) from 1G_double_nonNull`.
 
-![Benchmark results for QuestDB vs PostgreSQL](/img/blog/2020-04-02/benchmarkPostgres.png)
+![Benchmark results for QuestDB vs PostgreSQL](/img/blog/2020-04-02/benchmarkPostgres.webp)
 
 We found that our performance figures are constrained by the available memory
 channels. Both the 8850H and the 3900X have 2 memory channels, and throwing more
@@ -113,7 +107,7 @@ We plot those results below on the left. On the right-hand side, we normalise
 the results for each CPU and plot the performance improvement of going from 1 to
 more cores.
 
-![Charts showing the execution time for the Intel 8275CL and AMD 3900X when using a various number of cores](/img/blog/2020-04-02/memoryChannelAnalysis.png)
+![Charts showing the execution time for the Intel 8275CL and AMD 3900X when using a various number of cores](/img/blog/2020-04-02/memoryChannelAnalysis.webp)
 
 Interestingly, the 2-channel 3900X, is much faster on 1 core than the 8275CL.
 But it does not scale well and hits a performance ceiling at 4 cores. This is

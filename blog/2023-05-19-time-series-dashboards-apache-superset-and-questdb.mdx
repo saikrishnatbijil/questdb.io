@@ -1,0 +1,278 @@
+---
+title: Time-Series Data Visualization with Apache Superset and QuestDB
+author: Javier Ramirez
+author_url: https://twitter.com/supercoco9
+author_image_url: https://gravatar.com/avatar/b5d967f0b84451319fd719451d19cc12.jpg?s=500
+description:
+  "A tutorial to create your first batch and real-time charts and dashboards for
+  time series data using Apache Superset"
+tags: [tutorial, database]
+image: /img/blog/2023-05-19/banner.webp
+slug: time-series-data-visualization-apache-superset-and-questdb
+---
+
+import Banner from "@theme/Banner"
+import Screenshot from "@theme/Screenshot"
+
+<Banner
+  alt="Dashboard created using Apache Superset and QuestDB"
+  height={234}
+  src="/img/blog/2023-05-19/banner.webp"
+  width={528}
+></Banner>
+
+## Data visualization for time-series data
+
+One of the most common uses of a
+[time-series database](/glossary/time-series-database/) is visualizing data on a
+dashboard to inform business decisions. This tutorial will show you how to
+connect QuestDB and Apache Superset. QuestDB is an open-source time-series
+database and Apache Superset is an open-source data exploration and
+visualization platform. By combining these, you can create a dashboard
+displaying data from multiple tables.
+
+## Installing and starting QuestDB
+
+If you are not yet using QuestDB, or if you are using a version lower than
+7.1.2, please refer to [our documentation](/docs/get-started/docker/). In my
+case, I start a QuestDB instance (with ephemeral storage) using Docker:
+
+```shell
+docker run \
+  -p 9000:9000 -p 9009:9009 -p 8812:8812 -p 9003:9003 \
+  questdb/questdb:7.1.2
+```
+
+## The datasets
+
+We will be working with two datasets that we need to download and import into
+QuestDB. The first one represents taxi rides in the city of New York. The
+[original dataset](https://www.nyc.gov/site/tlc/about/tlc-trip-record-data.page)
+is very large. Therefore, we are going to work with a subset that represents a
+few minutes of taxi rides on January 1st, 2018. You can download and import
+[the dataset](https://raw.githubusercontent.com/javier/questdb-quickstart/main/trips.csv)
+from the command line using curl:
+
+```shell
+curl https://raw.githubusercontent.com/javier/questdb-quickstart/main/trips.csv > trips_2018.csv
+curl -F data=@trips_2018.csv 'http://localhost:9000/imp?overwrite=false&name=trips_2018&timestamp=pickup_datetime&partitionBy=DAY'
+```
+
+The second dataset represents energy consumption and next-day forecast at
+15-minute intervals for a few European countries. We have curated a subset of
+the [original dataset](https://data.open-power-system-data.org/time_series/)
+containing
+[data for 2018](https://raw.githubusercontent.com/javier/questdb-quickstart/main/energy_2018.csv).
+Download the data and import it to QuestDB with:
+
+```shell
+curl https://raw.githubusercontent.com/javier/questdb-quickstart/main/energy_2018.csv > energy_2018.csv
+curl -F schema='[{"name":"timestamp", "type": "TIMESTAMP", "pattern": "yyyy-MM-dd HH:mm:ss"}]' -F data=@energy_2018.csv 'http://localhost:9000/imp?overwrite=false&name=energy_2018&timestamp=timestamp&partitionBy=MONTH'
+```
+
+If you visit your QuestDB web interface at `http://localhost:9000`, you should
+see the two new tables. You should have 999 rows in the `trips_2018` table and
+205189 rows in the `energy_2018` table.
+
+```questdb-sql
+SELECT COUNT() FROM trips_2018;
+SELECT COUNT() FROM energy_2018;
+```
+
+## Installing and starting Apache Superset
+
+You will also need a working installation of Apache Superset with the
+QuestDB-Connect module installed. See
+[Superset integration](/docs/third-party-tools/superset/) for more details. I
+choose Docker to run Superset, and these are the steps to install it:
+
+```shell
+git clone https://github.com/apache/superset.git
+cd superset
+touch ./docker/requirements-local.txt
+echo "questdb-connect==0.0.54" >> ./docker/requirements-local.txt
+docker-compose build --force-rm
+docker-compose -f docker-compose-non-dev.yml pull
+docker-compose -f docker-compose-non-dev.yml up
+```
+
+By default, your Apache Superset runs at `http://localhost:8088` and login credentials are admin/admin. 
+
+Apache Superset must be initialized when started for the first time. This
+includes setting up default databases and sample datasets. This process may take
+some time before it is fully functional.
+
+## Connecting QuestDB and Superset
+
+In Superset you create charts that you add to dashboards. Charts get their data
+from different databases, so the first step is to configure the database
+connections you will use. In our case, we need to configure a single connection
+to QuestDB.
+
+Superset supports a wide range of databases by default. QuestDB is not one of
+them, but since we installed the
+[questdb-connect module](https://github.com/questdb/questdb-connect), we can add
+the connection by following these steps:
+
+- From the [Superset web interface](http://localhost:8088), select `Settings` >
+  `Database Connections`
+- Select `+ DATABASE` to add the following parameters:
+
+_SUPPORTED DATABASES_: `Other` / _DISPLAY NAME_: `QuestDB`
+
+_SQLALCHEMY URI_: `questdb://admin:quest@host.docker.internal:8812/qdb`
+
+Note that I use `host.docker.internal` instead of `localhost` because I started
+Superset from Docker. If you are running Superset outside of Docker, you would
+need to use `localhost` instead.
+
+## Creating a dataset
+
+Before you create a chart, Superset requires you to create a dataset. In its
+simplest form, a dataset represents a table in your database. Still, you can
+also add calculated columns, or create a dataset from a complex SQL statement
+that references one or more tables.
+
+For the first dataset, let's use the `trips_2018` table we created earlier.
+
+- From the [Superset web interface](http://localhost:8088), select `Datasets` >
+  `+ DATASET`
+- Select QuestDB as the `DATABASE` and `trips_2018` as the table. A list of
+  columns is displayed.
+- Click `CREATE DATASET AND CREATE CHART`
+
+There is also the optional step to edit the dataset by selecting `Datasets`. You
+can remove columns and add calculated columns or metadata.
+
+<Screenshot
+  alt="Superset screenshot when creating the trips_2018 dataset"
+  height={469}
+  src="/img/blog/2023-05-19/create_dataset_trips_2018.webp"
+  width={1056}
+/>
+
+## Creating your first chart
+
+At this point, you should see a dialog to select a visualization type.
+
+If not, select the `Charts` link at the top of the Superset web interface and
+click the name of the dataset we created in the previous step.
+
+We're now ready to create a chart.
+
+Superset has many types of charts. One of the simplest charts is the `Table`
+chart. If you cannot find the thumbnail, you can always type `Table` in the
+search box or navigate through the different types of charts using the
+categories on the left.
+
+When you select the `Table` type and `CREATE NEW CHART`, you should see the
+`Chart` dialog. This is virtually the same for all the charts, with different
+options depending on the chart type.
+
+At the top of this dialog, there are two tabs: one for defining the data to
+display, and one for customizing the chart appearance.
+
+For this first chart, we want to display the total number of entries, the
+average trip distance, and the average total amount paid, grouped by vendor, cab
+type, and rate code:
+
+- Add `vendor_id`, `cab_type`, and `rate_code_id` as dimensions by dragging
+  columns or by clicking on the `DIMENSIONS` box
+- Add `COUNT(*)`, `AVG(trip_distance)`, and `AVG(total_amount)` using the
+  `METRICS` box
+- Add `AVG(total_amount)` to the `PERCENTAGE METRICS` box, so we can see how
+  much of the total each row in the table contributes
+- Uncheck the `SORT DESCENDING` option
+- Click `UPDATE CHART`
+
+Your screen should look very similar to the screenshot below:
+
+<Screenshot
+  alt="Superset screenshot when creating the table chart"
+  height={469}
+  src="/img/blog/2023-05-19/create_table_chart.webp"
+  width={1056}
+/>
+
+To save the chart, select `SAVE` in the top right. Choose a name (e.g., "Trips
+Stats"), and the name of a new dashboard (e.g., "QuestDB Demo"). Click
+`SAVE AND GO TO DASHBOARD`.
+
+Congrats. You have just created your first chart and dashboard.
+
+If you want to spice up the dashboard by adding headings, links, images, tabs,
+dividers, etc., click `EDIT DASHBOARD` and play around with the layout. Check
+the
+[Superset documentation](https://superset.apache.org/docs/creating-charts-dashboards/exploring-data/#dashboard-basics)
+for more information.
+
+<Screenshot
+  alt="Example of richer dashboard layout"
+  height={469}
+  src="/img/blog/2023-05-19/dashboard_layout.webp"
+  width={1056}
+/>
+
+## Creating a dataset from a SQL statement
+
+We will now add a new dataset, but in this case, we want to use QuestDB-specific
+SQL, such as [`SAMPLE BY`](/docs/reference/sql/sample-by/). We can do this by
+creating a dataset from a SQL statement. Select `SQL` > `SQL Lab` and type the
+following query in the SQL box:
+
+```questdb-sql
+SELECT timestamp, country_code, SUM(load_forecast) AS daily_forecast,
+       SUM(load_actual) AS daily_actual
+FROM energy_2018
+SAMPLE BY 1d ALIGN TO CALENDAR;
+```
+
+Click `RUN` to see the results. The `energy_2018` table contains data in
+15-minute intervals, and we use `SAMPLE BY` to get the total usage and forecast
+per day and country.
+
+Click the arrow by the `SAVE` button, select `SAVE DATASET`, type the name
+`energy_sampled_1d`, and then click `SAVE AND EXPLORE`.
+
+You should now see the `Chart` dialog. Ignore any error messages you see on the
+next screen, as they will disappear as we add some fields and update the chart.
+
+Click the `view all charts` link and look for the `Mixed Chart` type, which
+allows us to represent line, bar, and area charts for different series on a
+single chart. We will use it to plot the actual versus projected energy
+consumption by country.
+
+This time, the chart dialog has more options than before.
+
+Let's select the `timestamp` column for the `Shared query fields` section,
+`SUM(daily_actual)` as the `Query A` metric, `country_code` as the `Query A`
+dimension, `SUM(daily_forecast)` as the `Query B` metric, and `country_code` as
+the `Query B` dimension. Uncheck `SORT DESCENDING` for `A` and `B` queries, and
+click `UPDATE CHART`.
+
+If all goes well, you will see a line chart representing the energy data. Click
+`SAVE`, name the chart (e.g., "Energy Forecast"), and add it to your existing
+dashboard.
+
+<Screenshot
+  alt="Energy Forecast chart"
+  height={469}
+  src="/img/blog/2023-05-19/energy_forecast.webp"
+  width={1056}
+/>
+
+## Wrapping up
+
+Apache Superset is a complete tool for creating data visualizations. In this
+post, we have connected QuestDB to Apache Superset and added some basic charts.
+There are many more charts and options you can use.
+
+The next step is to explore the Superset documentation. You can learn how to
+create business dashboards for both batch and real-time scenarios.
+
+We encourage you to share some of your dashboards with
+our [Slack Community](https://slack.questdb.io/). You can also play with
+our [live demo](https://demo.questdb.io/) to execute queries on demo datasets.
+Of course, contributions to our
+open-source [projects on GitHub](https://github.com/questdb) are more than
+welcome.

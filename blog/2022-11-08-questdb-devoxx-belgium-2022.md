@@ -5,14 +5,8 @@ author_title: QuestDB team
 author_url: https://github.com/amyshwang
 author_image_url: https://avatars.githubusercontent.com/u/107401731?v=4
 description: An overview of QuestDB's participation at Devoxx Belgium this year.
-keywords:
-  - devoxx
-  - event
-  - java
-  - questdb
-  - timeseries
-image: /img/blog/2022-11-08/devoxx.png
-tags: [devoxx, community, questdb, timeseries, event, java]
+image: /img/blog/2022-11-08/devoxx.webp
+tags: [community, questdb, time-series, event]
 ---
 
 As a member of the Java community, QuestDB sponsored this year's Devoxx Belgium
@@ -27,7 +21,7 @@ import Screenshot from "@theme/Screenshot"
 <Banner
   alt="Photo "
   height={467}
-  src="/img/blog/2022-11-08/devoxx.png"
+  src="/img/blog/2022-11-08/devoxx.webp"
   width={650}
 ></Banner>
 
@@ -53,7 +47,7 @@ MongoDB, and many other tech companies.
   alt="Photo showing the QeusteDB booth is set to go"
   title="Getting ready for Devoxx: The calm before the storm"
   height={360}
-  src="/img/blog/2022-11-08/booth.png"
+  src="/img/blog/2022-11-08/booth.webp"
   width={650}
 />
 
@@ -82,7 +76,7 @@ Our CTO, Vlad, delivered a talk entitled "Database Hacking 101: Building fast
 bulk import in Java + C". The talk is part of the Server Side Java track, which
 covers presentations about server-side frameworks and libraries.
 
-![Photo showing Vlad taking to the audience](/img/blog/2022-11-08/talk.png)
+![Photo showing Vlad taking to the audience](/img/blog/2022-11-08/talk.webp)
 
 Vlad showcased how the [CSV import](/docs/guides/importing-data/) speed is
 improved thanks to [`io_uring`](https://en.wikipedia.org/wiki/Io_uring).

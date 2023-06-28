@@ -7,17 +7,8 @@ author_image_url: https://avatars.githubusercontent.com/bluestreak01
 description:
   Our database's network stack handles multiple TCP connections on a single
   thread without garbage collection for reliably ingesting time series data.
-keywords:
-  - jdbc
-  - postgres
-  - tcp
-  - kafka
-  - garbage
-  - java
-  - timeseries
-  - database
 image: /img/blog/2020-12-10/banner.jpg
-tags: [kafka, postgres, architecture, engineering]
+tags: [kafka, postgres, engineering]
 ---
 
 import Banner from "@theme/Banner"
@@ -227,7 +218,7 @@ import Screenshot from "@theme/Screenshot"
 <Screenshot
   alt="A diagram of QuestDB's IODispatcher"
   height={284}
-  src="/img/blog/2020-12-10/iodispatcher-diagram.png"
+  src="/img/blog/2020-12-10/iodispatcher-diagram.webp"
   title="IODispatcher and queues for events, interest, and disconnections"
   width={650}
 />

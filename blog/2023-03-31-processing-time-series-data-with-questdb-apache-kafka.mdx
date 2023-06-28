@@ -5,7 +5,7 @@ author_title: Guest
 author_url: https://github.com/Yitaek
 author_image_url: https://avatars.githubusercontent.com/Yitaek
 description: Streaming market data to QuestDB using Golang and Apache Kafka
-image: /img/blog/2023-03-31/banner.png
+image: /img/blog/2023-03-31/banner.webp
 tags: [tutorial, kafka, time-series, market data]
 slug: processing-time-series-with-questdb-apache-kafka
 ---
@@ -38,7 +38,7 @@ import Banner from "@theme/Banner"
 <Banner
   alt="Diagram showing Go to Kafka and to QuestDB"
   height={500}
-  src="/img/blog/2023-03-31/banner.png"
+  src="/img/blog/2023-03-31/banner.webp"
   width={692}
 ></Banner>
 
@@ -340,7 +340,7 @@ market quotes:
 SELECT * FROM 'topic_TSLA'
 ```
 
-![Screenshot of the result ot the SELECT * FROM 'topic_TSLA' statement](/img/blog/2023-03-31/tsla.png)
+![Screenshot of the result ot the SELECT * FROM 'topic_TSLA' statement](/img/blog/2023-03-31/tsla.webp)
 
 We can also look at SPY data from `topic_SPY`:
 
@@ -348,7 +348,7 @@ We can also look at SPY data from `topic_SPY`:
 SELECT * FROM 'topic_SPY'
 ```
 
-![Screenshot of the result ot the SELECT * FROM 'topic_SPY' statement](/img/blog/2023-03-31/spy.png)
+![Screenshot of the result ot the SELECT * FROM 'topic_SPY' statement](/img/blog/2023-03-31/spy.webp)
 
 With the data now in QuestDB, we can query for aggregate information by getting
 the average price over 2m window:
@@ -357,7 +357,7 @@ the average price over 2m window:
 SELECT avg(price), timestamp FROM topic_SPY SAMPLE BY 2m;
 ```
 
-![Screenshot of the result ot the SAMPLE BY statement](/img/blog/2023-03-31/sample-by-spy.png)
+![Screenshot of the result ot the SAMPLE BY statement](/img/blog/2023-03-31/sample-by-spy.webp)
 
 ## Conclusion
 
@@ -386,4 +386,4 @@ example for those looking to extend this reference architecture.
 
 [Real-time analytics and anomaly detection with Apache Kafka, Apache Flink, Grafana & QuestDB](https://www.youtube.com/watch?v=256354kG66A)
 
-[What is Time-Series Data?](/blog/time-series-data/)
+[What is Time-Series Data?](/glossary/time-series-database/)

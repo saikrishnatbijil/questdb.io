@@ -1,0 +1,288 @@
+---
+title: Max Open Files Limit on MacOS for the JVM
+author: Imre Aranyosi
+author_title: QuestDB team
+author_url: https://github.com/glasstiger
+author_image_url: https://avatars.githubusercontent.com/u/94906625?v=4
+description:
+  A story about finding out the correct way to set the max open file limit on
+  macOS.
+tags: [engineering]
+slug: max-open-file-limit-macos-jvm
+image: /img/blog/2023-06-08/banner.webp
+---
+
+import Screenshot from "@theme/Screenshot"
+import Banner from "@theme/Banner"
+
+<Banner
+  alt="An image depicting drawers of open files with the macOS Finder, Apple, and Java logo"
+  src="/img/blog/2023-06-08/banner.webp"
+></Banner>
+
+We have all been there before; you hit that invisible wall and cannot get
+through it.
+
+If you have not, try to run a Java application that requires more than 10240
+open file descriptors on macOS!
+
+I think you can already guess what this post is about. Yes, exactly that -
+`ulimit`, `launchctl`, `sysctl`, a mysterious 10240 wall, the frustration, and
+the sleepless nights...
+
+## The problem
+
+Some applications, such as QuestDB, sometimes just have to open lots of files.
+While querying a database table which contains a large amount of historical
+data, we can easily hit limits set by the operating system.
+
+One such limit is the maximum number of file descriptors a process is allowed to
+use. On most operating systems, it is straightforward to
+[increase this limit](/docs/deployment/capacity-planning/#maximum-open-files),
+usually required after the database reaches a certain size. It turns out to be
+more involved on macOS. You try to use `ulimit`, `launchctl`, `sysctl`, and it
+seems that the limit has been increased, but the application still hits a wall.
+
+After some research, you may find references to a legendary macOS-specific limit
+set at 10240. Digging deeper, going through endless pages until someone hints
+about a JVM option in a random Stack Overflow answer. This option, namely
+`-XX:-MaxFDLimit`, instructs the JVM to ignore this limit.
+
+What is this limit exactly? Does the magic JVM option really help? I decided to
+clear up the confusion by running a small test using QuestDB.
+
+## The experiment
+
+### Test application
+
+Below is a small Java application I used for the test. This app ingests rows
+into QuestDB and queries them after ingesting every ten rows:
+
+```java
+public class SenderExamples {
+    public static void main(String[] args) {
+        final Calendar c = Calendar.getInstance();
+        c.set(Calendar.YEAR, 2020);
+        c.set(Calendar.MONTH, Calendar.JANUARY);
+        c.set(Calendar.DATE, 1);
+        c.set(Calendar.HOUR, 0);
+        c.set(Calendar.MINUTE, 0);
+        c.set(Calendar.SECOND, 0);
+        c.set(Calendar.MILLISECOND, 0);
+        c.add(Calendar.DATE, 0);
+
+        try (Sender sender = Sender.builder().address("localhost:9009").build()) {
+            for (int i = 0; i < 1000000; i++) {
+                c.add(Calendar.DATE, 1);
+                sender.table("test")
+                        .longColumn("id", i)
+                        .stringColumn("name", "Joe Adams " + i)
+                        .at(c.getTime().getTime() * 1_000_000);
+
+                if (i % 10 == 0) {
+                    sender.flush();
+                    Os.sleep(50);
+                    runQuery();
+                }
+            }
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    private static void runQuery() throws IOException {
+        final String request = "http://localhost:9000/exp?src=con&query=test";
+        final URL url = new URL(request);
+        final URLConnection connection = url.openConnection();
+        connection.setDoOutput(true);
+
+        final StringBuilder rows = new StringBuilder();
+        try (BufferedReader reader = new BufferedReader(new InputStreamReader(url.openStream()))) {
+            int c;
+            while ((c = reader.read()) != -1) {
+                rows.append((char) c);
+            }
+        }
+        System.out.println(rows);
+    }
+}
+
+```
+
+The database table has three columns and is partitioned by day. As the timestamp
+is increased by one day in each iteration, each row goes into a new partition.
+Each ingested row creates a new directory with three new column files on the
+disk. We need 40 additional file descriptors (10 directories + 30 column files)
+for every query as we ingest more data.
+
+Let's see how far this application can get with different limit settings. The
+number of rows ingested successfully will reveal to us the limit in each
+scenario.
+
+### Limits set for the test
+
+First, let's check the limits set for this test.
+
+System limits:
+
+```shell
+> sudo launchctl limit maxfiles 16384 2147483647
+> sysctl -a | grep kern.maxf
+   kern.maxfiles: 2147483647
+   kern.maxfilesperproc: 16384
+```
+
+Default soft and hard limits for max open files in the shell:
+
+```shell
+> ulimit -S -n
+   256
+> ulimit -H -n
+   unlimited
+```
+
+And we know that the JVM has its own limit too:
+
+```
+10240
+```
+
+### Without the `-XX:-MaxFDLimit` option
+
+With the above limit settings, the application could ingest 2510 rows before
+QuestDB failed with `errno=24` (max open files limit breach).
+
+```
+2510,"Joe Adams 2510","2026-11-16T12:00:00.000000Z"
+```
+
+This makes sense, `4 * 2510 = 10040`. `10240 - 10040 = 200`, the missing 200
+file descriptors are used by QuestDB for something else, not for the query.
+
+Changing the soft limit had no impact:
+
+```shell
+> ulimit -S -n 4096
+
+2510,"Joe Adams 2510","2026-11-16T12:00:00.000000Z"
+```
+
+When I set the hard limit for the session to lower than 10240, it was honored:
+
+```shell
+> ulimit -H -n 8192
+
+1990,"Joe Adams 1990","2025-06-14T11:00:00.000000Z"
+```
+
+`4 * 1990 + 200 = 8160`; it is about 8192.
+
+After raising the hard limit to above 10240, I hit the JVM's own limit again:
+
+```shell
+> ulimit -H -n 12288
+
+2510,"Joe Adams 2510","2026-11-16T12:00:00.000000Z"
+```
+
+### With the `-XX:-MaxFDLimit` option
+
+Then I added the `-XX:-MaxFDLimit` option in `questdb.sh`, the script used to
+run the database. This is how far the test app got:
+
+```
+950,"Joe Adams 950","2022-08-09T11:00:00.000000Z"
+```
+
+Very unexpected! The expectation was to hit the hard limit of 12288 after
+removing the 10240 wall. Instead, we found a much lower limit somewhere
+around 4000.
+
+`4 * 950 + 200 = 4000`, the closest value is the previously set soft limit,
+which is 4096.
+
+I increased the soft limit and changed the hard limit to `Integer.MAX`
+(basically unlimited).
+
+```shell
+> ulimit -H -n 2147483647
+> ulimit -S -n 12288
+
+3030,"Joe Adams 3030","2028-04-19T11:00:00.000000Z"
+```
+
+`4 * 3030 + 200 = 12320`; very close to 12288. This proves that QuestDB started
+to use the soft limit instead of the hard limit!
+
+When changing the soft limit to unlimited, we hit the system level limit set
+earlier (`kern.maxfilesperproc: 16384`):
+
+```shell
+> ulimit -S -n 2147483647
+
+4050,"Joe Adams 4050","2031-02-03T12:00:00.000000Z"
+```
+
+`4 * 4050 + 200 = 16400`; it is around 16384.
+
+For the last test, I opened a new shell and went back to the default limits:
+
+```shell
+> ulimit -S -n
+   256
+> ulimit -H -n
+   unlimited
+
+10,"Joe Adams 10","2020-01-12T12:00:00.000000Z"
+```
+
+Only ten rows, but I kind of expected the result. `4 * 10 + 200 = 240`; this is
+very close to 256.
+
+What this means is that if we want to remove the JVM's own limit by adding the
+`-XX:-MaxFDLimit` option, we need to set the soft limit to something reasonable.
+
+Since most of us would expect the hard limit to be used as the absolute limit,
+it would probably make sense to change the soft limit to the hard limit.
+
+This would be backward compatible, too. Currently, for QuestDB on macOS, we have
+the 10240 as an absolute limit unless someone has set a hard limit lower than
+that (e.g., `ulimit -H -n 8192`). After removing the 10240 limit, QuestDB will
+switch to the soft limit, so the existing hard limit should also be set as soft
+limit. Otherwise, suddenly we could start using a much lower value, as defined
+by the soft limit. The default could be as low as 256!
+
+## Conclusion
+
+The JVM on macOS has its own built-in max open files limit, set to 10240. This
+limit can be removed by passing the `-XX:-MaxFDLimit` option to the JVM.
+
+However, if the built-in limit is removed, the JVM starts to use the soft limit
+as the absolute limit. Soft limits can be set very low, which makes the JVM
+option seemingly not working. This should be taken into consideration when using
+this JVM option.
+
+## Note about the 10240 limit
+
+You might wonder about the origins of the mysterious 10240 limit in the macOS
+JVM. Thanks to my colleague, [Jaromir Hamala](https://github.com/jerrinot), we
+know that it comes from
+[here](https://github.com/openjdk/jdk/blob/dfd3da3f52480f68f653beb1e720691f8232ace7/src/hotspot/os/bsd/os_bsd.cpp#L1997-L2002):
+
+```cpp
+#ifdef __APPLE__
+      // Darwin returns RLIM_INFINITY for rlim_max, but fails with EINVAL if
+      // you attempt to use RLIM_INFINITY. As per setrlimit(2), OPEN_MAX must
+      // be used instead
+      nbr_files.rlim_cur = MIN(OPEN_MAX, nbr_files.rlim_cur);
+#endif
+```
+
+`OPEN_MAX` is defined in a header file as:
+
+```cpp
+/Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk/usr/include/sys/syslimits.h
+#define OPEN_MAX                10240   /* max open files per process - todo, make a config option? */
+```
+
+There you go, 10240!

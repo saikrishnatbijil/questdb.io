@@ -7,17 +7,8 @@ author_image_url: https://avatars.githubusercontent.com/tris0laris
 description:
   We thank all our stakeholders, users and community members for your support
   during these challenging times.
-keywords:
-  - community
-  - team
-  - story
-  - ycombinator
-  - startup
-  - open source
-  - support
-  - ukraine
-image: /img/blog/2022-03-07/banner.png
-tags: [company, team, community, announcement]
+image: /img/blog/2022-03-07/banner.webp
+tags: [company, community]
 ---
 
 import Banner from "@theme/Banner"
@@ -25,7 +16,7 @@ import Banner from "@theme/Banner"
 <Banner
   alt="Flag of Ukraine"
   height={427}
-  src="/img/blog/2022-03-07/banner.png"
+  src="/img/blog/2022-03-07/banner.webp"
   width={640}
 />
 

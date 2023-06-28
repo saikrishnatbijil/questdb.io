@@ -1,0 +1,7 @@
+.root {
+  max-width: 800px;
+}
+
+.root :global(#enterprise-contact-us) {
+  width: 100%;
+}

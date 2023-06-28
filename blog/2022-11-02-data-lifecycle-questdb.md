@@ -7,12 +7,8 @@ author_image_url: https://avatars.githubusercontent.com/Yitaek
 description:
   This tutorial shows ways to downsample data and detach or drop partitions when
   old data is no longer necessary using QuestDB.
-keywords:
-  - timeseries
-  - data lifecycle
-
-tags: [tutorial, data lifecycle]
-image: /img/blog/2022-11-02/banner.png
+tags: [tutorial]
+image: /img/blog/2022-11-02/banner.webp
 ---
 
 import Banner from "@theme/Banner"
@@ -20,7 +16,7 @@ import Banner from "@theme/Banner"
 <Banner
   alt="A screenshot showing data monitoring"
   height={500}
-  src="/img/blog/2022-11-02/banner.png"
+  src="/img/blog/2022-11-02/banner.webp"
   width={692}
 />
 

@@ -71,7 +71,7 @@
 
 [[redirects]]
   from = "/tutorial/2020/06/15/python-questdb-tutorial"
-  to = "/blog/2020/06/15/python-questdb-tutorial/"
+  to = "/blog/exploring-financial-tick-data-jupyter-notebook-pandas/"
 
 [[redirects]]
   from = "/tutorial/2020/08/25/questitto"
@@ -163,11 +163,11 @@
 
 [[redirects]]
   from = "/tutorial/2022/02/10/questdb-google-data-studio/"
-  to = "/blog/2022/02/10/questdb-google-data-studio/"
+  to = "/blog/exploring-financial-tick-data-jupyter-notebook-pandas/"
 
 [[redirects]]
   from = "/tutorial/2022/03/08/questdb-crypto-pandas/"
-  to = "/blog/2022/03/08/questdb-crypto-pandas/"
+  to = "/blog/exploring-financial-tick-data-jupyter-notebook-pandas/"
 
 [[redirects]]
   from = "/tutorial/2022/03/14/mock-sql-timeseries-data-questdb/"
@@ -291,7 +291,11 @@
 
 [[redirects]]
   from = "/blog/2020/11/26/why-timeseries-data/"
-  to = "/blog/time-series-data/"
+  to = "/glossary/time-series-database/"
+
+[[redirects]]
+  from = "/blog/time-series-data/"
+  to = "/glossary/time-series-database/"
 
 [[redirects]]
   from = "/blog/laoding-pandas-dataframes/"
@@ -346,8 +350,24 @@
   to = "/blog/data-integration-time-series-etl-elt-cdc/"
 
 [[redirects]]
-  from ="/blog/2022/10/03/athletex-interview/"
-  to = "/blog"
+  from ="/blog/2020/07/24/use-questdb-for-swag/"
+  to = "/community/"
+
+[[redirects]]
+  from ="/blog/2022/03/08/questdb-crypto-pandas/"
+  to = "/blog/exploring-financial-tick-data-jupyter-notebook-pandas/"
+
+[[redirects]]
+  from ="/blog/2022/02/10/questdb-google-data-studio/"
+  to = "/blog/exploring-financial-tick-data-jupyter-notebook-pandas/"
+
+[[redirects]]
+  from ="/blog/2020/06/15/python-questdb-tutorial/"
+  to = "/blog/exploring-financial-tick-data-jupyter-notebook-pandas/"
+
+[[redirects]]
+  from ="/docs/operations/capacity-planning/"
+  to = "/docs/deployment/capacity-planning/"
 
 [[headers]]
   for = "/*"
@@ -355,4 +375,4 @@
     X-Frame-Options = "SAMEORIGIN"
     X-XSS-Protection = "0"
     X-Content-Type-Options = "nosniff"
-    Content-Security-Policy = "frame-src 'self' app.netlify.com calendly.com *.questdb.io www.youtube.com www.slideshare.net;"
+    Content-Security-Policy = "frame-src 'self' app.netlify.com calendly.com *.questdb.io www.youtube.com www.slideshare.net forms.hsforms.com;"

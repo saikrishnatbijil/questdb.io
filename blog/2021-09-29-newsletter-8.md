@@ -7,11 +7,11 @@ description:
   Here's QuestDB's September news including release 6.0.5, Geospatial support,
   performance improvements, and the latest resources and tutorials
 tags: [newsletter]
-image: /img/blog/newsletter-preview.png
+image: /img/blog/newsletter-preview.webp
 slug: newsletter-geospatial-data-and-airbus-partnership
 ---
 
-![QuestDB newsletter banner](/img/blog/newsletter.png)
+![QuestDB newsletter banner](/img/blog/newsletter.webp)
 
 Here's the latest roundup from QuestDB HQ with our most recent updates; we have
 exciting new releases, including support for geospatial data, an official
@@ -31,7 +31,7 @@ latest version to download is.
 Supporting geodata is achieved by the addition of a new geohash type which
 represents grid areas as a base32 alphanumeric string:
 
-[![Geohash examples with increasing precision](/img/blog/2021-09-29/geohashes.png)](/docs/concept/geohashes/)
+[![Geohash examples with increasing precision](/img/blog/2021-09-29/geohashes.webp)](/docs/concept/geohashes/)
 
 [Release announcement](/blog/2021/09/13/release-6-0-5-geospatial-data/)
 
@@ -40,7 +40,7 @@ represents grid areas as a base32 alphanumeric string:
 We're excited to announce that Airbus is using QuestDB to power real-time asset
 tracking applications used in aerospace and nautical scenarios.
 
-![Quote of Oliver Pfeiffer](/img/blog/2021-09-29/airbus-partnership.png)
+![Quote of Oliver Pfeiffer](/img/blog/2021-09-29/airbus-partnership.webp)
 
 Airbus is already making heavy use of geohash types, which power real-time
 dashboards for views involving hundreds of millions of data points per day.
@@ -54,7 +54,7 @@ which is a catalog with software listings from independent vendors. It's now
 possible to launch QuestDB on the AWS Marketplace with an official listing
 supported by the QuestDB team.
 
-[![QuestDB in AWS marketplace](/img/blog/2021-09-29/aws-marketplace.png)](https://aws.amazon.com/marketplace/pp/prodview-cddeafdirexw6)
+[![QuestDB in AWS marketplace](/img/blog/2021-09-29/aws-marketplace.webp)](https://aws.amazon.com/marketplace/pp/prodview-cddeafdirexw6)
 
 To help with getting started using the AMI,
 [we published a user guide](/docs/deployment/aws-official-ami/) which shows how
@@ -88,7 +88,7 @@ showing the love with some QuestDB swag whenever we can. We're happy to have
 members like Gábor be a part of the QuestDB journey and celebrate what we're
 building together:
 
-![Gábor with his QuestDB swag](/img/blog/2021-09-29/gabor-swag.png)
+![Gábor with his QuestDB swag](/img/blog/2021-09-29/gabor-swag.webp)
 
 ## Welcome onboard
 

@@ -1,6 +1,5 @@
 .root {
   width: 100%;
-  background-color: var(--theme-section-odd-bg-color);
   padding: 2rem;
 }
 
@@ -79,5 +78,3 @@
     margin-left: auto;
   }
 }
-
-

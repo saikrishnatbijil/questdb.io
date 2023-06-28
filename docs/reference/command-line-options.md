@@ -71,21 +71,17 @@ questdb.exe [start|stop|status|install|remove] \
 | `-f`   | Force re-deploying the Web Console. Without this option, the Web Console is cached and deployed only when missing.                                                                                                   |
 | `-j`   | **Windows only!** This option allows to specify a path to `JAVA_HOME`.                                                                                                                                               |
 
-:::info
+:::note
 
-When running multiple QuestDB services, a tag must be used to disambiguate
+- When running multiple QuestDB services, a tag must be used to disambiguate
 between services for `start` and `stop` commands. There will be conflicting
 ports and root directories if only the tag flag is specified when starting
 multiple services. Each new service should have its own config file or should
 be started with separate port and root directory options.
 
-:::
-
-:::info
-
-When running QuestDB as Windows service you can check status in both:
-- Windows Event Viewer - look for events with "QuestDB" source in Windows Logs | Application .
-- service log file - `$dataDir\log\service-%Y-%m-%dT%H-%M-%S.txt` (default is `C:\Windows\System32\qdbroot\log\service-%Y-%m-%dT%H-%M-%S.txt` )
+- When running QuestDB as Windows service you can check status in both:
+  - Windows Event Viewer - look for events with "QuestDB" source in Windows Logs | Application .
+  - service log file - `$dataDir\log\service-%Y-%m-%dT%H-%M-%S.txt` (default is `C:\Windows\System32\qdbroot\log\service-%Y-%m-%dT%H-%M-%S.txt` )
 
 :::
 

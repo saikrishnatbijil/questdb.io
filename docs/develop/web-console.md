@@ -15,7 +15,7 @@ import Screenshot from "@theme/Screenshot"
   height={375}
   small
   src="/img/docs/console/overview.png"
-  width={500}
+  width={800}
 />
 
 ## Accessing the Web Console
@@ -30,7 +30,7 @@ running locally, this will be `http://localhost:9000`.
   height={375}
   small
   src="/img/docs/console/layout.png"
-  width={500}
+  width={800}
 />
 
 ### System tables in Schema explorer
@@ -51,12 +51,12 @@ to write and run SQL queries.
 
 ### Shortcuts
 
-|Command       |Action                                                                      |
-|:-------------|:---------------------------------------------------------------------------|
-|Run query     |`f9` or `ctrl/cmd + enter`                                                  |
-|Locate cursor |`f2`, use this to focus the SQL editor on your cursor in order to locate it |
+| Command       | Action                                                                      |
+| :------------ | :-------------------------------------------------------------------------- |
+| Run query     | `f9` or `ctrl/cmd + enter`                                                  |
+| Locate cursor | `f2`, use this to focus the SQL editor on your cursor in order to locate it |
 
-### Behaviour
+### Behavior
 
 As you can write multiple SQL commands separated by a semicolon, the Web Console
 uses the following logic to decide which queries to execute:
@@ -74,8 +74,36 @@ uses the following logic to decide which queries to execute:
 ### Visualizing results
 
 You can run a query and click on the `Chart` button. This will display the chart
-editor. You can then choose chart type, for example `line` and then press
+editor. You can then choose chart type, for example, `line` and then press
 `Draw`.
+
+### Toggle the grid table
+
+The following options are available to toggle the grid layout:
+
+<Screenshot
+  alt="Preview of the different sections in the Web Console"
+  height={375}
+  small
+  src="/img/docs/console/column.png"
+  width={300}
+/>
+
+- Freeze left column:
+
+  To freeze more columns, drag the vertical solid line to the desired column
+
+  <Screenshot
+    alt="Screenshot of the freeze-column line"
+    height={375}
+    small
+    src="/img/docs/console/freeze-column.png"
+    width={300}
+  />
+
+- Move the selected column to the front
+- Reset grid layout
+- Refresh
 
 ### Downloading results
 
@@ -90,7 +118,7 @@ the panel and shows the last 20 messages and notifications after query
 execution.
 
 <Screenshot
-  alt="Screenshot of the Web Console showing the location of the Import tab"
+  alt="Screenshot of the Web Console showing the location of the notification panel"
   height={535}
   small
   src="/img/docs/console/query-log.png"
@@ -98,6 +126,9 @@ execution.
 />
 
 ## Import
+
+The Web Console offers an interface to import small batches of CSV files as new
+tables or to existing tables.
 
 The import tab can be accessed by clicking this icon on the left-side navigation
 menu:
@@ -110,63 +141,109 @@ menu:
   width={309}
 />
 
-### Import details
-
-Description of the fields in the import details table
-
-|Column       |Description                                                                                    |
-|:------------|:----------------------------------------------------------------------------------------------|
-|`File name`  |Name of the imported file. If imported from copy & paste, an automatically-generated file name |
-|`Size`       |Size of the imported file                                                                      |
-|`Total rows` |Number of rows successfully imported                                                           |
-|`Failed rows`|Number of rows that failed to import                                                           |
-|`Header row` |Whether the dataset has been recognized to have a header row or not                            |
-|`Status`     |Status of the import. See [import statuses](#import-statuses)                                  |
-
-### Import statuses
-
-Description of the import statuses
-
-|Status              |Description                                                                                                                                                                                     |
-|:-------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|`importing`         |Data is currently being imported                                                                                                                                                                |
-|`failed`            |Import failed, no data was imported                                                                                                                                                             |
-|`imported in [time]`|Import is finished. The completion time is displayed next to the status                                                                                                                         |
-|`exists`            |You are trying to import a file that already exists. To import it regardless, you can either **append** or **override**. See [importing again](#custom-import) for a more exhaustive description|
-
-### Amending the schema
-
-Although the schema is automatically detected, you can amend the type of any
-column of an imported data set using the following steps:
-
-- Click on the file you want to amend in the Import screen. The schema will be
-  displayed in a table in the lower-half of the screen.
-- Click the column which type you want to change. A drop-down list allows for
-  selecting a type for the column.
-- You will then need to [re-trigger the import](#custom-import).
+The import UI:
 
 <Screenshot
-  alt="Change the schema in the Web Console when importing data"
-  height={525}
-  src="/img/docs/console/amendType.jpg"
-  width={745}
+  alt="Screenshot of the UI for import"
+  height={535}
+  src="/img/docs/console/import-ui.png"
+  width={800}
 />
 
-### Custom import
+### Import configurations
 
-You can amend the import behavior with the following options. This will trigger
-to import the data again.
+Once a file is added to the Upload queue, the following configurations will be
+displayed:
 
-|Option |Name                         |Description                                                        |
-|:------|:----------------------------|:------------------------------------------------------------------|
-|`A`    |Append                       |Uploaded data will be appended to the end of the table             |
-|`O`    |Override                     |Uploaded data will override existing data in the table             |
-|`LEV`  |Skip lines with extra values |Skips rows that contain values that don't align with the schema    |
-|`H`    |Header row                   |Flag whether the first row should be considered to be a header row |
+<Screenshot
+  alt="Screenshot of the Web Console showing the file ready to be uploaded"
+  height={535}
+  src="/img/docs/console/ready-to-upload.png"
+  width={800}
+/>
 
-To start the import, click the following button:
+- `File`: The file name, size, and the import status
+- `Table name`: The name for the table to be imported. By default, this is the
+  name of the imported file.
+- `Schema`: The Colum data name and data type. The schema is automatically
+  detected but it is possible to set it manually. See
+  [Table schema](#table-schema) for more information.
+- `Write mode`:
+  - `Append`: Uploaded data will be appended to the end of the table.
+  - `Overwrite`: Uploaded data will override existing data in the table
+- `Actions`:
+  - `Settings`: Additional configuration for the import. See
+    [Import settings](#import-settings) for more information.
+  - `Upload`: Start the upload
+  - `X`: Delete the file from the Upload queue
 
-![Upload button from the Web Console](/img/docs/console/uploadButton.png)
+#### Table schema
+
+To update the schema of an existing table, select `Overwrite` write mode to
+replace the rows and the partition unit with the CSV file. 
+
+For an existing table, changing the table name allows importing it as a new
+separate table.
+
+The following setting is available for configuration for both existing and new table import:
+
+| Setting              | Description                                                                             |
+| -------------------- | --------------------------------------------------------------------------------------- |
+| Partition            | Change the partition setting of the table.                                              |
+| Designated timestamp | Electing a Designated timestamp. This is mandatory if the partition unit is not `NONE`. |
+| Data type            | Define the data type. For timestamp, the timestamp format is mandatory and there is the option to elect the column as the designated timestamp. |
+
+To update the schema of a new table, in addition to the above, the following
+settings are also available for configuration:
+
+| Setting       | Description                                                                                                                                     |
+| ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
+| Delete column | Click `x` to delete the column from the table.                                                                                                  |
+| Add column    | At the end of the column list, select “Add column” to insert a new column into the table.                                                       |
+
+The following table schema details are imported based on the csv file:
+
+- The column order 
+- The column name 
+
+#### Import settings
+
+The Settings panel displays the following configurations:
+
+| Setting                           | Description                                                                                                                                                                                                                                                      | Default value |
+| --------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------- |
+| Maximum number of uncommitted row | The size of the commit batch. A commit will be issued when this number is reached in the buffer. This setting is the same as `cairo.max.uncommitted.rows`. To avoid running out of memory during an import, set this value based on the RAM size of the machine. | 500000        |
+| Delimiter                         | The delimiter character to parse the CSV file.                                                                                                                                                                                                                   | Automatic     |
+| Atomicity                         | Error behavior. Rejected rows or columns will be reported in the [Details](#import-details) panel after the import is completed.                                                                                                                                 | Skip column   |
+| Force header                      | Whether to interpret the first line as the header. The result will be reported in the [Details](#import-details) panel after the import is completed.                                                                                                            | FALSE         |
+| Skip line extra values            | Whether the parser should ignore extra values by ignoring the entire line. An extra value is something in addition to what is defined by the header.                                                                                                             | FALSE         |
+| Durable                           | Whether the import should be resilient against OS errors and power losses by forcing the data to be fully persisted before sending a response back to the user.                                                                                                  | FALSE         |
+
+### Import details
+
+The import status is displayed in the file column. Once the action is completed,
+the number of rows inserted is displayed alongside the `Details` tab:
+
+<Screenshot
+  alt="Screenshot of the Web Console showing number of row imported and the Details tab"
+  height={535}
+  src="/img/docs/console/import-complete.png"
+  width={400}
+/>
+
+The `Details` panel lists rejected rows and errors in importing each column:
+
+<Screenshot
+  alt="Screenshot of the Web Console showing the import details"
+  height={535}
+  src="/img/docs/console/import-details.png"
+  width={400}
+/>
+
+The details such as header forced, table name, and rejected rows are related to
+the defined import settings. For example, setting Atomicity in Settings to Skip
+row will result in skipped rows being reported in Rejected rows after the
+import.
 
 ## Providing an asset path
 

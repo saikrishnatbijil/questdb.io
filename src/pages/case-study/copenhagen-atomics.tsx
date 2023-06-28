@@ -285,7 +285,7 @@ const CopenhagenAtomics = () => {
             analytical queries. QuestDB&#39;s traction in the market also made
             us confident about our choice. Our initial interaction with the team
             was extremely positive: in addition to getting a good vibe from Vlad
-            (CTO) and Nic (CEO), we also enjoyed the effective communication on
+            (CTO) and Nic (CEO), we also enjoyed the effective communication on{" "}
             <a href="https://slack.questdb.io/">Slack</a> with the rest of the
             team as well as QuestDB&#39;s growing community.
           </p>

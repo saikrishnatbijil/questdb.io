@@ -11,7 +11,7 @@ keywords:
   - postgres
   - timeseries
   - database
-image: /img/blog/2021-02-05/og.png
+image: /img/blog/2021-02-05/og.webp
 tags: [postgres, release, rust, golang]
 ---
 
@@ -67,7 +67,7 @@ Support for the RFC339Nano timestamp format enables the use of alerting via
 Grafana. This helps identify unintended changes, minimize disruptions and stay
 on top of your system or infrastructure:
 
-![Alerts being triggered in Grafana based on data in QuestDB](/img/blog/2021-02-05/grafana-alerts.png)
+![Alerts being triggered in Grafana based on data in QuestDB](/img/blog/2021-02-05/grafana-alerts.webp)
 
 ## Easily showing build details
 
@@ -78,7 +78,7 @@ and commit hash for troubleshooting. It can be run with the following command:
 SELECT build();
 ```
 
-![A screenshot of running a function inside the QuestDB Web Console](/img/blog/2021-02-05/build-function.png)
+![A screenshot of running a function inside the QuestDB Web Console](/img/blog/2021-02-05/build-function.webp)
 
 ## CREATE TABLE IF NOT EXISTS
 

@@ -14,7 +14,7 @@ keywords:
   - sql
   - database
 tags: [tutorial, time-series, SQL]
-image: /img/blog/shared/og-sql.png
+image: /img/blog/shared/og-sql.webp
 ---
 
 import Screenshot from "@theme/Screenshot"
@@ -22,7 +22,7 @@ import Screenshot from "@theme/Screenshot"
 <Screenshot
   alt="The QuestDB logo"
   height={591}
-  src="/img/blog/2022-03-14/banner.png"
+  src="/img/blog/2022-03-14/banner.webp"
   width={770}
 />
 
@@ -124,7 +124,7 @@ After starting QuestDB, the web console is available on port `9000`, so
 navigating to `http://127.0.0.1:9000` should show the UI of a locally-running
 instance which looks like the following:
 
-![webui](/img/blog/2022-03-14/webui.png)
+![webui](/img/blog/2022-03-14/webui.webp)
 
 Mock data generation in QuestDB is surprisingly easy. The DB comes with numerous
 generator functions, all with a different purpose. If you ever used PostgreSQL's
@@ -291,7 +291,7 @@ INSERT INTO 'diagnostics' SELECT * FROM (
 After the query ran successfully, ensure we have the 28 records we expect. Run
 `SELECT * FROM 'diagnostics';`
 
-![generated-rows](/img/blog/2022-03-14/generated-rows.png)
+![generated-rows](/img/blog/2022-03-14/generated-rows.webp)
 
 Congratulations, we successfully generated twenty eight rows with random data.
 Although the data is in place, the timestamps seem to be odd; we have multiple
@@ -364,7 +364,7 @@ random data we generate `10 * 365 * 24` records, which is 87600 rows. By simply
 changing the `long_sequence` parameters to `87600` and running the query one
 more time, we can generate data for the next ten years in less than a second.
 
-![final-rows](/img/blog/2022-03-14/final-rows.png)
+![final-rows](/img/blog/2022-03-14/final-rows.webp)
 
 ## Summary
 
@@ -380,4 +380,4 @@ your feedback or just come and say hello in the
 
 ## Additional Resources
 
-[What is Time-Series Data?](/blog/time-series-data/)
+[What is Time-Series Data?](/glossary/time-series-database/)

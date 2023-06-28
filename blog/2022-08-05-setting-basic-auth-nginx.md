@@ -6,15 +6,8 @@ author_url: https://kovidrathee.medium.com/
 author_image_url: https://miro.medium.com/fit/c/96/96/0*_CwYR2OmNap47tQO.jpg
 description:
   How to implement Nginx Basic Authentication for QuestDB open source.
-keywords:
-  - nginx
-  - security
-  - authentication
-  - proxy
-  - timeseries
-
-image: /img/blog/2022-08-05/banner.png
-tags: [tutorial, nginx, security, authentication, proxy]
+image: /img/blog/2022-08-05/banner.webp
+tags: [tutorial, authentication, nginx]
 ---
 
 import Banner from "@theme/Banner"
@@ -22,7 +15,7 @@ import Banner from "@theme/Banner"
 <Banner
   alt="QuestDB log and nginx logo"
   height={467}
-  src="/img/blog/2022-08-05/banner.png"
+  src="/img/blog/2022-08-05/banner.webp"
   width={650}
 ></Banner>
 
@@ -181,7 +174,7 @@ brew services reload nginx
 
 Here’s what the output of the commands mentioned above will look like:
 
-![Screenshot terminal with output from previous command](/img/blog/2022-08-05/step_3c.png)
+![Screenshot terminal with output from previous command](/img/blog/2022-08-05/step_3c.webp)
 
 ### Step 4. Verify if Basic Authentication is working while accessing QuestDB open source
 
@@ -189,19 +182,19 @@ After reloading the configuration file, open a new tab in your browser to test i
 
 `localhost` points to QuestDB based on the `nginx.conf`.
 
-![Screenshot of a browser with localhost in address bar](/img/blog/2022-08-05/step_4_1.png)
+![Screenshot of a browser with localhost in address bar](/img/blog/2022-08-05/step_4_1.webp)
 
 If `localhost` binding is working correctly, you should see the following screen asking for your username and password to log into QuestDB:
 
-![Screenshot of a browser with visible Sign In dialog](/img/blog/2022-08-05/step_4_2.png)
+![Screenshot of a browser with visible Sign In dialog](/img/blog/2022-08-05/step_4_2.webp)
 
 Once you enter your username and password, Nginx will go back to `.htpasswd` to verify whether you’ve entered the correct credentials. If the authentication succeeds, you’ll be able to log onto QuestDB and carry on with your work, as shown below:
 
-![Screenshot of initial view of QuestDB Web Console](/img/blog/2022-08-05/step_4_3.png)
+![Screenshot of initial view of QuestDB Web Console](/img/blog/2022-08-05/step_4_3.webp)
 
 However, if the authentication fails, you’ll see the following screen with an HTTP 401 specifying that you need the authorization to access `localhost`.
 
-![Screenshot of a 401 error page](/img/blog/2022-08-05/step_4_4.png)
+![Screenshot of a 401 error page](/img/blog/2022-08-05/step_4_4.webp)
 
 If you end up getting an HTTP 401, recheck your username and password combination. If it is still not working, try creating another user or resetting the password for your current user using the [`htpasswd` command-line tool](https://httpd.apache.org/docs/2.4/programs/htpasswd.html).
 

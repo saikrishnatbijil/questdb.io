@@ -20,7 +20,7 @@ const BookADemo = () => {
         </Section.Title>
         <div className={style["calendly-inline-widget-wrapper"]}>
           <InlineWidget
-            url="https://calendly.com/questdb-nic/questdb"
+            url="https://calendly.com/d/dv3-8hc-2d5/questdb-cloud-demo"
             styles={{ width: "100%", height: "100%" }}
           />
         </div>

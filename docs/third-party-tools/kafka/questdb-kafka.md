@@ -1,5 +1,5 @@
 ---
-title: QuestDB Kafka connector
+title: QuestDB Kafka Connector
 description:
   QuestDB ships a QuestDB Kafka connector for ingesting messages from Kafka via
   the ILP protocol.
@@ -7,7 +7,8 @@ description:
 
 QuestDB ships a
 [QuestDB Kafka connector](https://github.com/questdb/kafka-questdb-connector)
-for fast ingestion from Kafka into QuestDB.
+for fast ingestion from Kafka into QuestDB. This is useful for processing
+[change data capture](/glossary/change-data-capture/) for the dataflow.
 
 This page has the following main sections:
 
@@ -20,12 +21,8 @@ This page has the following main sections:
 This guide shows the steps to use the QuestDB Kafka connector to read JSON data
 from Kafka topics and write them as rows into a QuestDB table.
 
-:::info 
-
 For Confluent users, please check the instructions in the
 [Confluent Docker images](https://github.com/questdb/kafka-questdb-connector/tree/main/kafka-questdb-connector-samples/confluent-docker-images).
-
-:::
 
 ### Prerequisites
 
@@ -33,8 +30,8 @@ You will need the following:
 
 - Kafka
 - A running QuestDB instance
-- - A local
-    [JDK installation](https://docs.oracle.com/en/java/javase/18/install/overview-jdk-installation.html#GUID-8677A77F-231A-40F7-98B9-1FD0B48C346A)
+- A local
+  [JDK installation](https://docs.oracle.com/en/java/javase/18/install/overview-jdk-installation.html#GUID-8677A77F-231A-40F7-98B9-1FD0B48C346A)
 
 ### Configure Kafka
 
@@ -170,9 +167,7 @@ You can find additional sample projects on the
 [QuestDB Kafka connector](https://github.com/questdb/kafka-questdb-connector/tree/main/kafka-questdb-connector-samples)
 Github project page. It includes a
 [sample integration](https://github.com/questdb/kafka-questdb-connector/tree/main/kafka-questdb-connector-samples/stocks)
-with [Debezium](https://debezium.io/) for
-[Change Data Capture](https://en.wikipedia.org/wiki/Change_data_capture) from
-PostgreSQL.
+with [Debezium](https://debezium.io/) for CDC from PostgreSQL.
 
 ## Configuration manual
 
@@ -184,7 +179,7 @@ the Kafka Connect connector.
 The connector supports the following configuration options:
 
 | Name                              | Type      | Example                                                     | Default            | Meaning                                                    |
-|-----------------------------------|-----------|-------------------------------------------------------------|--------------------|------------------------------------------------------------|
+| --------------------------------- | --------- | ----------------------------------------------------------- | ------------------ | ---------------------------------------------------------- |
 | topics                            | `string`  | orders                                                      | N/A                | Topics to read from                                        |
 | key.converter                     | `string`  | <sub>org.apache.kafka.connect.storage.StringConverter</sub> | N/A                | Converter for keys stored in Kafka                         |
 | value.converter                   | `string`  | <sub>org.apache.kafka.connect.json.JsonConverter</sub>      | N/A                | Converter for values stored in Kafka                       |
@@ -201,8 +196,8 @@ The connector supports the following configuration options:
 | username                          | `string`  | user1                                                       | admin              | User name for QuestDB. Used only when token is non-empty   |
 | token                             | `string`  | <sub>QgHCOyq35D5HocCMrUGJinEsjEscJlC</sub>                  | N/A                | Token for QuestDB authentication                           |
 | tls                               | `boolean` | true                                                        | false              | Use TLS for QuestDB connection                             |
-| retry.backoff.ms                  | `long`      | 1000                                                        | 3000               | Connection retry interval in milliseconds                  |
-| max.retries                       | `long`      | 1                                                           | 10                 | Maximum number of connection retry attempts                   |
+| retry.backoff.ms                  | `long`    | 1000                                                        | 3000               | Connection retry interval in milliseconds                  |
+| max.retries                       | `long`    | 1                                                           | 10                 | Maximum number of connection retry attempts                |
 
 ### How does the connector work?
 
@@ -351,7 +346,8 @@ is no need to handle them explicitly.
 
 
 <details>
-  <summary>QuestDB is a time series database, how does it fit into Change Data
+  <summary>QuestDB is a 
+  <a href="/glossary/time-series-database/"> time-series database</a>, how does it fit into Change Data
 Capture via Debezium?</summary>
 <p>
 

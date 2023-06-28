@@ -7,12 +7,8 @@ author_image_url: https://avatars.githubusercontent.com/marregui
 description:
   The story of how Miguel Arregui joined as a software engineer building the
   fastest open source time series database.
-keywords:
-  - startup
-  - remote
-  - engineering
-image: /img/blog/2021-11-09/banner.png
-tags: [company, team]
+image: /img/blog/2021-11-09/banner.webp
+tags: [company]
 ---
 
 import Banner from "@theme/Banner"
@@ -20,7 +16,7 @@ import Banner from "@theme/Banner"
 <Banner
   alt="A graphic with a photo of Miguel Arregui, software engineer at QuestDB"
   height={360}
-  src="/img/blog/2021-11-09/banner.png"
+  src="/img/blog/2021-11-09/banner.webp"
   width={650}
 />
 

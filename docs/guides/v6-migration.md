@@ -83,7 +83,7 @@ Release 6.0.1 contains breaking changes relating to SQL syntax to simplify
 working with `TIMESTAMP` types and for improved compatibility with ANSI SQL
 expectations.
 
-:::info
+:::note
 
 For more information on these changes, see the 6.0.1 software version
 [release notes on GitHub](https://github.com/questdb/questdb/releases/tag/6.0.1).

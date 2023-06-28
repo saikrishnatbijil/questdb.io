@@ -1,28 +1,29 @@
 # Modify data
 
-QuestDB is a timeseries database optimized to append data.
+QuestDB is a [time-series database](/glossary/time-series-database/) optimized
+to append data.
 
-For best performance, design your application to avoid having to frequently
-edit existing records.
+For best performance, design your application to avoid having to frequently edit
+existing records.
 
 The [`UPDATE`](/docs/reference/sql/update/) statement is available in QuestDB
 since version 6.4, `DELETE` is also planned to be included in upcoming releases.
-However, they are intended for correcting data that was inserted incorrectly
-or should have never been inserted in the first place (for example as part
-of data administration tasks).
+However, they are intended for correcting data that was inserted incorrectly or
+should have never been inserted in the first place (for example as part of data
+administration tasks).
 
 These are three alternatives to `UPDATE` and `DELETE` you may consider:
 
-* [Append newest state](#append-newest-state): Insert a newer state to replace
-  an older one: This has the added advantage that you can query back
-  in time to a previous state. It is also the basis of organizing data for
+- [Append newest state](#append-newest-state): Insert a newer state to replace
+  an older one: This has the added advantage that you can query back in time to
+  a previous state. It is also the basis of organizing data for
   [bi-temporality](https://martinfowler.com/articles/bitemporal-history.html).
 
-* [Replace a table](#replace-table): Create a new table with the new data you
+- [Replace a table](#replace-table): Create a new table with the new data you
   need, drop the old one and rename.
 
-* [Delete by dropping partitions](#delete-by-dropping-partitions): Create your
-  timeseries tables with partitions, then delete the ones you no longer need.
+- [Delete by dropping partitions](#delete-by-dropping-partitions): Create your
+  time-series tables with partitions, then delete the ones you no longer need.
 
 ## Append newest state
 
@@ -68,11 +69,11 @@ FROM
 
 This results in the latest state for each order:
 
-|*timestamp* ts             |id *symbol*|status *symbol*|
-|:--------------------------|:----------|:--------------|
-|2022-04-07T15:33:43.944922Z|order1     |arrived        |
-|2022-04-07T15:33:37.370694Z|order2     |placed         |
-|2022-04-07T15:33:50.829323Z|order3     |in-transit     |
+| _timestamp_ ts              | id _symbol_ | status _symbol_ |
+| :-------------------------- | :---------- | :-------------- |
+| 2022-04-07T15:33:43.944922Z | order1      | arrived         |
+| 2022-04-07T15:33:37.370694Z | order2      | placed          |
+| 2022-04-07T15:33:50.829323Z | order3      | in-transit      |
 
 ### Using dedicated fields
 
@@ -82,9 +83,10 @@ called `version`, an extra boolean `deleted` column or similar.
 ## Replace Table
 
 Another alternative is to:
-* Select only the data you want from an existing table into a new temporary one.
-* Drop the original table.
-* Rename the temporary table to the original table's name.
+
+- Select only the data you want from an existing table into a new temporary one.
+- Drop the original table.
+- Rename the temporary table to the original table's name.
 
 ```questdb-sql
 CREATE TABLE mytable_copy AS (
@@ -102,5 +104,6 @@ When you create tables with a timestamp, you may organise them into
 [`CREATE TABLE .. PARTITION BY`](/docs/reference/sql/create-table/#partitioning)
 SQL statement.
 
-You may then use the [`ALTER TABLE DROP PARTITION`](/docs/reference/sql/alter-table-drop-partition/)
+You may then use the
+[`ALTER TABLE DROP PARTITION`](/docs/reference/sql/alter-table-drop-partition/)
 SQL statement to drop partitions you no longer need.

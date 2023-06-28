@@ -8,13 +8,8 @@ description:
   An alpha version for QuestDB version 6.0 is available now to test with
   highlights such as out-of-order support, improved InfluxDB Line Protocol
   ingestion and multiple fixes and improvements
-keywords:
-  - postgres
-  - grafana
-  - timeseries
-  - database
-image: /img/blog/2021-04-20/og.png
-tags: [release, docker]
+image: /img/blog/2021-04-20/og.webp
+tags: [release]
 ---
 
 <!-- prettier-ignore-start -->
@@ -24,7 +19,7 @@ import Banner from "@theme/Banner"
 <Banner
   alt="Announcement for QuestDB 6.0 alpha with out-of-order inserts and compatibility with the Time Series Benchmarking Suite"
   height={362}
-  src="/img/blog/2021-04-20/og.png"
+  src="/img/blog/2021-04-20/og.webp"
   width={650}
 >
 </Banner>

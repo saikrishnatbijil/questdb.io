@@ -170,5 +170,5 @@ html[data-theme="light"] .linkActive {
 
 :global(html[data-theme="light"]) .link:hover .tag,
 :global(html[data-theme="light"]) .linkActive .tag {
-  background: #fff;
+  background: #e0e0e0;
 }

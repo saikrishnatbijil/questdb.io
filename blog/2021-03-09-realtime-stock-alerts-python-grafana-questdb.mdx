@@ -7,13 +7,8 @@ author_image_url: https://avatars.githubusercontent.com/kovid-r
 description:
   Use Python to query stock prices via REST API, stream the results to QuestDB,
   and configure Slack alerts based on changes in time series data using Grafana.
-keywords:
-  - timeseries
-  - marketdata
-  - grafana
-  - python
-tags: [tutorial, python, grafana, market data, alerting]
-image: /img/blog/shared/og-grafana.png
+tags: [tutorial, python, grafana, market data]
+image: /img/blog/shared/og-grafana.webp
 ---
 
 import Banner from "@theme/Banner"
@@ -41,11 +36,12 @@ quicker you can respond to changes in this data, the better. The best tool for
 this job is easily a time series database, a type of database designed to write
 and read large amounts of measurements that change over time.
 
-In this tutorial, you will learn how to read data from a REST API and stream it
-to QuestDB, an open-source time series database. We will use Grafana to
-visualize the data and notify Slack of changes that interest us. We use Python
-to fetch data from the API and stream it to QuestDB, and you can easily
-customize the scripts to check different stocks or even APIs.
+In this tutorial, you will learn how to read data from a REST API and
+[stream](/glossary/stream-processing/) it to QuestDB, an open-source time series
+database. We will use Grafana to visualize the data and notify Slack of changes
+that interest us. We use Python to fetch data from the API and stream it to
+QuestDB, and you can easily customize the scripts to check different stocks or
+even APIs.
 
 ## Prerequisites
 
@@ -156,7 +152,7 @@ import Screenshot from "@theme/Screenshot"
 <Screenshot
   alt="A screenshot of the QuestDB web console displaying rows of a database table"
   height={354}
-  src="/img/blog/2021-03-09/all-rows.png"
+  src="/img/blog/2021-03-09/all-rows.webp"
   width={650}
 />
 
@@ -173,7 +169,7 @@ To configure IexFinance API authentication:
 <Screenshot
   alt="A screenshot of the IexFinance console with API keys"
   height={285}
-  src="/img/blog/2021-03-09/iex-finance-api.png"
+  src="/img/blog/2021-03-09/iex-finance-api.webp"
   width={650}
 />
 
@@ -245,7 +241,7 @@ Your Slack workspace should display a test notification coming from Grafana:
 <Screenshot
   alt="A test Slack notification from Grafana with example error information and a chart"
   height={407}
-  src="/img/blog/2021-03-09/webhook.png"
+  src="/img/blog/2021-03-09/webhook.webp"
   width={450}
 />
 
@@ -254,7 +250,8 @@ Your Slack workspace should display a test notification coming from Grafana:
 Next up, we can create a new panel on Grafana and configure alerts based on
 queries we're interested in:
 
-1. Navigate to `http://localhost:3000/dashboard/new` and click **+ Add new panel**
+1. Navigate to `http://localhost:3000/dashboard/new` and click **+ Add new
+   panel**
 2. In the **Query** panel, click the pencil icon or click **Edit SQL**
 3. Paste the following example query
 
@@ -271,7 +268,7 @@ We now have a visualization of five-second averages of Tesla's stock price:
 <Screenshot
   alt="A dashboard in Grafana showing Tesla stock price over time"
   height={459}
-  src="/img/blog/2021-03-09/graphing-tsla-over-time.png"
+  src="/img/blog/2021-03-09/graphing-tsla-over-time.webp"
   width={650}
 />
 
@@ -323,7 +320,7 @@ the time range for alerting to the last thirty seconds. To set up this alert:
 <Screenshot
   alt="Configuration settings for alerting in Grafana based on Tesla stock prices over the last 30 seconds"
   height={666}
-  src="/img/blog/2021-03-09/configuring-alert.png"
+  src="/img/blog/2021-03-09/configuring-alert.webp"
   width={650}
 />
 
@@ -333,7 +330,7 @@ arriving in the channel that we have configured:
 <Screenshot
   alt="A Slack notification displaying an alert from Grafana that Tesla stock price has exceeded a threshold"
   height={221}
-  src="/img/blog/2021-03-09/slack-alert.png"
+  src="/img/blog/2021-03-09/slack-alert.webp"
   width={650}
 />
 

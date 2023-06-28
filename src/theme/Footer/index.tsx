@@ -52,6 +52,7 @@ const Footer = () => {
           title="QuestDB - Fastest open source database for time-series and analytics"
           width={108}
           height={27}
+          loading="lazy"
         />
 
         <div className={styles.tagline}>

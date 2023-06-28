@@ -15,8 +15,8 @@ keywords:
   - monaco
   - timeseries
   - database
-image: /img/blog/2021-12-20/banner.png
-tags: [release, team, prometheus]
+image: /img/blog/2021-12-20/banner.webp
+tags: [release, prometheus]
 ---
 
 import Banner from "@theme/Banner"
@@ -24,7 +24,7 @@ import Banner from "@theme/Banner"
 <Banner
   alt="Latest features in QuestDB version 6.1.3 including Prometheus and Alertmanager"
   height={360}
-  src="/img/blog/2021-12-20/banner.png"
+  src="/img/blog/2021-12-20/banner.webp"
   width={650}
 />
 
@@ -48,7 +48,7 @@ cursor selection, and more right out of the box:
 <Banner
   alt="Find all functionality in the Monaco Editor within QuestDB"
   height={360}
-  src="/img/blog/2021-12-20/monaco.png"
+  src="/img/blog/2021-12-20/monaco.webp"
   width={650}
 />
 

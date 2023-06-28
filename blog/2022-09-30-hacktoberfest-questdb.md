@@ -8,16 +8,8 @@ description:
   Hacktoberfest 2022 is starting! We are super excited to meet with other open
   source contributors and maintainers. To celebrate this, we put together some
   hints for you to get started.
-keywords:
-  - database
-  - opensource
-  - timeseries
-  - hacktoberfest
-  - java
-  - react
-  - typescript
-image: /img/blog/2022-09-30/banner-hacktoberfest.png
-tags: [community, event, hacktoberfest, github, swag, opensource]
+image: /img/blog/2022-09-30/banner-hacktoberfest.webp
+tags: [community, event, hacktoberfest, github, open source]
 ---
 
 import Screenshot from "@theme/Screenshot"
@@ -30,7 +22,7 @@ Hacktoberfest again and meeting new or returning open-source contributors! 🤝
 <Screenshot
   alt="QuestDB at Hacktoberfest 2022"
   height={450}
-  src="/img/blog/2022-09-30/banner-hacktoberfest.png"
+  src="/img/blog/2022-09-30/banner-hacktoberfest.webp"
   width={800}
 />
 
@@ -112,7 +104,7 @@ QuestDB T-shirt for you through our [swag program](/community/). 🚀
 <Screenshot
   alt="QuestDB swag at Hacktoberfest 2022"
   height={450}
-  src="/img/blog/2022-09-30/swag-hacktoberfest.png"
+  src="/img/blog/2022-09-30/swag-hacktoberfest.webp"
   width={800}
 />
 

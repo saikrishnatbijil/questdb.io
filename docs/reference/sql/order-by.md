@@ -12,6 +12,11 @@ Sort the results of a query in ascending or descending order.
 
 Default order is `ASC`. You can omit to order in ascending order.
 
+## Notes
+
+Ordering data requires holding it in RAM. For large operations, we suggest you
+check you have sufficient memory to perform the operation.
+
 ## Examples
 
 ```questdb-sql title="Omitting ASC will default to ascending order"
@@ -26,11 +31,4 @@ ratings ORDER BY userId DESC;
 ratings ORDER BY userId, rating DESC;
 ```
 
-## Resource management
 
-:::caution
-
-Ordering data requires holding it in RAM. For large operations, we suggest you
-check you have sufficient memory to perform the operation.
-
-:::

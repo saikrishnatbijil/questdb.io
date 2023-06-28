@@ -203,7 +203,7 @@ html[data-theme="light"] {
   --theme-button-secondary-hover-background-color: var(--palette-dark-30);
 
   --theme-button-tertiary-background-color: var(--palette-dark-30);
-  --theme-button-tertiary-text-color: var(--palette-white);
+  --theme-button-tertiary-text-color: var(--palette-dark-80);
   --theme-button-tertiary-hover-background-color: var(--palette-dark-40);
 
   --theme-tutorial-post-card-border: 1px solid transparent;
@@ -507,4 +507,112 @@ html[data-theme="light"] .table-alternate {
 .table-alternate th:nth-child(even),
 .table-alternate td:nth-child(even) {
   background: var(--color-even);
+}
+
+/* Hubspot-specific styling */
+
+#enterprise-contact-us .hs-form .hs-input {
+  color: var(--theme-input-text-color);
+  background: var(--theme-input-bg-color);
+  font-size: var(--font-size-small);
+  padding: 0.5rem;
+  border-radius: calc(var(--ifm-global-border-radius) / 2);
+  border: 2px solid transparent;
+}
+
+.hs-input:focus {
+  outline: none;
+  border-color: var(--palette-white);
+}
+
+.hs-input:placeholder {
+  color: var(--palette-pale-blue);
+  font-size: var(--font-size-normal);
+  font-weight: var(--ifm-font-weight-bold);
+}
+
+.hs-form label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-size: var(--font-size-large);
+}
+
+.hs-form .hs-error-msgs,
+.hs-form-required {
+  color: #ff5555;
+}
+
+.hs-form .hs-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 55px;
+  padding: 0 2rem;
+  border: none;
+  border-radius: calc(var(--ifm-global-border-radius) / 2);
+  font-weight: var(--ifm-font-weight-bold);
+  font-size: var(--font-size-normal);
+  transition: background-color var(--transition-fastest)
+    var(--transition-bezier);
+}
+
+.hs-form .hs-button.primary {
+  background-color: var(--theme-button-primary-background-color);
+  color: var(--theme-button-primary-text-color);
+}
+
+#enterprise-contact-us form {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 1fr;
+  width: 100%;
+}
+
+@media screen and (min-width: 600px) {
+  #enterprise-contact-us form {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      "firstname lastname"
+      "email email"
+      "company jobtitle"
+      "message message"
+      ". .";
+  }
+
+  #enterprise-contact-us .hs-firstname {
+    grid-area: firstname;
+  }
+
+  #enterprise-contact-us .hs-lastname {
+    grid-area: lastname;
+  }
+
+  #enterprise-contact-us .hs-email {
+    grid-area: email;
+  }
+
+  #enterprise-contact-us .hs-company {
+    grid-area: company;
+  }
+
+  #enterprise-contact-us .hs-jobtitle {
+    grid-area: jobtitle;
+  }
+
+  #enterprise-contact-us .hs-message {
+    grid-area: message;
+  }
+
+  #enterprise-contact-us .hs-message textarea {
+    min-height: 150px;
+  }
+}
+
+#enterprise-contact-us .hs-submit {
+  grid-column: 1 / -1;
+}
+
+#enterprise-contact-us .hs-submit .actions {
+  display: flex;
+  justify-content: center;
 }

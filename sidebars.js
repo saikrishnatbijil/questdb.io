@@ -74,7 +74,6 @@ module.exports = {
         "guides/influxdb-migration",
         "guides/modifying-data",
         "guides/working-with-timestamps-timezones",
-        "guides/out-of-order-commit-lag",
         {
           label: "More tutorials",
           type: "link",
@@ -86,6 +85,7 @@ module.exports = {
       label: "Deployment",
       type: "category",
       items: [
+        "deployment/capacity-planning",
         "deployment/aws-official-ami",
         "deployment/kubernetes",
         "deployment/google-cloud-platform",
@@ -97,7 +97,6 @@ module.exports = {
       type: "category",
       items: [
         "operations/design-for-performance",
-        "operations/capacity-planning",
         "operations/data-retention",
         "operations/health-monitoring",
         "operations/backup",
@@ -108,6 +107,27 @@ module.exports = {
       label: "Third-party Tools",
       type: "category",
       items: [
+        {
+          customProps: {
+            tag: "New",
+          },
+          type: "doc",
+          id: "third-party-tools/spark",
+        },
+        {
+          customProps: {
+            tag: "New",
+          },
+          type: "doc",
+          id: "third-party-tools/sqlalchemy",
+        },
+        {
+          customProps: {
+            tag: "New",
+          },
+          type: "doc",
+          id: "third-party-tools/superset",
+        },
         "third-party-tools/flink",
         "third-party-tools/grafana",
         {
@@ -123,14 +143,6 @@ module.exports = {
         "third-party-tools/pandas",
         "third-party-tools/prometheus",
         "third-party-tools/redpanda",
-        {
-          label: "Spark",
-          customProps: {
-            tag: "New",
-          },
-          type: "link",
-          href: "/blog/integrate-apache-spark-questdb-time-series-analytics",
-        },
         "third-party-tools/telegraf",
       ],
     },
@@ -207,6 +219,7 @@ module.exports = {
           label: "Operators",
           items: [
             "reference/operators/bitwise",
+            "reference/operators/comparison",
             "reference/operators/pattern-matching",
             "reference/operators/spatial",
           ],
@@ -221,14 +234,16 @@ module.exports = {
               label: "ALTER TABLE",
               items: [
                 "reference/sql/alter-table-add-column",
-                "reference/sql/alter-table-rename-column",
-                "reference/sql/alter-table-drop-column",
                 "reference/sql/alter-table-attach-partition",
                 "reference/sql/alter-table-detach-partition",
+                "reference/sql/alter-table-drop-column",
                 "reference/sql/alter-table-drop-partition",
+                "reference/sql/alter-table-rename-column",
+                "reference/sql/alter-table-resume-wal",
                 "reference/sql/alter-table-set-param",
                 "reference/sql/alter-table-set-type",
-                "reference/sql/alter-table-resume-wal",
+                "reference/sql/alter-table-squash-partitions",
+                
               ],
             },
             {
@@ -236,8 +251,8 @@ module.exports = {
               label: "ALTER COLUMN",
               items: [
                 "reference/sql/alter-table-alter-column-add-index",
-                "reference/sql/alter-table-alter-column-drop-index",
                 "reference/sql/alter-table-alter-column-cache",
+                "reference/sql/alter-table-alter-column-drop-index",
               ],
             },
             "reference/sql/backup",

@@ -79,12 +79,8 @@ FROM ratings
 
 ## Aggregation
 
-:::info
-
 Supported aggregation functions are listed on the
 [aggregation reference](/docs/reference/function/aggregation/).
-
-:::
 
 ### Aggregation by group
 
@@ -232,7 +228,7 @@ more information, please refer to the
 [numeric](/docs/reference/sql/where/#numeric), or
 [timestamp](/docs/reference/sql/where/#timestamp-and-date) filters.
 
-## Additional time series clauses
+## Additional time-series clauses
 
 QuestDB augments SQL with the following clauses.
 
@@ -251,7 +247,7 @@ For more information, please refer to the
 
 ### SAMPLE BY
 
-Aggregates time series data into homogeneous time chunks. For example daily
+Aggregates time-series data into homogeneous time chunks. For example daily
 average, monthly maximum etc. This function requires a
 [designated timestamp](/docs/concept/designated-timestamp/).
 

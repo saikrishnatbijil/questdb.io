@@ -17,11 +17,11 @@
 
 @media screen and (min-width: 880px) {
   .root {
-    padding: 4rem;
+    padding: 2rem;
   }
 
   .title {
-    font-size: var(--font-size-big-1);
+    font-size: 1.2rem;
   }
 }
 
@@ -36,6 +36,5 @@
 
 .skinPrimary .title,
 .skinPrimary .description {
-  color: var(--theme-attention-card-text-color)
+  color: var(--theme-attention-card-text-color);
 }
-

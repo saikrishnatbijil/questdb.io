@@ -6,15 +6,10 @@ author_url: https://github.com/davidgs
 author_image_url: https://avatars.githubusercontent.com/davidgs
 description:
   What we learned by re-examining our approach to memory mapping. A low level
-  implementation, as close as posibble to the kernel, enabled even greater
+  implementation, as close as possible to the kernel, enabled even greater
   performance.
-keywords:
-  - performance
-  - questdb
-  - database
-  - tutorial
 image: /img/blog/2020-08-19/banner.jpg
-tags: [engineering, performance, architecture]
+tags: [engineering, performance]
 ---
 
 import Banner from "@theme/Banner"
@@ -256,9 +251,9 @@ And here are the results for strings, which represent 100 reads/writes:
 
 For those of you that are more graphicly-inclined:
 
-![Benchmark showing the relative performance of primitive types](/img/blog/2020-08-19/primitives.png)
+![Benchmark showing the relative performance of primitive types](/img/blog/2020-08-19/primitives.webp)
 
-![Benchmark showing the relative performance of string types](/img/blog/2020-08-19/strings.png)
+![Benchmark showing the relative performance of string types](/img/blog/2020-08-19/strings.webp)
 
 Again, we think these numbers speak for themselves, but we're always happy to
 hear from you, our users and community, about what you think.

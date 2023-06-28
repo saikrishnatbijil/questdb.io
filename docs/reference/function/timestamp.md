@@ -14,7 +14,7 @@ description: Timestamp function reference documentation.
   partitions are applied automatically by day by default with a `timestamp`
   column
 
-:::info
+:::note
 
 - Checking if tables contain a designated timestamp column can be done via the
   `tables()` and `table_columns()` functions which are described in the

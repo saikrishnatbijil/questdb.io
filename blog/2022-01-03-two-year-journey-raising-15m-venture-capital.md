@@ -9,15 +9,8 @@ description:
   fastest open source time series database. This post describes our two-year
   journey to raising our $12.5m Series A, what we learned along the way, and the
   pitch deck we used.
-keywords:
-  - timeseries
-  - database
-  - funding
-  - venture capital
-  - startup
-  - team
 image: /img/blog/2022-01-03/banner.jpg
-tags: [company, entrepreneurship, funding, story]
+tags: [company]
 ---
 
 import Banner from "@theme/Banner"

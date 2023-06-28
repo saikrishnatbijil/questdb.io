@@ -6,8 +6,8 @@ description: InfluxDB line protocol UDP receiver reference documentation.
 
 :::note
 
-The UDP receiver is deprecated since QuestDB version 6.5.2.
-We recommend the [TCP receiver](/docs/reference/api/ilp/overview/) instead.
+The UDP receiver is deprecated since QuestDB version 6.5.2. We recommend the
+[TCP receiver](/docs/reference/api/ilp/overview/) instead.
 
 :::
 
@@ -23,6 +23,10 @@ By default, QuestDB listens for `multicast` line protocol packets over UDP on
 publish the port `9009` using `-p 9009:9009` and publish multicast packets with
 TTL of at least 2. This port can be customized, and you can also configure
 QuestDB to listen for `unicast`.
+
+The UDP receiver is disabled by default. To enable it, change the
+`line.udp.enabled` setting in the
+[server configuration](/docs/reference/configuration/).
 
 ## Commit strategy
 

@@ -7,15 +7,8 @@ author_image_url: https://avatars.githubusercontent.com/bluestreak01
 description:
   Detailed explanation of QuestDB's thread messaging system. A benchmark also
   shows the capabilities of this system.
-keywords:
-  - performance
-  - opensource
-  - inter-thread messaging
-  - questdb
-  - database
-  - architecture
-tags: [engineering, multithreading, architecture]
-image: /img/blog/2020-03-15/header.png
+tags: [engineering]
+image: /img/blog/2020-03-15/header.webp
 ---
 
 import Banner from "@theme/Banner"
@@ -23,7 +16,7 @@ import Banner from "@theme/Banner"
 <Banner
   alt="Flock of birds flying in a harmonised way"
   height={360}
-  src="/img/blog/2020-03-15/header.png"
+  src="/img/blog/2020-03-15/header.webp"
   width={650}
 />
 

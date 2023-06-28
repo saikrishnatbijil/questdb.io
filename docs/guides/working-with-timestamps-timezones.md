@@ -111,7 +111,7 @@ offset:
 - [Wiki entry on tz database time zones](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones)
   (this is a convenient reference, but may not be 100% accurate)
 
-:::info
+:::note
 
 Users should be aware that the time zone database contains both **current and
 historic transitions** for various time zones. Therefore time zone conversions

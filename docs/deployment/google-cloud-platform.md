@@ -96,18 +96,14 @@ for networking can be easily applied to instances of the same type.
 All VM instances on Compute Engine within this account which have the **Network
 tag** `questdb` will have this firewall rule applied.
 
-:::info
+The ports we have opened are:
+
+- `9000` for the REST API and Web Console
+- `8812` for the PostgreSQL wire protocol
 
 The configuration above allows networking from any IP address for the selected
 ports. A more secure approach would be to only allow incoming connections from
 whitelisted IPs.
-
-The ports we have opened are
-
-- `9000` for the REST API and Web Console
-- `8812` for PostgreSQL wire protocol
-
-:::
 
 ## Verify the deployment
 

@@ -36,6 +36,7 @@ const Screenshot = ({
       height={height}
       src={src}
       width={width}
+      loading="lazy"
     />
     {title != null && (
       <figcaption className={styles.caption}>{title}</figcaption>

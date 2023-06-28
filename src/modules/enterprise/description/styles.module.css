@@ -1,0 +1,54 @@
+.root {
+  display: grid;
+  gap: 2rem;
+}
+
+.description {
+  font-size: 1.4rem;
+  max-width: 660px;
+  margin: 0 auto;
+}
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+}
+
+@media screen and (min-width: 1060px) {
+  .cards {
+    gap: 3rem;
+  }
+}
+
+.card {
+  width: 100%;
+  min-width: 150px;
+  max-width: 300px;
+  display: grid;
+  grid-template-columns: 50px auto;
+  gap: 1rem;
+  padding: 1rem;
+  background-color: #393b4d;
+  border-radius: 8px;
+}
+
+.cardIcon {
+  opacity: 0.6;
+  align-self: center;
+}
+
+.cardTitle {
+  font-weight: bold;
+  font-size: 1.2rem;
+  align-self: center;
+}
+
+.cardDescription {
+  grid-column: 1 / -1;
+}
+
+html[data-theme="light"] .card {
+  background-color: #ebeff9;
+}

@@ -7,7 +7,7 @@ author_image_url: https://avatars.githubusercontent.com/bziobrowski
 description:
   Introduction to EXPLAIN command, which can help with performance tuning
 image: /img/blog/2023-01-26/banner.jpg
-tags: [SQL, explain, execution plan, full table scan, performance tuning]
+tags: [SQL, explain, execution plan, query planning]
 slug: explain-sql-query-plan
 ---
 
@@ -83,7 +83,7 @@ QuestDB processes queries in the following phases :
 4. Execution - Tables are accessed according to the execution plan and outcomes
    are produced.
 
-![Diagram showing the phases of processing a query](/img/blog/2023-01-26/query-phases.png)
+![Diagram showing the phases of processing a query](/img/blog/2023-01-26/query-phases.webp)
 
 SQL is just the query interface and the database must decide on a great many
 things before it can produce results. These things include:

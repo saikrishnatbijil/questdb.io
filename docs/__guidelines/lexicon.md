@@ -2,9 +2,9 @@
 title: Lexicon
 ---
 
-Please refer to these terms using the **exact** same casing.
+## Capitalization
 
-## List
+Please refer to these terms using the **exact** same casing.
 
 - InfluxDB line protocol
 - Embedded Java API
@@ -12,6 +12,10 @@ Please refer to these terms using the **exact** same casing.
 - PGWire
 - REST API (not HTTP API)
 - Web Console
+
+## Singular or plural?
+
+- Data is treated as a singular noun.
 
 ## Spell checking
 

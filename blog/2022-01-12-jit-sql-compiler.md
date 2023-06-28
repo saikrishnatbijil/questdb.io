@@ -8,15 +8,8 @@ description:
   QuestDB 6.2.0 brings a brand new JIT (Just-in-Time) compiler as a part of the
   SQL engine. This post describes our storage model, how we built a JIT compiler
   for SQL and our plans for improving it in future.
-keywords:
-  - jit
-  - compiler
-  - performance
-  - timeseries
-  - database
-  - engineering
-image: /img/blog/2022-01-12/banner.png
-tags: [engineering, story, performance]
+image: /img/blog/2022-01-12/banner.webp
+tags: [engineering, performance]
 ---
 
 import Banner from "@theme/Banner"
@@ -24,7 +17,7 @@ import Banner from "@theme/Banner"
 <Banner
   alt="Details of the latest QuestDB version which includes a JIT compiler for the SQL engine"
   height={360}
-  src="/img/blog/2022-01-12/banner.png"
+  src="/img/blog/2022-01-12/banner.webp"
   width={650}
 />
 
@@ -81,7 +74,7 @@ import Screenshot from "@theme/Screenshot"
 <Screenshot
   alt="A diagram showing the data model in QuestDB"
   height={598}
-  src="/img/blog/2022-01-12/data-model.png"
+  src="/img/blog/2022-01-12/data-model.webp"
   width={650}
 />
 
@@ -113,7 +106,7 @@ minuscule in our example and only consists of three objects.
 <Screenshot
   alt="A diagram showing a function call tree in QuestDB"
   height={598}
-  src="/img/blog/2022-01-12/object-tree.png"
+  src="/img/blog/2022-01-12/object-tree.webp"
   width={650}
 />
 
@@ -250,7 +243,7 @@ in the page cache.
 <Screenshot
   alt="A chart comparing query execution times in QuestDB with JIT enabled and disabled"
   height={598}
-  src="/img/blog/2022-01-12/cold-v-hot-run.png"
+  src="/img/blog/2022-01-12/cold-v-hot-run.webp"
   width={650}
 />
 
@@ -284,7 +277,7 @@ The measurement results for this query are the following:
 <Screenshot
   alt="A chart comparing query execution times in QuestDB with JIT enabled and disabled"
   height={598}
-  src="/img/blog/2022-01-12/cold-v-hot-run-two.png"
+  src="/img/blog/2022-01-12/cold-v-hot-run-two.webp"
   width={650}
 />
 

@@ -7,8 +7,8 @@ author_image_url: https://avatars.githubusercontent.com/u/94906625?v=4
 description:
   Tutorial demonstrating the process to integrate Apache Spark with QuestDB to
   assist time-series data engineering.
-tags: [tutorial, spark, big data, time-series, python, market data]
-image: /img/blog/2023-04-06/banner.png
+tags: [tutorial, big data, time-series, spark, python, market data]
+image: /img/blog/2023-04-06/banner.webp
 slug: integrate-apache-spark-questdb-time-series-analytics
 ---
 
@@ -17,15 +17,16 @@ import Banner from "@theme/Banner"
 <Banner
   alt="Apache Spark logo and QuestDB logo"
   height={500}
-  src="/img/blog/2023-04-06/banner.png"
+  src="/img/blog/2023-04-06/banner.webp"
   width={692}
 ></Banner>
 
 [Spark](https://spark.apache.org/) is an analytics engine for large-scale data
 engineering. Despite its long history, it still has its well-deserved place in
-the big data landscape. QuestDB, on the other hand, is a time-series database
-with a very high data ingestion rate. This means that Spark desperately needs
-data, a lot of it! ...and QuestDB has it, a match made in heaven.
+the big data landscape. QuestDB, on the other hand, is a
+[time-series database](/glossary/time-series-database/) with a very high data
+ingestion rate. This means that Spark desperately needs data, a lot of it!
+...and QuestDB has it, a match made in heaven.
 
 Of course, there is pandas for data analytics! The key here is the expression
 _large-scale_. Unlike pandas, Spark is a distributed system and can scale really
@@ -43,7 +44,7 @@ parallel.
 
 The schematic diagram below depicts an example job:
 
-![Daigram showing data exported to Spark as jobs](/img/blog/2023-04-06/spark-diagram.png)
+![Daigram showing data exported to Spark as jobs](/img/blog/2023-04-06/spark-diagram.webp)
 
 In this tutorial, we will load data from a QuestDB table into a Spark
 application and explore the inner working of Spark to refine data loading.
@@ -306,8 +307,8 @@ second time for the data:
 ```
 
 Clearly, even a few carefully placed `.cache()` calls can improve the overall
-performance of an application, sometimes significantly. What else should we
-take into consideration when thinking about performance?
+performance of an application, sometimes significantly. What else should we take
+into consideration when thinking about performance?
 
 Earlier, we mentioned that our Spark application consists of tasks, which are
 working on the different partitions of the data parallel. So, partitioned data
@@ -319,7 +320,7 @@ Now we turn to the Spark UI.
 
 It tells us that the job was done in a single task:
 
-![Spark UI showing one task completed](/img/blog/2023-04-06/ui.png)
+![Spark UI showing one task completed](/img/blog/2023-04-06/ui.webp)
 
 The truth is that we have already suspected this. The execution plan told us
 (`numPartitions=1`) and we did not see any parallelism in the QuestDB logs
@@ -444,7 +445,7 @@ match what we have seen in the QuestDB logs earlier: `rowCount=487309`,
 We can check Spark UI again; it also confirms that the job was completed in 3
 separate tasks, each of them working on a single partition.
 
-![Spark UI showing three tasks completed](/img/blog/2023-04-06/ui-three-tasks.png)
+![Spark UI showing three tasks completed](/img/blog/2023-04-06/ui-three-tasks.webp)
 
 Sometimes it might be tricky to know the minimum and maximum timestamps when
 creating the DataFrame. In the worst case, you could query the database for
@@ -539,9 +540,9 @@ passing a SQL query to the DataFrame. Do we, really?
 Our `trades` table is limited to three data types only. What about all the other
 types you can find in QuestDB?
 
-We expect that Spark will successfully map a `double` or a `timestamp` when queried
-from the database, but what about a `geohash`? It is not that obvious what is
-going to happen.
+We expect that Spark will successfully map a `double` or a `timestamp` when
+queried from the database, but what about a `geohash`? It is not that obvious
+what is going to happen.
 
 As always, when unsure, we should test.
 
@@ -881,8 +882,8 @@ The above works as expected.
 
 ## Conclusion
 
-Our ride might seem bumpy, but we finally have everything
-working. Our new motto should be "There is a config option for everything!".
+Our ride might seem bumpy, but we finally have everything working. Our new motto
+should be "There is a config option for everything!".
 
 To summarize what we have found:
 

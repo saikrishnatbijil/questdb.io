@@ -41,7 +41,7 @@ When `long_sequence` is used conjointly with
 values are usually generated at random. The function supports a seed to be
 passed in order to produce deterministic results.
 
-:::info
+:::note
 
 Deterministic procedural generation makes it easy to test on vasts amounts of
 data without actually moving large files around across machines. Using the same

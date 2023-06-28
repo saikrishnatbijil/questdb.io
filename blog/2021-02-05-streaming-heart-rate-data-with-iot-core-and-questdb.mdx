@@ -7,15 +7,8 @@ author_image_url: https://avatars.githubusercontent.com/Yitaek
 description:
   An end-to-end demo of a simple IoT system to stream and visualize heart rate
   data in Grafana via Google Cloud Platform
-keywords:
-  - timeseries
-  - google
-  - streaming
-  - iot
-  - grafana
-tags: [tutorial, streaming, iot, grafana, raspberrypi]
-image: /img/blog/shared/og-iot.png
-
+tags: [tutorial, streaming, iot, grafana]
+image: /img/blog/shared/og-iot.webp
 ---
 
 import Banner from "@theme/Banner"
@@ -43,15 +36,15 @@ people are tracking their biometrics data closely and integrating IoT into their
 everyday lives. In my search for a DIY heart rate tracker, I found an excellent
 walkthrough from Brandon Freitag and
 [Gabe Weiss](https://medium.com/u/87b2115d4438), using Google Cloud services to
-stream data from a Raspberry Pi with a heart rate sensor to BigQuery via IoT
-Core and Cloud Dataflow.
+[stream data](/glossary/stream-processing/) from a Raspberry Pi with a heart
+rate sensor to BigQuery via IoT Core and Cloud Dataflow.
 
 import Screenshot from "@theme/Screenshot"
 
 <Screenshot
   alt="A diagram with Raspberry Pi sending data to Google Cloud Platform services"
   height={138}
-  src="/img/blog/2021-02-05-2/gcp-diagram.png"
+  src="/img/blog/2021-02-05-2/gcp-diagram.webp"
   title="Example stack with Google Cloud Platform services"
   width={650}
 />
@@ -67,7 +60,7 @@ I used Grafana to pull and visualize data from QuestDB.
 <Screenshot
   alt="A diagram showing a Raspberry Pi sending data to QuestDB via Google Cloud Platform services"
   height={284}
-  src="/img/blog/2021-02-05-2/quest-diagram.png"
+  src="/img/blog/2021-02-05-2/quest-diagram.webp"
   title="The stack used here with QuestDB replacing Dataflow and adding Grafana for visualization"
   width={650}
 />
@@ -99,7 +92,7 @@ and enable the following APIs:
 <Screenshot
   alt="A screenshot of enabling APIs in Google Cloud Platform"
   height={142}
-  src="/img/blog/2021-02-05-2/enable-apis.png"
+  src="/img/blog/2021-02-05-2/enable-apis.webp"
   width={650}
 />
 
@@ -114,7 +107,7 @@ Region based on the geographic region closest to you (for me it was
 <Screenshot
   alt="A screenshot of creating an IoT Core Device Registry in Google Cloud Platform"
   height={310}
-  src="/img/blog/2021-02-05-2/create-registry.png"
+  src="/img/blog/2021-02-05-2/create-registry.webp"
   width={500}
 />
 
@@ -125,7 +118,7 @@ Topic ID `heartratedata`:
 <Screenshot
   alt="A screenshot of creating a Pub/Sub topic in Google Cloud Platform"
   height={267}
-  src="/img/blog/2021-02-05-2/create-topic.png"
+  src="/img/blog/2021-02-05-2/create-topic.webp"
   width={650}
 />
 
@@ -141,7 +134,7 @@ Engine -> Create**.
 <Screenshot
   alt="A screenshot of creating a VM instance in Google Cloud Platform"
   height={293}
-  src="/img/blog/2021-02-05-2/create-vm-instance.png"
+  src="/img/blog/2021-02-05-2/create-vm-instance.webp"
   width={650}
 />
 
@@ -173,7 +166,7 @@ topic. Give the subscription the name `questdb` and click **Create**.
 <Screenshot
   alt="A screenshot of creating a Pub/Sub subscription in Google Cloud Platform"
   height={82}
-  src="/img/blog/2021-02-05-2/heartrate-topic.png"
+  src="/img/blog/2021-02-05-2/heartrate-topic.webp"
   width={650}
 />
 
@@ -187,7 +180,7 @@ Authentication** dropdown:
 <Screenshot
   alt="A screenshot of adding a device to IoT Core in Google Cloud Platform"
   height={330}
-  src="/img/blog/2021-02-05-2/device-metadata.png"
+  src="/img/blog/2021-02-05-2/device-metadata.webp"
   width={500}
 />
 
@@ -197,7 +190,7 @@ key from our VM or Raspberry Pi and click "Create":
 <Screenshot
   alt="A screenshot of adding a public key to IoT Core in Google Cloud Platform"
   height={362}
-  src="/img/blog/2021-02-05-2/authentication.png"
+  src="/img/blog/2021-02-05-2/authentication.webp"
   title="Adding a public key to IoT Core to secure device-to-cloud communication"
   width={500}
 />
@@ -344,7 +337,7 @@ Now run our NodeJS code and we should see data populated in QuestDB:
 <Screenshot
   alt="A screenshot of the QuestDB Web Console returning query results on sensor data"
   height={353}
-  src="/img/blog/2021-02-05-2/select-from-heartrate.png"
+  src="/img/blog/2021-02-05-2/select-from-heartrate.webp"
   title="Querying heart rate data in QuestDB"
   width={650}
 />
@@ -360,14 +353,13 @@ following:
 docker run -p 3000:3000 grafana/grafana
 ```
 
-Navigate to `http://localhost:3000/login` using the
-default credentials (`admin`:`admin`). Under **Configuration -> Data Sources**,
-search for Postgres:
+Navigate to `http://localhost:3000/login` using the default credentials
+(`admin`:`admin`). Under **Configuration -> Data Sources**, search for Postgres:
 
 <Screenshot
   alt="A screenshot of adding QuestDB as a data source in Grafana"
   height={377}
-  src="/img/blog/2021-02-05-2/add-postgres.png"
+  src="/img/blog/2021-02-05-2/add-postgres.webp"
   width={650}
 />
 
@@ -377,7 +369,7 @@ disabled and click **Save and Test**:
 <Screenshot
   alt="A screenshot of authenticating QuestDB within Grafana using Postgres"
   height={263}
-  src="/img/blog/2021-02-05-2/postgres-credentials.png"
+  src="/img/blog/2021-02-05-2/postgres-credentials.webp"
   width={650}
 />
 
@@ -396,7 +388,7 @@ If all is working as expected, we can now see the sample heart rate data:
 <Screenshot
   alt="A screenshot of a chart in Grafana showing sensor data plotted over time"
   height={261}
-  src="/img/blog/2021-02-05-2/chart-heartrate.png"
+  src="/img/blog/2021-02-05-2/chart-heartrate.webp"
   title="Sensor data visualized in Grafana"
   width={650}
 />
@@ -407,7 +399,7 @@ data points there for comparison using the **Chart** feature:
 <Screenshot
   alt="A screenshot of a chart in QuestDB showing sensor data plotted over time"
   height={220}
-  src="/img/blog/2021-02-05-2/heart-rate-graph.png"
+  src="/img/blog/2021-02-05-2/heart-rate-graph.webp"
   title="Sensor data visualized in QuestDB"
   width={650}
 />

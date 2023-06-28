@@ -1,0 +1,81 @@
+.root {
+  display: grid;
+  gap: 2rem;
+  padding-top: 2rem;
+}
+
+.nav {
+  display: grid;
+  grid-auto-flow: column;
+  margin: auto;
+  gap: 1rem;
+  align-items: center;
+}
+
+@media screen and (min-width: 600px) {
+  .root {
+    gap: 4rem;
+  }
+}
+
+@media screen and (min-width: 500px) {
+  .nav {
+    gap: 2rem;
+  }
+}
+
+.company {
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 50px;
+  padding: 0.5rem;
+  min-width: 100px;
+  border-bottom: 4px solid transparent;
+  transition: border-bottom-color 0.1s ease-in-out;
+}
+
+.company:hover {
+  border-bottom-color: #d1467133;
+}
+
+.company.active {
+  border-bottom-color: #d14671;
+}
+
+.company img {
+  object-fit: contain;
+  height: 100%;
+}
+
+html[data-theme="light"] .company img {
+  filter: brightness(0.7) invert(1);
+}
+
+.slide {
+  display: grid;
+  gap: 2rem;
+}
+
+@media screen and (min-width: 600px) {
+  .slide {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .company {
+    padding: 0 1rem;
+  }
+}
+
+.slideTitle {
+  font-size: var(--font-size-big-1);
+}
+
+.slideImage {
+  height: auto;
+  max-height: 300px;
+  width: 100%;
+  object-fit: contain;
+}

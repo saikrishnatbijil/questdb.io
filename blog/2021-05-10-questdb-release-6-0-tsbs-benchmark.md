@@ -8,16 +8,8 @@ description:
   Our new ingestion framework can sort time series data before writing to disk.
   Here's how we built it and how it compares to InfluxDB, ClickHouse, and
   TimescaleDB.
-keywords:
-  - clickhouse
-  - influxdb
-  - timescaledb
-  - tsbs
-  - benchmark
-  - timeseries
-  - database
-image: /img/blog/2021-05-10/banner.png
-tags: [engineering, benchmark, hackernews, clickhouse, timescaledb, influxdb, algorithms]
+image: /img/blog/2021-05-10/banner.webp
+tags: [engineering, benchmark, clickhouse, timescaledb, influxdb]
 ---
 
 The journey to today's version of QuestDB began with the original prototype in
@@ -117,7 +109,7 @@ in the staging area in parallel:
 <Screenshot
   alt="A diagram illustrating how sorting is applied to unordered database records based on a timestamp column order"
   height={452}
-  src="/img/blog/2021-05-10/o3-radix-sort.png"
+  src="/img/blog/2021-05-10/o3-radix-sort.webp"
   title="Applying sort order to columns in parallel"
   width={650}
 />
@@ -129,7 +121,7 @@ operation needed and the dimensions of each of the three groups below:
 <Screenshot
   alt="A diagram illustrating the combinations of merge operations that can be applied to two data sets"
   height={400}
-  src="/img/blog/2021-05-10/staging-area.png"
+  src="/img/blog/2021-05-10/staging-area.webp"
   title="O3 sort and merge scenarios"
   width={650}
 />
@@ -190,7 +182,7 @@ with `__MEMCPY` as Angner Fog's Asmlib `A_memcpy`, in one instance and glibC's
 <Screenshot
   alt="A chart showing the performance of memory copy libraries Asmlib and gcliC by megabytes copied over time"
   height={361}
-  src="/img/blog/2021-05-10/memcpy-comparison.png"
+  src="/img/blog/2021-05-10/memcpy-comparison.webp"
   title="Xeon 8275CL CPU @ 3.00GHz, AVX 512, 3.00GHz, 36608K cache, Amzn2 Linux. Units are microseconds/Mb, lower score is better."
   width={650}
 />
@@ -198,7 +190,7 @@ with `__MEMCPY` as Angner Fog's Asmlib `A_memcpy`, in one instance and glibC's
 <Screenshot
   alt="A chart showing the performance of memory copy libraries Asmlib, gcliC and Windows CRT by megabytes copied over time"
   height={348}
-  src="/img/blog/2021-05-10/memcpy-comparison-2.png"
+  src="/img/blog/2021-05-10/memcpy-comparison-2.webp"
   title="i7-3770, 3.40GHz, 8Mb cache, AVX, Ubuntu 20. Units are microseconds/Mb, lower score is better."
   width={650}
 />
@@ -251,7 +243,7 @@ stable results with similar performance to `memset`.
 <Screenshot
   alt="A chart showing the performance of non-temporal SIMD instructions, memset and loops for time taken to fill buffers with data"
   height={409}
-  src="/img/blog/2021-05-10/non-temporal-memset.png"
+  src="/img/blog/2021-05-10/non-temporal-memset.webp"
   title="Initializing a buffer with the same 64bit value"
   width={650}
 />
@@ -297,7 +289,7 @@ fourteen workers on an AWS EC2 `m5.8xlarge` instance with sixteen cores.
 <Screenshot
   alt="Time series benchmark suite results showing QuestDB outperforming ClickHouse, TimescaleDB and InfluxDB when using four workers"
   height={377}
-  src="/img/blog/2021-05-10/max-throughput-comparison.png"
+  src="/img/blog/2021-05-10/max-throughput-comparison.webp"
   title="TSBS results comparing the maximum ingestion throughput of QuestDB, InfluxDB, ClickHouse, and TimescaleDB"
   width={650}
 />
@@ -315,7 +307,7 @@ than InfluxDB and 6.5x faster than TimescaleDB.
 <Screenshot
   alt="A chart comparing the maximum throughput of four database systems, showing QuestDB hitting ingestion limits with less resources than other systems"
   height={324}
-  src="/img/blog/2021-05-10/tsbs-benchmark-results.png"
+  src="/img/blog/2021-05-10/tsbs-benchmark-results.webp"
   title="TSBS benchmark results using 4 threads: rows ingested per second by QuestDB, InfluxDB, ClickHouse, and TimescaleDB."
   width={650}
 />
@@ -340,7 +332,7 @@ by our reference benchmark `m5.8xlarge` instance on AWS.
 <Screenshot
   alt="A chart comparing the maximum throughput of QuestDB when utilizing an Intel Xeon Platinum processor versus an AMD Ryzen5 processor."
   height={410}
-  src="/img/blog/2021-05-10/questdb-bench-amd-ryzen.png"
+  src="/img/blog/2021-05-10/questdb-bench-amd-ryzen.webp"
   title="Comparing QuestDB TSBS load results on AWS EC2 using an Intel Xeon Platinum versus an AMD Ryzen5"
   width={650}
 />

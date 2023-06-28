@@ -10,7 +10,7 @@ keywords:
   - sql
   - questdb
   - time-series
-image: /img/blog/2022-11-23/banner.png
+image: /img/blog/2022-11-23/banner.webp
 tags: [tutorial, SQL, time-series, questdb, pinned]
 ---
 
@@ -20,7 +20,7 @@ import Banner from "@theme/Banner"
 <Banner
   alt="A screenshot of the QuestDB Web Console with a SAMPLE BY query"
   height={467}
-  src="/img/blog/2022-11-23/banner.png"
+  src="/img/blog/2022-11-23/banner.webp"
   width={650}
 ></Banner>
 
@@ -66,7 +66,7 @@ Alternatively, you can use
 [the import functionality in the QuestDB console](/docs/develop/web-console#import),
 as shown in the image below:
 
-![Screenshot of QuestDB Web Console import tab](/img/blog/2022-11-23/EWniDQq.png)
+![Screenshot of QuestDB Web Console import tab](/img/blog/2022-11-23/EWniDQq.webp)
 
 ### Create an ordered timestamp column
 
@@ -92,12 +92,12 @@ designated timestamp column, QuestDB is able to index the table to run
 time-based queries more efficiently. If it all goes well, you should see the
 following data after running a `SELECT *` query on the `taxi_trips` table:
 
-![Screenshot of QuestDB Web Console with query results](/img/blog/2022-11-23/QwI0YVe.png)
+![Screenshot of QuestDB Web Console with query results](/img/blog/2022-11-23/QwI0YVe.webp)
 
 ## Understanding the basics of `SAMPLE BY`
 
 The `SAMPLE BY` extension allows you to create groups and buckets of data based
-on time ranges. This is especially valuable for [time-series data](/blog/time-series-data/) 
+on time ranges. This is especially valuable for [time-series data](/glossary/time-series-database/) 
 as you can calculate frequently used aggregates with extreme simplicity. `SAMPLE BY` offers
 you the ability to summarize or aggregate data from very fine to very coarse
 [units of time](/docs/reference/sql/sample-by#sample-units), i.e., from
@@ -130,7 +130,7 @@ line, bar, or an area chart to
 [visualize your data](/docs/develop/web-console#visualizing-results). Here's an
 example of a bar chart drawn from the above query:
 
-![Screenshot of QuestDB Web Console with a chart](/img/blog/2022-11-23/JHBiCI3.png)
+![Screenshot of QuestDB Web Console with a chart](/img/blog/2022-11-23/JHBiCI3.webp)
 
 ### Three-hourly holistic summary of trips
 
@@ -155,7 +155,7 @@ SAMPLE BY 3h;
 You can view the output of the query in the following grid on the QuestDB
 console:
 
-![Screenshot of QuestDB Web Console with results of previous query](/img/blog/2022-11-23/NG2sDIV.png)
+![Screenshot of QuestDB Web Console with results of previous query](/img/blog/2022-11-23/NG2sDIV.webp)
 
 ### Weekly summary of trips
 
@@ -180,7 +180,7 @@ WHERE
 SAMPLE BY 7d;
 ```
 
-![Screenshot of QuestDB Web Console with results of previous query](/img/blog/2022-11-23/f5lVlQL.png)
+![Screenshot of QuestDB Web Console with results of previous query](/img/blog/2022-11-23/f5lVlQL.webp)
 
 ## Dealing with missing data
 
@@ -214,7 +214,7 @@ WHERE
 SAMPLE BY 1h FILL(LINEAR);
 ```
 
-![Screenshot of QuestDB Web Console with results of previous query](/img/blog/2022-11-23/8hD7Lmw.png)
+![Screenshot of QuestDB Web Console with results of previous query](/img/blog/2022-11-23/8hD7Lmw.webp)
 
 The [`FILL`](/docs/reference/sql/sample-by/#fill-options) keyword demands a
 `fillOption` from the following:
@@ -229,7 +229,7 @@ The [`FILL`](/docs/reference/sql/sample-by/#fill-options) keyword demands a
 
 Here's another example of hardcoding values using the FILL(x) `fillOption`:
 
-![Screenshot of QuestDB Web Console with results of example with FILL(x)](/img/blog/2022-11-23/gN0LO6g.png)
+![Screenshot of QuestDB Web Console with results of example with FILL(x)](/img/blog/2022-11-23/gN0LO6g.webp)
 
 In the example above, we've used an inline `WHERE` clause to emulate missing
 data with the help of the `NOT BETWEEN` keyword. Alternatively, you can create a
@@ -269,7 +269,7 @@ WHERE
 SAMPLE BY 1d;
 ```
 
-![Screenshot of QuestDB Web Console with results of previous query](/img/blog/2022-11-23/U9m6k6s.png)
+![Screenshot of QuestDB Web Console with results of previous query](/img/blog/2022-11-23/U9m6k6s.webp)
 
 Note that now the `1d` sample calculation starts at `13:35:52` and ends at
 `13:35:51` the next day. Apart from the option demonstrated above, there are two
@@ -309,7 +309,7 @@ FROM
 SAMPLE BY 3h ALIGN TO CALENDAR TIME ZONE ('AEST');
 ```
 
-![Screenshot of QuestDB Web Console with results of previous query](/img/blog/2022-11-23/szB7CMD.png)
+![Screenshot of QuestDB Web Console with results of previous query](/img/blog/2022-11-23/szB7CMD.webp)
 
 ### Aligning sample calculation with offsets
 
@@ -333,7 +333,7 @@ FROM
 SAMPLE BY 3h ALIGN TO CALENDAR WITH OFFSET '-05:30';
 ```
 
-![Screenshot of QuestDB Web Console with results of previous query](/img/blog/2022-11-23/3xyC6kt.png)
+![Screenshot of QuestDB Web Console with results of previous query](/img/blog/2022-11-23/3xyC6kt.webp)
 
 ## Conclusion
 

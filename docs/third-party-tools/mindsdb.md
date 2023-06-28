@@ -4,14 +4,15 @@ description:
   Guide for getting started in Machine Learning with MindsDB and QuestDB
 ---
 
-[MindsDB](https://mindsdb.com/questdb-machine-learning/) provides Machine Learning capabilities to enable
-predictive questions about your data. With MindsDB:
+[MindsDB](https://mindsdb.com/questdb-machine-learning/) provides Machine
+Learning capabilities to enable predictive questions about your data. With
+MindsDB:
 
 - Developers can quickly add AI capabilities to their applications.
 - Data scientists can streamline MLOps by deploying ML models as AI Tables.
 - Data analysts can easily make forecasts on complex data, such as multivariate
-  time-series with high cardinality, and visualize these in BI tools like
-  Grafana, and Tableau.
+  time-series with [high cardinality](/glossary/high-cardinality/), and visualize
+  these in BI tools like Grafana, and Tableau.
 
 Combining both MindsDB and QuestDB provides unbound prediction ability **with
 SQL**.
@@ -23,8 +24,8 @@ data from MindsDB to produce powerful ML models.
 
 - [docker](https://docs.docker.com/): To create an image and run the container.
 - mysql: The client we use to interact with MindsDB
-  (`mysql -h 127.0.0.1 --port 47335 -u mindsdb -p`). Alternatively, use
-  MindsDB web console at `http://localhost:47334/` instead.
+  (`mysql -h 127.0.0.1 --port 47335 -u mindsdb -p`). Alternatively, use MindsDB
+  web console at `http://localhost:47334/` instead.
 - [Curl](https://curl.se/download.html): To upload data to QuestDB from a local
   CSV file.
 
@@ -152,7 +153,8 @@ INSERT INTO house_rentals_data SELECT * FROM (
 
 The
 [data CSV file](https://github.com/questdb/mindsdb-tutorial/blob/main/sample_house_rentals_data.csv)
-can be downloaded to a local folder and uploaded to QuestDB using the following command:
+can be downloaded to a local folder and uploaded to QuestDB using the following
+command:
 
 ```shell
 curl -F data=@sample_house_rentals_data.csv "http://localhost:9000/imp?forceHeader=true&name=house_rentals_data"
@@ -327,11 +329,10 @@ from QuestDB's table `house_rentals_data` (100 rows) as a time series on the
 column `ts`.
 
 When status is complete, the model is ready for use; otherwise, we simply wait
-while we observe MindsDB's logs.
-Creating/training a model will take time proportional to the number of features,
-i.e. cardinality of the source table as defined in the inner SELECT of the
-CREATE MODEL statement, and the size of the corpus, i.e. number of rows. The
-model is a table in MindsDB:
+while we observe MindsDB's logs. Creating/training a model will take time
+proportional to the number of features, i.e. cardinality of the source table as
+defined in the inner SELECT of the CREATE MODEL statement, and the size of the
+corpus, i.e. number of rows. The model is a table in MindsDB:
 
 ```sql
 SHOW TABLES;

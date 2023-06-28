@@ -7,11 +7,11 @@ description:
   6.0.3 is available now. Here's the latest QuestDB news including for
   out-of-order performance and stability improvements and TSBS benchmark results
 tags: [newsletter]
-image: /img/blog/newsletter-preview.png
+image: /img/blog/newsletter-preview.webp
 slug: newsletter-bind-variables
 ---
 
-![QuestDB newsletter banner](/img/blog/newsletter.png)
+![QuestDB newsletter banner](/img/blog/newsletter.webp)
 
 The response to our 6.0 launch from new and existing users and the developer
 community has been amazing. We're excited to see our community grow and join us
@@ -43,8 +43,7 @@ engaging with the project through GitHub issues and all other forms of feedback!
 - We reached **3.4k GitHub stars** !
 - Our contributors opened in the last month for feature requests and bug reports
   and we have had many more feature requests via Slack and Stack Overflow
-- We're about to reach
-  [600 developers on our community Slack]({@slackUrl@})
+- We're about to reach [600 developers on our community Slack]({@slackUrl@})
 - Increased activity on our community Slack with a total of **5330 messages**
   last month and an average of **40 daily active users**
 - We hosted a
@@ -59,7 +58,7 @@ ship out some gifts as a token of our appreciation. As a bonus, here's
 [Michael Friedrich](https://twitter.com/dnsmichi/status/1331940833621372929)
 from GitLab showing love for his swag in this amazing selfie:
 
-![Screenshot of a tweet from @dnsmichi](/img/blog/2021-06-03/tweet.png)
+![Screenshot of a tweet from @dnsmichi](/img/blog/2021-06-03/tweet.webp)
 
 ## QuestDB on the web
 
@@ -98,8 +97,8 @@ replication on QuestDB which has been a highly-requested feature. We are also
 exploring the possibility to enable ML and data science applications close to
 the database layer and approaches for adding support for other dimensions such
 as geospatial data. Following our TSBS benchmark results, we are running
-performance tests for high-cardinality data sets which is often a cause of
-issues in time series data ingestion.
+performance tests for [high cardinality](/glossary/high-cardinality/) data sets
+which is often a cause of issues in time series data ingestion.
 
 We're glad to see our community growing and giving us valuable feedback on the
 features and functionality we can focus on. If you’ve any questions about this

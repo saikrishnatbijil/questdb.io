@@ -1,8 +1,8 @@
 ---
 title: How to build a real-time crypto tracker with Redpanda and QuestDB
 permalink: https://redpanda.com/blog/real-time-crypto-tracker-questdb-redpanda/
-image: /img/blog/2022-05-25/banner.png
-tags: [tutorial, kafka, data science, redpanda, cryptocurrency, market data]
+image: /img/blog/2022-05-25/banner.webp
+tags: [tutorial, kafka, data science, crypto, market data, redpanda]
 author: Yitaek Hwang
 author_url: https://github.com/yitaek
 author_image_url: https://avatars.githubusercontent.com/yitaek

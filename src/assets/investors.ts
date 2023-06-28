@@ -25,8 +25,8 @@ export const investors: Investor[] = [
     position: "Co-founder Reddit",
   },
   {
-    name: "Andrew Alexeev",
-    position: "Co-founder NGINX",
+    name: "Dan Pinto",
+    position: "CEO FingerprintJS",
   },
   {
     name: "Mirko Novakovic",
